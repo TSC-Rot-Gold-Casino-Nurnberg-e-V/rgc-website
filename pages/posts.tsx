@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 type PostAttributes = {
   title: string;
@@ -11,24 +11,19 @@ type Post = {
   attributes: PostAttributes;
 };
 
-export const getServerSideProps: GetServerSideProps<{
-  posts: Post[];
-}> = async () => {
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const res = await fetch(`${process.env.CMS_URL}/api/posts`, {
     headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
   });
   const data: { data: Post[] } = await res.json();
-  console.log(data);
   return {
-    props: {
-      posts: data.data,
-    },
+    props: { posts: data.data },
   };
 };
 
 export default function Posts({
   posts,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
