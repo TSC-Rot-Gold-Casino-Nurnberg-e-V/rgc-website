@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 
 type PostAttributes = {
   title: string;
@@ -12,9 +14,12 @@ type Post = {
 };
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const res = await fetch(`${process.env.CMS_URL}/api/posts`, {
-    headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
-  });
+  const res = await fetch(
+    `${process.env.CMS_URL}/api/posts?sort=chronologicalPosition:desc`,
+    {
+      headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
+    }
+  );
   const data: { data: Post[] } = await res.json();
   return {
     props: { posts: data.data },
@@ -36,9 +41,13 @@ export default function Posts({
         <div>
           {posts.map((post) => {
             return (
-              <li key={post.attributes.title}>
-                <div>{post.attributes.title}</div>
-                <div>{post.attributes.description}</div>
+              <li key={post.id}>
+                <Link
+                  href={`/posts/${post.id.toString()}`}
+                  className="prose prose-img:w-96"
+                >
+                  <ReactMarkdown>{post.attributes.title}</ReactMarkdown>
+                </Link>
               </li>
             );
           })}
