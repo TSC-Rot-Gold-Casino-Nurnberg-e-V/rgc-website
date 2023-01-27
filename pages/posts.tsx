@@ -1,11 +1,23 @@
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import ReactMarkdown from "react-markdown";
-import Link from "next/link";
+import { PostCard } from "../components/PostCard";
 
 type PostAttributes = {
   title: string;
   description: string;
+  previewText: string;
+  publishedAt: string;
+  mainImage: {
+    data: {
+      attributes: {
+        formats: {
+          small: {
+            url: string;
+          };
+        };
+      };
+    };
+  };
 };
 
 type Post = {
@@ -15,7 +27,7 @@ type Post = {
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const res = await fetch(
-    `${process.env.CMS_URL}/api/posts?sort=chronologicalPosition:desc`,
+    `${process.env.CMS_URL}/api/posts?sort=chronologicalPosition:desc&populate=*`,
     {
       headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
     }
@@ -37,22 +49,25 @@ export default function Posts({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div>
-          {posts.map((post) => {
-            return (
-              <li key={post.id}>
-                <Link
-                  href={`/posts/${post.id.toString()}`}
-                  className="prose prose-img:w-96"
-                >
-                  <ReactMarkdown>{post.attributes.title}</ReactMarkdown>
-                </Link>
-              </li>
-            );
-          })}
-        </div>
-      </main>
+      <div className="bg-stone-50 h-screen">
+        <main className="max-w-[850px] mx-auto">
+          <div className="flex flex-col gap-8">
+            {posts.map((post, index) => (
+              <PostCard
+                postID={post.id}
+                key={post.id}
+                title={post.attributes.title}
+                previewText={post.attributes.previewText}
+                publishedDate={new Date(post.attributes.publishedAt)}
+                previewImage={
+                  post.attributes.mainImage.data.attributes.formats.small.url
+                }
+                imageOrder={index % 2 === 0 ? "first" : "last"}
+              />
+            ))}
+          </div>
+        </main>
+      </div>
     </>
   );
 }
