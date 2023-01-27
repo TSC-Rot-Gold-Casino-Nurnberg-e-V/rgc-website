@@ -18,6 +18,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
     }
   );
+  if (!res.ok) {
+    throw new Error(await res.json());
+  }
   const data: { data: Post[] } = await res.json();
   const paths = data.data.map((post) => {
     return { params: { postID: post.id.toString() } };
