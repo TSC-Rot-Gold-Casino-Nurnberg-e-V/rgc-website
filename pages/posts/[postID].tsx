@@ -19,7 +19,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
   );
   if (!res.ok) {
-    throw new Error(await res.json());
+    const error = await res.json();
+    throw new Error(JSON.stringify(error));
   }
   const data: { data: Post[] } = await res.json();
   const paths = data.data.map((post) => {
@@ -45,11 +46,14 @@ export default function PostID({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="w-96 h-96 prose">
-      <div>Content</div>
-      <div>
-        <ReactMarkdown>{post.attributes.title}</ReactMarkdown>
-        <ReactMarkdown>{post.attributes.description}</ReactMarkdown>
+    <div className="h-fit prose bg-red-500 m-auto">
+      <div className="">
+        <ReactMarkdown className="bg-blue-300 prose-p:m-0">
+          {post.attributes.title}
+        </ReactMarkdown>
+        <ReactMarkdown className="prose-p:m-0 prose-li:m-0 prose-headings:m-0 text-center">
+          {post.attributes.description}
+        </ReactMarkdown>
       </div>
     </div>
   );
