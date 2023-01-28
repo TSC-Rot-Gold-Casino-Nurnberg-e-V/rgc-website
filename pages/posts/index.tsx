@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { PostCard } from "../components/PostCard";
-import { getPosts } from "../api/api";
-import { Post } from "../model/Post";
+import { PostCard } from "../../components/PostCard";
+import { getPosts } from "../../api/api";
+import { Post } from "../../model/Post";
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = await getPosts();
