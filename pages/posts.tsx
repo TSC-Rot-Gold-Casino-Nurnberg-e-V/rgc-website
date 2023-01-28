@@ -1,40 +1,13 @@
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { PostCard } from "../components/PostCard";
-
-type PostAttributes = {
-  title: string;
-  description: string;
-  previewText: string;
-  publishedAt: string;
-  mainImage: {
-    data: {
-      attributes: {
-        formats: {
-          small: {
-            url: string;
-          };
-        };
-      };
-    };
-  };
-};
-
-type Post = {
-  id: number;
-  attributes: PostAttributes;
-};
+import { getPosts } from "../api/api";
+import { Post } from "../model/Post";
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const res = await fetch(
-    `${process.env.CMS_URL}/api/posts?sort=chronologicalPosition:desc&populate=*`,
-    {
-      headers: { Authorization: `Bearer ${process.env.CMS_TOKEN}` },
-    }
-  );
-  const data: { data: Post[] } = await res.json();
+  const posts = await getPosts();
   return {
-    props: { posts: data.data },
+    props: { posts: posts },
   };
 };
 
