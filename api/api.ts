@@ -12,7 +12,10 @@ async function handleError(res: Response) {
 }
 
 export async function getPosts(): Promise<Array<Post>> {
-  const res = await fetch(`${baseURL}?sort=chronologicalPosition:desc`, {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("sort", "chronologicalPosition:desc");
+  urlSearchParams.append("populate", "*");
+  const res = await fetch(`${baseURL}?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
