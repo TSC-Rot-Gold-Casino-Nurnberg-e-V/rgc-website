@@ -9,10 +9,11 @@ export interface Post {
       data: {
         attributes: {
           formats: {
-            small: {
+            small?: {
               url: string;
             };
           };
+          url: string;
         };
       };
     };

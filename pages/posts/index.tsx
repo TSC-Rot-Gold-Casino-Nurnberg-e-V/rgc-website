@@ -33,7 +33,8 @@ export default function Posts({
                 previewText={post.attributes.previewText}
                 publishedDate={new Date(post.attributes.publishedAt)}
                 previewImage={
-                  post.attributes.mainImage.data.attributes.formats.small.url
+                  post.attributes.mainImage.data.attributes.formats.small
+                    ?.url ?? post.attributes.mainImage.data.attributes.url
                 }
                 imageOrder={index % 2 === 0 ? "first" : "last"}
               />
