@@ -1,4 +1,4 @@
-import { Post } from "../model/Post";
+import { Post, postSchema, postsSchema } from "../model/Post";
 
 const baseURL = `${process.env.CMS_URL}/api/posts`;
 const headers = new Headers();
@@ -19,15 +19,17 @@ export async function getPosts(): Promise<Array<Post>> {
     headers: headers,
   });
   await handleError(res);
-  const data: { data: Post[] } = await res.json();
-  return data.data;
+  const json = await res.json();
+  return postsSchema.parse(json.data);
 }
 
 export async function getPost(postID: string): Promise<Post> {
-  const res = await fetch(`${baseURL}/${postID}`, {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const res = await fetch(`${baseURL}/${postID}?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
-  const data: { data: Post } = await res.json();
-  return data.data;
+  const json = await res.json();
+  return postSchema.parse(json.data);
 }
