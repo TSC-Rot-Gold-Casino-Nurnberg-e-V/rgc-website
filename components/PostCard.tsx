@@ -41,7 +41,7 @@ export const PostCard = ({
             alt=""
             className={`object-cover ${
               imageOrder === "first" ? "rounded-l" : "rounded-r"
-            } brightness-90 group-hover:brightness-105 group-hover:scale-105 duration-700 transition-all`}
+            } brightness-95 group-hover:brightness-110 group-hover:scale-105 duration-700 transition-all`}
             fill
           />
         </div>
