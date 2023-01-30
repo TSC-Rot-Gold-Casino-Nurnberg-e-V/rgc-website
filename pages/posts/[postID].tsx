@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../../model/Post";
 import { getPost, getPosts } from "../../api/api";
+import remarkGfm from "remark-gfm";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
@@ -30,7 +31,10 @@ export default function PostID({
         {post.attributes.title}
       </h1>
       <div className="prose m-auto">
-        <ReactMarkdown className="prose-img:m-auto prose-p:text-justify prose-img:rounded-lg prose-img:max-w-3xl prose-img:max-h-96">
+        <ReactMarkdown
+          className="prose-img:m-auto prose-p:text-justify prose-img:rounded-lg prose-img:max-w-3xl prose-img:max-h-96"
+          remarkPlugins={[remarkGfm]}
+        >
           {post.attributes.description}
         </ReactMarkdown>
       </div>
