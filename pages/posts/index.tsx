@@ -23,7 +23,7 @@ export default function Posts({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-stone-50 h-screen">
-        <main className="max-w-[850px] mx-auto">
+        <main className="max-w-[850px] mx-auto p-8">
           <div className="flex flex-col gap-8">
             {posts.map((post, index) => (
               <PostCard
