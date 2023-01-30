@@ -25,12 +25,12 @@ export default function PostID({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="h-fit prose bg-red-500 m-auto">
-      <div className="">
-        <ReactMarkdown className="bg-blue-300 prose-p:m-0">
-          {post.attributes.title}
-        </ReactMarkdown>
-        <ReactMarkdown className="prose-p:m-0 prose-li:m-0 prose-headings:m-0 text-center">
+    <div className="p-8 max-w-2xl m-auto bg-white">
+      <h1 className="text-red-900 text-center text-3xl">
+        {post.attributes.title}
+      </h1>
+      <div className="prose m-auto">
+        <ReactMarkdown className="prose-img:m-auto prose-p:text-justify prose-img:rounded-lg prose-img:max-w-3xl prose-img:max-h-96">
           {post.attributes.description}
         </ReactMarkdown>
       </div>
