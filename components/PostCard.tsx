@@ -28,12 +28,12 @@ export const PostCard = ({
 
   return (
     <Link href={`/posts/${postID.toString()}`}>
-      <article className="bg-white shadow rounded flex justify-between group gap-10 hover:shadow-md">
+      <article className="max-sm:flex-col bg-white shadow rounded flex justify-between group gap-10 hover:shadow-md">
         <div
-          className={`relative h-64 w-64 shrink-0 overflow-hidden ${
+          className={`relative h-64 w-64 shrink-0 overflow-hidden max-sm:m-auto ${
             imageOrder === "first"
-              ? "order-first rounded-l"
-              : "order-last rounded-r"
+              ? "md:order-first rounded-l"
+              : "md:order-last rounded-r"
           }`}
         >
           <Image

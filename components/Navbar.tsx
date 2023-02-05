@@ -21,8 +21,6 @@ export const NavbarContent = () => {
         <NavLink text="Home" url="/" />
         <NavLink text="Home" url="/" />
         <NavLink text="Home" url="/" />
-        <NavLink text="Home" url="/" />
-        <NavLink text="Home" url="/" />
       </div>
     </div>
   );
