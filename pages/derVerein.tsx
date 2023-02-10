@@ -3,11 +3,11 @@ import { Footer } from "../components/Footer";
 
 export const derVerein = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div>Der Verein</div>
+      <div className="grow">Der Verein</div>
       <Footer />
-    </>
+    </div>
   );
 };
 

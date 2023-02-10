@@ -3,11 +3,11 @@ import { Navbar } from "../components/Navbar";
 
 export const Kontakt = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div>Kontakt</div>
+      <div className="grow">Kontakt</div>
       <Footer />
-    </>
+    </div>
   );
 };
 
