@@ -19,7 +19,7 @@ export const NavLink = ({ text, url }: Props) => {
 
 export const Navbar = () => {
   return (
-    <nav className="bg-zinc-700 w-full p-4 text-zinc-50">
+    <nav className="bg-zinc-700 w-full p-4 text-zinc-50 sticky top-0 z-30">
       <div className="max-w-screen-lg flex justify-between items-center m-auto">
         <div className="flex items-center gap-10">
           <Link href="/" className="text-xl">
