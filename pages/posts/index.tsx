@@ -27,8 +27,8 @@ export default function Posts({
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="bg-stone-50 grow">
-          <main className="max-w-[850px] mx-auto p-8">
-            <div className="flex flex-col gap-8">
+          <main className="mx-auto p-6 md:p-8">
+            <div className="flex flex-col gap-8 max-w-3xl m-auto">
               {posts.map((post, index) => (
                 <PostCard
                   postID={post.id}

@@ -30,7 +30,7 @@ export default function PostID({
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="p-8 max-w-2xl m-auto bg-white grow">
+      <div className="py-8 max-w-3xl m-auto bg-white grow">
         <h1 className="text-red-900 text-center text-3xl">
           {post.attributes.title}
         </h1>
