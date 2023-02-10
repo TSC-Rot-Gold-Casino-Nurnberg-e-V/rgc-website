@@ -28,7 +28,7 @@ export const PostCard = ({
 
   return (
     <Link href={`/posts/${postID.toString()}`}>
-      <article className="max-sm:flex-col bg-white shadow rounded flex justify-between group gap-10 hover:shadow-md">
+      <article className="flex-col sm:flex-row bg-white shadow rounded flex justify-between group gap-10 hover:shadow-md">
         <div
           className={`relative h-64 w-64 shrink-0 overflow-hidden max-sm:m-auto ${
             imageOrder === "first"
