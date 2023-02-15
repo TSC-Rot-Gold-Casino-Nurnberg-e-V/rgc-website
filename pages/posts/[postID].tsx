@@ -29,8 +29,8 @@ export default function PostID({
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="py-8 max-w-3xl m-auto grow">
-        <h1 className="text-red-900 text-center text-3xl py-4">
+      <main className="py-4 max-w-3xl m-auto grow max-lg:px-6">
+        <h1 className="text-red-900 text-center text-3xl py-4 max-md:text-2xl">
           {post.attributes.title}
         </h1>
         <div className="prose m-auto">
