@@ -90,7 +90,7 @@ export const Navbar = () => {
             leaveTo="transform scale-95 opacity-0"
           >
             <Popover.Panel>
-              <div className="flex flex-col items-center justify-center rounded bg-white py-6 px-12 text-black text-md gap-4 shadow-md">
+              <div className="flex flex-col items-center justify-center rounded bg-zinc-700 py-6 px-12 text-zinc-50 text-md gap-4 shadow-md">
                 <NavLink text="News" url="/posts" />
                 <NavLink text="Der Verein" url="/derVerein" />
                 <NavLink text="Angebot" url="/angebot" />
