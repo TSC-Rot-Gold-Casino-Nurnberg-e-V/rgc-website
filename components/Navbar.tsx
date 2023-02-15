@@ -30,7 +30,7 @@ export const Navbar = () => {
             <NavLink text="News" url="/posts" />
             <NavLink text="Der Verein" url="/derVerein" />
             <NavLink text="Angebot" url="/angebot" />
-            <NavLink text="Veranstaltungen" url="/veranstaltungen" />
+            <NavLink text="Veranstaltungen" url="/events" />
           </div>
         </div>
         {/* TODO check for accessibility of input field */}
@@ -94,7 +94,7 @@ export const Navbar = () => {
                 <NavLink text="News" url="/posts" />
                 <NavLink text="Der Verein" url="/derVerein" />
                 <NavLink text="Angebot" url="/angebot" />
-                <NavLink text="Veranstaltungen" url="/veranstaltungen" />
+                <NavLink text="Veranstaltungen" url="/events" />
               </div>
             </Popover.Panel>
           </Transition>
