@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-export type Post = z.infer<typeof postSchema>;
-
 export const postSchema = z.object({
   id: z.number(),
   attributes: z.object({
@@ -27,3 +25,5 @@ export const postSchema = z.object({
 });
 
 export const postsSchema = z.array(postSchema);
+
+export type Post = z.infer<typeof postSchema>;
