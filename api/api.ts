@@ -41,7 +41,8 @@ export async function getEvents(): Promise<Array<Event>> {
   urlSearchParams.append("sort", "eventStartDate:asc");
   urlSearchParams.append("populate", "*");
   const isoDate = new Date().toISOString().substring(0, 10);
-  urlSearchParams.append("filters[eventStartDate][$gte]", isoDate);
+  const property: keyof Event["attributes"] = "eventStartDate";
+  urlSearchParams.append(`filters[${property}][$gte]`, isoDate);
   const res = await fetch(`${baseUrl}/events?${urlSearchParams}`, {
     headers: headers,
   });
