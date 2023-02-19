@@ -2,8 +2,7 @@ import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
 
-const basePostsUrl = `${process.env.CMS_URL}/api/posts`;
-const baseEventsUrl = `${process.env.CMS_URL}/api/events`;
+const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
 headers.append("Authorization", `Bearer ${process.env.CMS_TOKEN}`);
 
@@ -18,7 +17,7 @@ export async function getPosts(): Promise<Array<Post>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("sort", "chronologicalPosition:desc");
   urlSearchParams.append("populate", "*");
-  const res = await fetch(`${basePostsUrl}?${urlSearchParams}`, {
+  const res = await fetch(`${baseUrl}/posts?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
@@ -29,7 +28,7 @@ export async function getPosts(): Promise<Array<Post>> {
 export async function getPost(postID: string): Promise<Post> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const res = await fetch(`${basePostsUrl}/${postID}?${urlSearchParams}`, {
+  const res = await fetch(`${baseUrl}/posts/${postID}?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
@@ -43,7 +42,7 @@ export async function getEvents(): Promise<Array<Event>> {
   urlSearchParams.append("populate", "*");
   const isoDate = new Date().toISOString().substring(0, 10);
   urlSearchParams.append("filters[eventStartDate][$gte]", isoDate);
-  const res = await fetch(`${baseEventsUrl}?${urlSearchParams}`, {
+  const res = await fetch(`${baseUrl}/events?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
@@ -54,7 +53,7 @@ export async function getEvents(): Promise<Array<Event>> {
 export async function getEvent(eventID: string): Promise<Event> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const res = await fetch(`${baseEventsUrl}/${eventID}?${urlSearchParams}`, {
+  const res = await fetch(`${baseUrl}/events/${eventID}?${urlSearchParams}`, {
     headers: headers,
   });
   await handleError(res);
@@ -63,7 +62,7 @@ export async function getEvent(eventID: string): Promise<Event> {
 }
 
 export async function getHistory(): Promise<History> {
-  const res = await fetch(`${process.env.CMS_URL}/api/history`, {
+  const res = await fetch(`${baseUrl}/history`, {
     headers: headers,
   });
   await handleError(res);
