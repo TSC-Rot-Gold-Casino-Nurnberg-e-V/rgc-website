@@ -27,31 +27,29 @@ export const getStaticProps: GetStaticProps<{ event: Event }> = async ({
 export default function EventID({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const formattedStartDate = formatDate(
-    new Date(event.attributes.eventStartDate)
-  );
+  const formattedStartDate = formatDate(new Date(event.attributes.startDate));
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="m-auto max-w-3xl py-8 grow max-lg:px-6">
         <p className="text-center tracking-widest text-sm opacity-70">
-          {event.attributes.eventEndDate !== null ? (
+          {event.attributes.endDate !== null ? (
             <>
               {formattedStartDate} {" bis "}
-              {formatDate(new Date(event.attributes.eventEndDate))}
+              {formatDate(new Date(event.attributes.endDate))}
             </>
           ) : (
             <>{formattedStartDate}</>
           )}
         </p>
         <h1 className="text-red-900 text-center max-md:text-2xl text-3xl py-4">
-          {event.attributes.eventName}
+          {event.attributes.name}
         </h1>
         <div className="prose m-auto">
           <div
             className="prose prose-p:text-justify prose-tr:flex prose-tr:justify-between prose-h2:text-center prose-table:my-4 prose-p:my-2 prose-a:text-red-900 prose-h3:text-red-900 prose-h2:max-md:text-xl prose-h3:max-md:text-lg"
             dangerouslySetInnerHTML={{
-              __html: sanitizeHTMLField(event.attributes.eventDescription),
+              __html: sanitizeHTMLField(event.attributes.description),
             }}
           />
         </div>

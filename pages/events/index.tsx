@@ -25,12 +25,12 @@ export default function Events({
             {events.map((event) => (
               <EventCard
                 eventID={event.id}
-                name={event.attributes.eventName}
-                previewText={event.attributes.eventPreviewText}
-                startDate={new Date(event.attributes.eventStartDate)}
+                name={event.attributes.name}
+                previewText={event.attributes.previewText}
+                startDate={new Date(event.attributes.startDate)}
                 endDate={
-                  event.attributes.eventEndDate !== null
-                    ? new Date(event.attributes.eventEndDate)
+                  event.attributes.endDate !== null
+                    ? new Date(event.attributes.endDate)
                     : null
                 }
                 key={event.id}

@@ -26,7 +26,7 @@ export async function getEvents(): Promise<Array<Event>> {
   urlSearchParams.append("sort", "eventStartDate:asc");
   urlSearchParams.append("populate", "*");
   const isoDate = new Date().toISOString().substring(0, 10);
-  const property: keyof Event["attributes"] = "eventStartDate";
+  const property: keyof Event["attributes"] = "startDate";
   urlSearchParams.append(`filters[${property}][$gte]`, isoDate);
   const data = await fetchData(`/events?${urlSearchParams}`);
   return eventsSchema.parse(data);
