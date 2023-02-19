@@ -43,7 +43,7 @@ export default function EventID({
           )}
         </p>
         <h1 className="text-red-900 text-center max-md:text-2xl text-3xl py-4">
-          {event.attributes.name}
+          {event.attributes.title}
         </h1>
         <div className="prose m-auto">
           <div
