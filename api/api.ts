@@ -1,5 +1,6 @@
 import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
+import { History, historySchema } from "../model/History";
 
 const basePostsUrl = `${process.env.CMS_URL}/api/posts`;
 const baseEventsUrl = `${process.env.CMS_URL}/api/events`;
@@ -40,6 +41,8 @@ export async function getEvents(): Promise<Array<Event>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("sort", "eventStartDate:asc");
   urlSearchParams.append("populate", "*");
+  const isoDate = new Date().toISOString().substring(0, 10);
+  urlSearchParams.append("filters[eventStartDate][$gte]", isoDate);
   const res = await fetch(`${baseEventsUrl}?${urlSearchParams}`, {
     headers: headers,
   });
@@ -57,4 +60,13 @@ export async function getEvent(eventID: string): Promise<Event> {
   await handleError(res);
   const json = await res.json();
   return eventSchema.parse(json.data);
+}
+
+export async function getHistory(): Promise<History> {
+  const res = await fetch(`${process.env.CMS_URL}/api/history`, {
+    headers: headers,
+  });
+  await handleError(res);
+  const json = await res.json();
+  return historySchema.parse(json.data);
 }
