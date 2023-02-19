@@ -15,18 +15,16 @@ export const getStaticProps: GetStaticProps<{
 export default function derVerein({
   history,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main
-          className="grow prose mx-auto max-w-3xl p-6 md:p-8"
-          dangerouslySetInnerHTML={{
-            __html: sanitizeHtml(history.attributes.content),
-          }}
-        />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main
+        className="grow prose mx-auto max-w-3xl p-6 md:p-8"
+        dangerouslySetInnerHTML={{
+          __html: sanitizeHtml(history.attributes.content),
+        }}
+      />
+      <Footer />
+    </div>
+  );
 }
