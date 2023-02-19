@@ -23,11 +23,12 @@ export async function getPost(postID: string): Promise<Post> {
 
 export async function getEvents(): Promise<Array<Event>> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("sort", "eventStartDate:asc");
+  const sortProperty: keyof Event["attributes"] = "startDate";
+  urlSearchParams.append("sort", `${sortProperty}:asc`);
   urlSearchParams.append("populate", "*");
   const isoDate = new Date().toISOString().substring(0, 10);
-  const property: keyof Event["attributes"] = "startDate";
-  urlSearchParams.append(`filters[${property}][$gte]`, isoDate);
+  const filterProperty: keyof Event["attributes"] = "startDate";
+  urlSearchParams.append(`filters[${filterProperty}][$gte]`, isoDate);
   const data = await fetchData(`/events?${urlSearchParams}`);
   return eventsSchema.parse(data);
 }
