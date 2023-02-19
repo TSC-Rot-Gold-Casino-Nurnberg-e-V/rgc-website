@@ -19,7 +19,7 @@ export const EventCard = ({
   const formattedStartDate = formatDate(startDate);
   return (
     <Link
-      href={`/events/${eventID.toString()}`}
+      href={`/events/${eventID}`}
       className="flex flex-col md:flex-row bg-white gap-4 md:gap-12 shadow justify-between rounded group hover:shadow-md px-8 md:px-10 py-6 md:py-8 group"
     >
       <div className="tracking-wider self-center opacity-50 group-hover:opacity-100 font-semibold group-hover:text-red-900 flex flex-row md:flex-col max-sm: gap-2">
