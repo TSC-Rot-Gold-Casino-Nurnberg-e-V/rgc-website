@@ -25,7 +25,7 @@ export default function Events({
             {events.map((event) => (
               <EventCard
                 eventID={event.id}
-                name={event.attributes.title}
+                title={event.attributes.title}
                 previewText={event.attributes.previewText}
                 startDate={new Date(event.attributes.startDate)}
                 endDate={

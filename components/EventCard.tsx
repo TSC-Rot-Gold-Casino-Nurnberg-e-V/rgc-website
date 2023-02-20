@@ -2,7 +2,7 @@ import Link from "next/link";
 import { formatDate } from "../utils/formatDate";
 
 interface Props {
-  name: string;
+  title: string;
   startDate: Date;
   endDate: Date | null;
   eventID: number;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const EventCard = ({
-  name,
+  title,
   startDate,
   endDate,
   eventID,
@@ -34,7 +34,7 @@ export const EventCard = ({
       </div>
       <div className="flex flex-col grow max-w-lg lg:max-w-xl max-md:m-auto">
         <div className="text-2xl max-md:text-center font-bold text-red-900 group-hover:text-red-800">
-          {name}
+          {title}
         </div>
         <div className="opacity-50 group-hover:opacity-70 max-md:text-center line-clamp-2">
           {previewText}
