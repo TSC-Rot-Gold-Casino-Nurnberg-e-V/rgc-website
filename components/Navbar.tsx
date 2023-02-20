@@ -26,7 +26,7 @@ export const Navbar = () => (
         <div className="flex gap-1 max-lg:hidden">
           <NavLink text="News" url="/posts" />
           <NavLink text="Der Verein" url="/derVerein" />
-          <NavLink text="Angebot" url="/angebot" />
+          <NavLink text="Angebot" url="/courses" />
           <NavLink text="Veranstaltungen" url="/events" />
         </div>
       </div>
@@ -90,7 +90,7 @@ export const Navbar = () => (
             <div className="flex flex-col items-center justify-center rounded bg-zinc-700 py-6 px-12 text-zinc-50 text-md gap-4 shadow-md">
               <NavLink text="News" url="/posts" />
               <NavLink text="Der Verein" url="/derVerein" />
-              <NavLink text="Angebot" url="/angebot" />
+              <NavLink text="Angebot" url="/courses" />
               <NavLink text="Veranstaltungen" url="/events" />
             </div>
           </Popover.Panel>

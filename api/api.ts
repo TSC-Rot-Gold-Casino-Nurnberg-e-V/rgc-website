@@ -1,6 +1,7 @@
 import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
+import { Course, courseSchema, coursesSchema } from "../model/Course";
 
 const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
@@ -43,6 +44,20 @@ export async function getEvent(eventID: string): Promise<Event> {
 export async function getHistory(): Promise<History> {
   const data = await fetchData("/history");
   return historySchema.parse(data);
+}
+
+export async function getCourses(): Promise<Array<Course>> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/courses?${urlSearchParams}`);
+  return coursesSchema.parse(data);
+}
+
+export async function getCourse(courseID: string): Promise<Course> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/courses/${courseID}?${urlSearchParams}`);
+  return courseSchema.parse(data);
 }
 
 async function fetchData(path: string) {
