@@ -48,14 +48,16 @@ export async function getHistory(): Promise<History> {
 
 export async function getCourses(): Promise<Array<Course>> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
+  urlSearchParams.append("populate[0]", "previewImage");
+  urlSearchParams.append("populate[1]", "trainers.image");
   const data = await fetchData(`/courses?${urlSearchParams}`);
   return coursesSchema.parse(data);
 }
 
 export async function getCourse(courseID: string): Promise<Course> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
+  urlSearchParams.append("populate[0]", "previewImage");
+  urlSearchParams.append("populate[1]", "trainers.image");
   const data = await fetchData(`/courses/${courseID}?${urlSearchParams}`);
   return courseSchema.parse(data);
 }
