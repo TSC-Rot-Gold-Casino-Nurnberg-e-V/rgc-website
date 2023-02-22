@@ -1,11 +1,11 @@
 import { z } from "zod";
+import { trainersSchema } from "./Trainer";
 
 export const courseSchema = z.object({
   id: z.number(),
   attributes: z.object({
     title: z.string(),
     description: z.string(),
-    schedule: z.string(),
     previewImage: z.object({
       data: z.object({
         attributes: z.object({
@@ -20,6 +20,7 @@ export const courseSchema = z.object({
         }),
       }),
     }),
+    trainers: trainersSchema,
   }),
 });
 
