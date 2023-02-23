@@ -45,8 +45,8 @@ export default function CourseID({
             }}
           />
         </div>
-        <h2 className="text-red-900 text-xl my-2">Trainer</h2>
-        <div className="flex gap-6 justify-between">
+        <h2 className="font-bold text-2xl my-2 max-md:text-center">Trainer</h2>
+        <div className="flex gap-10 justify-between flex-wrap max-w-prose max-md:flex-col max-md:items-center">
           {course.attributes.trainers.data.map((trainer) => {
             return (
               <TrainerCard
