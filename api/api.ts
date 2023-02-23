@@ -2,6 +2,7 @@ import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
 import { Course, courseSchema, coursesSchema } from "../model/Course";
+import { Executive, executivesSchema } from "../model/Executive";
 
 const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
@@ -60,6 +61,13 @@ export async function getCourse(courseID: string): Promise<Course> {
   urlSearchParams.append("populate[1]", "trainers.image");
   const data = await fetchData(`/courses/${courseID}?${urlSearchParams}`);
   return courseSchema.parse(data);
+}
+
+export async function getExecutives(): Promise<Array<Executive>> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/executives?${urlSearchParams}`);
+  return executivesSchema.parse(data);
 }
 
 async function fetchData(path: string) {
