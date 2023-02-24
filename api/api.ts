@@ -66,6 +66,7 @@ export async function getCourse(courseID: string): Promise<Course> {
 
 export async function getExecutives(): Promise<Array<Executive>> {
   const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("sort", `id:asc`);
   urlSearchParams.append("populate", "*");
   const data = await fetchData(`/executives?${urlSearchParams}`);
   return executivesSchema.parse(data);
