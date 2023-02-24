@@ -1,9 +1,9 @@
-import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
-import { getHistory } from "../api/api";
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
+import { getHistory } from "../../api/api";
 import sanitizeHtml from "sanitize-html";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { History } from "../model/History";
+import { History } from "../../model/History";
 
 export const getStaticProps: GetStaticProps<{
   history: History;
