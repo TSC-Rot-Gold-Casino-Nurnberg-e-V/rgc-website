@@ -3,6 +3,7 @@ import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
 import { Course, courseSchema, coursesSchema } from "../model/Course";
 import { Executive, executivesSchema } from "../model/Executive";
+import { Membership, membershipsShema } from "../model/Membership";
 
 const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
@@ -68,6 +69,13 @@ export async function getExecutives(): Promise<Array<Executive>> {
   urlSearchParams.append("populate", "*");
   const data = await fetchData(`/executives?${urlSearchParams}`);
   return executivesSchema.parse(data);
+}
+
+export async function getMembership(): Promise<Array<Membership>> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/memberships?${urlSearchParams}`);
+  return membershipsShema.parse(data);
 }
 
 async function fetchData(path: string) {
