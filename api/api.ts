@@ -4,6 +4,8 @@ import { History, historySchema } from "../model/History";
 import { Course, courseSchema, coursesSchema } from "../model/Course";
 import { Executive, executivesSchema } from "../model/Executive";
 import { Membership, membershipsShema } from "../model/Membership";
+import { Policy, privacyPolicySchema } from "../model/Policy";
+import { Legal, legalNoticeSchema } from "../model/Legal";
 
 const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
@@ -77,6 +79,20 @@ export async function getMembership(): Promise<Array<Membership>> {
   urlSearchParams.append("populate", "*");
   const data = await fetchData(`/memberships?${urlSearchParams}`);
   return membershipsShema.parse(data);
+}
+
+export async function getPrivacyPolicy(): Promise<Policy> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/privacy-policy?${urlSearchParams}`);
+  return privacyPolicySchema.parse(data);
+}
+
+export async function getLegalNotice(): Promise<Legal> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/legal-notice?${urlSearchParams}`);
+  return legalNoticeSchema.parse(data);
 }
 
 async function fetchData(path: string) {
