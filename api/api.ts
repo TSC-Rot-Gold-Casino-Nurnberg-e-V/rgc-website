@@ -6,6 +6,7 @@ import { Executive, executivesSchema } from "../model/Executive";
 import { Membership, membershipsShema } from "../model/Membership";
 import { Policy, privacyPolicySchema } from "../model/Policy";
 import { Legal, legalNoticeSchema } from "../model/Legal";
+import { Competition, competitionsSchema } from "../model/Competition";
 
 const baseUrl = `${process.env.CMS_URL}/api`;
 const headers = new Headers();
@@ -93,6 +94,13 @@ export async function getLegalNotice(): Promise<Legal> {
   urlSearchParams.append("populate", "*");
   const data = await fetchData(`/legal-notice?${urlSearchParams}`);
   return legalNoticeSchema.parse(data);
+}
+
+export async function getCompetitionResults(): Promise<Array<Competition>> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate", "*");
+  const data = await fetchData(`/competition-results?${urlSearchParams}`);
+  return competitionsSchema.parse(data);
 }
 
 async function fetchData(path: string) {
