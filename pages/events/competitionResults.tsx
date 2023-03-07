@@ -24,7 +24,7 @@ export default function CompetitionResults({
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="space-y-8 max-w-3xl m-auto py-8 grow">
+      <main className="space-y-8 max-w-3xl m-auto py-8 grow">
         <h1 className="text-red-900 font-bold text-2xl text-center">
           Turnierergebnisse
         </h1>
@@ -66,7 +66,7 @@ export default function CompetitionResults({
             </div>{" "}
           </div>
         ))}
-      </div>
+      </main>
       <Footer />
     </div>
   );
