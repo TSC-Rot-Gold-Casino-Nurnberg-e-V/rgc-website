@@ -41,7 +41,7 @@ export default function Events({}: InferGetStaticPropsType<
             </Link>
 
             <Link
-              href="/events/competitionResults"
+              href="/events/eventsOverview"
               className="relative flex flex-col items-center justify-center group grow"
             >
               <div className="relative h-80 w-full">

@@ -22,20 +22,26 @@ export default function Events({
       <div className="bg-stone-50 grow">
         <main className="mx-auto p-6 md:p-8">
           <div className="flex flex-col gap-8 max-w-3xl m-auto">
-            {events.map((event) => (
-              <EventCard
-                eventID={event.id}
-                title={event.attributes.title}
-                previewText={event.attributes.previewText}
-                startDate={new Date(event.attributes.startDate)}
-                endDate={
-                  event.attributes.endDate !== null
-                    ? new Date(event.attributes.endDate)
-                    : null
-                }
-                key={event.id}
-              />
-            ))}
+            {events.length !== 0 ? (
+              <div>
+                {events.map((event) => (
+                  <EventCard
+                    eventID={event.id}
+                    title={event.attributes.title}
+                    previewText={event.attributes.previewText}
+                    startDate={new Date(event.attributes.startDate)}
+                    endDate={
+                      event.attributes.endDate !== null
+                        ? new Date(event.attributes.endDate)
+                        : null
+                    }
+                    key={event.id}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div>Keine Veranstaltungen verfügbar</div>
+            )}
           </div>
         </main>
       </div>
