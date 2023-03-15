@@ -28,6 +28,7 @@ export const Navbar = () => (
           <NavLink text="Der Verein" url="/association" />
           <NavLink text="Angebot" url="/courses" />
           <NavLink text="Veranstaltungen" url="/events" />
+          <NavLink text="Kontakt" url="/contact" />
         </div>
       </div>
       {/* TODO check for accessibility of input field */}
