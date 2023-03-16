@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Popover, Transition } from "@headlessui/react";
+import Image from "next/image";
+import logo from "../public/rgc_logo_blank_white.png";
 
 interface Props {
   text: string;
@@ -20,7 +22,7 @@ export const Navbar = () => (
     <div className="max-w-screen-lg flex justify-between items-center m-auto">
       <div className="flex items-center gap-10">
         <Link href="/" className="text-xl">
-          LOGO
+          <Image src={logo} alt="" width={72} height={72} />
         </Link>
 
         <div className="flex gap-1 max-lg:hidden">
