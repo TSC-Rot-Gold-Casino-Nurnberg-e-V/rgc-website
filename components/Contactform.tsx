@@ -2,15 +2,21 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
 
 const forminputs = z.object({
-  name: z.string().min(1, "Bitte füllen Sie dieses Feld aus"),
+  name: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
   mail: z
     .string()
-    .min(1, "Bitte füllen Sie dieses Feld aus")
+    .min(1, "Bitte füllen Sie dieses Feld aus.")
     .email("Dies ist keine valide Mailadresse."),
-  phone: z.number().min(1, "Bitte füllen Sie dieses Feld aus"),
-  message: z.string().min(1, "Bitte füllen Sie dieses Feld aus"),
+  phone: z.coerce.number().min(1, "Bitte füllen Sie dieses Feld aus."),
+  message: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
+  privacyPolicy: z.literal(true, {
+    errorMap: () => ({
+      message: "Bitte akzeptieren Sie die Datenschutzerklärung.",
+    }),
+  }),
 });
 
 type Forminputs = z.infer<typeof forminputs>;
@@ -44,7 +50,7 @@ export const Contactform = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
         <div className="flex flex-col gap-4 w-full">
           <div className="flex flex-col gap-2">
-            <label htmlFor="name">Name *</label>
+            <label htmlFor="name">Name</label>
             <input
               id="name"
               {...register("name")}
@@ -59,7 +65,7 @@ export const Contactform = () => {
             )}
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="mail">Email *</label>
+            <label htmlFor="mail">Email</label>
             <input
               id="mail"
               {...register("mail")}
@@ -78,7 +84,7 @@ export const Contactform = () => {
             <input
               type="number"
               id="phone"
-              {...register("phone", { valueAsNumber: true })}
+              {...register("phone")}
               className={`p-2 text-md ring-1 ring-inset ring-gray-200 rounded-md w-full max-w-md ${
                 errors.phone ? "text-red-900 ring-red-900" : ""
               }`}
@@ -101,6 +107,28 @@ export const Contactform = () => {
             {errors.message && (
               <p className="text-red-900 text-sm font-semibold">
                 {errors.message.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="privacyPilocy">Datenschutz</label>
+            <div className="flex gap-2">
+              <input
+                type="checkbox"
+                id="privacyPolicy"
+                {...register("privacyPolicy")}
+              />
+              <span>
+                Hiermit akzeptiere ich die
+                <Link href="/privacyPolicy" className="text-red-900">
+                  {" "}
+                  Datenschutzerklärung.
+                </Link>
+              </span>
+            </div>
+            {errors.privacyPolicy && (
+              <p className="text-red-900 text-sm font-semibold">
+                {errors.privacyPolicy.message}
               </p>
             )}
           </div>
