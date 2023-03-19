@@ -3,6 +3,8 @@ import Image from "next/image";
 import aragLogo from "../public/aragLogo.jpg";
 import sbbLogo from "../public/sbbLogo.png";
 import teamNuernbergLogo from "../public/teamnuernbergLogo.jpg";
+import { Facebook } from "../public/Facebook";
+import { Instagram } from "../public/Instagram";
 
 export const Footer = () => (
   <div className="bg-zinc-700 p-6">
@@ -16,6 +18,14 @@ export const Footer = () => (
         <Image src={aragLogo} alt="" width={120} height={50} />
         <Image src={sbbLogo} alt="" width={100} height={80} />
         <Image src={teamNuernbergLogo} alt="" width={120} height={50} />
+      </div>
+      <div className="flex items-center gap-4">
+        <Link href="https://de-de.facebook.com/rgc.nuernberg/" title="facebook">
+          <Facebook />
+        </Link>
+        <Link href="https://www.instagram.com/rgc_nuernberg/" title="instagram">
+          <Instagram />
+        </Link>
       </div>
     </div>
   </div>
