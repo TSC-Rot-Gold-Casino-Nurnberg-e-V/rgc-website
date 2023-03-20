@@ -8,7 +8,7 @@ export const Footer = () => (
       <div className="flex max-sm:flex-col sm:gap-8 max-sm:items-center">
         <Link href="/legalNotice">Impressum</Link>
         <Link href="/privacyPolicy">Datenschutz</Link>
-        <Link href="">Kontakt</Link>
+        <Link href="/contact">Kontakt</Link>
       </div>
       <div className="flex items-center gap-4 fill-white">
         <Link href="https://de-de.facebook.com/rgc.nuernberg/" title="facebook">
