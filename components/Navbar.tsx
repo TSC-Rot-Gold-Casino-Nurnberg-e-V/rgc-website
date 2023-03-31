@@ -16,16 +16,18 @@ export const NavLink = forwardRef<HTMLAnchorElement, Props>(
     const router = useRouter();
     let isActive = router.asPath.startsWith(href);
     return (
-      <Link
-        className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:bg-zinc-800 whitespace-nowrap ${
-          isActive ? "underline decoration-white underline-offset-4" : ""
-        } ${className}`}
-        {...rest}
-        href={href}
-        ref={ref}
-      >
-        {text}
-      </Link>
+      <li>
+        <Link
+          className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:bg-zinc-800 whitespace-nowrap ${
+            isActive ? "underline decoration-white underline-offset-4" : ""
+          } ${className}`}
+          {...rest}
+          href={href}
+          ref={ref}
+        >
+          {text}
+        </Link>
+      </li>
     );
   }
 );
@@ -39,12 +41,12 @@ export const Navbar = () => {
         hideNavbar ? "-top-24" : "top-0"
       } transition-all duration-500 z-30`}
     >
-      <div className="max-w-screen-lg flex justify-between items-center m-auto">
-        <div className="flex items-center gap-10">
+      <ul className="max-w-screen-lg flex justify-between items-center m-auto">
+        <li className="flex items-center gap-10">
           <Link href="/" className="text-xl">
-            <Image src={logo} alt="" width={72} height={72} />
+            <Image src={logo} alt="Startseite" width={72} height={72} />
           </Link>
-        </div>
+        </li>
         <div className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/association" />
           <NavLink text="News" href="/posts" />
@@ -140,7 +142,7 @@ export const Navbar = () => {
             </Transition>
           </Menu>
         </span>
-      </div>
+      </ul>
     </nav>
   );
 };
