@@ -1,22 +1,35 @@
 import Link from "next/link";
-import { Popover, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import logo from "../public/rgc_logo_blank_white.png";
 import { useHideNavbar } from "../utils/useHideNavbar";
+import React, { AnchorHTMLAttributes, forwardRef } from "react";
+import { useRouter } from "next/router";
 
-interface Props {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   text: string;
-  url: string;
+  href: string;
 }
 
-export const NavLink = ({ text, url }: Props) => (
-  <Link
-    className="hover:bg-zinc-800 transition-all py-2 px-4 rounded-md"
-    href={url}
-  >
-    {text}
-  </Link>
+export const NavLink = forwardRef<HTMLAnchorElement, Props>(
+  ({ text, href, className = "", ...rest }: Props, ref) => {
+    const router = useRouter();
+    let isActive = router.asPath.startsWith(href);
+    return (
+      <Link
+        className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:bg-zinc-800 whitespace-nowrap ${
+          isActive ? "underline decoration-white underline-offset-4" : ""
+        } ${className}`}
+        {...rest}
+        href={href}
+        ref={ref}
+      >
+        {text}
+      </Link>
+    );
+  }
 );
+NavLink.displayName = "Navlink";
 
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
@@ -32,56 +45,101 @@ export const Navbar = () => {
             <Image src={logo} alt="" width={72} height={72} />
           </Link>
         </div>
-        <div className="flex gap-1 max-lg:hidden">
-          <NavLink text="Der Verein" url="/association" />
-          <NavLink text="News" url="/posts" />
-          <NavLink text="Angebot" url="/courses" />
-          <NavLink text="Veranstaltungen" url="/events/eventsOverview" />
-          <NavLink text="Turnierergebnisse" url="/events/competitionResults" />
+        <div className="flex gap-1 max-md:hidden">
+          <NavLink text="Der Verein" href="/association" />
+          <NavLink text="News" href="/posts" />
+          <NavLink text="Angebot" href="/courses" />
+          <NavLink text="Veranstaltungen" href="/eventsOverview" />
+          <NavLink text="Turnierergebnisse" href="/events/competitionResult" />
+          <NavLink text="Kontakt" href="/contact" />
         </div>
 
-        {/* TODO change popover to menu for ability to navigate via keyboard */}
-        <Popover className="z-20 lg:hidden relative">
-          <Popover.Button
-            className="focus-ring flex items-center p-2 hover:bg-zinc-800 rounded-md"
-            title="menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
+        <span className="md:hidden relative">
+          <Menu>
+            <Menu.Button className="focus:bg-zinc-800 p-2 rounded-md focus:outline-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </Menu.Button>
+            <Transition
+              className="absolute z-10 -right-4"
+              enter="transition duration-100 ease-out"
+              enterFrom="transform scale-95 opacity-0"
+              enterTo="transform scale-100 opacity-100"
+              leave="transition duration-75 ease-out"
+              leaveFrom="transform scale-100 opacity-100"
+              leaveTo="transform scale-95 opacity-0"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </Popover.Button>
-          <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
-
-          <Transition
-            className="absolute z-10 right-0"
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-          >
-            <Popover.Panel>
-              <div className="flex flex-col items-center justify-center rounded bg-zinc-700 py-6 px-12 text-zinc-50 text-md gap-4 shadow-md">
-                <NavLink text="News" url="/posts" />
-                <NavLink text="Der Verein" url="/association" />
-                <NavLink text="Angebot" url="/courses" />
-                <NavLink text="Veranstaltungen" url="/events" />
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </Popover>
+              <Menu.Items className="flex flex-col bg-zinc-700 items-end justify-center py-2 rounded text-zinc-50 text-md shadow-md focus:outline-none">
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="Der Verein"
+                      href="/association"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="News"
+                      href="/posts"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="Angebot"
+                      href="/courses"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="Veranstaltungen"
+                      href="/eventsOverview"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="Turnierergebnisse"
+                      href="/events/competitionResult"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <NavLink
+                      text="Kontakt"
+                      href="/contact"
+                      className={` ${active && "bg-zinc-800"}`}
+                    />
+                  )}
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
+          </Menu>
+        </span>
       </div>
     </nav>
   );
