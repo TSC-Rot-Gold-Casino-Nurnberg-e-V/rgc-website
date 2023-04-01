@@ -13,3 +13,6 @@ jobs:
         with:
           build: npm run build
           start: npm start
+        env:
+          CMS_URL: ${{secrets.CMS_URL}}
+          CMS_TOKEN: ${{secrets.CMS_TOKEN}}
