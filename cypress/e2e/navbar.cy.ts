@@ -29,13 +29,22 @@ describe("navbar", () => {
       .should("have.lengthOf", 7);
   });
 
-  it("should navigate to the correct sites", () => {
-    //   TODO
+  it("should navigate to the homepage", () => {
+    cy.visit("http://localhost:3000/contact");
+    cy.findByRole("navigation")
+      .findByRole("link", { name: /Startseite/i })
+      .click();
+    cy.findByRole("heading", { name: /Herzlich Willkommen im RGC/i });
   });
 
-  it("should open and close the hamburger menu on a mobile device", () => {
-    //   TODO
+  it("should navigate to the contact page", () => {
+    cy.findByRole("navigation")
+      .findByRole("link", { name: /Kontakt/i })
+      .click();
+    cy.findByRole("heading", { name: /Kontaktformular/i });
   });
+
+  it("should open and close the hamburger menu on a mobile device", () => {});
 
   it("should indicate the active page", () => {
     //   TODO

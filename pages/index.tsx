@@ -10,7 +10,7 @@ export default function Home() {
       </Head>
       <main className="min-h-screen flex-col flex">
         <Navbar />
-        <div className="grow">Content</div>
+        <h1 className="grow">Herzlich Willkommen im RGC</h1>
         <Footer />
       </main>
     </>
