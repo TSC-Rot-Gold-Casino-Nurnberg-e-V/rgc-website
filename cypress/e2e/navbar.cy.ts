@@ -44,7 +44,29 @@ describe("navbar", () => {
     cy.findByRole("heading", { name: /Kontaktformular/i });
   });
 
-  it("should open and close the hamburger menu on a mobile device", () => {});
+  it("should open and close the hamburger menu on a mobile device", () => {
+    cy.viewport("iphone-6");
+
+    cy.findByRole("navigation")
+      .findByLabelText("Navigationsmenü öffnen")
+      .click();
+    cy.findByRole("menu").findAllByRole("menuitem").should("have.lengthOf", 6);
+    cy.findByRole("menu").findByRole("menuitem", { name: /Der Verein/i });
+    cy.findByRole("menu").findByRole("menuitem", { name: /News/i });
+    cy.findByRole("menu").findByRole("menuitem", { name: /Angebot/i });
+    cy.findByRole("menu").findByRole("menuitem", {
+      name: /Veranstaltungen/i,
+    });
+    cy.findByRole("menu").findByRole("menuitem", {
+      name: /Turnierergebnisse/i,
+    });
+    cy.findByRole("menu").findByRole("menuitem", { name: /Kontakt/i });
+
+    cy.findByRole("navigation")
+      .findByLabelText("Navigationsmenü schließen")
+      .click();
+    cy.findByRole("menu").should("not.exist");
+  });
 
   it("should indicate the active page", () => {
     //   TODO
