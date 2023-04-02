@@ -14,7 +14,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
 export const NavLink = forwardRef<HTMLAnchorElement, Props>(
   ({ text, href, className = "", ...rest }: Props, ref) => {
     const router = useRouter();
-    let isActive = router.asPath.startsWith(href);
+    const isActive = router.asPath.startsWith(href);
     return (
       <li>
         <Link
@@ -24,6 +24,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, Props>(
           {...rest}
           href={href}
           ref={ref}
+          aria-current={isActive ? "page" : "false"}
         >
           {text}
         </Link>
