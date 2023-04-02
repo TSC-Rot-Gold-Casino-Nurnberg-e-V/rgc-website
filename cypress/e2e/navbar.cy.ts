@@ -69,6 +69,9 @@ describe("navbar", () => {
   });
 
   it("should indicate the active page", () => {
-    //   TODO
+    cy.visit("http://localhost:3000/contact");
+    cy.findByRole("navigation")
+      .get('[aria-current="page"]')
+      .should("have.text", "Kontakt");
   });
 });
