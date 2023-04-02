@@ -56,92 +56,102 @@ export const Navbar = () => {
           <NavLink text="Kontakt" href="/contact" />
         </div>
 
-        <span className="md:hidden relative">
+        <div className="md:hidden relative" role="presentation">
           <Menu>
-            <Menu.Button className="focus:bg-zinc-800 p-2 rounded-md focus:outline-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            </Menu.Button>
-            <Transition
-              className="absolute z-10 -right-4"
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Menu.Items className="flex flex-col bg-zinc-700 items-end justify-center py-2 rounded text-zinc-50 text-md shadow-md focus:outline-none">
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="Der Verein"
-                      href="/association"
-                      className={` ${active && "bg-zinc-800"}`}
+            {({ open }) => (
+              <>
+                <Menu.Button
+                  className="focus:bg-zinc-800 p-2 rounded-md focus:outline-none"
+                  aria-label={`Navigationsmenü ${
+                    open ? "schließen" : "öffnen"
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                    role="presentation"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                     />
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="News"
-                      href="/posts"
-                      className={` ${active && "bg-zinc-800"}`}
-                    />
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="Angebot"
-                      href="/courses"
-                      className={` ${active && "bg-zinc-800"}`}
-                    />
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="Veranstaltungen"
-                      href="/eventsOverview"
-                      className={` ${active && "bg-zinc-800"}`}
-                    />
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="Turnierergebnisse"
-                      href="/events/competitionResult"
-                      className={` ${active && "bg-zinc-800"}`}
-                    />
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NavLink
-                      text="Kontakt"
-                      href="/contact"
-                      className={` ${active && "bg-zinc-800"}`}
-                    />
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-            </Transition>
+                  </svg>
+                </Menu.Button>
+                <Transition
+                  className="absolute z-10 -right-4"
+                  enter="transition duration-100 ease-out"
+                  enterFrom="transform scale-95 opacity-0"
+                  enterTo="transform scale-100 opacity-100"
+                  leave="transition duration-75 ease-out"
+                  leaveFrom="transform scale-100 opacity-100"
+                  leaveTo="transform scale-95 opacity-0"
+                >
+                  <Menu.Items className="flex flex-col bg-zinc-700 items-end justify-center py-2 rounded text-zinc-50 text-md shadow-md focus:outline-none">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="Der Verein"
+                          href="/association"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="News"
+                          href="/posts"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="Angebot"
+                          href="/courses"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="Veranstaltungen"
+                          href="/eventsOverview"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="Turnierergebnisse"
+                          href="/events/competitionResult"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <NavLink
+                          text="Kontakt"
+                          href="/contact"
+                          className={` ${active && "bg-zinc-800"}`}
+                        />
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </>
+            )}
           </Menu>
-        </span>
+        </div>
       </ul>
     </nav>
   );
