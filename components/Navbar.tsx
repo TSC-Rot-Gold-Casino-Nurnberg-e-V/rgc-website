@@ -6,20 +6,23 @@ import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { useRouter } from "next/router";
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   text: string;
   href: string;
+  shouldHideOnSmallViewport?: boolean;
 }
 
-export const NavLink = forwardRef<HTMLAnchorElement, Props>(
-  ({ text, href, className = "", ...rest }: Props, ref) => {
+const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
     const router = useRouter();
     const isActive = router.asPath.startsWith(href);
     return (
-      <li>
+      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
         <Link
-          className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:bg-zinc-800 whitespace-nowrap ${
-            isActive ? "underline decoration-white underline-offset-4" : ""
+          className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:text-gray-50 whitespace-nowrap ${
+            isActive
+              ? "underline decoration-gray-200 underline-offset-8 decoration-2 "
+              : "text-gray-300"
           } ${className}`}
           {...rest}
           href={href}
@@ -32,19 +35,38 @@ export const NavLink = forwardRef<HTMLAnchorElement, Props>(
     );
   }
 );
-NavLink.displayName = "Navlink";
 
+NavLink.displayName = "NavLink";
+
+interface MenuLinkProps {
+  text: string;
+  href: string;
+}
+
+const MenuLink = ({ text, href }: MenuLinkProps) => (
+  <Menu.Item>
+    {({ active }) => (
+      <NavLink
+        text={text}
+        href={href}
+        className={`rounded-2xl ${active ? "bg-gray-800" : ""}`}
+      />
+    )}
+  </Menu.Item>
+);
+
+// TODO: hover & focus indicator on hamburger menu
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`bg-zinc-700 w-full p-4 text-zinc-50 h-24 sticky ${
-        hideNavbar ? "-top-24" : "top-0"
+      className={`bg-gray-800 w-full text-gray-50 h-20 px-6 sticky ${
+        hideNavbar ? "-top-20" : "top-0"
       } transition-all duration-500 z-30`}
     >
-      <ul className="max-w-screen-lg flex justify-between items-center m-auto">
-        <li className="flex items-center gap-10">
-          <Link href="/" className="text-xl">
+      <ul className="max-w-screen-lg flex justify-between items-center h-full m-auto">
+        <li>
+          <Link href="/">
             <Image src={logo} alt="Startseite" width={72} height={72} />
           </Link>
         </li>
@@ -52,8 +74,12 @@ export const Navbar = () => {
           <NavLink text="Der Verein" href="/association" />
           <NavLink text="News" href="/posts" />
           <NavLink text="Angebot" href="/courses" />
-          <NavLink text="Veranstaltungen" href="/eventsOverview" />
-          <NavLink text="Turnierergebnisse" href="/events/competitionResult" />
+          <NavLink text="Veranstaltungen" href="/events/eventsOverview" />
+          <NavLink
+            text="Turnierergebnisse"
+            href="/events/competitionResults"
+            shouldHideOnSmallViewport
+          />
           <NavLink text="Kontakt" href="/contact" />
         </div>
 
@@ -62,7 +88,7 @@ export const Navbar = () => {
             {({ open }) => (
               <>
                 <Menu.Button
-                  className="focus:bg-zinc-800 p-2 rounded-md focus:outline-none"
+                  className="focus:bg-gray-800 p-2 rounded-md hover:bg-gray-700"
                   aria-label={`Navigationsmenü ${
                     open ? "schließen" : "öffnen"
                   }`}
@@ -92,61 +118,16 @@ export const Navbar = () => {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Menu.Items className="flex flex-col bg-zinc-700 items-end justify-center py-2 rounded text-zinc-50 text-md shadow-md focus:outline-none">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="Der Verein"
-                          href="/association"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="News"
-                          href="/posts"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="Angebot"
-                          href="/courses"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="Veranstaltungen"
-                          href="/eventsOverview"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="Turnierergebnisse"
-                          href="/events/competitionResult"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <NavLink
-                          text="Kontakt"
-                          href="/contact"
-                          className={` ${active && "bg-zinc-800"}`}
-                        />
-                      )}
-                    </Menu.Item>
+                  <Menu.Items className="menu rounded-box bg-gray-700 text-gray-50 text-md py-2">
+                    <MenuLink text="Der Verein" href="/association" />
+                    <MenuLink text="News" href="/posts" />
+                    <MenuLink text="Angebot" href="/courses" />
+                    <MenuLink text="Veranstaltungen" href="/eventsOverview" />
+                    <MenuLink
+                      text="Turnierergebnisse"
+                      href="/events/competitionResult"
+                    />
+                    <MenuLink text="Kontakt" href="/contact" />
                   </Menu.Items>
                 </Transition>
               </>
