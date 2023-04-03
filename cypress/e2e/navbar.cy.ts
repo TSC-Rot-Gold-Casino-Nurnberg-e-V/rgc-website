@@ -13,6 +13,7 @@ describe("navbar", () => {
   });
 
   it("should include the correct links", () => {
+    cy.viewport("macbook-16");
     cy.findByRole("navigation").findByRole("link", { name: /Startseite/i });
     cy.findByRole("navigation").findByRole("link", { name: /Der Verein/i });
     cy.findByRole("navigation").findByRole("link", { name: /News/i });
@@ -73,5 +74,17 @@ describe("navbar", () => {
     cy.findByRole("navigation")
       .get('[aria-current="page"]')
       .should("have.text", "Kontakt");
+  });
+
+  it("should navigate to the contact page on a mobile device", () => {
+    cy.viewport("iphone-6");
+
+    cy.findByRole("navigation")
+      .findByLabelText("Navigationsmenü öffnen")
+      .click();
+    cy.findByRole("menu")
+      .findByRole("menuitem", { name: /Kontakt/i })
+      .click();
+    cy.findByRole("heading", { name: /Kontaktformular/i });
   });
 });
