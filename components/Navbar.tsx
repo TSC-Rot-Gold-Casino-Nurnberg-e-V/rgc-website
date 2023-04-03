@@ -19,9 +19,9 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     return (
       <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
         <Link
-          className={`transition-all md:px-3 px-6 py-2 lg:px-4 rounded-md hover:text-gray-50 whitespace-nowrap ${
+          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-gray-50 md:px-3 lg:px-4 ${
             isActive
-              ? "underline decoration-gray-200 underline-offset-8 decoration-2 "
+              ? "underline decoration-gray-200 decoration-2 underline-offset-8 "
               : "text-gray-300"
           } ${className}`}
           {...rest}
@@ -60,11 +60,11 @@ export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`bg-gray-800 w-full text-gray-50 h-20 px-6 sticky ${
+      className={`sticky h-20 w-full bg-gray-800 px-6 text-gray-50 ${
         hideNavbar ? "-top-20" : "top-0"
-      } transition-all duration-500 z-30`}
+      } z-30 transition-all duration-500`}
     >
-      <ul className="max-w-screen-lg flex justify-between items-center h-full m-auto">
+      <ul className="m-auto flex h-full max-w-screen-lg items-center justify-between">
         <li>
           <Link href="/">
             <Image src={logo} alt="Startseite" width={72} height={72} />
@@ -83,12 +83,12 @@ export const Navbar = () => {
           <NavLink text="Kontakt" href="/contact" />
         </div>
 
-        <div className="md:hidden relative" role="presentation">
+        <div className="relative md:hidden" role="presentation">
           <Menu>
             {({ open }) => (
               <>
                 <Menu.Button
-                  className="focus:bg-gray-800 p-2 rounded-md hover:bg-gray-700"
+                  className="rounded-md p-2 hover:bg-gray-700 focus:bg-gray-800"
                   aria-label={`Navigationsmenü ${
                     open ? "schließen" : "öffnen"
                   }`}
@@ -99,7 +99,7 @@ export const Navbar = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                     role="presentation"
                   >
                     <path
@@ -110,7 +110,7 @@ export const Navbar = () => {
                   </svg>
                 </Menu.Button>
                 <Transition
-                  className="absolute z-10 -right-4"
+                  className="absolute -right-4 z-10"
                   enter="transition duration-100 ease-out"
                   enterFrom="transform scale-95 opacity-0"
                   enterTo="transform scale-100 opacity-100"
@@ -118,7 +118,7 @@ export const Navbar = () => {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Menu.Items className="menu rounded-box bg-gray-700 text-gray-50 text-md py-2">
+                  <Menu.Items className="text-md menu rounded-box bg-gray-700 py-2 text-gray-50">
                     <MenuLink text="Der Verein" href="/association" />
                     <MenuLink text="News" href="/posts" />
                     <MenuLink text="Angebot" href="/courses" />
