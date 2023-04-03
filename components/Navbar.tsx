@@ -1,88 +1,140 @@
 import Link from "next/link";
-import { Popover, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import logo from "../public/rgc_logo_blank_white.png";
 import { useHideNavbar } from "../utils/useHideNavbar";
+import React, { AnchorHTMLAttributes, forwardRef } from "react";
+import { useRouter } from "next/router";
 
-interface Props {
+interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   text: string;
-  url: string;
+  href: string;
+  shouldHideOnSmallViewport?: boolean;
 }
 
-export const NavLink = ({ text, url }: Props) => (
-  <Link
-    className="hover:bg-zinc-800 transition-all py-2 px-4 rounded-md"
-    href={url}
-  >
-    {text}
-  </Link>
+const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
+    const router = useRouter();
+    const isActive = router.asPath.startsWith(href);
+    return (
+      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
+        <Link
+          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-gray-50 md:px-3 lg:px-4 ${
+            isActive
+              ? "underline decoration-gray-200 decoration-2 underline-offset-8 "
+              : "text-gray-300"
+          } ${className}`}
+          {...rest}
+          href={href}
+          ref={ref}
+          aria-current={isActive ? "page" : "false"}
+        >
+          {text}
+        </Link>
+      </li>
+    );
+  }
 );
 
+NavLink.displayName = "NavLink";
+
+interface MenuLinkProps {
+  text: string;
+  href: string;
+}
+
+const MenuLink = ({ text, href }: MenuLinkProps) => (
+  <Menu.Item>
+    {({ active }) => (
+      <NavLink
+        text={text}
+        href={href}
+        className={`rounded-2xl ${active ? "bg-gray-800" : ""}`}
+      />
+    )}
+  </Menu.Item>
+);
+
+// TODO: hover & focus indicator on hamburger menu
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`bg-zinc-700 w-full p-4 text-zinc-50 h-24 sticky ${
-        hideNavbar ? "-top-24" : "top-0"
-      } transition-all duration-500 z-30`}
+      className={`sticky h-20 w-full bg-gray-800 px-6 text-gray-50 ${
+        hideNavbar ? "-top-20" : "top-0"
+      } z-30 transition-all duration-500`}
     >
-      <div className="max-w-screen-lg flex justify-between items-center m-auto">
-        <div className="flex items-center gap-10">
-          <Link href="/" className="text-xl">
-            <Image src={logo} alt="" width={72} height={72} />
+      <ul className="m-auto flex h-full max-w-screen-lg items-center justify-between">
+        <li>
+          <Link href="/">
+            <Image src={logo} alt="Startseite" width={72} height={72} />
           </Link>
-        </div>
-        <div className="flex gap-1 max-lg:hidden">
-          <NavLink text="Der Verein" url="/association" />
-          <NavLink text="News" url="/posts" />
-          <NavLink text="Angebot" url="/courses" />
-          <NavLink text="Veranstaltungen" url="/events/eventsOverview" />
-          <NavLink text="Turnierergebnisse" url="/events/competitionResults" />
+        </li>
+        <div className="flex gap-1 max-md:hidden">
+          <NavLink text="Der Verein" href="/association" />
+          <NavLink text="News" href="/posts" />
+          <NavLink text="Angebot" href="/courses" />
+          <NavLink text="Veranstaltungen" href="/events/eventsOverview" />
+          <NavLink
+            text="Turnierergebnisse"
+            href="/events/competitionResults"
+            shouldHideOnSmallViewport
+          />
+          <NavLink text="Kontakt" href="/contact" />
         </div>
 
-        {/* TODO change popover to menu for ability to navigate via keyboard */}
-        <Popover className="z-20 lg:hidden relative">
-          <Popover.Button
-            className="focus-ring flex items-center p-2 hover:bg-zinc-800 rounded-md"
-            title="menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </Popover.Button>
-          <Popover.Overlay className="fixed inset-0 bg-black opacity-30" />
-
-          <Transition
-            className="absolute z-10 right-0"
-            enter="transition duration-100 ease-out"
-            enterFrom="transform scale-95 opacity-0"
-            enterTo="transform scale-100 opacity-100"
-            leave="transition duration-75 ease-out"
-            leaveFrom="transform scale-100 opacity-100"
-            leaveTo="transform scale-95 opacity-0"
-          >
-            <Popover.Panel>
-              <div className="flex flex-col items-center justify-center rounded bg-zinc-700 py-6 px-12 text-zinc-50 text-md gap-4 shadow-md">
-                <NavLink text="News" url="/posts" />
-                <NavLink text="Der Verein" url="/association" />
-                <NavLink text="Angebot" url="/courses" />
-                <NavLink text="Veranstaltungen" url="/events" />
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </Popover>
-      </div>
+        <div className="relative md:hidden" role="presentation">
+          <Menu>
+            {({ open }) => (
+              <>
+                <Menu.Button
+                  className="rounded-md p-2 hover:bg-gray-700 focus:bg-gray-800"
+                  aria-label={`Navigationsmenü ${
+                    open ? "schließen" : "öffnen"
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="h-6 w-6"
+                    role="presentation"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                  </svg>
+                </Menu.Button>
+                <Transition
+                  className="absolute -right-4 z-10"
+                  enter="transition duration-100 ease-out"
+                  enterFrom="transform scale-95 opacity-0"
+                  enterTo="transform scale-100 opacity-100"
+                  leave="transition duration-75 ease-out"
+                  leaveFrom="transform scale-100 opacity-100"
+                  leaveTo="transform scale-95 opacity-0"
+                >
+                  <Menu.Items className="text-md menu rounded-box bg-gray-700 py-2 text-gray-50">
+                    <MenuLink text="Der Verein" href="/association" />
+                    <MenuLink text="News" href="/posts" />
+                    <MenuLink text="Angebot" href="/courses" />
+                    <MenuLink text="Veranstaltungen" href="/eventsOverview" />
+                    <MenuLink
+                      text="Turnierergebnisse"
+                      href="/events/competitionResult"
+                    />
+                    <MenuLink text="Kontakt" href="/contact" />
+                  </Menu.Items>
+                </Transition>
+              </>
+            )}
+          </Menu>
+        </div>
+      </ul>
     </nav>
   );
 };

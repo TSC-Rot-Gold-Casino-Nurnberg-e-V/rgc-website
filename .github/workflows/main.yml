@@ -1,0 +1,21 @@
+name: Integration Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm start
+        env:
+          CMS_URL: ${{secrets.CMS_URL}}
+          CMS_TOKEN: ${{secrets.CMS_TOKEN}}
