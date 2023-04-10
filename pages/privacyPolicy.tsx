@@ -2,8 +2,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Policy } from "../model/Policy";
 import { getPrivacyPolicy } from "../api/api";
 import sanitizeHtml from "sanitize-html";
-import { Navbar } from "../components/Navbar";
-import { Footer } from "../components/Footer";
 
 export const getStaticProps: GetStaticProps<{
   privacyPolicy: Policy;
@@ -16,15 +14,11 @@ export default function PrivacyPolicy({
   privacyPolicy,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="">
-      <Navbar />
-      <main
-        className="break-words prose p-6 md:p-8 mx-auto"
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(privacyPolicy.attributes.privacyPolicy),
-        }}
-      />
-      <Footer />
-    </div>
+    <main
+      className="prose mx-auto break-words p-6 md:p-8"
+      dangerouslySetInnerHTML={{
+        __html: sanitizeHtml(privacyPolicy.attributes.privacyPolicy),
+      }}
+    />
   );
 }
