@@ -1,5 +1,3 @@
-import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
 import { getHistory } from "../../api/api";
 import sanitizeHtml from "sanitize-html";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -16,15 +14,11 @@ export default function derVerein({
   history,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main
-        className="grow prose mx-auto max-w-3xl p-6 md:p-8"
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(history.attributes.content),
-        }}
-      />
-      <Footer />
-    </div>
+    <main
+      className="prose mx-auto max-w-3xl grow p-6 md:p-8"
+      dangerouslySetInnerHTML={{
+        __html: sanitizeHtml(history.attributes.content),
+      }}
+    />
   );
 }

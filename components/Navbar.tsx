@@ -12,7 +12,7 @@ interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   shouldHideOnSmallViewport?: boolean;
 }
 
-const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
   ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
     const router = useRouter();
     const isActive = router.asPath.startsWith(href);
@@ -55,12 +55,11 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
   </Menu.Item>
 );
 
-// TODO: hover & focus indicator on hamburger menu
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`sticky h-20 w-full bg-gray-800 px-6 text-gray-50 ${
+      className={`sticky h-20 w-full bg-gray-800 px-8 text-gray-50 ${
         hideNavbar ? "-top-20" : "top-0"
       } z-30 transition-all duration-500`}
     >

@@ -1,8 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { getEvent, getEvents } from "../../api/api";
 import { Event } from "../../model/Event";
-import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
 import { formatDate } from "../../utils/formatDate";
 
@@ -29,32 +27,28 @@ export default function EventID({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const formattedStartDate = formatDate(new Date(event.attributes.startDate));
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="m-auto max-w-3xl py-8 grow max-lg:px-6">
-        <p className="text-center tracking-widest text-sm opacity-70">
-          {event.attributes.endDate !== null ? (
-            <>
-              {formattedStartDate} {" bis "}
-              {formatDate(new Date(event.attributes.endDate))}
-            </>
-          ) : (
-            <>{formattedStartDate}</>
-          )}
-        </p>
-        <h1 className="text-red-900 text-center max-md:text-2xl text-3xl py-4">
-          {event.attributes.title}
-        </h1>
-        <div className="prose m-auto">
-          <div
-            className="prose prose-p:text-justify prose-tr:flex prose-tr:justify-between prose-h2:text-center prose-table:my-4 prose-p:my-2 prose-a:text-red-900 prose-h3:text-red-900 prose-h2:max-md:text-xl prose-h3:max-md:text-lg"
-            dangerouslySetInnerHTML={{
-              __html: sanitizeHTMLField(event.attributes.description),
-            }}
-          />
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <main className="m-auto max-w-3xl grow py-8 max-lg:px-6">
+      <p className="text-center text-sm tracking-widest opacity-70">
+        {event.attributes.endDate !== null ? (
+          <>
+            {formattedStartDate} {" bis "}
+            {formatDate(new Date(event.attributes.endDate))}
+          </>
+        ) : (
+          <>{formattedStartDate}</>
+        )}
+      </p>
+      <h1 className="py-4 text-center text-3xl text-red-900 max-md:text-2xl">
+        {event.attributes.title}
+      </h1>
+      <div className="prose m-auto">
+        <div
+          className="prose prose-h2:text-center prose-h3:text-red-900 prose-p:my-2 prose-p:text-justify prose-a:text-red-900 prose-table:my-4 prose-tr:flex prose-tr:justify-between prose-h2:max-md:text-xl prose-h3:max-md:text-lg"
+          dangerouslySetInnerHTML={{
+            __html: sanitizeHTMLField(event.attributes.description),
+          }}
+        />
+      </div>
+    </main>
   );
 }
