@@ -68,7 +68,6 @@ export const Footer = () => (
             text="info@rot-gold-casino.de"
             icon={<MailIcon />}
           />
-
           <ContactLink
             href="https://de-de.facebook.com/rgc.nuernberg/"
             text="Facebook"
