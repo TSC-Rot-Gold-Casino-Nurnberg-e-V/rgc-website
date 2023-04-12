@@ -59,7 +59,7 @@ export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`sticky h-20 w-full bg-gray-800 px-8 text-gray-50 ${
+      className={`sticky h-20 w-full bg-primary px-8 text-gray-50 ${
         hideNavbar ? "-top-20" : "top-0"
       } z-30 transition-all duration-500`}
     >

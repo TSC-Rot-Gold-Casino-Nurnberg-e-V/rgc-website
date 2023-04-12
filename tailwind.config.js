@@ -7,11 +7,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "rgc-red": "#c50000",
-        "rgc-dark": "#380000",
-        "dark-grey": "#121212",
+        "mid-grey": "#B1B8C6",
+        "dark-grey": "#2D3648",
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        goldTheme: {
+          primary: "#04060a",
+          secondary: "#9A917B",
+          accent: "#E0C280",
+          lightgrey: "#B1B8C6",
+          backgroundImage: {
+            hero: "../public/heroBanner.png",
+          },
+        },
+      },
+    ],
   },
   plugins: [
     require("@tailwindcss/typography"),

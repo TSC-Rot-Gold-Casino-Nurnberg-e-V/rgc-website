@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .h1 {
+        @apply text-[66px] font-extrabold leading-[60px];
+    }
+    .h2 {
+        @apply text-[28px] font-semibold tracking-[2px];
+    }
+    .h3 {
+        @apply text-[32px] font-semibold leading-[36px] tracking-[1.15px];
+    }
+    .h4 {
+        @apply text-[28px] font-semibold tracking-[2px];
+    }
+    .h5 {
+        @apply text-[24px] font-semibold tracking-[1.7px];
+    }
+    .h6 {
+        @apply text-[18px] font-semibold tracking-[1.3px];
+    }
+    .body-font {
+        @apply text-[15px] font-medium leading-[25px];
+    }
+}
+
 
 /*a {*/
 /*  color: inherit;*/
