@@ -7,7 +7,7 @@
         @apply text-[66px] font-extrabold leading-[60px];
     }
     .h2 {
-        @apply text-[28px] font-semibold tracking-[2px];
+        @apply text-[40px] font-semibold tracking-[2px];
     }
     .h3 {
         @apply text-[32px] font-semibold leading-[36px] tracking-[1.15px];
@@ -22,7 +22,13 @@
         @apply text-[18px] font-semibold tracking-[1.3px];
     }
     .body-font {
-        @apply text-[15px] font-medium leading-[25px];
+        @apply text-[18px] leading-[25px];
+    }
+    .primary-gradient{
+       @apply from-10% via-40% to-90% bg-gradient-to-br from-primary-300 via-primary-100 to-primary-300
+    }
+    .rose-gradient{
+       @apply from-10% via-40% to-90% bg-gradient-to-br from-primary-300 via-primary-50 to-primary-300
     }
 }
 
