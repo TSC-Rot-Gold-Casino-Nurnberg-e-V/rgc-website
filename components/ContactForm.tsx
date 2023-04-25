@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
+import { Button } from "./Button";
 
 const forminputs = z.object({
   name: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
@@ -21,7 +22,7 @@ const forminputs = z.object({
 
 type Forminputs = z.infer<typeof forminputs>;
 
-export const Contactform = () => {
+export const ContactForm = () => {
   const {
     register,
     handleSubmit,
@@ -39,8 +40,8 @@ export const Contactform = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8">
-      <h1 className="text-3xl text-red-900 font-bold">Kontaktformular</h1>
+    <div className="flex flex-col gap-8 text-base-50">
+      <h1 className="text-3xl font-bold">Kontaktformular</h1>
       <div className="text-xl">
         <p>Rot-Gold-Casino e.V.</p>
         <p>Venusweg 7</p>
@@ -48,18 +49,18 @@ export const Contactform = () => {
       </div>
       <p className="text-xl">Eure Nachricht an uns.</p>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-        <div className="flex flex-col gap-4 w-full">
+        <div className="flex w-full flex-col gap-4">
           <div className="flex flex-col gap-2">
             <label htmlFor="name">Name</label>
             <input
               id="name"
               {...register("name")}
-              className={`p-2 text-md w-full max-w-md ring-1 ring-inset ring-gray-200 rounded-md ${
+              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
                 errors.name ? "text-red-900 ring-red-900" : ""
               }`}
             />
             {errors.name && (
-              <p className="text-red-900 text-sm font-semibold">
+              <p className="text-sm font-semibold text-red-900">
                 {errors.name.message}
               </p>
             )}
@@ -69,43 +70,43 @@ export const Contactform = () => {
             <input
               id="mail"
               {...register("mail")}
-              className={`p-2 text-md ring-1 ring-inset ring-gray-200 rounded-md w-full max-w-md  ${
+              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200  ${
                 errors.mail ? "text-red-900 ring-red-900" : ""
               }`}
             />
             {errors.mail && (
-              <p className="text-red-900 text-sm font-semibold">
+              <p className="text-sm font-semibold text-red-900">
                 {errors.mail.message}
               </p>
             )}
-          </div>{" "}
+          </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="phone">Telefon</label>
             <input
               type="number"
               id="phone"
               {...register("phone")}
-              className={`p-2 text-md ring-1 ring-inset ring-gray-200 rounded-md w-full max-w-md ${
+              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
                 errors.phone ? "text-red-900 ring-red-900" : ""
               }`}
             />
             {errors.phone && (
-              <p className="text-red-900 text-sm font-semibold">
+              <p className="text-sm font-semibold text-red-900">
                 {errors.phone.message}
               </p>
             )}
-          </div>{" "}
+          </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="phone">Nachricht</label>
             <textarea
               id="message"
               {...register("message")}
-              className={`p-2 text-md ring-1 ring-inset ring-gray-200 rounded-md w-full max-w-md ${
+              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
                 errors.message ? "text-red-900 ring-red-900" : ""
               }`}
             />
             {errors.message && (
-              <p className="text-red-900 text-sm font-semibold">
+              <p className="text-sm font-semibold text-red-900">
                 {errors.message.message}
               </p>
             )}
@@ -120,26 +121,20 @@ export const Contactform = () => {
               />
               <span>
                 Hiermit akzeptiere ich die
-                <Link href="/privacyPolicy" className="text-red-900">
+                <Link href="/privacyPolicy" className="text-primary-300">
                   {" "}
                   Datenschutzerklärung.
                 </Link>
               </span>
             </div>
             {errors.privacyPolicy && (
-              <p className="text-red-900 text-sm font-semibold">
+              <p className="text-sm font-semibold text-red-900">
                 {errors.privacyPolicy.message}
               </p>
             )}
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="rounded rounded-2xl bg-red-900 text-white font-semibold w-fit px-8 py-2"
-        >
-          Senden
-        </button>
+        <Button type="submit">Senden</Button>
       </form>
     </div>
   );
