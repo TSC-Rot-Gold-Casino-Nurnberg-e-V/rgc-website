@@ -71,13 +71,13 @@ export default function Association({
                   <div className="flex w-fit items-center text-xl font-bold">
                     {executive.attributes.position}
                   </div>
-                  <div className="w-fit text-sm text-gray-500">
+                  <div className="w-fit text-sm text-base-500">
                     {executive.attributes.name}
                   </div>
-                  <div className="w-fit text-sm text-gray-500">
+                  <div className="w-fit text-sm text-base-500">
                     {executive.attributes.phone}
                   </div>
-                  <div className="w-fit text-sm text-gray-500">
+                  <div className="w-fit text-sm text-base-500">
                     {executive.attributes.email}
                   </div>
                 </div>
