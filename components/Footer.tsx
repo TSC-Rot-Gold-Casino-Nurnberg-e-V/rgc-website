@@ -9,8 +9,8 @@ import React, {
 import logo from "../public/rgc_logo_blank_white.png";
 
 export const Footer = () => (
-  <footer className="bg-gray-800 p-8">
-    <div className="m-auto grid max-w-screen-lg grid-cols-1 justify-items-start text-gray-300 max-lg:gap-16 md:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
+  <footer className="bg-base-950 p-8">
+    <div className="m-auto grid max-w-screen-lg grid-cols-1 justify-items-start text-base-300 max-lg:gap-16 md:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
       <div className="order-1 space-y-2">
         <Link href="/">
           <Image
@@ -22,7 +22,7 @@ export const Footer = () => (
         <FooterLink
           text="Tanzsportclub Rot-Gold-Casino Nürnberg e.V."
           href="/"
-          className="text-xl font-bold text-gray-50"
+          className="text-xl font-bold text-base-50"
         />
         <p className="text-sm leading-tight" role="Vereinsinfo">
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa
@@ -89,7 +89,7 @@ interface CategoryHeadingProps {
 }
 
 const CategoryHeading = ({ text }: CategoryHeadingProps) => (
-  <h1 className="text-xl font-bold text-gray-50">{text}</h1>
+  <h1 className="text-xl font-bold text-base-50">{text}</h1>
 );
 
 interface FooterLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -101,7 +101,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
   ({ text, href, className = "", ...rest }, ref) => (
     <Link
       href={href}
-      className={`hover:text-gray-50 ${className}`}
+      className={`hover:text-graneutral ${className}`}
       {...rest}
       ref={ref}
     >
@@ -120,11 +120,11 @@ interface ContactLinkProps {
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
   <div className="group flex gap-2">
-    <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-gray-50">
+    <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
       <Link
         target="_blank"
         href={href}
-        className="flex gap-4 group-hover:text-gray-50"
+        className="flex gap-4 group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>
