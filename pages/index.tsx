@@ -46,14 +46,17 @@ export default function Home({
 
 const HeroSection = () => (
   <div className="relative bg-base-950 p-6 md:p-8">
-    <section className="relative z-10 mx-auto flex max-w-screen-lg flex-col space-y-6 py-12 text-primary-50 md:py-20 lg:pr-96">
-      <h1 className="h3 primary-gradient bg-clip-text font-extrabold uppercase text-transparent">
+    <section
+      role="banner"
+      className="relative z-10 mx-auto flex max-w-screen-lg flex-col space-y-6 py-12 text-primary-50 md:py-20 lg:pr-[400px]"
+    >
+      <h1 className="heading-small sm:max-md:heading-normal md:heading-large primary-gradient bg-clip-text font-extrabold uppercase text-transparent">
         Herzlich Willkommen im RGC
       </h1>
-      <h2 className="h5 uppercase">
+      <h2 className="heading-extrasmall md:heading-small uppercase">
         Ihrem Verein für Tanzsport in Nürnberg / Fürth
       </h2>
-      <p className="body-font">
+      <p className="text-normal md:text-large">
         Erleben Sie die faszinierende Welt des Tanzens! Bei uns finden Sie
         alles, was das Tänzerherz begehrt - von Latein, Standard und
         Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.
@@ -76,10 +79,13 @@ const CourseSection = () => {
   return (
     <div className="space-y-10 bg-base-500 px-6 py-10 md:px-8 md:py-24">
       <div className="flex flex-col items-center gap-10">
-        <h1 className="h1 text-primary-50 max-md:text-4xl md:max-lg:text-5xl">
+        <h1 className="heading-small max-md:heading-normal md:heading-large text-primary-50">
           Unser Angebot
         </h1>
-        <p className="body-font max-w-2xl text-primary-50">
+        <p
+          className="text-normal lg:text-large max-w-2xl hyphens-auto text-primary-50"
+          aria-label="Angebotsbeschreibung"
+        >
           Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein,
           Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
@@ -136,7 +142,7 @@ const CourseCard = ({
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
-      <div className="h5 rounded-lg bg-transparent p-4 uppercase text-primary-50 backdrop-blur-sm">
+      <div className="heading-extrasmall md:heading-small rounded-lg bg-transparent p-4 uppercase text-primary-50 backdrop-blur-sm">
         {title}
       </div>
       <Button>Mehr erfahren</Button>
@@ -149,11 +155,13 @@ const AssociationSection = () => {
     <div className="relative">
       <div className="relative z-10 w-full bg-gradient-to-r from-base-950">
         <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 max-lg:px-8 md:py-20">
-          <p className="h5 uppercase text-base-400 max-md:text-lg">
+          <h2 className="heading-extrasmall heading-small uppercase text-base-300">
             Mit Herz und Rhythmus
-          </p>
-          <h1 className="h1 text-primary-50 max-md:text-4xl">Über uns</h1>
-          <p className="body-font max-w-md text-base-300">
+          </h2>
+          <h1 className="heading-large md:heading-extralarge text-primary-50">
+            Über uns
+          </h1>
+          <p className="text-normal md:text-large max-w-md text-base-300">
             Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den
             Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im
             Jahr 1963 steht die Freude am Tanzen und die Förderung der
@@ -179,25 +187,29 @@ const AssociationSection = () => {
 
 const Stats = () => {
   return (
-    <div className="flex justify-center bg-gradient-to-br from-primary-300 from-10% via-primary-100 via-50% to-primary-300 to-90%">
+    <div className="primary-gradient flex justify-center">
       <div className="stats stats-vertical max-w-screen-lg divide-y-2 divide-base-700 bg-transparent py-10 md:stats-horizontal md:divide-x-2 md:py-24">
         <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
-          <div className="h1 stat-value text-base-950 max-lg:text-5xl">
+          <div className="heading-normal lg:heading-large stat-value text-base-950 ">
             {">"}600
           </div>
-          <div className="body-font stat-title font-bold uppercase text-base-950">
+          <div className="text-normal lg:text-large stat-title font-bold uppercase text-base-950">
             Mitglieder
           </div>
         </div>
         <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
-          <div className="h1 stat-value text-base-950 max-lg:text-5xl">8</div>
-          <div className="body-font stat-title font-bold uppercase text-base-950">
+          <div className="heading-normal md:heading-large stat-value text-base-950">
+            8
+          </div>
+          <div className="text-normal lg:text-large stat-title font-bold uppercase text-base-950">
             Formationsteams
           </div>
         </div>
         <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
-          <div className="h1 stat-value text-base-950 max-lg:text-5xl">25x</div>
-          <div className="body-font stat-title font-bold uppercase text-base-950">
+          <div className="heading-normal md:heading-large stat-value text-base-950">
+            25x
+          </div>
+          <div className="text-normal lg:text-large stat-title font-bold uppercase text-base-950">
             Bayernpokalsieger
           </div>
         </div>
@@ -209,7 +221,9 @@ const Stats = () => {
 const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <div className="w-full px-6 md:px-8">
     <div className="md:py-18 mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 md:gap-10">
-      <h2 className="h1 mx-auto text-base-700 max-md:text-5xl md:pb-6">News</h2>
+      <h2 className="heading-extralarge mx-auto text-base-700 max-md:text-5xl md:pb-6">
+        News
+      </h2>
       <div className="flex flex-col gap-10 md:gap-12">
         {posts.slice(0, 3).map((post, index) => (
           <Link
@@ -241,13 +255,11 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
                   : "md:items-end md:text-right"
               } flex flex-col items-center gap-2 max-md:text-center`}
             >
-              <div className="h6 max-w-md text-base-700 max-sm:px-10 sm:max-md:px-16">
+              <div className="text-extralarge max-w-xs text-base-700 md:max-w-md">
                 {post.attributes.title}
               </div>
               <div className="flex items-center gap-1 text-rose-950">
-                <Link href={`/posts/${post.id}`} className="body-font">
-                  Mehr erfahren
-                </Link>
+                <div className="text-large">Mehr erfahren</div>
                 <ChevronRight />
               </div>
             </div>
