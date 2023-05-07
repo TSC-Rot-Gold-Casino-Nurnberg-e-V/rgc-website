@@ -77,7 +77,10 @@ const HeroSection = () => (
 // TODO: Links zu den Angeboten mit Anker ergänzen
 const CourseSection = () => {
   return (
-    <div className="space-y-10 bg-base-500 px-6 py-10 md:px-8 md:py-24">
+    <div
+      aria-label="Kursangebote"
+      className="space-y-10 bg-base-500 px-6 py-10 md:px-8 md:py-24"
+    >
       <div className="flex flex-col items-center gap-10">
         <h1 className="heading-small max-md:heading-normal md:heading-large text-primary-50">
           Unser Angebot
@@ -152,7 +155,7 @@ const CourseCard = ({
 
 const AssociationSection = () => {
   return (
-    <div className="relative">
+    <div className="relative" aria-label="Vereinsinformationen">
       <div className="relative z-10 w-full bg-gradient-to-r from-base-950">
         <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 max-lg:px-8 md:py-20">
           <h2 className="heading-extrasmall heading-small uppercase text-base-300">
@@ -161,7 +164,10 @@ const AssociationSection = () => {
           <h1 className="heading-large md:heading-extralarge text-primary-50">
             Über uns
           </h1>
-          <p className="text-normal md:text-large max-w-md text-base-300">
+          <p
+            aria-label="Vereinsgeschichte"
+            className="text-normal md:text-large max-w-md text-base-300"
+          >
             Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den
             Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im
             Jahr 1963 steht die Freude am Tanzen und die Förderung der
@@ -187,9 +193,15 @@ const AssociationSection = () => {
 
 const Stats = () => {
   return (
-    <div className="primary-gradient flex justify-center">
+    <div
+      className="primary-gradient flex justify-center"
+      aria-label="Vereinsstatistik"
+    >
       <div className="stats stats-vertical max-w-screen-lg divide-y-2 divide-base-700 bg-transparent py-10 md:stats-horizontal md:divide-x-2 md:py-24">
-        <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
+        <div
+          className="stat place-items-center gap-4 p-0 px-14 max-md:py-4"
+          aria-label="Statistik"
+        >
           <div className="heading-normal lg:heading-large stat-value text-base-950 ">
             {">"}600
           </div>
@@ -197,7 +209,10 @@ const Stats = () => {
             Mitglieder
           </div>
         </div>
-        <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
+        <div
+          className="stat place-items-center gap-4 p-0 px-14 max-md:py-4"
+          aria-label="Statistik"
+        >
           <div className="heading-normal md:heading-large stat-value text-base-950">
             8
           </div>
@@ -205,7 +220,10 @@ const Stats = () => {
             Formationsteams
           </div>
         </div>
-        <div className="stat place-items-center gap-4 p-0 px-14 max-md:py-4">
+        <div
+          className="stat place-items-center gap-4 p-0 px-14 max-md:py-4"
+          aria-label="Statistik"
+        >
           <div className="heading-normal md:heading-large stat-value text-base-950">
             25x
           </div>
@@ -220,13 +238,17 @@ const Stats = () => {
 
 const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <div className="w-full px-6 md:px-8">
-    <div className="md:py-18 mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 md:gap-10">
+    <div
+      className="md:py-18 mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 md:gap-10"
+      aria-label="Newssection"
+    >
       <h2 className="heading-extralarge mx-auto text-base-700 max-md:text-5xl md:pb-6">
         News
       </h2>
       <div className="flex flex-col gap-10 md:gap-12">
         {posts.slice(0, 3).map((post, index) => (
           <Link
+            aria-label="News"
             href={`/posts/${post.id}`}
             className={`flex items-center gap-4 max-md:flex-col max-md:self-center lg:gap-8 ${
               index % 2 === 0 ? "self-start" : "self-end"
