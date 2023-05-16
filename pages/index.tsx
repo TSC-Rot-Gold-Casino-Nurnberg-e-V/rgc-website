@@ -178,7 +178,7 @@ const AssociationSection = () => (
       <Image
         src={vereinsBild}
         alt=""
-        className="h-full object-cover bg-blend-multiply saturate-0"
+        className="h-full object-cover saturate-0"
         fill
       />
     </div>
