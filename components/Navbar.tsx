@@ -6,55 +6,6 @@ import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { useRouter } from "next/router";
 
-interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  text: string;
-  href: string;
-  shouldHideOnSmallViewport?: boolean;
-}
-
-export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
-    const router = useRouter();
-    const isActive = router.asPath.startsWith(href);
-    return (
-      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
-        <Link
-          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 md:px-3 lg:px-4 ${
-            isActive
-              ? "underline decoration-base-200 decoration-2 underline-offset-8 "
-              : "text-base-300"
-          } ${className}`}
-          {...rest}
-          href={href}
-          ref={ref}
-          aria-current={isActive ? "page" : "false"}
-        >
-          {text}
-        </Link>
-      </li>
-    );
-  }
-);
-
-NavLink.displayName = "NavLink";
-
-interface MenuLinkProps {
-  text: string;
-  href: string;
-}
-
-const MenuLink = ({ text, href }: MenuLinkProps) => (
-  <Menu.Item>
-    {({ active }) => (
-      <NavLink
-        text={text}
-        href={href}
-        className={`rounded-2xl ${active ? "bg-base-800" : ""}`}
-      />
-    )}
-  </Menu.Item>
-);
-
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
@@ -63,13 +14,17 @@ export const Navbar = () => {
         hideNavbar ? "-top-20" : "top-0"
       } z-30 transition-all duration-500`}
     >
-      <ul className="m-auto flex h-full max-w-screen-lg items-center justify-between">
-        <li>
-          <Link href="/">
-            <Image src={logo} alt="Startseite" width={72} height={72} />
-          </Link>
-        </li>
-        <div className="flex gap-1 max-md:hidden">
+      <div className="m-auto flex h-full max-w-screen-lg items-center justify-between">
+        <Link href="/" className="rounded-md">
+          <Image
+            src={logo}
+            alt="Startseite"
+            width={72}
+            height={72}
+            className="aspect-[4/3] object-cover"
+          />
+        </Link>
+        <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/association" />
           <NavLink text="News" href="/posts" />
           <NavLink text="Angebot" href="/courses" />
@@ -80,8 +35,7 @@ export const Navbar = () => {
             shouldHideOnSmallViewport
           />
           <NavLink text="Kontakt" href="/contact" />
-        </div>
-
+        </ul>
         <div className="relative md:hidden" role="presentation">
           <Menu>
             {({ open }) => (
@@ -133,7 +87,56 @@ export const Navbar = () => {
             )}
           </Menu>
         </div>
-      </ul>
+      </div>
     </nav>
   );
 };
+
+interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  text: string;
+  href: string;
+  shouldHideOnSmallViewport?: boolean;
+}
+
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
+    const router = useRouter();
+    const isActive = router.asPath.startsWith(href);
+    return (
+      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
+        <Link
+          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 md:px-3 lg:px-4 ${
+            isActive
+              ? "underline decoration-base-200 decoration-2 underline-offset-8 "
+              : "text-base-300"
+          } ${className}`}
+          {...rest}
+          href={href}
+          ref={ref}
+          aria-current={isActive ? "page" : "false"}
+        >
+          {text}
+        </Link>
+      </li>
+    );
+  }
+);
+
+NavLink.displayName = "NavLink";
+
+interface MenuLinkProps {
+  text: string;
+  href: string;
+}
+
+const MenuLink = ({ text, href }: MenuLinkProps) => (
+  <Menu.Item>
+    {({ active }) => (
+      <NavLink
+        text={text}
+        href={href}
+        className={`rounded-2xl ${active ? "bg-base-800" : ""}`}
+      />
+    )}
+  </Menu.Item>
+);
