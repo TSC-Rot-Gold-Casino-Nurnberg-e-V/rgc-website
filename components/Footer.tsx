@@ -10,13 +10,15 @@ import logo from "../public/rgc_logo_blank_white.png";
 
 export const Footer = () => (
   <footer className="bg-base-950 p-8">
-    <div className="m-auto grid max-w-screen-lg grid-cols-1 justify-items-start text-base-300 max-lg:gap-16 md:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
-      <div className="order-1 space-y-2">
-        <Link href="/">
+    <div className="m-auto grid max-w-screen-lg grid-cols-1 text-base-300 max-lg:gap-16 md:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
+      <div className="order-1 flex h-full flex-col gap-2">
+        <Link href="/" className="w-fit rounded-md">
           <Image
             src={logo}
             alt="Zur Startseite"
-            className="aspect-[4/3] w-32 object-cover"
+            width={72}
+            height={72}
+            className="aspect-[4/3] object-cover"
           />
         </Link>
         <FooterLink
@@ -101,7 +103,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
   ({ text, href, className = "", ...rest }, ref) => (
     <Link
       href={href}
-      className={`hover:text-graneutral ${className}`}
+      className={`w-fit rounded-md hover:text-base-50 ${className}`}
       {...rest}
       ref={ref}
     >
@@ -124,7 +126,7 @@ const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
       <Link
         target="_blank"
         href={href}
-        className="flex gap-4 group-hover:text-base-50"
+        className="flex w-fit gap-4 rounded-md px-2 group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>
