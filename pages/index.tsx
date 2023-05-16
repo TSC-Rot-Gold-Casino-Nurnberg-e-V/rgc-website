@@ -129,7 +129,7 @@ const CourseCard = ({
   ...rest
 }: CourseCardProps) => (
   <Link
-    className={`group relative hover:cursor-pointer ${className}`}
+    className={`group relative rounded-md hover:cursor-pointer ${className}`}
     {...rest}
     href={href}
   >
@@ -137,7 +137,7 @@ const CourseCard = ({
       <Image
         src={image}
         alt=""
-        className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100"
+        className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
       />
     </div>
