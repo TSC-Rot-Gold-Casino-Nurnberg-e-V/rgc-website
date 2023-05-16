@@ -55,12 +55,14 @@ export const ContactForm = () => {
             <input
               id="name"
               {...register("name")}
-              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
-                errors.name ? "text-red-900 ring-red-900" : ""
+              className={`text-md w-full max-w-md rounded-md p-2 ${
+                errors.name
+                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
+                  : ""
               }`}
             />
             {errors.name && (
-              <p className="text-sm font-semibold text-red-900">
+              <p className="text-sm font-semibold text-secondary-400">
                 {errors.name.message}
               </p>
             )}
@@ -70,12 +72,14 @@ export const ContactForm = () => {
             <input
               id="mail"
               {...register("mail")}
-              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200  ${
-                errors.mail ? "text-red-900 ring-red-900" : ""
+              className={`text-md w-full max-w-md rounded-md p-2 ${
+                errors.mail
+                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
+                  : ""
               }`}
             />
             {errors.mail && (
-              <p className="text-sm font-semibold text-red-900">
+              <p className="text-sm font-semibold text-secondary-400">
                 {errors.mail.message}
               </p>
             )}
@@ -86,12 +90,14 @@ export const ContactForm = () => {
               type="number"
               id="phone"
               {...register("phone")}
-              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
-                errors.phone ? "text-red-900 ring-red-900" : ""
+              className={`text-md w-full max-w-md rounded-md p-2 ${
+                errors.phone
+                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
+                  : ""
               }`}
             />
             {errors.phone && (
-              <p className="text-sm font-semibold text-red-900">
+              <p className="text-sm font-semibold text-secondary-400">
                 {errors.phone.message}
               </p>
             )}
@@ -101,12 +107,14 @@ export const ContactForm = () => {
             <textarea
               id="message"
               {...register("message")}
-              className={`text-md w-full max-w-md rounded-md p-2 ring-1 ring-inset ring-base-200 ${
-                errors.message ? "text-red-900 ring-red-900" : ""
+              className={`text-md w-full max-w-md rounded-md p-2 ${
+                errors.message
+                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
+                  : ""
               }`}
             />
             {errors.message && (
-              <p className="text-sm font-semibold text-red-900">
+              <p className="text-sm font-semibold text-secondary-400">
                 {errors.message.message}
               </p>
             )}
@@ -128,7 +136,7 @@ export const ContactForm = () => {
               </span>
             </div>
             {errors.privacyPolicy && (
-              <p className="text-sm font-semibold text-red-900">
+              <p className="text-sm font-semibold text-secondary-400">
                 {errors.privacyPolicy.message}
               </p>
             )}
