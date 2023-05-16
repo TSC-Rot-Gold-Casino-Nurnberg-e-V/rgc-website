@@ -15,7 +15,7 @@ export default function Events({
   events,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="mx-auto p-6 md:p-8">
+    <main className="default-padding mx-auto">
       <div className="m-auto flex max-w-3xl flex-col gap-8">
         {events.length !== 0 ? (
           <div>

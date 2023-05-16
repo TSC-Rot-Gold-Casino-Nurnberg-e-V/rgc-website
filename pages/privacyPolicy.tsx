@@ -15,7 +15,7 @@ export default function PrivacyPolicy({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
-      className="prose mx-auto break-words p-6 md:p-8"
+      className="default-padding prose mx-auto break-words"
       dangerouslySetInnerHTML={{
         __html: sanitizeHtml(privacyPolicy.attributes.privacyPolicy),
       }}

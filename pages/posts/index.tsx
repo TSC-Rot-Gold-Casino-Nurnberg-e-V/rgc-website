@@ -22,7 +22,7 @@ export default function Posts({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto p-6 md:p-8">
+      <main className="default-padding mx-auto">
         <div className="m-auto flex max-w-3xl flex-col gap-8">
           {posts.map((post, index) => (
             <PostCard

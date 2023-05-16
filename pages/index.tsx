@@ -44,7 +44,7 @@ export default function Home({
 }
 
 const HeroSection = () => (
-  <section className="relative bg-base-950 p-6 md:p-8">
+  <section className="default-padding relative bg-base-950">
     <div
       role="banner"
       className="relative z-10 mx-auto flex max-w-screen-lg flex-col space-y-6 py-12 text-primary-50 md:py-20 lg:pr-[400px]"
@@ -234,7 +234,7 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
         News
       </h2>
       <div className="mx-auto flex w-full flex-wrap justify-center gap-6">
-        {posts.slice(0, 3).map((post, index) => (
+        {posts.slice(0, 3).map((post) => (
           <Link
             href={`/posts/${post.id}`}
             key={post.id}

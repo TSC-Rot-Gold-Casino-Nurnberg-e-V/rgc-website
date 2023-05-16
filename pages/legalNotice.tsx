@@ -15,7 +15,7 @@ export default function PrivacyPolicy({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
-      className="prose mx-auto max-w-3xl grow p-6 md:p-8"
+      className="default-padding prose mx-auto max-w-3xl grow"
       dangerouslySetInnerHTML={{
         __html: sanitizeHtml(legalNotice.attributes.legalNotice),
       }}

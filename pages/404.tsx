@@ -1,6 +1,6 @@
 export default function Custom404() {
   return (
-    <main className="mx-auto max-w-3xl grow bg-stone-50 p-6 md:p-8">
+    <main className="default-padding mx-auto max-w-3xl grow bg-stone-50">
       404 - Sorry bro!
     </main>
   );
