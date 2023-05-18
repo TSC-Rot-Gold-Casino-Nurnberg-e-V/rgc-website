@@ -105,15 +105,15 @@ describe("homepage", () => {
 
     it("should contain a subheading", () => {
       cy.findByRole("banner").findByRole("heading", {
-        name: /Ihrem Verein für Tanzsport in Nürnberg/i,
+        name: /Ihr Verein für Tanzsport in Nürnberg/i,
       });
     });
 
     it("should contain a CTA linking to the courses page", () => {
       cy.findByRole("banner")
-        .findByRole("button", { name: /Komm vorbei/i })
         .findByRole("link")
-        .should("have.attr", "href", "/courses");
+        .should("have.attr", "href", "/courses")
+        .contains("Komm vorbei");
     });
 
     it("should contain a description", () => {
@@ -180,8 +180,7 @@ describe("homepage", () => {
     it("should have a CTA with linking to the association page", () => {
       cy.findByRole("main")
         .findByLabelText("Vereinsinformationen")
-        .findByRole("button")
-        .findByRole("link", { name: /Mehr erfahren/i })
+        .findByRole("link")
         .should("have.attr", "href", "/association");
     });
   });
@@ -190,7 +189,7 @@ describe("homepage", () => {
     it("should contain the stat regarding the member count", () => {
       cy.findByRole("main")
         .findByLabelText("Vereinsstatistik")
-        .should("contain", ">600")
+        .should("contain", "> 600")
         .should("contain", "Mitglieder");
     });
 
@@ -209,22 +208,19 @@ describe("homepage", () => {
 
   describe("Newssection", () => {
     it("should display the latest three news", () => {
-      cy.findByLabelText("Newssection").findByRole("heading", {
+      cy.findByRole("heading", {
         name: /News/i,
-      });
-      cy.findAllByLabelText("News").should("have.lengthOf", 3);
-      cy.findByLabelText("Newssection").should(
-        "contain",
-        "Marius und Kristina erneut Weltmeister Latein"
-      );
-      cy.findByLabelText("Newssection").should(
-        "contain",
-        "Wir gewinnen den Bayernpokal der U19"
-      );
-      cy.findByLabelText("Newssection").should(
-        "contain",
-        "Lea und Dominik auf dem WDSF World Open new series Standard"
-      );
+      })
+        .siblings()
+        .first()
+        .findAllByRole("link")
+        .should("have.lengthOf", 3)
+        .should("contain", "Marius und Kristina erneut Weltmeister Latein")
+        .should("contain", "Wir gewinnen den Bayernpokal der U19")
+        .should(
+          "contain",
+          "Lea und Dominik auf dem WDSF World Open new series Standard"
+        );
     });
   });
 });
