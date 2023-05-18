@@ -89,8 +89,8 @@ const CourseSection = () => (
         aria-label="Angebotsbeschreibung"
       >
         Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein,
-        Standard und Formationstanzen bis hin zu Breitensport und Kindertanzen
-        und Breakdance.
+        Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und
+        Breakdance.
       </p>
     </div>
     <div className="mx-auto grid w-full max-w-screen-lg gap-6 text-base-50 sm:grid-cols-2 lg:grid-cols-3">
@@ -212,10 +212,7 @@ const Stats = () => (
 
 const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <section className="default-padding w-full bg-base-50 py-12">
-    <div
-      className="mx-auto flex max-w-screen-lg flex-col justify-center gap-12"
-      aria-label="Newssection"
-    >
+    <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-12">
       <h2 className="heading-extralarge text-center text-base-700 max-md:text-5xl">
         News
       </h2>
