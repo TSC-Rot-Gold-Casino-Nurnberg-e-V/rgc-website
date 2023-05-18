@@ -9,9 +9,9 @@ import React, {
 import logo from "../public/rgc_logo_blank_white.png";
 
 export const Footer = () => (
-  <footer className="bg-base-950 p-8">
-    <div className="m-auto grid max-w-screen-lg grid-cols-1 text-base-300 max-lg:gap-16 md:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
-      <div className="order-1 flex h-full flex-col gap-2">
+  <footer className="default-padding bg-base-950 py-12">
+    <div className="m-auto grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
+      <div className="order-1 flex h-full flex-col gap-3">
         <Link href="/" className="w-fit rounded-md">
           <Image
             src={logo}
@@ -21,20 +21,22 @@ export const Footer = () => (
             className="aspect-[4/3] object-cover"
           />
         </Link>
-        <FooterLink
-          text="Tanzsportclub Rot-Gold-Casino Nürnberg e.V."
-          href="/"
-          className="text-xl font-bold text-base-50"
-        />
-        <p className="text-sm leading-tight" role="Vereinsinfo">
-          Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa
-          600 Mitgliedern zu den größten Tanzsportclubs in Bayern und
-          Deutschland.
-        </p>
+        <div className="flex flex-col gap-1.5">
+          <FooterLink
+            text="Tanzsportclub Rot-Gold-Casino Nürnberg e.V."
+            href="/"
+            className="text-xl font-bold text-base-50"
+          />
+          <p className="text-small" role="Vereinsinfo">
+            Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit
+            etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und
+            Deutschland.
+          </p>
+        </div>
       </div>
-      <div className="order-3 space-y-8 lg:order-2">
+      <div className="order-3 flex flex-col gap-4 lg:order-2">
         <CategoryHeading text="Informationen" />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/association" />
           <FooterLink text="News" href="/posts" />
@@ -48,18 +50,18 @@ export const Footer = () => (
           <FooterLink text="Datenschutz" href="/privacyPolicy" />
         </div>
       </div>
-      <div className="order-4 space-y-8 lg:order-3">
+      <div className="order-4 flex flex-col gap-4 lg:order-3">
         <CategoryHeading text="Angebot" />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           <FooterLink text="Turniertanzen" href="/courses" />
           <FooterLink text="Formationstanzen" href="/courses" />
           <FooterLink text="Kindertanzen" href="/courses" />
           <FooterLink text="Freizeittanzen" href="/courses" />
         </div>
       </div>
-      <div className="order-2 space-y-8 lg:order-4">
+      <div className="order-2 flex flex-col gap-4 lg:order-4">
         <CategoryHeading text="Kontakt" />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-3">
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             icon={<MapIcon />}
@@ -126,7 +128,7 @@ const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
       <Link
         target="_blank"
         href={href}
-        className="flex w-fit gap-4 rounded-md px-2 group-hover:text-base-50"
+        className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>
