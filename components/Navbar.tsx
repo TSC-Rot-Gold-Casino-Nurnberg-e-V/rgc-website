@@ -41,7 +41,7 @@ export const Navbar = () => {
             {({ open }) => (
               <>
                 <Menu.Button
-                  className="rounded-md p-2 hover:bg-base-700 focus:bg-base-800"
+                  className="rounded-md p-2"
                   aria-label={`Navigationsmenü ${
                     open ? "schließen" : "öffnen"
                   }`}
@@ -71,7 +71,7 @@ export const Navbar = () => {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Menu.Items className="text-md menu rounded-box bg-base-700 py-2 text-base-50">
+                  <Menu.Items className="text-normal menu rounded-box bg-base-800 py-2 text-base-50 shadow-sm shadow-base-900">
                     <MenuLink text="Der Verein" href="/association" />
                     <MenuLink text="News" href="/posts" />
                     <MenuLink text="Angebot" href="/courses" />
@@ -105,7 +105,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     return (
       <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
         <Link
-          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 md:px-3 lg:px-4 ${
+          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4 ${
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8 "
               : "text-base-300"
@@ -135,7 +135,7 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
       <NavLink
         text={text}
         href={href}
-        className={`rounded-2xl ${active ? "bg-base-800" : ""}`}
+        className={`rounded-2xl ${active ? "bg-base-700" : ""}`}
       />
     )}
   </Menu.Item>
