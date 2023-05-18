@@ -20,9 +20,9 @@ export const EventCard = ({
   return (
     <Link
       href={`/events/${eventID}`}
-      className="flex flex-col md:flex-row bg-white gap-4 md:gap-12 shadow justify-between rounded group hover:shadow-md px-8 md:px-10 py-6 md:py-8 group"
+      className="group flex flex-col justify-between gap-4 rounded bg-white px-8 py-6 shadow hover:shadow-md md:flex-row md:gap-12 md:px-10 md:py-8"
     >
-      <div className="tracking-wider self-center opacity-50 group-hover:opacity-100 font-semibold group-hover:text-red-900 flex flex-row md:flex-col max-sm: gap-2">
+      <div className="max-sm: flex flex-row gap-2 self-center font-semibold tracking-wider opacity-50 group-hover:text-red-900 group-hover:opacity-100 md:flex-col">
         {endDate !== null ? (
           <>
             {formattedStartDate} <div>{" bis "}</div>
@@ -32,11 +32,11 @@ export const EventCard = ({
           <>{formattedStartDate}</>
         )}
       </div>
-      <div className="flex flex-col grow max-w-lg lg:max-w-xl max-md:m-auto">
-        <div className="text-2xl max-md:text-center font-bold text-red-900 group-hover:text-red-800">
+      <div className="flex max-w-lg grow flex-col max-md:m-auto lg:max-w-xl">
+        <div className="text-2xl font-bold text-red-900 group-hover:text-red-800 max-md:text-center">
           {title}
         </div>
-        <div className="opacity-50 group-hover:opacity-70 max-md:text-center line-clamp-2">
+        <div className="line-clamp-2 opacity-50 group-hover:opacity-70 max-md:text-center">
           {previewText}
         </div>
       </div>

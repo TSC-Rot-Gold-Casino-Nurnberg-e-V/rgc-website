@@ -55,35 +55,33 @@ export default function Association({
       <div className="flex flex-col gap-4">
         <h3 className="text-2xl font-semibold">Vorstandschaft</h3>
         <div className="flex flex-wrap justify-between gap-y-10">
-          {executives.map((executive) => {
-            return (
-              <div className="flex flex-col gap-3" key={executive.id}>
-                <div className="relative h-60 w-60 rounded rounded-md">
-                  <Image
-                    src={executive.attributes.image.data.attributes.url}
-                    alt=""
-                    fill
-                    className="rounded rounded-md object-cover"
-                  />
-                </div>
+          {executives.map((executive) => (
+            <div className="flex flex-col gap-3" key={executive.id}>
+              <div className="relative h-60 w-60 rounded-md">
+                <Image
+                  src={executive.attributes.image.data.attributes.url}
+                  alt=""
+                  fill
+                  className="rounded-md object-cover"
+                />
+              </div>
 
-                <div className="flex max-w-[240px] flex-col gap-1">
-                  <div className="flex w-fit items-center text-xl font-bold">
-                    {executive.attributes.position}
-                  </div>
-                  <div className="w-fit text-sm text-base-500">
-                    {executive.attributes.name}
-                  </div>
-                  <div className="w-fit text-sm text-base-500">
-                    {executive.attributes.phone}
-                  </div>
-                  <div className="w-fit text-sm text-base-500">
-                    {executive.attributes.email}
-                  </div>
+              <div className="flex max-w-[240px] flex-col gap-1">
+                <div className="flex w-fit items-center text-xl font-bold">
+                  {executive.attributes.position}
+                </div>
+                <div className="w-fit text-sm text-base-500">
+                  {executive.attributes.name}
+                </div>
+                <div className="w-fit text-sm text-base-500">
+                  {executive.attributes.phone}
+                </div>
+                <div className="w-fit text-sm text-base-500">
+                  {executive.attributes.email}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </main>

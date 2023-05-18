@@ -17,7 +17,7 @@ export default function Courses({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main className="default-padding grow">
-      <div className="p m-auto flex max-w-3xl gap-8 max-md:flex-col">
+      <div className="m-auto flex max-w-3xl gap-8 max-md:flex-col">
         {courses.map((course) => {
           return (
             <CourseCard

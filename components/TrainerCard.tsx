@@ -10,13 +10,8 @@ export const TrainerCard = ({ name, licence, image }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       {image !== undefined && (
-        <div className="relative h-72 w-72 rounded rounded-md">
-          <Image
-            src={image}
-            alt=""
-            fill
-            className="rounded rounded-md object-cover"
-          />
+        <div className="relative h-72 w-72 rounded-md">
+          <Image src={image} alt="" fill className="rounded-md object-cover" />
         </div>
       )}
       <div className="flex max-w-[288px] flex-col gap-1">

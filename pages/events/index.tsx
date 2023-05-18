@@ -25,11 +25,11 @@ export default function Events({}: InferGetStaticPropsType<
               src={trophyImage}
               alt=""
               fill
-              className="rounded rounded-md bg-center object-cover"
+              className="rounded-md bg-center object-cover"
             />
           </div>
           <div className="absolute flex h-full w-full flex-col justify-center rounded-md backdrop-brightness-50 duration-700 group-hover:backdrop-brightness-75">
-            <h2 className="w-full py-5 px-2 text-center text-2xl font-bold text-white">
+            <h2 className="w-full px-2 py-5 text-center text-2xl font-bold text-white">
               Turnierergebnisse
             </h2>
           </div>
@@ -44,11 +44,11 @@ export default function Events({}: InferGetStaticPropsType<
               src={eventImage}
               alt=""
               fill
-              className="rounded rounded-md bg-center object-cover"
+              className="rounded-md bg-center object-cover"
             />
           </div>
           <div className="absolute flex h-full w-full flex-col justify-center rounded-md backdrop-brightness-50 duration-700 group-hover:backdrop-brightness-75">
-            <h2 className="w-full py-5 px-2 text-center text-2xl font-bold text-white">
+            <h2 className="w-full px-2 py-5 text-center text-2xl font-bold text-white">
               Veranstaltungen
             </h2>
           </div>

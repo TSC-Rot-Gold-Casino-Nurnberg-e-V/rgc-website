@@ -55,7 +55,7 @@ export const ContactForm = () => {
             <input
               id="name"
               {...register("name")}
-              className={`text-md w-full max-w-md rounded-md p-2 ${
+              className={`text-normal w-full max-w-md rounded-md p-2 ${
                 errors.name
                   ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
                   : ""
@@ -72,7 +72,7 @@ export const ContactForm = () => {
             <input
               id="mail"
               {...register("mail")}
-              className={`text-md w-full max-w-md rounded-md p-2 ${
+              className={`text-normal w-full max-w-md rounded-md p-2 ${
                 errors.mail
                   ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
                   : ""
@@ -90,7 +90,7 @@ export const ContactForm = () => {
               type="number"
               id="phone"
               {...register("phone")}
-              className={`text-md w-full max-w-md rounded-md p-2 ${
+              className={`text-normal w-full max-w-md rounded-md p-2 ${
                 errors.phone
                   ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
                   : ""
@@ -107,7 +107,7 @@ export const ContactForm = () => {
             <textarea
               id="message"
               {...register("message")}
-              className={`text-md w-full max-w-md rounded-md p-2 ${
+              className={`text-normal w-full max-w-md rounded-md p-2 ${
                 errors.message
                   ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
                   : ""
