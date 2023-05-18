@@ -47,22 +47,23 @@ const HeroSection = () => (
   <section className="default-padding relative bg-base-950">
     <div
       role="banner"
-      className="relative z-10 mx-auto flex max-w-screen-lg flex-col space-y-6 py-12 text-primary-50 md:py-20 lg:pr-[400px]"
+      className="relative z-10 mx-auto flex max-w-screen-lg flex-col gap-6 py-12 text-primary-50 lg:pr-[400px]"
     >
       <h1 className="heading-small sm:max-md:heading-normal md:heading-large primary-gradient bg-clip-text font-extrabold uppercase text-transparent">
         Herzlich Willkommen im RGC
       </h1>
-      <h2 className="heading-extrasmall md:heading-small uppercase text-base-50">
-        Ihrem Verein für Tanzsport in Nürnberg / Fürth
-      </h2>
-      <p className="text-normal md:text-large text-base-50">
-        Erleben Sie die faszinierende Welt des Tanzens! Bei uns finden Sie
-        alles, was das Tänzerherz begehrt - von Latein, Standard und
-        Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.
-        Werden Sie Teil unserer Tanzfamilie und erleben Sie mit uns
-        unvergessliche Momente auf der Tanzfläche.
-      </p>
-
+      <div className="flex flex-col gap-4">
+        <h2 className="heading-extrasmall md:heading-small text-base-50">
+          Ihr Verein für Tanzsport in Nürnberg / Fürth
+        </h2>
+        <p className="text-normal md:text-large text-base-50">
+          Erleben Sie die faszinierende Welt des Tanzens! Bei uns finden Sie
+          alles, was das Tänzerherz begehrt - von Latein, Standard und
+          Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.
+          Werden Sie Teil unserer Tanzfamilie und erleben Sie mit uns
+          unvergessliche Momente auf der Tanzfläche.
+        </p>
+      </div>
       <Link className="w-fit rounded-md" href="/courses">
         <Button tabIndex={-1}>Komm vorbei</Button>
       </Link>
@@ -77,9 +78,9 @@ const HeroSection = () => (
 const CourseSection = () => (
   <section
     aria-label="Kursangebote"
-    className="space-y-10 bg-base-500 px-6 py-10 md:px-8 md:py-24"
+    className="default-padding flex flex-col gap-12 bg-base-500 py-12"
   >
-    <div className="flex flex-col items-center gap-10">
+    <div className="flex flex-col items-center gap-6">
       <h2 className="heading-small max-md:heading-normal md:heading-large text-base-50">
         Unser Angebot
       </h2>
@@ -92,23 +93,23 @@ const CourseSection = () => (
         und Breakdance.
       </p>
     </div>
-    <div className="mx-auto flex max-w-screen-lg flex-wrap justify-center gap-6 text-base-50">
+    <div className="mx-auto grid w-full max-w-screen-lg gap-6 text-base-50 sm:grid-cols-2 lg:grid-cols-3">
       <CourseCard
         title="Einzeltanz"
         image={einzeltanz}
-        className="max-h-[28rem] max-w-md grow basis-80"
+        className="max-h-[28rem] "
         href="/courses"
       />
       <CourseCard
         title="Formation"
         image={formation}
-        className="max-h-[28rem] max-w-md grow basis-80"
+        className="max-h-[28rem]"
         href="/courses"
       />
       <CourseCard
         title="Kindertanzen"
         image={kindertanzen}
-        className="max-h-[28rem] max-w-md grow basis-80"
+        className="max-h-[28rem] sm:max-lg:col-span-2"
         href="/courses"
       />
     </div>
@@ -152,24 +153,24 @@ const CourseCard = ({
 
 const AssociationSection = () => (
   <section className="relative" aria-label="Vereinsinformationen">
-    <div className="relative z-10 w-full bg-gradient-to-r from-base-950">
-      <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-8 py-10 max-lg:px-8 md:py-20">
-        <h2 className="heading-large md:heading-extralarge order-2 text-base-50">
+    <div className="default-padding relative z-10 w-full bg-gradient-to-r from-base-950">
+      <div className="mx-auto flex max-w-screen-lg flex-col justify-center py-12">
+        <h2 className="heading-normal md:heading-large order-2 mt-6 text-base-50">
           Über uns
         </h2>
-        <h3 className="heading-extrasmall heading-small order-1 uppercase text-base-300">
+        <h3 className="heading-extrasmall order-1 uppercase text-base-300">
           Mit Herz und Rhythmus
         </h3>
         <p
           aria-label="Vereinsgeschichte"
-          className="text-normal md:text-large order-3 max-w-md text-base-300"
+          className="text-normal md:text-large order-3 mt-3 max-w-md text-base-300"
         >
           Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den
           Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im
           Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur
           im Mittelpunkt unserer Arbeit.
         </p>
-        <Link href="/association" className="order-4 w-fit rounded-md">
+        <Link href="/association" className="order-4 mt-6 w-fit rounded-md">
           <Button tabIndex={-1}>Mehr erfahren</Button>
         </Link>
       </div>
@@ -187,36 +188,21 @@ const AssociationSection = () => (
 
 const Stats = () => (
   <section
-    className="primary-gradient flex justify-center"
+    className="primary-gradient default-padding flex justify-center"
     aria-label="Vereinsstatistik"
   >
-    <div className="stats stats-vertical max-w-screen-lg divide-none bg-transparent py-10 md:stats-horizontal md:py-24">
-      <div
-        className="stat place-items-center gap-3 p-0 px-14 max-md:py-10"
-        aria-label="Statistik"
-      >
-        <div className="heading-large stat-value text-secondary-950">
-          {"> "}600
-        </div>
-        <div className="text-large stat-title text-secondary-950/75">
-          Mitglieder
-        </div>
+    <div className="mx-auto grid w-full max-w-screen-lg gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
+      <div className="max-sm:justify-self-start" aria-label="Statistik">
+        <div className="heading-large text-secondary-950">{"> "}600</div>
+        <div className="text-large text-secondary-950/75">Mitglieder</div>
       </div>
-      <div
-        className="stat place-items-center gap-3 p-0 px-14 max-md:py-10"
-        aria-label="Statistik"
-      >
-        <div className="heading-large stat-value text-secondary-950">8</div>
-        <div className="text-large stat-title text-secondary-950/75">
-          Formationsteams
-        </div>
+      <div className="max-sm:justify-self-end" aria-label="Statistik">
+        <div className="heading-large text-secondary-950">8</div>
+        <div className="text-large text-secondary-950/75">Formationsteams</div>
       </div>
-      <div
-        className="stat place-items-center gap-3 p-0 px-14 max-md:py-10"
-        aria-label="Statistik"
-      >
-        <div className="heading-large stat-value text-secondary-950">25x</div>
-        <div className="text-large stat-title text-secondary-950/75">
+      <div className="max-sm:justify-self-start" aria-label="Statistik">
+        <div className="heading-large text-secondary-950">25x</div>
+        <div className="text-large text-secondary-950/75">
           Bayernpokalsieger
         </div>
       </div>
@@ -225,15 +211,15 @@ const Stats = () => (
 );
 
 const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <section className="w-full bg-base-50 px-6 md:px-8">
+  <section className="default-padding w-full bg-base-50 py-12">
     <div
-      className="md:py-18 mx-auto flex max-w-screen-lg flex-col justify-center gap-6 py-10 md:gap-8"
+      className="mx-auto flex max-w-screen-lg flex-col justify-center gap-12"
       aria-label="Newssection"
     >
-      <h2 className="heading-extralarge mx-auto text-base-700 max-md:text-5xl md:pb-6">
+      <h2 className="heading-extralarge text-center text-base-700 max-md:text-5xl">
         News
       </h2>
-      <div className="mx-auto flex w-full flex-wrap justify-center gap-6">
+      <div className="flex w-full flex-wrap justify-center gap-6">
         {posts.slice(0, 3).map((post) => (
           <Link
             href={`/posts/${post.id}`}
@@ -249,14 +235,14 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
                   className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
                 />
               </div>
-              <article className="relative z-10 mx-auto flex h-full flex-col justify-end rounded-xl bg-gradient-to-b from-transparent to-base-900 opacity-100">
+              <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
                 <time
                   dateTime={post.attributes.publishedAt}
-                  className="text-extrasmall px-6 text-base-300"
+                  className="text-extrasmall text-base-300"
                 >
                   {formatDate(new Date(post.attributes.publishedAt))}
                 </time>
-                <h3 className="text-normal line-clamp-2 max-w-xs px-6 pb-6 pt-2 font-semibold text-base-200 md:max-w-md">
+                <h3 className="text-normal line-clamp-3 max-w-xs font-semibold text-base-200">
                   {post.attributes.title}
                 </h3>
               </article>
@@ -264,8 +250,8 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
           </Link>
         ))}
       </div>
-      <div className="mx-auto w-fit">
-        <Link className="w-fit rounded-md" href={`/posts`}>
+      <div className="mx-auto">
+        <Link className="rounded-md" href="/posts">
           <Button tabIndex={-1}>Weitere News</Button>
         </Link>
       </div>
@@ -274,22 +260,20 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
 );
 
 const Sponsors = () => (
-  <section className="bg-base-950 px-6 py-16 md:px-8">
-    <div className="mx-auto flex w-full max-w-screen-lg items-center justify-between gap-4 bg-transparent max-md:flex-col max-md:gap-8">
-      <div className="relative h-52 w-52">
-        <Image src={sbbLogo} alt="" fill className="object-contain" />
-      </div>
-      <div className="relative h-52 w-52">
-        <Image src={aragLogo} alt="" fill className="object-contain" />
-      </div>
-      <div className="relative h-32 w-56">
-        <Image
-          src={teamNbgLogo}
-          alt=""
-          fill
-          className="object-contain max-md:object-top"
-        />
-      </div>
+  <section className="default-padding bg-base-950 py-12">
+    <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-around gap-6 gap-y-12">
+      <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
+        <Image src={sbbLogo} alt="" width={200} height={200} />
+      </Link>
+      <Link href="https://www.arag-partner.de/gunnar-zidella/" target="_blank">
+        <Image src={aragLogo} alt="" width={200} height={200} />
+      </Link>
+      <Link
+        href="https://www.nuernberg.de/internet/team_nuernberg/"
+        target="_blank"
+      >
+        <Image src={teamNbgLogo} alt="" width={200} height={200} />
+      </Link>
     </div>
   </section>
 );
