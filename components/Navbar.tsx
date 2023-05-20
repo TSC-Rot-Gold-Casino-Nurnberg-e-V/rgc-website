@@ -22,6 +22,7 @@ export const Navbar = () => {
             width={72}
             height={72}
             className="aspect-[4/3] object-cover"
+            priority={true}
           />
         </Link>
         <ul className="flex gap-1 max-md:hidden">

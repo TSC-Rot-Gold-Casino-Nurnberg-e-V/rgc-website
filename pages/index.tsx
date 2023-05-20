@@ -69,7 +69,13 @@ const HeroSection = () => (
       </Link>
     </div>
     <div className="absolute inset-0 h-full">
-      <Image src={heroBanner} alt="" className="object-cover object-top" fill />
+      <Image
+        src={heroBanner}
+        alt=""
+        className="object-cover object-top"
+        fill
+        priority={true}
+      />
     </div>
   </section>
 );
@@ -78,7 +84,7 @@ const HeroSection = () => (
 const CourseSection = () => (
   <section
     aria-label="Kursangebote"
-    className="default-padding flex flex-col gap-12 bg-base-500 py-12"
+    className="default-padding flex flex-col gap-12 bg-gradient-to-br from-base-500 to-base-800 py-12"
   >
     <div className="flex flex-col items-center gap-6">
       <h2 className="heading-small max-md:heading-normal md:heading-large text-base-50">
@@ -140,6 +146,7 @@ const CourseCard = ({
         alt=""
         className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
+        placeholder="blur"
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
