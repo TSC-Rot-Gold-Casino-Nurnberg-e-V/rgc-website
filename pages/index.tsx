@@ -10,9 +10,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../model/Post";
 import { getPosts } from "../api/api";
 import Link from "next/link";
-import aragLogo from "../public/aragLogo.jpg";
-import sbbLogo from "../public/sbbLogo.png";
-import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
 import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 
@@ -36,8 +33,6 @@ export default function Home({
         <AssociationSection />
         <Stats />
         <News posts={posts} />
-        {/*<ContactSection />*/}
-        <Sponsors />
       </main>
     </>
   );
@@ -265,25 +260,6 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
           <Button tabIndex={-1}>Weitere News</Button>
         </Link>
       </div>
-    </div>
-  </section>
-);
-
-const Sponsors = () => (
-  <section className="default-padding bg-base-950 py-12">
-    <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-around gap-6 gap-y-12">
-      <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
-        <Image src={sbbLogo} alt="" width={200} height={200} />
-      </Link>
-      <Link href="https://www.arag-partner.de/gunnar-zidella/" target="_blank">
-        <Image src={aragLogo} alt="" width={200} height={200} />
-      </Link>
-      <Link
-        href="https://www.nuernberg.de/internet/team_nuernberg/"
-        target="_blank"
-      >
-        <Image src={teamNbgLogo} alt="" width={200} height={200} />
-      </Link>
     </div>
   </section>
 );
