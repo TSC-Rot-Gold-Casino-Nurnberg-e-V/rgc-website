@@ -19,9 +19,7 @@ export const Navbar = () => {
           <Image
             src={logo}
             alt="Startseite"
-            width={72}
-            height={72}
-            className="aspect-[4/3] object-cover"
+            className="max-h-12 w-20 object-cover"
           />
         </Link>
         <ul className="flex gap-1 max-md:hidden">
