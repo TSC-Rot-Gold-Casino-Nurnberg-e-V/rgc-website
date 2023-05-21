@@ -69,7 +69,13 @@ const HeroSection = () => (
       </Link>
     </div>
     <div className="absolute inset-0 h-full">
-      <Image src={heroBanner} alt="" className="object-cover object-top" fill />
+      <Image
+        src={heroBanner}
+        alt=""
+        className="object-cover object-top"
+        fill
+        priority={true}
+      />
     </div>
   </section>
 );
@@ -99,18 +105,21 @@ const CourseSection = () => (
         image={einzeltanz}
         className="max-h-[28rem] "
         href="/courses"
+        imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Formation"
         image={formation}
         className="max-h-[28rem]"
         href="/courses"
+        imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Kindertanzen"
         image={kindertanzen}
         className="max-h-[28rem] sm:max-lg:col-span-2"
         href="/courses"
+        imageSizes="(max-width: 1024px) 100vw, 33vw"
       />
     </div>
   </section>
@@ -120,12 +129,14 @@ interface CourseCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   image: StaticImageData;
   href: string;
+  imageSizes?: string;
 }
 
 const CourseCard = ({
   title,
   image,
   href,
+  imageSizes,
   className = "",
   ...rest
 }: CourseCardProps) => (
@@ -140,6 +151,7 @@ const CourseCard = ({
         alt=""
         className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
+        sizes={imageSizes}
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
@@ -230,6 +242,7 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
                   alt=""
                   fill
                   className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
+                  sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
                 />
               </div>
               <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
