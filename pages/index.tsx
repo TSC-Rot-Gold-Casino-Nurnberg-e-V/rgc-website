@@ -79,7 +79,7 @@ const HeroSection = () => (
 const CourseSection = () => (
   <section
     aria-label="Kursangebote"
-    className="default-padding flex flex-col gap-12 bg-base-500 py-12"
+    className="default-padding flex flex-col gap-12 bg-gradient-to-br from-base-500 to-base-800 py-12"
   >
     <div className="flex flex-col items-center gap-6">
       <h2 className="heading-small max-md:heading-normal md:heading-large text-base-50">
