@@ -11,7 +11,7 @@ export default function Courses() {
   return (
     <main>
       <h1 className="heading-large md:heading-extralarge primary-gradient py-10 text-center text-secondary-950 md:py-12">
-        Angebote
+        Angebot
       </h1>
       <Competition />
       <Formation />
