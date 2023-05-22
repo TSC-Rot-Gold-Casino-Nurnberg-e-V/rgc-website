@@ -4,6 +4,7 @@ import { Manrope } from "@next/font/google";
 import Head from "next/head";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { Sponsors } from "../components/Sponsors";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className={`grow bg-slate-50 ${manrope.className}`}>
         <Component {...pageProps} />
       </div>
+      <Sponsors />
       <Footer />
     </div>
   );

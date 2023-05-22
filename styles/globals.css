@@ -42,9 +42,6 @@
   .primary-gradient {
     @apply bg-gradient-to-br from-primary-300 from-10% via-primary-100 via-40% to-primary-300 to-90%;
   }
-  .rose-gradient {
-    @apply bg-gradient-to-br from-primary-300 from-10% via-primary-50 via-40% to-primary-300 to-90%;
-  }
 }
 
 @layer utilities {

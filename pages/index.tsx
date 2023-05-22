@@ -10,9 +10,6 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../model/Post";
 import { getPosts } from "../api/api";
 import Link from "next/link";
-import aragLogo from "../public/aragLogo.jpg";
-import sbbLogo from "../public/sbbLogo.png";
-import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
 import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 
@@ -36,8 +33,6 @@ export default function Home({
         <AssociationSection />
         <Stats />
         <News posts={posts} />
-        {/*<ContactSection />*/}
-        <Sponsors />
       </main>
     </>
   );
@@ -105,18 +100,21 @@ const CourseSection = () => (
         image={einzeltanz}
         className="max-h-[28rem] "
         href="/courses"
+        imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Formation"
         image={formation}
         className="max-h-[28rem]"
         href="/courses"
+        imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Kindertanzen"
         image={kindertanzen}
         className="max-h-[28rem] sm:max-lg:col-span-2"
         href="/courses"
+        imageSizes="(max-width: 1024px) 100vw, 33vw"
       />
     </div>
   </section>
@@ -126,12 +124,14 @@ interface CourseCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   image: StaticImageData;
   href: string;
+  imageSizes?: string;
 }
 
 const CourseCard = ({
   title,
   image,
   href,
+  imageSizes,
   className = "",
   ...rest
 }: CourseCardProps) => (
@@ -146,7 +146,7 @@ const CourseCard = ({
         alt=""
         className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
-        placeholder="blur"
+        sizes={imageSizes}
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
@@ -237,6 +237,7 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
                   alt=""
                   fill
                   className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
+                  sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
                 />
               </div>
               <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
@@ -259,25 +260,6 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
           <Button tabIndex={-1}>Weitere News</Button>
         </Link>
       </div>
-    </div>
-  </section>
-);
-
-const Sponsors = () => (
-  <section className="default-padding bg-base-950 py-12">
-    <div className="mx-auto flex max-w-screen-lg flex-wrap items-center justify-around gap-6 gap-y-12">
-      <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
-        <Image src={sbbLogo} alt="" width={200} height={200} />
-      </Link>
-      <Link href="https://www.arag-partner.de/gunnar-zidella/" target="_blank">
-        <Image src={aragLogo} alt="" width={200} height={200} />
-      </Link>
-      <Link
-        href="https://www.nuernberg.de/internet/team_nuernberg/"
-        target="_blank"
-      >
-        <Image src={teamNbgLogo} alt="" width={200} height={200} />
-      </Link>
     </div>
   </section>
 );
