@@ -20,6 +20,7 @@ export const Navbar = () => {
             src={logo}
             alt="Startseite"
             className="max-h-12 w-20 object-cover"
+            priority={true}
           />
         </Link>
         <ul className="flex gap-1 max-md:hidden">
