@@ -1,8 +1,10 @@
 import Head from "next/head";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { PostCard } from "../../components/PostCard";
 import { getPosts } from "../../api/api";
 import { Post } from "../../model/Post";
+import { Button } from "../../components/Button";
+import { useState } from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export const getStaticProps: GetStaticProps<{
   posts: Post[];
@@ -41,20 +43,19 @@ export default function Posts({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="default-padding mx-auto">
-        <div className="m-auto flex max-w-3xl flex-col gap-8">
-          {posts.map((post, index) => (
+      <main className="default-padding mx-auto flex flex-col gap-6 bg-base-950 py-12">
+        <div className="group/container m-auto grid max-w-screen-lg justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {displayedPosts.map((post) => (
             <PostCard
               postID={post.id}
               key={post.id}
               title={post.attributes.title}
               previewText={post.attributes.previewText}
-              publishedDate={new Date(post.attributes.publishedAt)}
+              publishedDate={post.attributes.publishedAt}
               previewImage={
                 post.attributes.mainImage.data.attributes.formats.small?.url ??
                 post.attributes.mainImage.data.attributes.url
               }
-              imageOrder={index % 2 === 0 ? "first" : "last"}
             />
           ))}
         </div>
