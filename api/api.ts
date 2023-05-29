@@ -9,7 +9,7 @@ import { Legal, legalNoticeSchema } from "../model/Legal";
 import { Competition, competitionsSchema } from "../model/Competition";
 import { Pagination } from "../model/Pagination";
 
-const baseUrl = `${process.env.CMS_URL}/api`;
+const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 const headers = new Headers();
 headers.append("Authorization", `Bearer ${process.env.CMS_TOKEN}`);
 
