@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../../model/Post";
-import { getPost, getPosts } from "../../api/api";
+import { getAllPosts, getPost } from "../../api/api";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getPosts();
+  const posts = await getAllPosts();
   const paths = posts.map((post) => {
     return { params: { postID: post.id.toString() } };
   });
