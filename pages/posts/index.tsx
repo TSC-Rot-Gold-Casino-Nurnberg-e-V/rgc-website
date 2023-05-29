@@ -4,16 +4,34 @@ import { PostCard } from "../../components/PostCard";
 import { getPosts } from "../../api/api";
 import { Post } from "../../model/Post";
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const posts = await getPosts();
+export const getStaticProps: GetStaticProps<{
+  posts: Post[];
+  totalPostCount: number;
+}> = async () => {
+  const { posts, pagination } = await getPosts(6);
   return {
-    props: { posts: posts },
+    props: { posts: posts, totalPostCount: pagination.total },
   };
 };
 
 export default function Posts({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [displayedPosts, setDisplayedPosts] = useState<Array<Post>>(posts);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function getMorePosts() {
+    setIsLoading(true);
+    const nextPage = page + 1;
+    const { posts } = await getPosts(6, nextPage);
+    setDisplayedPosts((prevState) => {
+      return [...prevState, ...posts];
+    });
+    setPage(nextPage);
+    setIsLoading(false);
+  }
+
   return (
     <>
       <Head>
@@ -39,6 +57,17 @@ export default function Posts({
             />
           ))}
         </div>
+        {displayedPosts.length < totalPostCount && (
+          <div className="mx-auto w-fit">
+            <Button
+              onClick={getMorePosts}
+              disabled={isLoading}
+              className={isLoading ? "loading" : undefined}
+            >
+              Mehr anzeigen
+            </Button>
+          </div>
+        )}
       </main>
     </>
   );
