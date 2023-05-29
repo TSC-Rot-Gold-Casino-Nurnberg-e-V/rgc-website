@@ -16,6 +16,7 @@ export const getStaticProps: GetStaticProps<{
 
 export default function Posts({
   posts,
+  totalPostCount,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [displayedPosts, setDisplayedPosts] = useState<Array<Post>>(posts);
   const [page, setPage] = useState(1);
