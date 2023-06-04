@@ -7,7 +7,7 @@ const posts = [
       title: "Marius und Kristina erneut Weltmeister Latein",
       description:
         '<p><img src="https://res.cloudinary.com/dlak0pmbw/image/upload/v1674838905/2040481_2bb81ddc94.jpg" alt="2040481.jpeg"></p><p>&nbsp;</p><p>Im Rahmen des WinterDanceFestivals in Mülheim an der Ruhr fand gestern die Weltmeisterschaft in den latein-amerikanischen Tänzen statt. Unter den 65 Paaren aus 41 Ländern die Deutschen Meister Marius-Andrei Balan und Kristina Moshenska. Mit fast fünf Punkten Vorsprung gewannen die Neu-Bayern die Goldmedaille und konnte damit ihren Titel vom letzten Jahr unangefochten verteidigen. Wir gratulieren ganz herzlich und freuen uns sehr, dieses tolle Paar in unserem Verein willkommen zu heißen!</p>',
-      publishedAt: "2023-01-23T17:20:36.827Z",
+      chronologicalPosition: "2023-01-23T17:20:36.827Z",
       previewText:
         "Somit konnte das Paar den Titel vom letzten Jahr unangefochten verteidigen.",
       mainImage: {
@@ -30,7 +30,7 @@ const posts = [
       title: "Wir gewinnen den Bayernpokal der U19",
       description:
         '<p>Nach dem letzten Turnier der Bayernpokalserie der U19 in München gewannen wir mit Abstand und konnten endlich unseren diesjährigen Vereinspokal mitnehmen.&nbsp;</p><p>Die Gesamtendwertung ist hier gelistet (genauere Auflistung siehe unten):</p><p><img src="https://res.cloudinary.com/dlak0pmbw/image/upload/v1675097648/2022_11_13_Bayernpokal_Vereinswertung_1ffe1d7335.jpg" alt="2022-11-13-Bayernpokal-Vereinswertung.jpg"></p><ol><li><strong>TSC Rot-Gold-Casino Nürnberg</strong> (144 Punkte)</li><li>TSA Schwarz-Gold d. ESV Ingolstadt (129 Punkte)</li><li>Gelb-Schwarz-Casino München (97 Punkte)</li></ol><p>Weitere Informationen:<a href="https://ltvb.de/wp-content/uploads/2022/11/Bayernpokal-u19-Endergebnis.-2022.pdf">https://ltvb.de/wp-content/uploads/2022/11/Bayernpokal-u19-Endergebnis.-2022.pdf</a></p>',
-      publishedAt: "2023-01-23T17:21:08.466Z",
+      chronologicalPosition: "2023-01-23T17:21:08.466Z",
       previewText:
         "Der Vereinspokal geht mit dem Sieg der Bayernpokalserie der U19 an den RGC.",
       mainImage: {
@@ -53,7 +53,7 @@ const posts = [
       title: "Lea und Dominik auf dem WDSF World Open new series Standard",
       description:
         '<p><img src="https://res.cloudinary.com/dlak0pmbw/image/upload/v1675000522/2022_11_26_WDSF_Open_Std_Timisoara_Depner_Baier_aa8c32ea76.jpg" alt="2022-11-26-WDSF-Open-Std-Timisoara-Depner-Baier.jpeg"></p><p>Dominik Depner und Lea Baier erreichten den 21.-22. Platz auf dem WDSF World Open new series Standard in Timisoara (Rumänien). Weiter so!&nbsp;</p>',
-      publishedAt: "2023-01-29T13:52:15.033Z",
+      chronologicalPosition: "2023-01-29T13:52:15.033Z",
       previewText:
         "Dominik Depner und Lea Baier erreichten den 21.-22. Platz auf dem WDSF World Open new series Standard in Timisoara (Rumänien). ",
       mainImage: {
