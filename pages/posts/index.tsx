@@ -71,7 +71,7 @@ export default function Posts({
               key={post.id}
               title={post.attributes.title}
               previewText={post.attributes.previewText}
-              publishedDate={post.attributes.publishedAt}
+              chronologicalPosition={post.attributes.chronologicalPosition}
               previewImage={
                 post.attributes.mainImage.data.attributes.formats.small?.url ??
                 post.attributes.mainImage.data.attributes.url
@@ -98,7 +98,7 @@ export default function Posts({
 interface Props {
   title: string;
   previewText: string;
-  publishedDate: string;
+  chronologicalPosition: string;
   previewImage: string;
   postID: number;
 }
@@ -107,7 +107,7 @@ const PostCard = ({
   title,
   previewImage,
   previewText,
-  publishedDate,
+  chronologicalPosition,
   postID,
 }: Props) => (
   <Link
@@ -131,10 +131,10 @@ const PostCard = ({
       <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">
         <div className="relative top-16 flex h-full flex-col justify-end gap-3 transition-all duration-500 group-hover:top-0">
           <time
-            dateTime={publishedDate}
+            dateTime={chronologicalPosition}
             className="text-extrasmall text-base-300"
           >
-            {formatDate(new Date(publishedDate))}
+            {formatDate(new Date(chronologicalPosition))}
           </time>
           <h2 className="text-large line-clamp-3 max-w-xs font-semibold text-base-200">
             {title}

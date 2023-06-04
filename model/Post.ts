@@ -6,7 +6,7 @@ export const postSchema = z.object({
     title: z.string(),
     description: z.string(),
     previewText: z.string(),
-    publishedAt: z.string(),
+    chronologicalPosition: z.string(),
     mainImage: z.object({
       data: z.object({
         attributes: z.object({

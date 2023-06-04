@@ -242,10 +242,10 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
               </div>
               <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
                 <time
-                  dateTime={post.attributes.publishedAt}
+                  dateTime={post.attributes.chronologicalPosition}
                   className="text-extrasmall text-base-300"
                 >
-                  {formatDate(new Date(post.attributes.publishedAt))}
+                  {formatDate(new Date(post.attributes.chronologicalPosition))}
                 </time>
                 <h3 className="text-normal line-clamp-3 max-w-xs font-semibold text-base-200">
                   {post.attributes.title}
