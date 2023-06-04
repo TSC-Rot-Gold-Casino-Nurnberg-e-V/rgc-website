@@ -1,10 +1,12 @@
 import Head from "next/head";
-import { PostCard } from "../../components/PostCard";
 import { getPosts } from "../../api/api";
 import { Post } from "../../model/Post";
 import { Button } from "../../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { formatDate } from "../../utils/formatDate";
 
 export const getStaticProps: GetStaticProps<{
   posts: Post[];
@@ -28,12 +30,30 @@ export default function Posts({
     setIsLoading(true);
     const nextPage = page + 1;
     const { posts } = await getPosts(6, nextPage);
-    setDisplayedPosts((prevState) => {
-      return [...prevState, ...posts];
+    setDisplayedPosts((prevPosts) => {
+      const updatedPosts = [...prevPosts, ...posts];
+      sessionStorage.setItem("posts", JSON.stringify(updatedPosts));
+      return updatedPosts;
     });
     setPage(nextPage);
+    sessionStorage.setItem("page", nextPage.toString());
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    const position = sessionStorage.getItem("position");
+    const shouldRestorePreviousScrollPosition = sessionStorage
+      .getItem("route")
+      ?.startsWith("/posts/");
+    if (position !== null && shouldRestorePreviousScrollPosition) {
+      window.scrollTo(0, parseInt(position));
+    }
+    setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
+    const postsInSessionStorage = sessionStorage.getItem("posts");
+    if (postsInSessionStorage !== null) {
+      setDisplayedPosts(JSON.parse(postsInSessionStorage));
+    }
+  }, []);
 
   return (
     <>
