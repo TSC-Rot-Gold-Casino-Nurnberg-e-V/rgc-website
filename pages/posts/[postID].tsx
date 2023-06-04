@@ -25,13 +25,10 @@ export default function PostID({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="m-auto max-w-3xl grow py-4 max-lg:px-6">
-      <h1 className="py-4 text-center text-3xl text-red-900 max-md:text-2xl">
-        {post.attributes.title}
-      </h1>
-      <div className="prose m-auto">
+    <main className="default-padding bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
+      <div className="prose-xl prose mx-auto">
         <div
-          className="prose prose-p:text-justify prose-img:m-auto prose-img:max-h-96 prose-img:max-w-3xl prose-img:rounded-lg"
+          className="prose-h1:heading-normal sm:prose-h1:heading-large prose-headings:text-secondary-900 prose-p:hyphens-auto prose-img:max-h-[24rem] prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:object-top sm:prose-img:max-h-[32rem]"
           dangerouslySetInnerHTML={{
             __html: sanitizeHTMLField(post.attributes.description),
           }}
