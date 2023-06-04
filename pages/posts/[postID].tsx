@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../../model/Post";
 import { getAllPosts, getPost } from "../../api/api";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
+import { formatDate } from "../../utils/formatDate";
 import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -28,6 +29,9 @@ export default function PostID({
   return (
     <main className="default-padding bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
       <div className="prose-xl prose mx-auto">
+        <time className="text-normal text-base-500">
+          {formatDate(new Date(post.attributes.publishedAt))}
+        </time>
         <div
           className="prose-h1:heading-normal sm:prose-h1:heading-large prose-headings:text-secondary-900 prose-p:hyphens-auto prose-img:max-h-[24rem] prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:object-top sm:prose-img:max-h-[32rem]"
           dangerouslySetInnerHTML={{
