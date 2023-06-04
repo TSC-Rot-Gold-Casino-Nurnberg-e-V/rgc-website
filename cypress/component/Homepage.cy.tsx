@@ -66,29 +66,6 @@ const posts = [
       },
     },
   },
-  {
-    id: 11,
-    attributes: {
-      title: "Unser Latein A-Team gewinnt den 2. Platz in Ludwigsburg",
-      description:
-        '<p>Das von Sean Welton und Angela Diez trainierte <strong>A-Team der Lateinformationen</strong> konnte auf seinem Auftaktturnier der 2. Bundesliga Süd Latein am 08.01. in der Rundsporthalle in Ludwigsburg sehr überzeugen. Das Team erreichte mit seiner wirklich mitreißenden neuen Choreographie „James Bond“ und einer insbesondere tänzerisch sehr überzeugenden Leistung den <strong>2. Platz</strong>, auch hier nur knapp (3:2) geschlagen vom Heimteam aus Ludwigsburg.</p><p><img src="https://res.cloudinary.com/dlak0pmbw/image/upload/v1674576434/A_Latein_d181c90433.jpg" alt="A-Latein.jpg"></p><p>Zudem tanzte auch unsere <strong>B-Formation</strong>, eine unserer Nachwuchsmannschaften, unter der Leitung von Michael Ortlieb und Hendrik Decker auf dem besagten Turnier und erlangte mit der Choreografie "Burlesque" den <strong>7. Platz</strong>. Wer unsere Formationen live erleben möchte, sollte am 4.3. und 5.3. sich zur BBZ Halle in Nürnberg begeben. Denn dort findet unser alljährliches Formationswochenende statt! Platzierungen des Turniers:&nbsp;</p><ol><li>TSC Residenz Ludwigsburg</li><li>TSC Rot-Gold-Casino Nürnberg A-Team</li><li>Formation c&nbsp;</li><li>Formation d&nbsp;</li><li>Formation e&nbsp;</li><li>Formation f&nbsp;</li><li>TSC Rot-Gold-Casino Nürnberg B-Team</li></ol>',
-      publishedAt: "2023-01-23T17:19:06.871Z",
-      previewText:
-        "Unser A-Team der Lateinformationen konnte auf seinem Auftaktturnier der 2. Bundesliga Süd Latein am 08.01. in Ludwigsburg mit seiner neuen Choreographie „James Bond“ den 2. Platz erreichen.",
-      mainImage: {
-        data: {
-          attributes: {
-            formats: {
-              small: {
-                url: "https://res.cloudinary.com/dlak0pmbw/image/upload/v1674576434/small_A_Latein_d181c90433.jpg",
-              },
-            },
-            url: "https://res.cloudinary.com/dlak0pmbw/image/upload/v1674576434/A_Latein_d181c90433.jpg",
-          },
-        },
-      },
-    },
-  },
 ];
 
 describe("homepage", () => {
