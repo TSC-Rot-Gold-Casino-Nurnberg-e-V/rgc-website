@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
-import logo from "../public/rgc_logo_blank_white.png";
+import logo from "../public/RGC_Logo_white.svg";
 import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { useRouter } from "next/router";

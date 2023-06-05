@@ -6,7 +6,7 @@ import React, {
   ReactElement,
   SVGProps,
 } from "react";
-import logo from "../public/rgc_logo_blank_white.png";
+import logo from "../public/RGC_Logo_white.svg";
 
 export const Footer = () => (
   <footer className="default-padding bg-base-950 py-12">
