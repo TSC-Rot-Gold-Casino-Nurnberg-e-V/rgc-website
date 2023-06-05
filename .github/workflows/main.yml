@@ -19,3 +19,4 @@ jobs:
         env:
           NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
           CMS_TOKEN: ${{secrets.CMS_TOKEN}}
+          NEXT_PUBLIC_GET_POSTS_TOKEN: ${{secrets.NEXT_PUBLIC_GET_POSTS_TOKEN}}
