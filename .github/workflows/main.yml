@@ -17,5 +17,6 @@ jobs:
           build: npm run build
           start: npm start
         env:
-          CMS_URL: ${{secrets.CMS_URL}}
+          NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
           CMS_TOKEN: ${{secrets.CMS_TOKEN}}
+          NEXT_PUBLIC_GET_POSTS_TOKEN: ${{secrets.NEXT_PUBLIC_GET_POSTS_TOKEN}}
