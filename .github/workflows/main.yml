@@ -14,7 +14,6 @@ jobs:
       - name: Cypress run component tests
         uses: cypress-io/github-action@v5
         with:
-          install: false
           component: true
         env:
           NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
