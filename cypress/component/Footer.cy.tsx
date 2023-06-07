@@ -1,15 +1,16 @@
+import { Footer } from "../../components/Footer";
+import { RouterContext } from "next/dist/shared/lib/router-context";
+import { mockRouter } from "../support/mockRouter";
+
 describe("footer", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
-  });
+    const routerMock = mockRouter();
 
-  it("should display the footer on the homepage", () => {
-    cy.findByRole("contentinfo").should("exist");
-  });
-
-  it("should display the footer on the news page", () => {
-    cy.visit("http://localhost:3000/posts");
-    cy.findByRole("contentinfo").should("exist");
+    cy.mount(
+      <RouterContext.Provider value={routerMock}>
+        <Footer />
+      </RouterContext.Provider>
+    );
   });
 
   it("should have the correct course links", () => {
@@ -65,19 +66,21 @@ describe("footer", () => {
       .siblings()
       .should("contain", "Datenschutz");
   });
+
   it("should navigate to the homepage", () => {
-    cy.visit("http://localhost:3000/contact");
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Zur Startseite/i })
       .click();
-    cy.findByRole("heading", { name: /Herzlich Willkommen im RGC/i });
+
+    cy.get("@push").should("have.been.calledWith", "/");
   });
 
   it("should navigate to the contact page", () => {
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Kontaktanfrage/i })
       .click();
-    cy.findByRole("heading", { name: /Kontaktformular/i });
+
+    cy.get("@push").should("have.been.calledWith", "/contact");
   });
 
   it("should navigate to the contact page on a mobile device", () => {
@@ -86,7 +89,8 @@ describe("footer", () => {
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Kontaktanfrage/i })
       .click();
-    cy.findByRole("heading", { name: /Kontaktformular/i });
+
+    cy.get("@push").should("have.been.calledWith", "/contact");
   });
 
   it("should include infos about the association", () => {
