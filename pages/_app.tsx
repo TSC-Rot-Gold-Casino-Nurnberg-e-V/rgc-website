@@ -5,10 +5,25 @@ import Head from "next/head";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { Sponsors } from "../components/Sponsors";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    function setPath(url: string) {
+      sessionStorage.setItem("route", url);
+    }
+    router.events.on("routeChangeComplete", setPath);
+
+    return () => {
+      router.events.off("routeChangeComplete", setPath);
+    };
+  }, [router.events]);
+
   return (
     <div className="flex min-h-screen flex-col" data-theme="goldTheme">
       <Head>

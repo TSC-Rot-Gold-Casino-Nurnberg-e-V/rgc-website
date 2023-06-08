@@ -1,10 +1,12 @@
 import Head from "next/head";
-import { PostCard } from "../../components/PostCard";
 import { getPosts } from "../../api/api";
 import { Post } from "../../model/Post";
 import { Button } from "../../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { formatDate } from "../../utils/formatDate";
 
 export const getStaticProps: GetStaticProps<{
   posts: Post[];
@@ -28,12 +30,30 @@ export default function Posts({
     setIsLoading(true);
     const nextPage = page + 1;
     const { posts } = await getPosts(6, nextPage);
-    setDisplayedPosts((prevState) => {
-      return [...prevState, ...posts];
+    setDisplayedPosts((prevPosts) => {
+      const updatedPosts = [...prevPosts, ...posts];
+      sessionStorage.setItem("posts", JSON.stringify(updatedPosts));
+      return updatedPosts;
     });
     setPage(nextPage);
+    sessionStorage.setItem("page", nextPage.toString());
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    const position = sessionStorage.getItem("position");
+    const shouldRestorePreviousScrollPosition = sessionStorage
+      .getItem("route")
+      ?.startsWith("/posts/");
+    if (position !== null && shouldRestorePreviousScrollPosition) {
+      window.scrollTo(0, parseInt(position));
+    }
+    setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
+    const postsInSessionStorage = sessionStorage.getItem("posts");
+    if (postsInSessionStorage !== null) {
+      setDisplayedPosts(JSON.parse(postsInSessionStorage));
+    }
+  }, []);
 
   return (
     <>
@@ -51,7 +71,7 @@ export default function Posts({
               key={post.id}
               title={post.attributes.title}
               previewText={post.attributes.previewText}
-              publishedDate={post.attributes.publishedAt}
+              chronologicalPosition={post.attributes.chronologicalPosition}
               previewImage={
                 post.attributes.mainImage.data.attributes.formats.small?.url ??
                 post.attributes.mainImage.data.attributes.url
@@ -74,3 +94,56 @@ export default function Posts({
     </>
   );
 }
+
+interface Props {
+  title: string;
+  previewText: string;
+  chronologicalPosition: string;
+  previewImage: string;
+  postID: number;
+}
+
+const PostCard = ({
+  title,
+  previewImage,
+  previewText,
+  chronologicalPosition,
+  postID,
+}: Props) => (
+  <Link
+    href={`/posts/${postID}`}
+    key={postID}
+    className="group rounded-xl transition-all duration-500 hover:!opacity-100 group-hover/container:opacity-50"
+    onClick={() =>
+      sessionStorage.setItem("position", window.scrollY.toString())
+    }
+  >
+    <div className="relative h-[24rem] w-full max-w-md overflow-hidden rounded-xl transition-all">
+      <div className="absolute inset-0 h-full shrink-0">
+        <Image
+          src={previewImage}
+          alt=""
+          fill
+          className="rounded-xl object-cover object-top transition-all duration-500 group-hover:scale-105"
+          sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
+        />
+      </div>
+      <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">
+        <div className="relative top-16 flex h-full flex-col justify-end gap-3 transition-all duration-500 group-hover:top-0">
+          <time
+            dateTime={chronologicalPosition}
+            className="text-extrasmall text-base-300"
+          >
+            {formatDate(new Date(chronologicalPosition))}
+          </time>
+          <h2 className="text-large line-clamp-3 max-w-xs font-semibold text-base-200">
+            {title}
+          </h2>
+          <p className="line-clamp-2 text-transparent transition-all duration-500 group-hover:text-base-300">
+            {previewText}
+          </p>
+        </div>
+      </article>
+    </div>
+  </Link>
+);

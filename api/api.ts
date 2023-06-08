@@ -7,7 +7,7 @@ import { Membership, membershipsShema } from "../model/Membership";
 import { Policy, privacyPolicySchema } from "../model/Policy";
 import { Legal, legalNoticeSchema } from "../model/Legal";
 import { Competition, competitionsSchema } from "../model/Competition";
-import { Pagination } from "../model/Pagination";
+import { Pagination, paginationSchema } from "../model/Pagination";
 
 const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 const headers = new Headers();
@@ -37,7 +37,7 @@ export async function getPosts(
   const body = await res.json();
   return {
     posts: postsSchema.parse(body.data),
-    pagination: body.meta.pagination,
+    pagination: paginationSchema.parse(body.meta.pagination),
   };
 }
 

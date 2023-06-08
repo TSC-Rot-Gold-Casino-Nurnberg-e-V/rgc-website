@@ -2,6 +2,8 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../../model/Post";
 import { getAllPosts, getPost } from "../../api/api";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
+import { formatDate } from "../../utils/formatDate";
+import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
@@ -25,17 +27,37 @@ export default function PostID({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="m-auto max-w-3xl grow py-4 max-lg:px-6">
-      <h1 className="py-4 text-center text-3xl text-red-900 max-md:text-2xl">
-        {post.attributes.title}
-      </h1>
-      <div className="prose m-auto">
+    <main className="default-padding bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
+      <div className="prose-xl prose mx-auto">
+        <time className="text-normal text-base-500">
+          {formatDate(new Date(post.attributes.chronologicalPosition))}
+        </time>
         <div
-          className="prose prose-p:text-justify prose-img:m-auto prose-img:max-h-96 prose-img:max-w-3xl prose-img:rounded-lg"
+          className="prose-h1:heading-normal sm:prose-h1:heading-large prose-headings:text-secondary-900 prose-p:hyphens-auto prose-img:max-h-[24rem] prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:object-top sm:prose-img:max-h-[32rem]"
           dangerouslySetInnerHTML={{
             __html: sanitizeHTMLField(post.attributes.description),
           }}
         />
+        <Link
+          href="/posts"
+          className="flex items-center gap-2 p-1 text-secondary-900 no-underline"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="mt-0.5 h-4 w-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+          <span className="text-large">zurück</span>
+        </Link>
       </div>
     </main>
   );
