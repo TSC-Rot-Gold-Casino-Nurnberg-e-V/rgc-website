@@ -9,7 +9,7 @@ export function mockRouter(params?: Partial<NextRouter>): NextRouter {
     basePath: "",
     back: cy.spy().as("back"),
     beforePopState: cy.spy().as("beforePopState"),
-    forward: cy.spy().as("forward"), // <---------- added `forward`
+    forward: cy.spy().as("forward"),
     prefetch: cy.stub().as("prefetch").resolves(),
     push: cy.spy().as("push"),
     reload: cy.spy().as("reload"),
