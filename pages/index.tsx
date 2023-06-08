@@ -14,7 +14,7 @@ import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const posts = await getPosts();
+  const { posts } = await getPosts(3);
   return {
     props: { posts: posts },
   };
@@ -224,7 +224,7 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
         News
       </h2>
       <div className="flex w-full flex-wrap justify-center gap-6">
-        {posts.slice(0, 3).map((post) => (
+        {posts.map((post) => (
           <Link
             href={`/posts/${post.id}`}
             key={post.id}
