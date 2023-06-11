@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { trainersSchema } from "./Trainer";
 
-export const courseSchema = z.object({
+export const offerSchema = z.object({
   id: z.number(),
   attributes: z.object({
     title: z.string(),
@@ -24,6 +24,6 @@ export const courseSchema = z.object({
   }),
 });
 
-export const coursesSchema = z.array(courseSchema);
+export const offersSchema = z.array(offerSchema);
 
-export type Course = z.infer<typeof courseSchema>;
+export type Offer = z.infer<typeof offerSchema>;

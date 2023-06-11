@@ -86,10 +86,10 @@ describe("homepage", () => {
       });
     });
 
-    it("should contain a CTA linking to the courses page", () => {
+    it("should contain a CTA linking to the offers page", () => {
       cy.findByRole("banner")
         .findByRole("link")
-        .should("have.attr", "href", "/courses")
+        .should("have.attr", "href", "/offers")
         .contains("Komm vorbei");
     });
 
@@ -100,8 +100,8 @@ describe("homepage", () => {
     });
   });
 
-  describe("Coursesection", () => {
-    it("should display the introduction to the courses", () => {
+  describe("Offer section", () => {
+    it("should display the introduction to the offers", () => {
       cy.findByRole("main")
         .findByLabelText("Kursangebote")
         .findByRole("heading", {
@@ -119,21 +119,21 @@ describe("homepage", () => {
       cy.findByRole("main")
         .findByLabelText("Kursangebote")
         .findByRole("link", { name: /Einzeltanz/i })
-        .should("have.attr", "href", "/courses");
+        .should("have.attr", "href", "/offers");
     });
 
     it("should display the course Kindertanzen with the correct linking", () => {
       cy.findByRole("main")
         .findByLabelText("Kursangebote")
         .findByRole("link", { name: /Kindertanzen/i })
-        .should("have.attr", "href", "/courses");
+        .should("have.attr", "href", "/offers");
     });
 
     it("should display the course Formation with the correct linking", () => {
       cy.findByRole("main")
         .findByLabelText("Kursangebote")
         .findByRole("link", { name: /Formation/i })
-        .should("have.attr", "href", "/courses");
+        .should("have.attr", "href", "/offers");
     });
   });
 

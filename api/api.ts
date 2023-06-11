@@ -1,7 +1,7 @@
 import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
-import { Course, courseSchema, coursesSchema } from "../model/Course";
+import { Offer, offerSchema, offersSchema } from "../model/Offer";
 import { Executive, executivesSchema } from "../model/Executive";
 import { Membership, membershipsShema } from "../model/Membership";
 import { Policy, privacyPolicySchema } from "../model/Policy";
@@ -83,20 +83,20 @@ export async function getHistory(): Promise<History> {
   return historySchema.parse(data);
 }
 
-export async function getCourses(): Promise<Array<Course>> {
+export async function getOffers(): Promise<Array<Offer>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate[0]", "previewImage");
   urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/courses?${urlSearchParams}`);
-  return coursesSchema.parse(data);
+  const data = await fetchData(`/offers?${urlSearchParams}`);
+  return offersSchema.parse(data);
 }
 
-export async function getCourse(courseID: string): Promise<Course> {
+export async function getOffer(courseID: string): Promise<Offer> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate[0]", "previewImage");
   urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/courses/${courseID}?${urlSearchParams}`);
-  return courseSchema.parse(data);
+  const data = await fetchData(`/offers/${courseID}?${urlSearchParams}`);
+  return offerSchema.parse(data);
 }
 
 export async function getExecutives(): Promise<Array<Executive>> {

@@ -7,7 +7,7 @@ import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
 
-export default function Courses() {
+export default function Offers() {
   return (
     <main>
       <h1 className="heading-large md:heading-extralarge primary-gradient py-10 text-center text-secondary-950 md:py-12">
@@ -36,7 +36,7 @@ const Competition = () => (
       <div className="flex w-full gap-6 max-sm:flex-col">
         <CourseCard
           title="Standard"
-          href="/courses"
+          href="/offers"
           image={standard}
           priority={true}
           className="h-96"
@@ -45,7 +45,7 @@ const Competition = () => (
         <CourseCard
           priority={true}
           title="Latein"
-          href="/courses"
+          href="/offers"
           image={latein}
           className="h-96"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -72,7 +72,7 @@ const Formation = () => (
       <div className="flex gap-6 max-sm:flex-col">
         <CourseCard
           title="Standard"
-          href="/courses"
+          href="/offers"
           image={formation}
           className="h-80"
           priority={true}
@@ -80,7 +80,7 @@ const Formation = () => (
         />
         <CourseCard
           title="Latein"
-          href="/courses"
+          href="/offers"
           image={formation}
           priority={true}
           className="h-80"
@@ -107,7 +107,7 @@ const Youth = () => (
         <div className="h-80 w-full">
           <CourseCard
             title="Allgemein"
-            href="/courses"
+            href="/offers"
             image={formation}
             imageSizes="(max-width: 768px) 100vw, 50vw"
           />
@@ -115,14 +115,14 @@ const Youth = () => (
       </div>
       <CourseCard
         title="Latein"
-        href="/courses"
+        href="/offers"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Standard"
-        href="/courses"
+        href="/offers"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -146,7 +146,7 @@ const Hobby = () => (
       <div className="h-96 md:basis-1/2">
         <CourseCard
           title="Freizeittanzen"
-          href="/courses"
+          href="/offers"
           image={formation}
           imageSizes="(max-width: 768px) 100vw, 50vw"
         />

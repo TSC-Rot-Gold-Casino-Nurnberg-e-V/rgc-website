@@ -26,7 +26,7 @@ export const Navbar = () => {
         <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/association" />
           <NavLink text="News" href="/posts" />
-          <NavLink text="Angebot" href="/courses" />
+          <NavLink text="Angebot" href="/offers" />
           <NavLink text="Veranstaltungen" href="/events/eventsOverview" />
           <NavLink
             text="Turnierergebnisse"
@@ -73,7 +73,7 @@ export const Navbar = () => {
                   <Menu.Items className="text-normal menu rounded-box bg-base-800 py-2 text-base-50 shadow-sm shadow-base-900">
                     <MenuLink text="Der Verein" href="/association" />
                     <MenuLink text="News" href="/posts" />
-                    <MenuLink text="Angebot" href="/courses" />
+                    <MenuLink text="Angebot" href="/offers" />
                     <MenuLink text="Veranstaltungen" href="/eventsOverview" />
                     <MenuLink
                       text="Turnierergebnisse"
