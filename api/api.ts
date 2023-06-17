@@ -1,7 +1,7 @@
 import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
-import { Offer, offerSchema, offersSchema } from "../model/Offer";
+import { Offer, offerSchema } from "../model/Offer";
 import { Executive, executivesSchema } from "../model/Executive";
 import { Membership, membershipsShema } from "../model/Membership";
 import { Policy, privacyPolicySchema } from "../model/Policy";
@@ -91,11 +91,18 @@ export async function getOffers(): Promise<Array<Offer>> {
   return offersSchema.parse(data);
 }
 
-export async function getOffer(courseID: string): Promise<Offer> {
+export async function getOffer(slug: string): Promise<Offer> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "previewImage");
+  urlSearchParams.append("populate[0]", "trainers");
   urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/offers/${courseID}?${urlSearchParams}`);
+  urlSearchParams.append("populate[2]", "trainings");
+  urlSearchParams.append("populate[3]", "trainings.weekday");
+  urlSearchParams.append("populate[4]", "trainings.trainers");
+  urlSearchParams.append("populate[5]", "trainings.trainers.image");
+  urlSearchParams.append("populate[6]", "faqs");
+  const data = await fetchData(
+    `/slugify/slugs/offer/${slug}?${urlSearchParams}`
+  );
   return offerSchema.parse(data);
 }
 
