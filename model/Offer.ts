@@ -1,29 +1,24 @@
 import { z } from "zod";
-import { trainersSchema } from "./Trainer";
+import { trainerSchema } from "./Trainer";
+import { trainingSchema } from "./Training";
+import { faqSchema } from "./FAQ";
 
 export const offerSchema = z.object({
   id: z.number(),
   attributes: z.object({
+    slug: z.string(),
     title: z.string(),
     description: z.string(),
-    previewImage: z.object({
-      data: z.object({
-        attributes: z.object({
-          formats: z.object({
-            small: z.optional(
-              z.object({
-                url: z.string(),
-              })
-            ),
-          }),
-          url: z.string(),
-        }),
-      }),
+    trainers: z.object({
+      data: z.array(trainerSchema),
     }),
-    trainers: trainersSchema,
+    trainings: z.object({
+      data: z.array(trainingSchema),
+    }),
+    faqs: z.object({
+      data: z.array(faqSchema),
+    }),
   }),
 });
-
-export const offersSchema = z.array(offerSchema);
 
 export type Offer = z.infer<typeof offerSchema>;
