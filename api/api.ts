@@ -8,6 +8,7 @@ import { Policy, privacyPolicySchema } from "../model/Policy";
 import { Legal, legalNoticeSchema } from "../model/Legal";
 import { Competition, competitionsSchema } from "../model/Competition";
 import { Pagination, paginationSchema } from "../model/Pagination";
+import { slugsSchema } from "../model/Slug";
 
 const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 const headers = new Headers();
@@ -83,12 +84,12 @@ export async function getHistory(): Promise<History> {
   return historySchema.parse(data);
 }
 
-export async function getOffers(): Promise<Array<Offer>> {
+export async function getSlugs(collection: string): Promise<Array<string>> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "previewImage");
-  urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/offers?${urlSearchParams}`);
-  return offersSchema.parse(data);
+  urlSearchParams.append("fields", "slug");
+  const data = await fetchData(`/${collection}?${urlSearchParams}`);
+  const slugs = slugsSchema.parse(data);
+  return slugs.map((slug) => slug.attributes.slug);
 }
 
 export async function getOffer(slug: string): Promise<Offer> {
