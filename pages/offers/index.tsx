@@ -36,7 +36,7 @@ const Competition = () => (
       <div className="flex w-full gap-6 max-sm:flex-col">
         <CourseCard
           title="Standard"
-          href="/offers"
+          href="/offers/turniertanz-standard"
           image={standard}
           priority={true}
           className="h-96"
