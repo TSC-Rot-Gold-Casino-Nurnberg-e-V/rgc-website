@@ -76,28 +76,22 @@ export async function getEvents(): Promise<Array<Event>> {
   const isoDate = new Date().toISOString().substring(0, 10);
   const filterProperty: keyof Event["attributes"] = "startDate";
   urlSearchParams.append(`filters[${filterProperty}][$gte]`, isoDate);
-  const data = await fetchData(`/events?${urlSearchParams}`);
+  const { data } = await fetchData(`/events?${urlSearchParams}`);
   return eventsSchema.parse(data);
 }
 
-export async function getEvent(eventID: string): Promise<Event> {
+export async function getEvent(slug: string): Promise<Event> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/events/${eventID}?${urlSearchParams}`);
+  const { data } = await fetchData(
+    `/slugify/slugs/event/${slug}?${urlSearchParams}`
+  );
   return eventSchema.parse(data);
 }
 
 export async function getHistory(): Promise<History> {
-  const data = await fetchData("/history");
+  const { data } = await fetchData("/history");
   return historySchema.parse(data);
-}
-
-export async function getSlugs(collection: string): Promise<Array<string>> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("fields", "slug");
-  const data = await fetchData(`/${collection}?${urlSearchParams}`);
-  const slugs = slugsSchema.parse(data);
-  return slugs.map((slug) => slug.attributes.slug);
 }
 
 export async function getOffer(slug: string): Promise<Offer> {
