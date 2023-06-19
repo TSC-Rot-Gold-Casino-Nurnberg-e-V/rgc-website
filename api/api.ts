@@ -38,18 +38,6 @@ export async function getPost(slug: string): Promise<Post> {
   );
   return postSchema.parse(data);
 }
-
-export async function getAllPosts(): Promise<Array<Post>> {
-  const pageSize = 25;
-  const { posts, pagination } = await getPosts(pageSize, 1);
-  let allPosts: Array<Post> = posts;
-  for (let page = 2; page <= pagination.pageCount; page++) {
-    const { posts } = await getPosts(pageSize, page);
-    allPosts = allPosts.concat(posts);
-  }
-  return allPosts;
-}
-
 export async function getSlugs(collection: string): Promise<Array<string>> {
   const pageSize = 25;
   const urlSearchParams = new URLSearchParams();
