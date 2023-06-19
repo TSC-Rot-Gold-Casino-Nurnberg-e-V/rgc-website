@@ -103,7 +103,7 @@ export async function getOffer(slug: string): Promise<Offer> {
   urlSearchParams.append("populate[4]", "trainings.trainers");
   urlSearchParams.append("populate[5]", "trainings.trainers.image");
   urlSearchParams.append("populate[6]", "faqs");
-  const data = await fetchData(
+  const { data } = await fetchData(
     `/slugify/slugs/offer/${slug}?${urlSearchParams}`
   );
   return offerSchema.parse(data);
@@ -113,39 +113,44 @@ export async function getExecutives(): Promise<Array<Executive>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("sort", `id:asc`);
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/executives?${urlSearchParams}`);
+  const { data } = await fetchData(`/executives?${urlSearchParams}`);
   return executivesSchema.parse(data);
 }
 
 export async function getMembership(): Promise<Array<Membership>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/memberships?${urlSearchParams}`);
+  const { data } = await fetchData(`/memberships?${urlSearchParams}`);
   return membershipsShema.parse(data);
 }
 
 export async function getPrivacyPolicy(): Promise<Policy> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/privacy-policy?${urlSearchParams}`);
+  const { data } = await fetchData(`/privacy-policy?${urlSearchParams}`);
   return privacyPolicySchema.parse(data);
 }
 
 export async function getLegalNotice(): Promise<Legal> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/legal-notice?${urlSearchParams}`);
+  const { data } = await fetchData(`/legal-notice?${urlSearchParams}`);
   return legalNoticeSchema.parse(data);
 }
 
 export async function getCompetitionResults(): Promise<Array<Competition>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/competition-results?${urlSearchParams}`);
+  const { data } = await fetchData(`/competition-results?${urlSearchParams}`);
   return competitionsSchema.parse(data);
 }
 
-async function fetchData(path: string) {
+async function fetchData(path: string): Promise<{
+  data: unknown | Array<unknown>;
+  meta: {
+    pagination?: Pagination;
+  };
+}> {
   const res = await fetch(baseUrl + path, {
     headers: headers,
   });
@@ -153,5 +158,5 @@ async function fetchData(path: string) {
     const error = await res.json();
     throw new Error(JSON.stringify(error));
   }
-  return (await res.json()).data;
+  return await res.json();
 }
