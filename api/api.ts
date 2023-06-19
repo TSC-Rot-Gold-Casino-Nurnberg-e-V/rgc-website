@@ -8,7 +8,7 @@ import { Policy, privacyPolicySchema } from "../model/Policy";
 import { Legal, legalNoticeSchema } from "../model/Legal";
 import { Competition, competitionsSchema } from "../model/Competition";
 import { Pagination, paginationSchema } from "../model/Pagination";
-import { slugsSchema } from "../model/Slug";
+import { Slug, slugsSchema } from "../model/Slug";
 
 const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 const headers = new Headers();
@@ -58,6 +58,24 @@ export async function getAllPosts(): Promise<Array<Post>> {
     allPosts = allPosts.concat(posts);
   }
   return allPosts;
+}
+
+export async function getSlugs(collection: string): Promise<Array<string>> {
+  const pageSize = 25;
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("fields", "slug");
+  const { data, meta } = await fetchData(`/${collection}?${urlSearchParams}`);
+  const pagination: Pagination = paginationSchema.parse(meta.pagination);
+  let allSlugs: Array<Slug> = slugsSchema.parse(data);
+  for (let page = 2; page <= pagination.pageCount; page++) {
+    const urlSearchParams = new URLSearchParams();
+    urlSearchParams.append("pagination[pageSize]", pageSize.toString());
+    urlSearchParams.append("pagination[page]", page.toString());
+    const { data } = await fetchData(`/${collection}?${urlSearchParams}`);
+    const slugs: Array<Slug> = slugsSchema.parse(data);
+    allSlugs = allSlugs.concat(slugs);
+  }
+  return allSlugs.map((slug) => slug.attributes.slug);
 }
 
 export async function getEvents(): Promise<Array<Event>> {
