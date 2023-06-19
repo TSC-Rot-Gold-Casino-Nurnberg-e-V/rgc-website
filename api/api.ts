@@ -23,29 +23,19 @@ export async function getPosts(
   urlSearchParams.append("populate", "*");
   urlSearchParams.append("pagination[pageSize]", pageSize.toString());
   urlSearchParams.append("pagination[page]", page.toString());
-  const headers = new Headers();
-  headers.append(
-    "Authorization",
-    `Bearer ${process.env.NEXT_PUBLIC_GET_POSTS_TOKEN}`
-  );
-  const res = await fetch(baseUrl + `/posts?${urlSearchParams}`, {
-    headers: headers,
-  });
-  if (!res.ok) {
-    const error = await res.json();
-    throw new Error(JSON.stringify(error));
-  }
-  const body = await res.json();
+  const { data, meta } = await fetchData(`/posts?${urlSearchParams}`);
   return {
-    posts: postsSchema.parse(body.data),
-    pagination: paginationSchema.parse(body.meta.pagination),
+    posts: postsSchema.parse(data),
+    pagination: paginationSchema.parse(meta.pagination),
   };
 }
 
-export async function getPost(postID: string): Promise<Post> {
+export async function getPost(slug: string): Promise<Post> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const data = await fetchData(`/posts/${postID}?${urlSearchParams}`);
+  const { data } = await fetchData(
+    `/slugify/slugs/post/${slug}?${urlSearchParams}`
+  );
   return postSchema.parse(data);
 }
 
