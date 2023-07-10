@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<{ post: Post }> = async ({
   return { props: { post: post } };
 };
 
-export default function Slug({
+export default function PostPage({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
