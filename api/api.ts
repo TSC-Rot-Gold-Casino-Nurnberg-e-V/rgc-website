@@ -90,7 +90,9 @@ export async function getOffer(slug: string): Promise<Offer> {
   urlSearchParams.append("populate[3]", "trainings.weekday");
   urlSearchParams.append("populate[4]", "trainings.trainers");
   urlSearchParams.append("populate[5]", "trainings.trainers.image");
-  urlSearchParams.append("populate[6]", "faqs");
+  urlSearchParams.append("populate[6]", "trainings.trainers.lizenzen");
+  urlSearchParams.append("populate[7]", "trainers.lizenzen");
+  urlSearchParams.append("populate[8]", "faqs");
   const { data } = await fetchData(
     `/slugify/slugs/offer/${slug}?${urlSearchParams}`
   );
