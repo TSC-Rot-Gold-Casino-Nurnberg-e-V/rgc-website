@@ -10,7 +10,7 @@ interface Props {
 export const CourseCard = ({ title, previewImage, courseID }: Props) => {
   return (
     <Link
-      href={`/courses/${courseID}`}
+      href={`/offers/${courseID}`}
       className="group relative flex w-1/2 flex-col gap-4 shadow group-hover:shadow-md max-md:m-auto"
     >
       <div className="relative h-80 w-full">

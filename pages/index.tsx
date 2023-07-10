@@ -29,7 +29,7 @@ export default function Home({
       </Head>
       <main>
         <HeroSection />
-        <CourseSection />
+        <OfferSection />
         <AssociationSection />
         <Stats />
         <News posts={posts} />
@@ -59,7 +59,7 @@ const HeroSection = () => (
           unvergessliche Momente auf der Tanzfläche.
         </p>
       </div>
-      <Link className="w-fit rounded-md" href="/courses">
+      <Link className="w-fit rounded-md" href="/offers">
         <Button tabIndex={-1}>Komm vorbei</Button>
       </Link>
     </div>
@@ -76,7 +76,7 @@ const HeroSection = () => (
 );
 
 // TODO: Links zu den Angeboten mit Anker ergänzen
-const CourseSection = () => (
+const OfferSection = () => (
   <section
     aria-label="Kursangebote"
     className="default-padding flex flex-col gap-12 bg-gradient-to-br from-base-500 to-base-800 py-12"
@@ -99,21 +99,21 @@ const CourseSection = () => (
         title="Einzeltanz"
         image={einzeltanz}
         className="max-h-[28rem] "
-        href="/courses"
+        href="/offers"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Formation"
         image={formation}
         className="max-h-[28rem]"
-        href="/courses"
+        href="/offers"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <CourseCard
         title="Kindertanzen"
         image={kindertanzen}
         className="max-h-[28rem] sm:max-lg:col-span-2"
-        href="/courses"
+        href="/offers"
         imageSizes="(max-width: 1024px) 100vw, 33vw"
       />
     </div>

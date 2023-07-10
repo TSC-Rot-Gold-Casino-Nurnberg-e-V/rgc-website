@@ -1,13 +1,14 @@
 import { Post, postSchema, postsSchema } from "../model/Post";
 import { Event, eventSchema, eventsSchema } from "../model/Event";
 import { History, historySchema } from "../model/History";
-import { Course, courseSchema, coursesSchema } from "../model/Course";
+import { Offer, offerSchema } from "../model/Offer";
 import { Executive, executivesSchema } from "../model/Executive";
 import { Membership, membershipsShema } from "../model/Membership";
 import { Policy, privacyPolicySchema } from "../model/Policy";
 import { Legal, legalNoticeSchema } from "../model/Legal";
 import { Competition, competitionsSchema } from "../model/Competition";
 import { Pagination, paginationSchema } from "../model/Pagination";
+import { slugsSchema } from "../model/Slug";
 
 const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 const headers = new Headers();
@@ -83,20 +84,29 @@ export async function getHistory(): Promise<History> {
   return historySchema.parse(data);
 }
 
-export async function getCourses(): Promise<Array<Course>> {
+export async function getSlugs(collection: string): Promise<Array<string>> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "previewImage");
-  urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/courses?${urlSearchParams}`);
-  return coursesSchema.parse(data);
+  urlSearchParams.append("fields", "slug");
+  const data = await fetchData(`/${collection}?${urlSearchParams}`);
+  const slugs = slugsSchema.parse(data);
+  return slugs.map((slug) => slug.attributes.slug);
 }
 
-export async function getCourse(courseID: string): Promise<Course> {
+export async function getOffer(slug: string): Promise<Offer> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "previewImage");
+  urlSearchParams.append("populate[0]", "trainers");
   urlSearchParams.append("populate[1]", "trainers.image");
-  const data = await fetchData(`/courses/${courseID}?${urlSearchParams}`);
-  return courseSchema.parse(data);
+  urlSearchParams.append("populate[2]", "trainings");
+  urlSearchParams.append("populate[3]", "trainings.weekday");
+  urlSearchParams.append("populate[4]", "trainings.trainers");
+  urlSearchParams.append("populate[5]", "trainings.trainers.image");
+  urlSearchParams.append("populate[6]", "trainings.trainers.lizenzen");
+  urlSearchParams.append("populate[7]", "trainers.lizenzen");
+  urlSearchParams.append("populate[8]", "faqs");
+  const data = await fetchData(
+    `/slugify/slugs/offer/${slug}?${urlSearchParams}`
+  );
+  return offerSchema.parse(data);
 }
 
 export async function getExecutives(): Promise<Array<Executive>> {

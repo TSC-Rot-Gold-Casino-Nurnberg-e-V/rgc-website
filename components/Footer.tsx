@@ -51,10 +51,10 @@ export const Footer = () => (
       <div className="order-4 flex flex-col gap-4 lg:order-3">
         <CategoryHeading text="Angebot" />
         <div className="flex flex-col gap-1">
-          <FooterLink text="Turniertanzen" href="/courses" />
-          <FooterLink text="Formationstanzen" href="/courses" />
-          <FooterLink text="Kindertanzen" href="/courses" />
-          <FooterLink text="Freizeittanzen" href="/courses" />
+          <FooterLink text="Turniertanzen" href="/offers" />
+          <FooterLink text="Formationstanzen" href="/offers" />
+          <FooterLink text="Kindertanzen" href="/offers" />
+          <FooterLink text="Freizeittanzen" href="/offers" />
         </div>
       </div>
       <div className="order-2 flex flex-col gap-4 lg:order-4">
