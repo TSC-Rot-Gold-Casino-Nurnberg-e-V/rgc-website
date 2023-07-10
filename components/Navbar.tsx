@@ -27,7 +27,7 @@ export const Navbar = () => {
           <NavLink text="Der Verein" href="/association" />
           <NavLink text="News" href="/posts" />
           <NavLink text="Angebot" href="/offers" />
-          <NavLink text="Veranstaltungen" href="/events/eventsOverview" />
+          <NavLink text="Veranstaltungen" href="/events" />
           <NavLink
             text="Turnierergebnisse"
             href="/events/competitionResults"
@@ -74,7 +74,7 @@ export const Navbar = () => {
                     <MenuLink text="Der Verein" href="/association" />
                     <MenuLink text="News" href="/posts" />
                     <MenuLink text="Angebot" href="/offers" />
-                    <MenuLink text="Veranstaltungen" href="/eventsOverview" />
+                    <MenuLink text="Veranstaltungen" href="/events" />
                     <MenuLink
                       text="Turnierergebnisse"
                       href="/events/competitionResult"

@@ -7,3 +7,5 @@ export const slugSchema = z.object({
 });
 
 export const slugsSchema = z.array(slugSchema);
+
+export type Slug = z.infer<typeof slugSchema>;

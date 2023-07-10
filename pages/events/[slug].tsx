@@ -1,13 +1,13 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getEvent, getEvents } from "../../api/api";
+import { getEvent, getSlugs } from "../../api/api";
 import { Event } from "../../model/Event";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
 import { formatDate } from "../../utils/formatDate";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const events = await getEvents();
-  const paths = events.map((event) => {
-    return { params: { eventID: event.id.toString() } };
+  const events = await getSlugs("events");
+  const paths = events.map((slug) => {
+    return { params: { slug: slug } };
   });
   return { paths: paths, fallback: false };
 };
@@ -15,14 +15,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{ event: Event }> = async ({
   params,
 }) => {
-  if (typeof params?.eventID !== "string") {
-    throw new Error("Typeof parameter 'eventID' is not string.");
+  if (typeof params?.slug !== "string") {
+    throw new Error("Typeof parameter 'slug' is not string.");
   }
-  const event = await getEvent(params.eventID);
+  const event = await getEvent(params.slug);
   return { props: { event: event } };
 };
 
-export default function EventID({
+export default function EventPage({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const formattedStartDate = formatDate(new Date(event.attributes.startDate));

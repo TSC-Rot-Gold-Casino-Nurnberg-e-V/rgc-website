@@ -3,6 +3,7 @@ import { z } from "zod";
 export const eventSchema = z.object({
   id: z.number(),
   attributes: z.object({
+    slug: z.string(),
     title: z.string(),
     previewText: z.string(),
     description: z.string(),

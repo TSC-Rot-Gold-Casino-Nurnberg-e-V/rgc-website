@@ -67,8 +67,8 @@ export default function Posts({
         <div className="group/container m-auto grid max-w-screen-lg justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {displayedPosts.map((post) => (
             <PostCard
-              postID={post.id}
-              key={post.id}
+              slug={post.attributes.slug}
+              key={post.attributes.slug}
               title={post.attributes.title}
               previewText={post.attributes.previewText}
               chronologicalPosition={post.attributes.chronologicalPosition}
@@ -100,7 +100,7 @@ interface Props {
   previewText: string;
   chronologicalPosition: string;
   previewImage: string;
-  postID: number;
+  slug: string;
 }
 
 const PostCard = ({
@@ -108,11 +108,11 @@ const PostCard = ({
   previewImage,
   previewText,
   chronologicalPosition,
-  postID,
+  slug,
 }: Props) => (
   <Link
-    href={`/posts/${postID}`}
-    key={postID}
+    href={`/posts/${slug}`}
+    key={slug}
     className="group rounded-xl transition-all duration-500 hover:!opacity-100 group-hover/container:opacity-50"
     onClick={() =>
       sessionStorage.setItem("position", window.scrollY.toString())

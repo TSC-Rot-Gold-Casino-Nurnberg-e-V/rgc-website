@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { Post } from "../../model/Post";
-import { getAllPosts, getPost } from "../../api/api";
+import { getPost, getSlugs } from "../../api/api";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
 import { formatDate } from "../../utils/formatDate";
 import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts();
-  const paths = posts.map((post) => {
-    return { params: { postID: post.id.toString() } };
+  const slugs = await getSlugs("posts");
+  const paths = slugs.map((slug) => {
+    return { params: { slug: slug } };
   });
   return { paths: paths, fallback: false };
 };
@@ -16,14 +16,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{ post: Post }> = async ({
   params,
 }) => {
-  if (typeof params?.postID !== "string") {
-    throw new Error("Typeof parameter 'postID' is not string.");
+  if (typeof params?.slug !== "string") {
+    throw new Error("Typeof parameter 'slug' is not string.");
   }
-  const post = await getPost(params.postID);
+  const post = await getPost(params.slug);
   return { props: { post: post } };
 };
 
-export default function PostID({
+export default function PostPage({
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (

@@ -5,21 +5,21 @@ interface Props {
   title: string;
   startDate: Date;
   endDate: Date | null;
-  eventID: number;
+  slug: string;
   previewText: string;
 }
 
 export const EventCard = ({
+  slug,
   title,
   startDate,
   endDate,
-  eventID,
   previewText,
 }: Props) => {
   const formattedStartDate = formatDate(startDate);
   return (
     <Link
-      href={`/events/${eventID}`}
+      href={`/events/${slug}`}
       className="group flex flex-col justify-between gap-4 rounded bg-white px-8 py-6 shadow hover:shadow-md md:flex-row md:gap-12 md:px-10 md:py-8"
     >
       <div className="max-sm: flex flex-row gap-2 self-center font-semibold tracking-wider opacity-50 group-hover:text-red-900 group-hover:opacity-100 md:flex-col">
