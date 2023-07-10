@@ -38,7 +38,7 @@ export const Footer = () => (
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/association" />
           <FooterLink text="News" href="/posts" />
-          <FooterLink text="Veranstaltungen" href="/events/eventsOverview" />
+          <FooterLink text="Veranstaltungen" href="/events" />
           <FooterLink
             text="Turnierergebnisse"
             href="/events/competitionResults"
