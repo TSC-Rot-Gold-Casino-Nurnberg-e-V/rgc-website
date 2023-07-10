@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<{ event: Event }> = async ({
   return { props: { event: event } };
 };
 
-export default function EventID({
+export default function EventPage({
   event,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const formattedStartDate = formatDate(new Date(event.attributes.startDate));
