@@ -149,6 +149,7 @@ const AngebotCard = ({
         className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
         sizes={imageSizes}
+        priority
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
