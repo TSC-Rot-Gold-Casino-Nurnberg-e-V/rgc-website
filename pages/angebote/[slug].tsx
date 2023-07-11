@@ -142,7 +142,7 @@ export default function AngebotPage({
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="h-5 min-h-fit w-5 min-w-fit"
+              className="h-5 min-h-[20px] w-5 min-w-[20px]"
             >
               <path
                 strokeLinecap="round"
