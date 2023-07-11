@@ -39,7 +39,7 @@ export default function NeuigkeitPage({
           }}
         />
         <Link
-          href="/Neuigkeiten"
+          href="/neuigkeiten"
           className="flex items-center gap-2 p-1 text-secondary-900 no-underline"
         >
           <svg
