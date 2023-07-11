@@ -27,7 +27,7 @@ export default function NeuigkeitPage({
   neuigkeit,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="default-padding bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
+    <main className="default-padding grow bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
       <div className="prose-xl prose mx-auto">
         <time className="text-normal text-base-500">
           {formatDate(new Date(neuigkeit.attributes.datum))}
