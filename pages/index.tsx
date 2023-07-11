@@ -264,7 +264,7 @@ const Neuigkeiten = ({
         ))}
       </div>
       <div className="mx-auto">
-        <Link className="rounded-md" href="/Neuigkeiten">
+        <Link className="rounded-md" href="/neuigkeiten">
           <Button tabIndex={-1}>Weitere News</Button>
         </Link>
       </div>
