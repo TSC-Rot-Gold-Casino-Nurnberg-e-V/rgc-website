@@ -36,25 +36,23 @@ export const Footer = () => (
         <CategoryHeading text="Informationen" />
         <div className="flex flex-col gap-1">
           <FooterLink text="Startseite" href="/" />
-          <FooterLink text="Der Verein" href="/association" />
-          <FooterLink text="News" href="/posts" />
-          <FooterLink text="Veranstaltungen" href="/events" />
-          <FooterLink
-            text="Turnierergebnisse"
-            href="/events/competitionResults"
-          />
-          <FooterLink text="Kontaktanfrage" href="/contact" />
-          <FooterLink text="Impressum" href="/legalNotice" />
-          <FooterLink text="Datenschutz" href="/privacyPolicy" />
+          <FooterLink text="Der Verein" href="/verein" />
+          <FooterLink text="News" href="/neuigkeiten" />
+          <FooterLink text="Veranstaltungen" href="/veranstaltungen" />
+          <FooterLink text="Turnierergebnisse" href="/turnierergebnisse" />
+          <FooterLink text="Kontaktanfrage" href="/kontakt" />
+          <FooterLink text="Impressum" href="/impressum" />
+          <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
         </div>
       </div>
       <div className="order-4 flex flex-col gap-4 lg:order-3">
         <CategoryHeading text="Angebot" />
         <div className="flex flex-col gap-1">
-          <FooterLink text="Turniertanzen" href="/offers" />
-          <FooterLink text="Formationstanzen" href="/offers" />
-          <FooterLink text="Kindertanzen" href="/offers" />
-          <FooterLink text="Freizeittanzen" href="/offers" />
+          {/* TODO Verlinkungen klären mit Ankerpunkten */}
+          <FooterLink text="Turniertanzen" href="/angebote" />
+          <FooterLink text="Formationstanzen" href="/angebote" />
+          <FooterLink text="Kindertanzen" href="/angebote" />
+          <FooterLink text="Freizeittanzen" href="/angebote" />
         </div>
       </div>
       <div className="order-2 flex flex-col gap-4 lg:order-4">

@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { getPosts } from "../../api/api";
-import { Post } from "../../model/Post";
+import { getNeuigkeiten } from "../../api/api";
+import { Neuigkeit } from "../../model/Neuigkeit";
 import { Button } from "../../components/Button";
 import { useEffect, useState } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -9,31 +9,32 @@ import Image from "next/image";
 import { formatDate } from "../../utils/formatDate";
 
 export const getStaticProps: GetStaticProps<{
-  posts: Post[];
-  totalPostCount: number;
+  neuigkeiten: Array<Neuigkeit>;
+  totalCount: number;
 }> = async () => {
-  const { posts, pagination } = await getPosts(6);
+  const { neuigkeiten, pagination } = await getNeuigkeiten(6);
   return {
-    props: { posts: posts, totalPostCount: pagination.total },
+    props: { neuigkeiten: neuigkeiten, totalCount: pagination.total },
   };
 };
 
-export default function Posts({
-  posts,
-  totalPostCount,
+export default function NeuigkeitenPage({
+  neuigkeiten,
+  totalCount,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [displayedPosts, setDisplayedPosts] = useState<Array<Post>>(posts);
+  const [displayedNeuigkeiten, setDisplayedNeuigkeiten] =
+    useState<Array<Neuigkeit>>(neuigkeiten);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function getMorePosts() {
+  async function getMoreNeuigkeiten() {
     setIsLoading(true);
     const nextPage = page + 1;
-    const { posts } = await getPosts(6, nextPage);
-    setDisplayedPosts((prevPosts) => {
-      const updatedPosts = [...prevPosts, ...posts];
-      sessionStorage.setItem("posts", JSON.stringify(updatedPosts));
-      return updatedPosts;
+    const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
+    setDisplayedNeuigkeiten((prevNeuigkeiten) => {
+      const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
+      sessionStorage.setItem("neuigkeiten", JSON.stringify(updatedNeuigkeiten));
+      return updatedNeuigkeiten;
     });
     setPage(nextPage);
     sessionStorage.setItem("page", nextPage.toString());
@@ -44,14 +45,14 @@ export default function Posts({
     const position = sessionStorage.getItem("position");
     const shouldRestorePreviousScrollPosition = sessionStorage
       .getItem("route")
-      ?.startsWith("/posts/");
+      ?.startsWith("/neuigkeiten/");
     if (position !== null && shouldRestorePreviousScrollPosition) {
       window.scrollTo(0, parseInt(position));
     }
     setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
-    const postsInSessionStorage = sessionStorage.getItem("posts");
-    if (postsInSessionStorage !== null) {
-      setDisplayedPosts(JSON.parse(postsInSessionStorage));
+    const neuigkeitenInStorage = sessionStorage.getItem("neuigkeiten");
+    if (neuigkeitenInStorage !== null) {
+      setDisplayedNeuigkeiten(JSON.parse(neuigkeitenInStorage));
     }
   }, []);
 
@@ -65,24 +66,23 @@ export default function Posts({
       </Head>
       <main className="default-padding mx-auto flex flex-col gap-6 bg-base-950 py-12">
         <div className="group/container m-auto grid max-w-screen-lg justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {displayedPosts.map((post) => (
+          {displayedNeuigkeiten.map((neuigkeit) => (
             <PostCard
-              slug={post.attributes.slug}
-              key={post.attributes.slug}
-              title={post.attributes.title}
-              previewText={post.attributes.previewText}
-              chronologicalPosition={post.attributes.chronologicalPosition}
-              previewImage={
-                post.attributes.mainImage.data.attributes.formats.small?.url ??
-                post.attributes.mainImage.data.attributes.url
+              slug={neuigkeit.attributes.slug}
+              key={neuigkeit.attributes.slug}
+              titel={neuigkeit.attributes.titel}
+              vorschautext={neuigkeit.attributes.vorschautext}
+              datum={neuigkeit.attributes.datum}
+              vorschaubild={
+                neuigkeit.attributes.vorschaubild.data.attributes.url
               }
             />
           ))}
         </div>
-        {displayedPosts.length < totalPostCount && (
+        {displayedNeuigkeiten.length < totalCount && (
           <div className="mx-auto w-fit">
             <Button
-              onClick={getMorePosts}
+              onClick={getMoreNeuigkeiten}
               disabled={isLoading}
               className={isLoading ? "loading" : undefined}
             >
@@ -96,22 +96,22 @@ export default function Posts({
 }
 
 interface Props {
-  title: string;
-  previewText: string;
-  chronologicalPosition: string;
-  previewImage: string;
+  titel: string;
+  vorschautext: string;
+  datum: string;
+  vorschaubild: string;
   slug: string;
 }
 
 const PostCard = ({
-  title,
-  previewImage,
-  previewText,
-  chronologicalPosition,
+  titel,
+  vorschaubild,
+  vorschautext,
+  datum,
   slug,
 }: Props) => (
   <Link
-    href={`/posts/${slug}`}
+    href={`/neuigkeiten/${slug}`}
     key={slug}
     className="group rounded-xl transition-all duration-500 hover:!opacity-100 group-hover/container:opacity-50"
     onClick={() =>
@@ -121,7 +121,7 @@ const PostCard = ({
     <div className="relative h-[24rem] w-full max-w-md overflow-hidden rounded-xl transition-all">
       <div className="absolute inset-0 h-full shrink-0">
         <Image
-          src={previewImage}
+          src={vorschaubild}
           alt=""
           fill
           className="rounded-xl object-cover object-top transition-all duration-500 group-hover:scale-105"
@@ -130,17 +130,14 @@ const PostCard = ({
       </div>
       <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">
         <div className="relative top-16 flex h-full flex-col justify-end gap-3 transition-all duration-500 group-hover:top-0">
-          <time
-            dateTime={chronologicalPosition}
-            className="text-extrasmall text-base-300"
-          >
-            {formatDate(new Date(chronologicalPosition))}
+          <time dateTime={datum} className="text-extrasmall text-base-300">
+            {formatDate(new Date(datum))}
           </time>
           <h2 className="text-large line-clamp-3 max-w-xs font-semibold text-base-200">
-            {title}
+            {titel}
           </h2>
           <p className="line-clamp-2 text-transparent transition-all duration-500 group-hover:text-base-300">
-            {previewText}
+            {vorschautext}
           </p>
         </div>
       </article>

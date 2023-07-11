@@ -4,15 +4,15 @@ import { Lizenz } from "../model/Lizenz";
 
 interface Props {
   name: string;
-  licences: Array<Lizenz>;
-  description: string;
-  image: string;
+  lizenzen: Array<Lizenz>;
+  beschreibung: string;
+  bild: string;
 }
 
-export const TrainerCard = ({ name, licences, image, description }: Props) => (
+export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
   <div className="flex gap-4 py-12 max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col sm:gap-10">
     <Image
-      src={image}
+      src={bild}
       alt=""
       height={320} // max-h-80
       width={384} // max-w-sm
@@ -22,12 +22,12 @@ export const TrainerCard = ({ name, licences, image, description }: Props) => (
       <div className="flex flex-col gap-2">
         <h3 className="heading-extrasmall pt-2">{name}</h3>
         <div className="flex flex-wrap gap-2">
-          {licences.map((licence) => (
+          {lizenzen.map((lizenz) => (
             <div
-              key={licence.id}
+              key={lizenz.id}
               className="badge-outline badge px-4 py-3 text-secondary-900"
             >
-              {licence.attributes.name}
+              {lizenz.attributes.name}
             </div>
           ))}
         </div>
@@ -35,7 +35,7 @@ export const TrainerCard = ({ name, licences, image, description }: Props) => (
       <div
         className="prose"
         dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(description),
+          __html: sanitizeHtml(beschreibung),
         }}
       />
     </section>

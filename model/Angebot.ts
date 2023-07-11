@@ -3,12 +3,12 @@ import { trainerSchema } from "./Trainer";
 import { trainingSchema } from "./Training";
 import { faqSchema } from "./FAQ";
 
-export const offerSchema = z.object({
+export const angebotSchema = z.object({
   id: z.number(),
   attributes: z.object({
     slug: z.string(),
-    title: z.string(),
-    description: z.string(),
+    titel: z.string(),
+    beschreibung: z.string(),
     trainers: z.object({
       data: z.array(trainerSchema),
     }),
@@ -21,4 +21,4 @@ export const offerSchema = z.object({
   }),
 });
 
-export type Offer = z.infer<typeof offerSchema>;
+export type Angebot = z.infer<typeof angebotSchema>;

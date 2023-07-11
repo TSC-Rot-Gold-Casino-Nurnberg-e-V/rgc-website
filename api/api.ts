@@ -1,42 +1,58 @@
-import { Post, postSchema, postsSchema } from "../model/Post";
-import { Event, eventSchema, eventsSchema } from "../model/Event";
-import { History, historySchema } from "../model/History";
-import { Offer, offerSchema } from "../model/Offer";
-import { Executive, executivesSchema } from "../model/Executive";
-import { Membership, membershipsShema } from "../model/Membership";
-import { Policy, privacyPolicySchema } from "../model/Policy";
-import { Legal, legalNoticeSchema } from "../model/Legal";
-import { Competition, competitionsSchema } from "../model/Competition";
+import {
+  Neuigkeit,
+  neuigkeitenSchema,
+  neuigkeitSchema,
+} from "../model/Neuigkeit";
+import {
+  Veranstaltung,
+  veranstaltungenSchema,
+  veranstaltungSchema,
+} from "../model/Veranstaltung";
+import {
+  Vereinsgeschichte,
+  vereinsgeschichteSchema,
+} from "../model/Vereinsgeschichte";
+import { Angebot, angebotSchema } from "../model/Angebot";
+import {
+  Vorstandsmitglied,
+  vorstandsmitgliederSchema,
+} from "../model/Vorstandsmitglied";
+import { Dokument, dokumenteSchema } from "../model/Dokument";
+import {
+  Datenschutzerklaerung,
+  datenschutzerklaerungSchema,
+} from "../model/Datenschutzerklaerung";
+import { Impressum, impressumSchema } from "../model/Impressum";
+import {
+  Turnierergebnis,
+  turnierergebnisseSchema,
+} from "../model/Turnierergebnis";
 import { Pagination, paginationSchema } from "../model/Pagination";
 import { Slug, slugsSchema } from "../model/Slug";
 
-const baseUrl = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
-const headers = new Headers();
-headers.append("Authorization", `Bearer ${process.env.CMS_TOKEN}`);
-
-export async function getPosts(
+export async function getNeuigkeiten(
   pageSize: number,
   page: number = 1
-): Promise<{ posts: Array<Post>; pagination: Pagination }> {
+): Promise<{ neuigkeiten: Array<Neuigkeit>; pagination: Pagination }> {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("sort", "chronologicalPosition:desc");
+  urlSearchParams.append("sort", "datum:desc");
   urlSearchParams.append("populate", "*");
   urlSearchParams.append("pagination[pageSize]", pageSize.toString());
   urlSearchParams.append("pagination[page]", page.toString());
-  const { data, meta } = await fetchData(`/posts?${urlSearchParams}`);
+  const { data, meta } = await fetchData(`/neuigkeiten?${urlSearchParams}`);
   return {
-    posts: postsSchema.parse(data),
+    neuigkeiten: neuigkeitenSchema.parse(data),
     pagination: paginationSchema.parse(meta.pagination),
   };
 }
 
-export async function getPost(slug: string): Promise<Post> {
+export async function getNeuigkeit(slug: string): Promise<Neuigkeit> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
   const { data } = await fetchData(
-    `/slugify/slugs/post/${slug}?${urlSearchParams}`
+    `/slugify/slugs/neuigkeit/${slug}?${urlSearchParams}`
   );
-  return postSchema.parse(data);
+  return neuigkeitSchema.parse(data);
 }
 export async function getSlugs(collection: string): Promise<Array<string>> {
   const pageSize = 25;
@@ -56,84 +72,88 @@ export async function getSlugs(collection: string): Promise<Array<string>> {
   return allSlugs.map((slug) => slug.attributes.slug);
 }
 
-export async function getEvents(): Promise<Array<Event>> {
+export async function getVeranstaltungen(): Promise<Array<Veranstaltung>> {
   const urlSearchParams = new URLSearchParams();
-  const sortProperty: keyof Event["attributes"] = "startDate";
+  const sortProperty: keyof Veranstaltung["attributes"] = "start";
   urlSearchParams.append("sort", `${sortProperty}:asc`);
   urlSearchParams.append("populate", "*");
   const isoDate = new Date().toISOString().substring(0, 10);
-  const filterProperty: keyof Event["attributes"] = "startDate";
+  const filterProperty: keyof Veranstaltung["attributes"] = "start";
   urlSearchParams.append(`filters[${filterProperty}][$gte]`, isoDate);
-  const { data } = await fetchData(`/events?${urlSearchParams}`);
-  return eventsSchema.parse(data);
+  const { data } = await fetchData(`/veranstaltungen?${urlSearchParams}`);
+  return veranstaltungenSchema.parse(data);
 }
 
-export async function getEvent(slug: string): Promise<Event> {
+export async function getVeranstaltung(slug: string): Promise<Veranstaltung> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
   const { data } = await fetchData(
-    `/slugify/slugs/event/${slug}?${urlSearchParams}`
+    `/slugify/slugs/veranstaltung/${slug}?${urlSearchParams}`
   );
-  return eventSchema.parse(data);
+  return veranstaltungSchema.parse(data);
 }
 
-export async function getHistory(): Promise<History> {
-  const { data } = await fetchData("/history");
-  return historySchema.parse(data);
+export async function getVereinsgeschichte(): Promise<Vereinsgeschichte> {
+  const { data } = await fetchData("/vereinsgeschichte");
+  return vereinsgeschichteSchema.parse(data);
 }
 
-export async function getOffer(slug: string): Promise<Offer> {
+export async function getAngebot(slug: string): Promise<Angebot> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate[0]", "trainers");
-  urlSearchParams.append("populate[1]", "trainers.image");
+  urlSearchParams.append("populate[1]", "trainers.bild");
   urlSearchParams.append("populate[2]", "trainings");
-  urlSearchParams.append("populate[3]", "trainings.weekday");
+  urlSearchParams.append("populate[3]", "trainings.wochentag");
   urlSearchParams.append("populate[4]", "trainings.trainers");
-  urlSearchParams.append("populate[5]", "trainings.trainers.image");
+  urlSearchParams.append("populate[5]", "trainings.trainers.bild");
   urlSearchParams.append("populate[6]", "trainings.trainers.lizenzen");
   urlSearchParams.append("populate[7]", "trainers.lizenzen");
   urlSearchParams.append("populate[8]", "faqs");
   const { data } = await fetchData(
-    `/slugify/slugs/offer/${slug}?${urlSearchParams}`
+    `/slugify/slugs/angebot/${slug}?${urlSearchParams}`
   );
-  return offerSchema.parse(data);
+  return angebotSchema.parse(data);
 }
 
-export async function getExecutives(): Promise<Array<Executive>> {
+export async function getVorstandsmitglieder(): Promise<
+  Array<Vorstandsmitglied>
+> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("sort", `id:asc`);
   urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/executives?${urlSearchParams}`);
-  return executivesSchema.parse(data);
+  const { data } = await fetchData(`/vorstandsmitglieder?${urlSearchParams}`);
+  return vorstandsmitgliederSchema.parse(data);
 }
 
-export async function getMembership(): Promise<Array<Membership>> {
+export async function getDokumente(): Promise<Array<Dokument>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/memberships?${urlSearchParams}`);
-  return membershipsShema.parse(data);
+  const { data } = await fetchData(`/dokumente?${urlSearchParams}`);
+  return dokumenteSchema.parse(data);
 }
 
-export async function getPrivacyPolicy(): Promise<Policy> {
+export async function getDatenschutzerklaerung(): Promise<Datenschutzerklaerung> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/privacy-policy?${urlSearchParams}`);
-  return privacyPolicySchema.parse(data);
+  const { data } = await fetchData(`/datenschutzerklaerung?${urlSearchParams}`);
+  return datenschutzerklaerungSchema.parse(data);
 }
 
-export async function getLegalNotice(): Promise<Legal> {
+export async function getImpressum(): Promise<Impressum> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/legal-notice?${urlSearchParams}`);
-  return legalNoticeSchema.parse(data);
+  const { data } = await fetchData(`/impressum?${urlSearchParams}`);
+  return impressumSchema.parse(data);
 }
 
-export async function getCompetitionResults(): Promise<Array<Competition>> {
+export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/competition-results?${urlSearchParams}`);
-  return competitionsSchema.parse(data);
+  const { data } = await fetchData(`/turnierergebnisse?${urlSearchParams}`);
+  return turnierergebnisseSchema.parse(data);
 }
+
+const BASE_URL = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 
 async function fetchData(path: string): Promise<{
   data: unknown | Array<unknown>;
@@ -141,8 +161,15 @@ async function fetchData(path: string): Promise<{
     pagination?: Pagination;
   };
 }> {
-  const res = await fetch(baseUrl + path, {
-    headers: headers,
+  const isClientSide = typeof window !== "undefined";
+  const res = await fetch(BASE_URL + path, {
+    headers: {
+      Authorization: `Bearer ${
+        isClientSide
+          ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
+          : process.env.CMS_SERVER_TOKEN
+      }`,
+    },
   });
   if (!res.ok) {
     const error = await res.json();

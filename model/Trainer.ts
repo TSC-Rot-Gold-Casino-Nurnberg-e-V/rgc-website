@@ -5,12 +5,11 @@ export const trainerSchema = z.object({
   id: z.number(),
   attributes: z.object({
     name: z.string(),
-    description: z.string(),
-    licence: z.string(),
+    beschreibung: z.string(),
     lizenzen: z.object({
       data: z.array(lizenzSchema),
     }),
-    image: z.object({
+    bild: z.object({
       data: z.object({
         attributes: z.object({
           url: z.string(),

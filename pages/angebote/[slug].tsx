@@ -1,45 +1,45 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getOffer, getSlugs } from "../../api/api";
-import { Offer } from "../../model/Offer";
+import { getAngebot, getSlugs } from "../../api/api";
+import { Angebot } from "../../model/Angebot";
 import sanitizeHtml from "sanitize-html";
 import { TrainerCard } from "../../components/TrainerCard";
-import { Weekday } from "../../model/Weekday";
+import { Wochentag } from "../../model/Wochentag";
 import { Training } from "../../model/Training";
 import Image from "next/image";
 import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const offerSlugs = await getSlugs("offers");
-  const paths = offerSlugs.map((slug) => {
+  const slugs = await getSlugs("angebote");
+  const paths = slugs.map((slug) => {
     return { params: { slug: slug } };
   });
   return { paths: paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{ offer: Offer }> = async ({
+export const getStaticProps: GetStaticProps<{ angebot: Angebot }> = async ({
   params,
 }) => {
   if (typeof params?.slug !== "string") {
-    throw new Error("Typeof parameter 'offer slug' is not string.");
+    throw new Error("Typeof parameter 'slug' is not string.");
   }
-  const offer = await getOffer(params.slug);
-  return { props: { offer: offer } };
+  const angebot = await getAngebot(params.slug);
+  return { props: { angebot: angebot } };
 };
 
-export default function OfferPage({
-  offer,
+export default function AngebotPage({
+  angebot,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const trainingsGroupedByWeekday = new Map<
-    Weekday["attributes"]["title"], // type string
+  const trainingsGroupedByWochentag = new Map<
+    Wochentag["attributes"]["titel"], // type string
     Array<Training>
   >();
 
-  offer.attributes.trainings.data.forEach((training) => {
-    const weekdayTitle = training.attributes.weekday.data.attributes.title;
-    const trainings = trainingsGroupedByWeekday.get(weekdayTitle);
+  angebot.attributes.trainings.data.forEach((training) => {
+    const wochentagTitel = training.attributes.wochentag.data.attributes.titel;
+    const trainings = trainingsGroupedByWochentag.get(wochentagTitel);
 
     if (trainings === undefined) {
-      trainingsGroupedByWeekday.set(weekdayTitle, [training]);
+      trainingsGroupedByWochentag.set(wochentagTitel, [training]);
     } else {
       trainings.push(training);
     }
@@ -49,10 +49,10 @@ export default function OfferPage({
     <main>
       <section className="default-padding py-12">
         <div className="prose-lg prose mx-auto max-w-screen-lg prose-headings:text-secondary-900">
-          <h1 className="max-sm:text-center">{offer.attributes.title}</h1>
+          <h1 className="max-sm:text-center">{angebot.attributes.titel}</h1>
           <div
             dangerouslySetInnerHTML={{
-              __html: sanitizeHtml(offer.attributes.description),
+              __html: sanitizeHtml(angebot.attributes.beschreibung),
             }}
           />
           <div />
@@ -64,11 +64,11 @@ export default function OfferPage({
             Unsere Trainingszeiten
           </h2>
           <div className="flex flex-col gap-8">
-            {Array.from(trainingsGroupedByWeekday).map(
-              ([weekdayTitle, trainings]) => (
-                <div key={weekdayTitle} className="flex flex-col gap-4">
+            {Array.from(trainingsGroupedByWochentag).map(
+              ([wochentagTitel, trainings]) => (
+                <div key={wochentagTitel} className="flex flex-col gap-4">
                   <h3 className="heading-extrasmall text-base-600 max-sm:text-center">
-                    {weekdayTitle}
+                    {wochentagTitel}
                   </h3>
                   <div className="flex flex-wrap gap-4 max-sm:justify-center">
                     {trainings
@@ -77,7 +77,7 @@ export default function OfferPage({
                         attributes: {
                           ...training.attributes,
                           start: new Date("2000T" + training.attributes.start),
-                          end: new Date("2000T" + training.attributes.end),
+                          ende: new Date("2000T" + training.attributes.ende),
                         },
                       }))
                       .sort(
@@ -91,7 +91,7 @@ export default function OfferPage({
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
                           <h4 className="heading-extrasmall text-secondary-900">
-                            {attributes.title}
+                            {attributes.titel}
                           </h4>
                           <div className="text-large flex gap-1 font-semibold text-base-700">
                             <time
@@ -102,10 +102,10 @@ export default function OfferPage({
                             </time>
                             <div>-</div>
                             <time
-                              dateTime={attributes.end.toLocaleTimeString()}
+                              dateTime={attributes.ende.toLocaleTimeString()}
                             >
-                              {attributes.end.getHours()}:
-                              {attributes.end.getMinutes()}
+                              {attributes.ende.getHours()}:
+                              {attributes.ende.getMinutes()}
                             </time>
                             <div>Uhr</div>
                           </div>
@@ -115,7 +115,7 @@ export default function OfferPage({
                                 <Image
                                   key={trainer.id}
                                   src={
-                                    trainer.attributes.image.data.attributes.url
+                                    trainer.attributes.bild.data.attributes.url
                                   }
                                   width={56} // w-14
                                   height={56} // h-14
@@ -125,7 +125,7 @@ export default function OfferPage({
                               ))}
                             </div>
                             <p className="text-normal self-end text-base-500">
-                              {attributes.room}
+                              {attributes.saal}
                             </p>
                           </div>
                         </section>
@@ -163,13 +163,13 @@ export default function OfferPage({
             Unsere Trainer
           </h2>
           <div className="divide-y">
-            {offer.attributes.trainers.data.map((trainer) => (
+            {angebot.attributes.trainers.data.map((trainer) => (
               <TrainerCard
                 key={trainer.id}
-                description={trainer.attributes.description}
+                beschreibung={trainer.attributes.beschreibung}
                 name={trainer.attributes.name}
-                licences={trainer.attributes.lizenzen.data}
-                image={trainer.attributes.image.data.attributes.url}
+                lizenzen={trainer.attributes.lizenzen.data}
+                bild={trainer.attributes.bild.data.attributes.url}
               />
             ))}
           </div>
@@ -186,7 +186,7 @@ export default function OfferPage({
               <div className="flex gap-1">
                 <p>Kontaktieren Sie uns</p>
                 <Link
-                  href="/contact"
+                  href="/kontakt"
                   className="font-semibold text-secondary-900"
                 >
                   hier.
@@ -195,18 +195,18 @@ export default function OfferPage({
             </div>
           </section>
           <div className="divide-y max-sm:mx-auto max-sm:max-w-sm">
-            {offer.attributes.faqs.data.map((faq) => (
+            {angebot.attributes.faqs.data.map((faq) => (
               <section
                 key={faq.id}
                 className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
               >
                 <h3 className="text-extralarge md:col-span-2">
-                  {faq.attributes.question}
+                  {faq.attributes.frage}
                 </h3>
                 <div
                   className="prose space-y-0 md:col-span-3"
                   dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(faq.attributes.answer),
+                    __html: sanitizeHtml(faq.attributes.antwort),
                   }}
                 />
               </section>
