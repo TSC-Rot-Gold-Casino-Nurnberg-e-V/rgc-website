@@ -126,6 +126,7 @@ const PostCard = ({
           fill
           className="rounded-xl object-cover object-top transition-all duration-500 group-hover:scale-105"
           sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
+          priority
         />
       </div>
       <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">
