@@ -233,7 +233,7 @@ const Neuigkeiten = ({
       <div className="flex w-full flex-wrap justify-center gap-6">
         {neuigkeiten.map((neuigkeit) => (
           <Link
-            href={`/neuigkeiten/${neuigkeit.id}`}
+            href={`/neuigkeiten/${neuigkeit.attributes.slug}`}
             key={neuigkeit.id}
             className="group rounded-xl"
           >
