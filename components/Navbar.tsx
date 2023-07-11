@@ -33,7 +33,7 @@ export const Navbar = () => {
             href="/turnierergebnisse"
             shouldHideOnSmallViewport
           />
-          <NavLink text="Kontakt" href="/contact" />
+          <NavLink text="Kontakt" href="/kontakt" />
         </ul>
         <div className="relative md:hidden" role="presentation">
           <Menu>
@@ -79,7 +79,7 @@ export const Navbar = () => {
                       text="Turnierergebnisse"
                       href="/turnierergebnisse"
                     />
-                    <MenuLink text="Kontakt" href="/contact" />
+                    <MenuLink text="Kontakt" href="/kontakt" />
                   </Menu.Items>
                 </Transition>
               </>
