@@ -64,8 +64,8 @@ export default function NeuigkeitenPage({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="default-padding mx-auto flex flex-col gap-6 bg-base-950 py-12">
-        <div className="group/container m-auto grid max-w-screen-lg justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <main className="default-padding flex flex-col gap-6 bg-base-950 py-12">
+        <div className="group/container mx-auto grid max-w-screen-lg justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {displayedNeuigkeiten.map((neuigkeit) => (
             <PostCard
               slug={neuigkeit.attributes.slug}
