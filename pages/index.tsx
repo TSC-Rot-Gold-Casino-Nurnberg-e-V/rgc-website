@@ -7,20 +7,22 @@ import kindertanzen from "../public/kindertanzen.png";
 import heroBanner from "../public/heroBanner.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Post } from "../model/Post";
-import { getPosts } from "../api/api";
+import { Neuigkeit } from "../model/Neuigkeit";
+import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
 import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const { posts } = await getPosts(3);
+export const getStaticProps: GetStaticProps<{
+  neuigkeiten: Array<Neuigkeit>;
+}> = async () => {
+  const { neuigkeiten } = await getNeuigkeiten(3);
   return {
-    props: { posts: posts },
+    props: { neuigkeiten: neuigkeiten },
   };
 };
 export default function Home({
-  posts,
+  neuigkeiten: neuigkeiten,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
@@ -29,10 +31,10 @@ export default function Home({
       </Head>
       <main>
         <HeroSection />
-        <OfferSection />
-        <AssociationSection />
+        <AngebotSection />
+        <VereinsgeschichteSection />
         <Stats />
-        <News posts={posts} />
+        <Neuigkeiten neuigkeiten={neuigkeiten} />
       </main>
     </>
   );
@@ -59,7 +61,7 @@ const HeroSection = () => (
           unvergessliche Momente auf der Tanzfläche.
         </p>
       </div>
-      <Link className="w-fit rounded-md" href="/offers">
+      <Link className="w-fit rounded-md" href="/angebote">
         <Button tabIndex={-1}>Komm vorbei</Button>
       </Link>
     </div>
@@ -76,7 +78,7 @@ const HeroSection = () => (
 );
 
 // TODO: Links zu den Angeboten mit Anker ergänzen
-const OfferSection = () => (
+const AngebotSection = () => (
   <section
     aria-label="Kursangebote"
     className="default-padding flex flex-col gap-12 bg-gradient-to-br from-base-500 to-base-800 py-12"
@@ -95,46 +97,46 @@ const OfferSection = () => (
       </p>
     </div>
     <div className="mx-auto grid w-full max-w-screen-lg gap-6 text-base-50 sm:grid-cols-2 lg:grid-cols-3">
-      <CourseCard
+      <AngebotCard
         title="Einzeltanz"
         image={einzeltanz}
         className="max-h-[28rem] "
-        href="/offers"
+        href="/angebote"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
-      <CourseCard
+      <AngebotCard
         title="Formation"
         image={formation}
         className="max-h-[28rem]"
-        href="/offers"
+        href="/angebote"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
-      <CourseCard
+      <AngebotCard
         title="Kindertanzen"
         image={kindertanzen}
         className="max-h-[28rem] sm:max-lg:col-span-2"
-        href="/offers"
+        href="/angebote"
         imageSizes="(max-width: 1024px) 100vw, 33vw"
       />
     </div>
   </section>
 );
 
-interface CourseCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface AngebotCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   image: StaticImageData;
   href: string;
   imageSizes?: string;
 }
 
-const CourseCard = ({
+const AngebotCard = ({
   title,
   image,
   href,
   imageSizes,
   className = "",
   ...rest
-}: CourseCardProps) => (
+}: AngebotCardProps) => (
   <Link
     className={`group relative rounded-md hover:cursor-pointer ${className}`}
     {...rest}
@@ -147,6 +149,7 @@ const CourseCard = ({
         className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         fill
         sizes={imageSizes}
+        priority
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
@@ -158,7 +161,7 @@ const CourseCard = ({
   </Link>
 );
 
-const AssociationSection = () => (
+const VereinsgeschichteSection = () => (
   <section className="relative" aria-label="Vereinsinformationen">
     <div className="default-padding relative z-10 w-full bg-gradient-to-r from-base-950">
       <div className="mx-auto flex max-w-screen-lg flex-col justify-center py-12">
@@ -177,7 +180,10 @@ const AssociationSection = () => (
           Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur
           im Mittelpunkt unserer Arbeit.
         </p>
-        <Link href="/association" className="order-4 mt-6 w-fit rounded-md">
+        <Link
+          href="/vereinsgeschichte"
+          className="order-4 mt-6 w-fit rounded-md"
+        >
           <Button tabIndex={-1}>Mehr erfahren</Button>
         </Link>
       </div>
@@ -217,23 +223,25 @@ const Stats = () => (
   </section>
 );
 
-const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Neuigkeiten = ({
+  neuigkeiten: neuigkeiten,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
   <section className="default-padding w-full bg-base-50 py-12">
     <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-12">
       <h2 className="heading-extralarge text-center text-base-700 max-md:text-5xl">
         News
       </h2>
       <div className="flex w-full flex-wrap justify-center gap-6">
-        {posts.map((post) => (
+        {neuigkeiten.map((neuigkeit) => (
           <Link
-            href={`/posts/${post.id}`}
-            key={post.id}
+            href={`/neuigkeiten/${neuigkeit.attributes.slug}`}
+            key={neuigkeit.id}
             className="group rounded-xl"
           >
             <div className="relative h-[22rem] w-80 overflow-hidden rounded-xl transition-all">
               <div className="absolute inset-0 h-full shrink-0">
                 <Image
-                  src={post.attributes.mainImage.data.attributes.url}
+                  src={neuigkeit.attributes.vorschaubild.data.attributes.url}
                   alt=""
                   fill
                   className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
@@ -242,13 +250,13 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
               </div>
               <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
                 <time
-                  dateTime={post.attributes.chronologicalPosition}
+                  dateTime={neuigkeit.attributes.datum}
                   className="text-extrasmall text-base-300"
                 >
-                  {formatDate(new Date(post.attributes.chronologicalPosition))}
+                  {formatDate(new Date(neuigkeit.attributes.datum))}
                 </time>
                 <h3 className="text-normal line-clamp-3 max-w-xs font-semibold text-base-200">
-                  {post.attributes.title}
+                  {neuigkeit.attributes.titel}
                 </h3>
               </article>
             </div>
@@ -256,7 +264,7 @@ const News = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => (
         ))}
       </div>
       <div className="mx-auto">
-        <Link className="rounded-md" href="/posts">
+        <Link className="rounded-md" href="/neuigkeiten">
           <Button tabIndex={-1}>Weitere News</Button>
         </Link>
       </div>

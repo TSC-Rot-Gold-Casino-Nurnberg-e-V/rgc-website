@@ -1,23 +1,23 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getLegalNotice } from "../api/api";
+import { getImpressum } from "../api/api";
 import sanitizeHtml from "sanitize-html";
-import { Legal } from "../model/Legal";
+import { Impressum } from "../model/Impressum";
 
 export const getStaticProps: GetStaticProps<{
-  legalNotice: Legal;
+  impressum: Impressum;
 }> = async () => {
-  const legalNotice = await getLegalNotice();
-  return { props: { legalNotice: legalNotice } };
+  const impressum = await getImpressum();
+  return { props: { impressum: impressum } };
 };
 
-export default function PrivacyPolicy({
-  legalNotice,
+export default function ImpressumPage({
+  impressum,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
       className="default-padding prose mx-auto max-w-3xl grow"
       dangerouslySetInnerHTML={{
-        __html: sanitizeHtml(legalNotice.attributes.legalNotice),
+        __html: sanitizeHtml(impressum.attributes.inhalt),
       }}
     />
   );

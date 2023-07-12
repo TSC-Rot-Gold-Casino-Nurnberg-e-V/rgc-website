@@ -45,7 +45,7 @@ describe("navbar", () => {
       cy.findByRole("navigation")
         .findByRole("link", { name: /Kontakt/i })
         .click();
-      cy.get("@push").should("have.been.calledWith", "/contact");
+      cy.get("@push").should("have.been.calledWith", "/kontakt");
     });
 
     it("should open and close the hamburger menu on a mobile device", () => {
@@ -75,7 +75,7 @@ describe("navbar", () => {
     });
 
     it("should indicate the active page", () => {
-      const routerMock = mockRouter({ asPath: "/contact" });
+      const routerMock = mockRouter({ asPath: "/kontakt" });
 
       cy.mount(
         <RouterContext.Provider value={routerMock}>
@@ -99,7 +99,7 @@ describe("navbar", () => {
         .findByRole("menuitem", { name: /Kontakt/i })
         .click();
 
-      cy.get("@push").should("have.been.calledWith", "/contact");
+      cy.get("@push").should("have.been.calledWith", "/kontakt");
     });
   });
 });

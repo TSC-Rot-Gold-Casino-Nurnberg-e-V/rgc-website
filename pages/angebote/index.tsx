@@ -7,7 +7,7 @@ import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
 
-export default function Offers() {
+export default function AngebotePage() {
   return (
     <main>
       <h1 className="heading-large md:heading-extralarge primary-gradient py-10 text-center text-secondary-950 md:py-12">
@@ -34,18 +34,18 @@ const Competition = () => (
         </p>
       </div>
       <div className="flex w-full gap-6 max-sm:flex-col">
-        <CourseCard
+        <AngebotCard
           title="Standard"
-          href="/offers/turniertanz-standard"
+          href="/angebote/turniertanz-standard"
           image={standard}
           priority={true}
           className="h-96"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <CourseCard
+        <AngebotCard
           priority={true}
           title="Latein"
-          href="/offers"
+          href="/angebote"
           image={latein}
           className="h-96"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -70,17 +70,17 @@ const Formation = () => (
         </p>
       </div>
       <div className="flex gap-6 max-sm:flex-col">
-        <CourseCard
+        <AngebotCard
           title="Standard"
-          href="/offers"
+          href="/angebote"
           image={formation}
           className="h-80"
           priority={true}
           imageSizes="(max-width: 640px) 100vw, 50vw"
         />
-        <CourseCard
+        <AngebotCard
           title="Latein"
-          href="/offers"
+          href="/angebote"
           image={formation}
           priority={true}
           className="h-80"
@@ -105,24 +105,24 @@ const Youth = () => (
           </p>
         </div>
         <div className="h-80 w-full">
-          <CourseCard
+          <AngebotCard
             title="Allgemein"
-            href="/offers"
+            href="/angebote"
             image={formation}
             imageSizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </div>
-      <CourseCard
+      <AngebotCard
         title="Latein"
-        href="/offers"
+        href="/angebote"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
-      <CourseCard
+      <AngebotCard
         title="Standard"
-        href="/offers"
+        href="/angebote"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -144,9 +144,9 @@ const Hobby = () => (
         </p>
       </div>
       <div className="h-96 md:basis-1/2">
-        <CourseCard
+        <AngebotCard
           title="Freizeittanzen"
-          href="/offers"
+          href="/angebote"
           image={formation}
           imageSizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -155,7 +155,7 @@ const Hobby = () => (
   </section>
 );
 
-interface CourseCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface AngebotCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   image: StaticImageData;
   href: string;
@@ -163,7 +163,7 @@ interface CourseCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   imageSizes?: string;
 }
 
-const CourseCard = ({
+const AngebotCard = ({
   title,
   image,
   href,
@@ -171,7 +171,7 @@ const CourseCard = ({
   imageSizes,
   className = "",
   ...rest
-}: CourseCardProps) => (
+}: AngebotCardProps) => (
   <Link
     className={`group relative w-full rounded-md hover:cursor-pointer ${className}`}
     {...rest}

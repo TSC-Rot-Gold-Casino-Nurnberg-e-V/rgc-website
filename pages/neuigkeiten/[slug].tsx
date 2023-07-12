@@ -1,46 +1,46 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { Post } from "../../model/Post";
-import { getPost, getSlugs } from "../../api/api";
+import { Neuigkeit } from "../../model/Neuigkeit";
+import { getNeuigkeit, getSlugs } from "../../api/api";
 import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
 import { formatDate } from "../../utils/formatDate";
 import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await getSlugs("posts");
+  const slugs = await getSlugs("neuigkeiten");
   const paths = slugs.map((slug) => {
     return { params: { slug: slug } };
   });
   return { paths: paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{ post: Post }> = async ({
+export const getStaticProps: GetStaticProps<{ neuigkeit: Neuigkeit }> = async ({
   params,
 }) => {
   if (typeof params?.slug !== "string") {
     throw new Error("Typeof parameter 'slug' is not string.");
   }
-  const post = await getPost(params.slug);
-  return { props: { post: post } };
+  const neuigkeit = await getNeuigkeit(params.slug);
+  return { props: { neuigkeit: neuigkeit } };
 };
 
-export default function PostPage({
-  post,
+export default function NeuigkeitPage({
+  neuigkeit,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main className="default-padding bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
+    <main className="default-padding grow bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
       <div className="prose-xl prose mx-auto">
         <time className="text-normal text-base-500">
-          {formatDate(new Date(post.attributes.chronologicalPosition))}
+          {formatDate(new Date(neuigkeit.attributes.datum))}
         </time>
         <div
           className="prose-h1:heading-normal sm:prose-h1:heading-large prose-headings:text-secondary-900 prose-p:hyphens-auto prose-img:max-h-[24rem] prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:object-top sm:prose-img:max-h-[32rem]"
           dangerouslySetInnerHTML={{
-            __html: sanitizeHTMLField(post.attributes.description),
+            __html: sanitizeHTMLField(neuigkeit.attributes.beschreibung),
           }}
         />
         <Link
-          href="/posts"
-          className="flex items-center gap-2 p-1 text-secondary-900 no-underline"
+          href="/neuigkeiten"
+          className="flex w-fit items-center gap-2 p-1 text-secondary-900 no-underline"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

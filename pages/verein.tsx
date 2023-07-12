@@ -1,22 +1,24 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Executive } from "../../model/Executive";
-import { getExecutives, getMembership } from "../../api/api";
 import Image from "next/image";
 import Link from "next/link";
-import { Membership } from "../../model/Membership";
+import { Dokument } from "../model/Dokument";
+import { getDokumente, getVorstandsmitglieder } from "../api/api";
+import { Vorstandsmitglied } from "../model/Vorstandsmitglied";
 
 export const getStaticProps: GetStaticProps<{
-  executives: Executive[];
-  memberships: Membership[];
+  vorstandsmitglieder: Array<Vorstandsmitglied>;
+  dokumente: Array<Dokument>;
 }> = async () => {
-  const executives = await getExecutives();
-  const memberships = await getMembership();
-  return { props: { executives: executives, memberships: memberships } };
+  const vorstandsmitglieder = await getVorstandsmitglieder();
+  const dokumente = await getDokumente();
+  return {
+    props: { vorstandsmitglieder: vorstandsmitglieder, dokumente: dokumente },
+  };
 };
 
-export default function Association({
-  executives,
-  memberships,
+export default function VereinsgeschichtePage({
+  vorstandsmitglieder,
+  dokumente,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-8 py-8 max-md:p-6">
@@ -30,24 +32,22 @@ export default function Association({
           Faktor des gesellschaftlichen Lebens. Mit etwa 600 Mitgliedern zählt
           er zu den größten Tanzsportclubs in Bayern und Deutschland.
         </p>
-        <Link
-          href="/association/derVerein"
-          className="font-semibold text-red-900"
-        >
+        <Link href="/vereinsgeschichte" className="font-semibold text-red-900">
           Zur kompletten Geschichte unseres Vereins
         </Link>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-2xl font-semibold">Mitgliedschaft</h3>
+        <h3 className="text-2xl font-semibold">Dokumente</h3>
 
-        {memberships.map((membership) => {
+        {dokumente.map((dokument) => {
           return (
             <Link
-              href={membership.attributes.document.data.attributes.url}
-              key={membership.id}
+              href={dokument.attributes.datei.data.attributes.url}
+              key={dokument.id}
               className="hover:text-red-900"
+              target="_blank"
             >
-              {membership.attributes.title}
+              {dokument.attributes.titel}
             </Link>
           );
         })}
@@ -55,11 +55,11 @@ export default function Association({
       <div className="flex flex-col gap-4">
         <h3 className="text-2xl font-semibold">Vorstandschaft</h3>
         <div className="flex flex-wrap justify-between gap-y-10">
-          {executives.map((executive) => (
-            <div className="flex flex-col gap-3" key={executive.id}>
+          {vorstandsmitglieder.map((vorstandsmitglied) => (
+            <div className="flex flex-col gap-3" key={vorstandsmitglied.id}>
               <div className="relative h-60 w-60 rounded-md">
                 <Image
-                  src={executive.attributes.image.data.attributes.url}
+                  src={vorstandsmitglied.attributes.bild.data.attributes.url}
                   alt=""
                   fill
                   className="rounded-md object-cover"
@@ -68,16 +68,16 @@ export default function Association({
 
               <div className="flex max-w-[240px] flex-col gap-1">
                 <div className="flex w-fit items-center text-xl font-bold">
-                  {executive.attributes.position}
+                  {vorstandsmitglied.attributes.rolle}
                 </div>
                 <div className="w-fit text-sm text-base-500">
-                  {executive.attributes.name}
+                  {vorstandsmitglied.attributes.name}
                 </div>
                 <div className="w-fit text-sm text-base-500">
-                  {executive.attributes.phone}
+                  Tel: {vorstandsmitglied.attributes.telefonnummer}
                 </div>
                 <div className="w-fit text-sm text-base-500">
-                  {executive.attributes.email}
+                  E-Mail: {vorstandsmitglied.attributes.email}
                 </div>
               </div>
             </div>

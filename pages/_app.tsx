@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div className={`grow bg-slate-50 ${manrope.className}`}>
+      <div className={`flex grow flex-col bg-slate-50 ${manrope.className}`}>
         <Component {...pageProps} />
       </div>
       <Sponsors />

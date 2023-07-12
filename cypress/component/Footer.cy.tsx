@@ -13,7 +13,7 @@ describe("footer", () => {
     );
   });
 
-  it("should have the correct course links", () => {
+  it("should have the correct offer links", () => {
     cy.findByRole("contentinfo")
       .findByRole("heading", { name: /Angebot/i })
       .siblings()
@@ -80,7 +80,7 @@ describe("footer", () => {
       .findByRole("link", { name: /Kontaktanfrage/i })
       .click();
 
-    cy.get("@push").should("have.been.calledWith", "/contact");
+    cy.get("@push").should("have.been.calledWith", "/kontakt");
   });
 
   it("should navigate to the contact page on a mobile device", () => {
@@ -90,10 +90,10 @@ describe("footer", () => {
       .findByRole("link", { name: /Kontaktanfrage/i })
       .click();
 
-    cy.get("@push").should("have.been.calledWith", "/contact");
+    cy.get("@push").should("have.been.calledWith", "/kontakt");
   });
 
-  it("should include infos about the association", () => {
+  it("should include infos about the vereinsgeschichte", () => {
     cy.findByRole("contentinfo")
       .findAllByRole("Vereinsinfo")
       .should(

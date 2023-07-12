@@ -24,16 +24,16 @@ export const Navbar = () => {
           />
         </Link>
         <ul className="flex gap-1 max-md:hidden">
-          <NavLink text="Der Verein" href="/association" />
-          <NavLink text="News" href="/posts" />
-          <NavLink text="Angebot" href="/offers" />
-          <NavLink text="Veranstaltungen" href="/events" />
+          <NavLink text="Der Verein" href="/verein" />
+          <NavLink text="News" href="/neuigkeiten" />
+          <NavLink text="Angebot" href="/angebote" />
+          <NavLink text="Veranstaltungen" href="/veranstaltungen" />
           <NavLink
             text="Turnierergebnisse"
-            href="/events/competitionResults"
+            href="/turnierergebnisse"
             shouldHideOnSmallViewport
           />
-          <NavLink text="Kontakt" href="/contact" />
+          <NavLink text="Kontakt" href="/kontakt" />
         </ul>
         <div className="relative md:hidden" role="presentation">
           <Menu>
@@ -71,15 +71,15 @@ export const Navbar = () => {
                   leaveTo="transform scale-95 opacity-0"
                 >
                   <Menu.Items className="text-normal menu rounded-box bg-base-800 py-2 text-base-50 shadow-sm shadow-base-900">
-                    <MenuLink text="Der Verein" href="/association" />
-                    <MenuLink text="News" href="/posts" />
-                    <MenuLink text="Angebot" href="/offers" />
-                    <MenuLink text="Veranstaltungen" href="/events" />
+                    <MenuLink text="Der Verein" href="/verein" />
+                    <MenuLink text="News" href="/neuigkeiten" />
+                    <MenuLink text="Angebot" href="/angebote" />
+                    <MenuLink text="Veranstaltungen" href="/veranstaltungen" />
                     <MenuLink
                       text="Turnierergebnisse"
-                      href="/events/competitionResult"
+                      href="/turnierergebnisse"
                     />
-                    <MenuLink text="Kontakt" href="/contact" />
+                    <MenuLink text="Kontakt" href="/kontakt" />
                   </Menu.Items>
                 </Transition>
               </>

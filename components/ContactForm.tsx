@@ -13,7 +13,7 @@ const forminputs = z.object({
     .email("Dies ist keine valide Mailadresse."),
   phone: z.coerce.number().min(1, "Bitte füllen Sie dieses Feld aus."),
   message: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
-  privacyPolicy: z.literal(true, {
+  datenschutzerklaerung: z.literal(true, {
     errorMap: () => ({
       message: "Bitte akzeptieren Sie die Datenschutzerklärung.",
     }),
@@ -120,24 +120,27 @@ export const ContactForm = () => {
             )}
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="privacyPilocy">Datenschutz</label>
+            <label htmlFor="datenschutzerklaerung">Datenschutz</label>
             <div className="flex gap-2">
               <input
                 type="checkbox"
-                id="privacyPolicy"
-                {...register("privacyPolicy")}
+                id="datenschutzerklaerung"
+                {...register("datenschutzerklaerung")}
               />
               <span>
                 Hiermit akzeptiere ich die
-                <Link href="/privacyPolicy" className="text-primary-300">
+                <Link
+                  href="/datenschutzerklaerung"
+                  className="text-primary-300"
+                >
                   {" "}
                   Datenschutzerklärung.
                 </Link>
               </span>
             </div>
-            {errors.privacyPolicy && (
+            {errors.datenschutzerklaerung && (
               <p className="text-sm font-semibold text-secondary-400">
-                {errors.privacyPolicy.message}
+                {errors.datenschutzerklaerung.message}
               </p>
             )}
           </div>
