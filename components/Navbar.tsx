@@ -1,10 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 import Image from "next/image";
 import logo from "../public/RGC_Logo_white.svg";
 import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
@@ -14,7 +16,7 @@ export const Navbar = () => {
         hideNavbar ? "-top-20" : "top-0"
       } z-30 transition-all duration-500`}
     >
-      <div className="m-auto flex h-full max-w-screen-lg items-center justify-between">
+      <div className="m-auto flex h-20 max-w-screen-lg items-center justify-between">
         <Link href="/" className="rounded-md">
           <Image
             src={logo}
@@ -99,8 +101,8 @@ interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
   ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
-    const router = useRouter();
-    const isActive = router.asPath.startsWith(href);
+    const pathname = usePathname();
+    const isActive = pathname?.startsWith(href);
     return (
       <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
         <Link

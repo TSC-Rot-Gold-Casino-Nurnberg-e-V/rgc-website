@@ -1,6 +1,6 @@
 import Image from "next/image";
 import sanitizeHtml from "sanitize-html";
-import { Lizenz } from "../model/Lizenz";
+import { Lizenz } from "../../model/Lizenz";
 
 interface Props {
   name: string;

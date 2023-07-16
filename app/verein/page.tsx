@@ -1,25 +1,10 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Dokument } from "../model/Dokument";
-import { getDokumente, getVorstandsmitglieder } from "../api/api";
-import { Vorstandsmitglied } from "../model/Vorstandsmitglied";
+import { getDokumente, getVorstandsmitglieder } from "../../api/api";
 
-export const getStaticProps: GetStaticProps<{
-  vorstandsmitglieder: Array<Vorstandsmitglied>;
-  dokumente: Array<Dokument>;
-}> = async () => {
-  const vorstandsmitglieder = await getVorstandsmitglieder();
+export default async function VereinsgeschichtePage() {
   const dokumente = await getDokumente();
-  return {
-    props: { vorstandsmitglieder: vorstandsmitglieder, dokumente: dokumente },
-  };
-};
-
-export default function VereinsgeschichtePage({
-  vorstandsmitglieder,
-  dokumente,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const vorstandsmitglieder = await getVorstandsmitglieder();
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-8 py-8 max-md:p-6">
       <div className="flex flex-col gap-4">
