@@ -6,8 +6,15 @@ import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "./NeuigkeitCard";
 
-export function FurtherNeuigkeiten() {
-  const [neuigkeiten, setNeuigkeiten] = useState<Array<Neuigkeit>>([]);
+interface Props {
+  neuigkeiten: Array<Neuigkeit>;
+  paginationTotal: number;
+}
+
+export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
+  const [furtherNeuigkeiten, setFurtherNeuigkeiten] = useState<
+    Array<Neuigkeit>
+  >([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,7 +22,7 @@ export function FurtherNeuigkeiten() {
     setIsLoading(true);
     const nextPage = page + 1;
     const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
-    setNeuigkeiten((prevNeuigkeiten) => {
+    setFurtherNeuigkeiten((prevNeuigkeiten) => {
       const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
       sessionStorage.setItem("neuigkeiten", JSON.stringify(updatedNeuigkeiten));
       return updatedNeuigkeiten;
@@ -36,13 +43,13 @@ export function FurtherNeuigkeiten() {
     setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
     const neuigkeitenInStorage = sessionStorage.getItem("neuigkeiten");
     if (neuigkeitenInStorage !== null) {
-      setNeuigkeiten(JSON.parse(neuigkeitenInStorage));
+      setFurtherNeuigkeiten(JSON.parse(neuigkeitenInStorage));
     }
   }, []);
 
   return (
     <>
-      {neuigkeiten.map((neuigkeit) => (
+      {furtherNeuigkeiten.map((neuigkeit) => (
         <NeuigkeitCard
           slug={neuigkeit.attributes.slug}
           key={neuigkeit.attributes.slug}

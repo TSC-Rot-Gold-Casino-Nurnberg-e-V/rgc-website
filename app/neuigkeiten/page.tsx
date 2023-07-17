@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { getNeuigkeiten } from "../../api/api";
-import { NeuigkeitCard } from "./NeuigkeitCard";
 import { FurtherNeuigkeiten } from "./FurtherNeuigkeiten";
+import { NeuigkeitCard } from "./NeuigkeitCard";
 
 export default async function NeuigkeitenPage() {
   const { neuigkeiten, pagination } = await getNeuigkeiten(6);
