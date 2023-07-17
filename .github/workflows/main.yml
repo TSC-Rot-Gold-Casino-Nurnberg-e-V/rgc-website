@@ -16,6 +16,7 @@ jobs:
         with:
           build: npm run build
           start: npm run start
+          browser: chrome
         env:
           NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
           CMS_SERVER_TOKEN: ${{secrets.CMS_SERVER_TOKEN}}
