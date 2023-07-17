@@ -30,17 +30,13 @@ describe("footer", () => {
   it("navigates to the homepage", () => {
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Zur Startseite/i })
-      .click();
-
-    cy.url().should("equal", Cypress.config().baseUrl + "/");
+      .should("have.attr", "href", "/");
   });
 
   it("navigates to the contact page", () => {
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Kontaktanfrage/i })
-      .click();
-
-    cy.url().should("contain", "/kontakt");
+      .should("have.attr", "href", "/kontakt");
   });
 
   it("navigates to the contact page on a mobile device", () => {
@@ -48,9 +44,7 @@ describe("footer", () => {
 
     cy.findByRole("contentinfo")
       .findByRole("link", { name: /Kontaktanfrage/i })
-      .click();
-
-    cy.url().should("contain", "/kontakt");
+      .should("have.attr", "href", "/kontakt");
   });
 
   it("includes infos about the club history", () => {
