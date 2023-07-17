@@ -1,9 +1,11 @@
+"use client";
+
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
-import { Button } from "./Button";
+import { Button } from "../../components/Button";
 
 const forminputs = z.object({
   name: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),

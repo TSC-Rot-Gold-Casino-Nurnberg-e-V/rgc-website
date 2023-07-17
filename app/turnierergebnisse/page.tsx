@@ -1,19 +1,9 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
-import { Turnierergebnis } from "../model/Turnierergebnis";
-import { getTurnierergebnisse } from "../api/api";
-import { formatDate } from "../utils/formatDate";
+import { getTurnierergebnisse } from "../../api/api";
+import { formatDate } from "../../utils/formatDate";
 
-export const getStaticProps: GetStaticProps<{
-  turnierergebnisse: Array<Turnierergebnis>;
-}> = async () => {
+export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
-  return { props: { turnierergebnisse: turnierergebnisse } };
-};
-
-export default function Turnierergebnisse({
-  turnierergebnisse,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   const allYears: Array<number> = turnierergebnisse.map((turnierergebnis) =>
     new Date(turnierergebnis.attributes.start).getFullYear()
   );

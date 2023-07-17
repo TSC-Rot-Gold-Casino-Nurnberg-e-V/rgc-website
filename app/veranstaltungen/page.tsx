@@ -1,21 +1,11 @@
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getVeranstaltungen } from "../../api/api";
-import { Veranstaltung } from "../../model/Veranstaltung";
-import { VeranstaltungCard } from "../../components/VeranstaltungCard";
+import { VeranstaltungCard } from "./VeranstaltungCard";
 
-export const getStaticProps: GetStaticProps<{
-  veranstaltungen: Array<Veranstaltung>;
-}> = async () => {
+// FIXME: revalidate will not work with static export (https://github.com/orgs/TSC-Rot-Gold-Casino-Nurnberg-e-V/projects/1/views/1?pane=issue&itemId=32092768)
+export const revalidate = 86400;
+
+export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();
-  const dayInSeconds = 60 * 60 * 24;
-  return {
-    props: { veranstaltungen: veranstaltungen, revalidate: dayInSeconds },
-  };
-};
-
-export default function VeranstaltungenPage({
-  veranstaltungen,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main className="default-padding mx-auto">
       <div className="m-auto flex max-w-3xl flex-col gap-8">

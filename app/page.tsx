@@ -6,24 +6,14 @@ import formation from "../public/formation.png";
 import kindertanzen from "../public/kindertanzen.png";
 import heroBanner from "../public/heroBanner.png";
 import vereinsBild from "../public/vereinsbild.png";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { Neuigkeit } from "../model/Neuigkeit";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
 import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
+import { Neuigkeit } from "../model/Neuigkeit";
 
-export const getStaticProps: GetStaticProps<{
-  neuigkeiten: Array<Neuigkeit>;
-}> = async () => {
+export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(3);
-  return {
-    props: { neuigkeiten: neuigkeiten },
-  };
-};
-export default function Home({
-  neuigkeiten: neuigkeiten,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -223,9 +213,7 @@ const Stats = () => (
   </section>
 );
 
-const Neuigkeiten = ({
-  neuigkeiten: neuigkeiten,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
   <section className="default-padding w-full bg-base-50 py-12">
     <div className="mx-auto flex max-w-screen-lg flex-col justify-center gap-12">
       <h2 className="heading-extralarge text-center text-base-700 max-md:text-5xl">

@@ -11,11 +11,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cypress run component tests
+      - name: Cypress E2E Tests
         uses: cypress-io/github-action@v5
         with:
-          component: true
+          build: npm run build
+          start: npm run start
         env:
           NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
-          CMS_TOKEN: ${{secrets.CMS_TOKEN}}
-          NEXT_PUBLIC_GET_POSTS_TOKEN: ${{secrets.NEXT_PUBLIC_GET_POSTS_TOKEN}}
+          CMS_SERVER_TOKEN: ${{secrets.CMS_SERVER_TOKEN}}
+          NEXT_PUBLIC_CMS_CLIENT_TOKEN: ${{secrets.NEXT_PUBLIC_CMS_CLIENT_TOKEN}}

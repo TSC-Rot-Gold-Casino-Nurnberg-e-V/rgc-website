@@ -1,30 +1,20 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getSlugs, getVeranstaltung } from "../../api/api";
-import { Veranstaltung } from "../../model/Veranstaltung";
-import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
-import { formatDate } from "../../utils/formatDate";
+import { getSlugs, getVeranstaltung } from "../../../api/api";
+import { sanitizeHTMLField } from "../../../utils/sanitizeHTMLField";
+import { formatDate } from "../../../utils/formatDate";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
-  const paths = slugs.map((slug) => {
-    return { params: { slug: slug } };
-  });
-  return { paths: paths, fallback: false };
+  return slugs.map((slug) => ({ slug: slug }));
 };
 
-export const getStaticProps: GetStaticProps<{
-  veranstaltung: Veranstaltung;
-}> = async ({ params }) => {
-  if (typeof params?.slug !== "string") {
-    throw new Error("Typeof parameter 'slug' is not string.");
-  }
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function VeranstaltungPage({ params }: Props) {
   const veranstaltung = await getVeranstaltung(params.slug);
-  return { props: { veranstaltung: veranstaltung } };
-};
-
-export default function VeranstaltungPage({
-  veranstaltung,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   const formattedStartDate = formatDate(
     new Date(veranstaltung.attributes.start)
   );

@@ -1,31 +1,22 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { Neuigkeit } from "../../model/Neuigkeit";
-import { getNeuigkeit, getSlugs } from "../../api/api";
-import { sanitizeHTMLField } from "../../utils/sanitizeHTMLField";
-import { formatDate } from "../../utils/formatDate";
+import { getNeuigkeit, getSlugs } from "../../../api/api";
+import { sanitizeHTMLField } from "../../../utils/sanitizeHTMLField";
+import { formatDate } from "../../../utils/formatDate";
 import Link from "next/link";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const generateStaticParams = async () => {
   const slugs = await getSlugs("neuigkeiten");
-  const paths = slugs.map((slug) => {
-    return { params: { slug: slug } };
-  });
-  return { paths: paths, fallback: false };
+  return slugs.map((slug) => ({ slug: slug }));
 };
 
-export const getStaticProps: GetStaticProps<{ neuigkeit: Neuigkeit }> = async ({
-  params,
-}) => {
-  if (typeof params?.slug !== "string") {
-    throw new Error("Typeof parameter 'slug' is not string.");
-  }
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function NeuigkeitPage({ params }: Props) {
   const neuigkeit = await getNeuigkeit(params.slug);
-  return { props: { neuigkeit: neuigkeit } };
-};
 
-export default function NeuigkeitPage({
-  neuigkeit,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main className="default-padding grow bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
       <div className="prose-xl prose mx-auto">

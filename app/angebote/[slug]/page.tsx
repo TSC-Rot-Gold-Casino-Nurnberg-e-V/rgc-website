@@ -1,34 +1,24 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { getAngebot, getSlugs } from "../../api/api";
-import { Angebot } from "../../model/Angebot";
+import { getAngebot, getSlugs } from "../../../api/api";
 import sanitizeHtml from "sanitize-html";
-import { TrainerCard } from "../../components/TrainerCard";
-import { Wochentag } from "../../model/Wochentag";
-import { Training } from "../../model/Training";
+import { Wochentag } from "../../../model/Wochentag";
+import { Training } from "../../../model/Training";
 import Image from "next/image";
 import Link from "next/link";
+import { TrainerCard } from "../TrainerCard";
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
-  const paths = slugs.map((slug) => {
-    return { params: { slug: slug } };
-  });
-  return { paths: paths, fallback: false };
+  return slugs.map((slug) => ({ slug: slug }));
 };
 
-export const getStaticProps: GetStaticProps<{ angebot: Angebot }> = async ({
-  params,
-}) => {
-  if (typeof params?.slug !== "string") {
-    throw new Error("Typeof parameter 'slug' is not string.");
-  }
+interface Props {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function AngebotPage({ params }: Props) {
   const angebot = await getAngebot(params.slug);
-  return { props: { angebot: angebot } };
-};
-
-export default function AngebotPage({
-  angebot,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
   const trainingsGroupedByWochentag = new Map<
     Wochentag["attributes"]["titel"], // type string
     Array<Training>
