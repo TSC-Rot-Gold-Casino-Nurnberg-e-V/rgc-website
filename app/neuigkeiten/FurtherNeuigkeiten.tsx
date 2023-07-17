@@ -52,15 +52,17 @@ export function FurtherNeuigkeiten() {
           vorschaubild={neuigkeit.attributes.vorschaubild.data.attributes.url}
         />
       ))}
-      <div className="col-span-full mx-auto w-fit">
-        <Button
-          onClick={getMoreNeuigkeiten}
-          disabled={isLoading}
-          className={isLoading ? "loading" : undefined}
-        >
-          Mehr anzeigen
-        </Button>
-      </div>
+      {neuigkeiten.length + furtherNeuigkeiten.length < paginationTotal && (
+        <div className="col-span-full mx-auto w-fit">
+          <Button
+            onClick={getMoreNeuigkeiten}
+            disabled={isLoading}
+            className={isLoading ? "loading" : undefined}
+          >
+            Mehr anzeigen
+          </Button>
+        </div>
+      )}
     </>
   );
 }

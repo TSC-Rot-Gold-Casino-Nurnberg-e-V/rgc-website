@@ -28,7 +28,10 @@ export default async function NeuigkeitenPage() {
               }
             />
           ))}
-          {neuigkeiten.length < pagination.total && <FurtherNeuigkeiten />}
+          <FurtherNeuigkeiten
+            neuigkeiten={neuigkeiten}
+            paginationTotal={pagination.total}
+          />
         </div>
       </main>
     </>
