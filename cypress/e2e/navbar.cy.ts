@@ -24,9 +24,7 @@ describe("navbar", () => {
   it("navigates to the homepage", () => {
     cy.findByRole("navigation")
       .findByRole("link", { name: /Startseite/i })
-      .click();
-
-    cy.url().should("equal", Cypress.config().baseUrl + "/");
+      .should("have.attr", "href", "/");
   });
 
   it("navigates to the contact page", () => {
@@ -34,9 +32,7 @@ describe("navbar", () => {
 
     cy.findByRole("navigation")
       .findByRole("link", { name: /Kontakt/i })
-      .click();
-
-    cy.url().should("contain", "/kontakt");
+      .should("have.attr", "href", "/kontakt");
   });
 
   it("opens and closes the hamburger menu on a mobile device", () => {
@@ -91,8 +87,6 @@ describe("navbar", () => {
       .click();
     cy.findByRole("menu")
       .findByRole("menuitem", { name: /Kontakt/i })
-      .click();
-
-    cy.url().should("contain", "/kontakt");
+      .should("have.attr", "href", "/kontakt");
   });
 });

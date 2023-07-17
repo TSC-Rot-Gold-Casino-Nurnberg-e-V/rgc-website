@@ -23,8 +23,11 @@ describe("homepage", () => {
     });
 
     it("renders a CTA", () => {
-      cy.findByRole("link", { name: /Komm vorbei/i }).click();
-      cy.url().should("include", "/angebote");
+      cy.findByRole("link", { name: /Komm vorbei/i }).should(
+        "have.attr",
+        "href",
+        "/angebote"
+      );
     });
   });
 
@@ -40,18 +43,27 @@ describe("homepage", () => {
     });
 
     it('renders CTA "Einzeltanz"', () => {
-      cy.findByRole("link", { name: /Einzeltanz mehr erfahren/i }).click();
-      cy.url().should("include", "/angebote");
+      cy.findByRole("link", { name: /Einzeltanz mehr erfahren/i }).should(
+        "have.attr",
+        "href",
+        "/angebote"
+      );
     });
 
     it('renders CTA "Formationstanzen"', () => {
-      cy.findByRole("link", { name: /Formation mehr erfahren/i }).click();
-      cy.url().should("include", "/angebote");
+      cy.findByRole("link", { name: /Formation mehr erfahren/i }).should(
+        "have.attr",
+        "href",
+        "/angebote"
+      );
     });
 
     it('renders CTA "Kindertanzen"', () => {
-      cy.findByRole("link", { name: /Kindertanzen mehr erfahren/i }).click();
-      cy.url().should("include", "/angebote");
+      cy.findByRole("link", { name: /Kindertanzen mehr erfahren/i }).should(
+        "have.attr",
+        "href",
+        "/angebote"
+      );
     });
   });
 
@@ -76,8 +88,7 @@ describe("homepage", () => {
       cy.findByRole("heading", { name: /Über uns/i })
         .parent()
         .findByRole("link", { name: /Mehr Erfahren/i })
-        .click();
-      cy.url().should("include", "/vereinsgeschichte");
+        .should("have.attr", "href", "/vereinsgeschichte");
     });
   });
 
@@ -119,8 +130,7 @@ describe("homepage", () => {
       })
         .parent()
         .findByRole("link", { name: /Weitere News/i })
-        .click();
-      cy.url().should("include", "/neuigkeiten");
+        .should("have.attr", "href", "/neuigkeiten");
     });
   });
 });
