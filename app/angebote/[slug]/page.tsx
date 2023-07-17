@@ -5,6 +5,7 @@ import { Training } from "../../../model/Training";
 import Image from "next/image";
 import Link from "next/link";
 import { TrainerCard } from "../TrainerCard";
+import { formatTime } from "../../../utils/formatTime";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
@@ -87,20 +88,18 @@ export default async function AngebotPage({ params }: Props) {
                             <time
                               dateTime={attributes.start.toLocaleTimeString()}
                             >
-                              {attributes.start.getHours()}:
-                              {attributes.start.getMinutes()}
+                              {formatTime(attributes.start)}
                             </time>
                             <div>-</div>
                             <time
                               dateTime={attributes.ende.toLocaleTimeString()}
                             >
-                              {attributes.ende.getHours()}:
-                              {attributes.ende.getMinutes()}
+                              {formatTime(attributes.ende)}
                             </time>
                             <div>Uhr</div>
                           </div>
-                          <div className="flex justify-between pt-4">
-                            <div className="flex gap-2">
+                          <div className="flex grow justify-between pt-4">
+                            <div className="flex gap-2 self-end">
                               {attributes.trainers.data.map((trainer) => (
                                 <Image
                                   key={trainer.id}
