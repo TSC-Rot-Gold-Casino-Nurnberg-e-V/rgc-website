@@ -9,8 +9,8 @@ import React, {
 import logo from "../public/RGC_Logo_white.svg";
 
 export const Footer = () => (
-  <footer className="default-padding bg-base-950 py-12">
-    <div className="m-auto grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
+  <footer className="bg-base-950">
+    <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
       <div className="order-1 flex h-full flex-col gap-3">
         <Link href="/" className="w-fit rounded-md">
           <Image

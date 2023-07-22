@@ -8,7 +8,7 @@ export default async function DatenschutzerklaerungPage() {
     <main>
       <PageHeading>Datenschutz&shy;erklärung</PageHeading>
       <Prose
-        className="default-padding mx-auto max-w-screen-md"
+        className="container-md"
         content={datenschutzerklaerung.attributes.inhalt}
       />
     </main>

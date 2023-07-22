@@ -7,10 +7,7 @@ export default async function ImpressumPage() {
   return (
     <main>
       <PageHeading>Impressum</PageHeading>
-      <Prose
-        className="default-padding mx-auto max-w-screen-md"
-        content={impressum.attributes.inhalt}
-      />
+      <Prose className="container-md" content={impressum.attributes.inhalt} />
     </main>
   );
 }

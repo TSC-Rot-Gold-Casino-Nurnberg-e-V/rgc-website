@@ -10,7 +10,7 @@ export default async function VeranstaltungenPage() {
   return (
     <main>
       <PageHeading>Veranstaltungen</PageHeading>
-      <div className="default-padding m-auto flex max-w-3xl flex-col gap-8 py-12">
+      <div className="container-md flex flex-col gap-8">
         {veranstaltungen.length !== 0 ? (
           <div>
             {veranstaltungen.map((veranstaltung) => (

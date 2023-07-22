@@ -19,7 +19,7 @@ export default async function VeranstaltungPage({ params }: Props) {
     new Date(veranstaltung.attributes.start)
   );
   return (
-    <main className="default-padding mx-auto max-w-screen-md space-y-8">
+    <main className="container-md space-y-8">
       <p className="text-small text-center tracking-widest opacity-70">
         {veranstaltung.attributes.ende !== null ? (
           <>
@@ -30,7 +30,7 @@ export default async function VeranstaltungPage({ params }: Props) {
           <>{formattedStartDate}</>
         )}
       </p>
-      <h1 className="heading-normal sm:heading-large heading-color hyphens-auto">
+      <h1 className="heading-normal sm:heading-large hyphens-auto text-accent">
         {veranstaltung.attributes.titel}
       </h1>
       <Prose content={veranstaltung.attributes.beschreibung} />

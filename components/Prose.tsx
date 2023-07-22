@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { sanitizeHTMLField } from "../utils/sanitizeHTMLField";
 
 interface Props {
@@ -8,9 +8,8 @@ interface Props {
 export const Prose = ({
   content,
   className = "",
-  children,
   ...props
-}: Props & ComponentProps<"div">) => (
+}: Props & Omit<ComponentPropsWithoutRef<"div">, "children">) => (
   <div
     className={`
     prose-h1:heading-large
@@ -19,13 +18,12 @@ export const Prose = ({
     prose-h4:heading-extrasmall
     prose-p:text-normal
     sm:prose-p:text-large
-    prose-headings:heading-color
-    prose-a:heading-color
     prose
-    max-w-screen-lg
     prose-headings:hyphens-auto
+    prose-headings:text-accent
     prose-p:hyphens-auto
     prose-p:text-base-600
+    prose-a:text-accent
     prose-strong:font-bold
     prose-strong:text-base-900
     prose-li:accent-secondary-900
@@ -39,7 +37,5 @@ export const Prose = ({
     `}
     {...props}
     dangerouslySetInnerHTML={{ __html: sanitizeHTMLField(content) }}
-  >
-    {children}
-  </div>
+  />
 );

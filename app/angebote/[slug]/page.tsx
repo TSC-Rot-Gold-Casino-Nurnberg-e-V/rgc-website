@@ -39,19 +39,14 @@ export default async function AngebotPage({ params }: Props) {
 
   return (
     <main>
-      <section>
-        <PageHeading>{angebot.attributes.titel}</PageHeading>
-        <div className="default-padding mx-auto space-y-6 py-12">
-          <Prose
-            className="mx-auto max-w-screen-lg"
-            content={angebot.attributes.beschreibung}
-          />
-          <div />
-        </div>
-      </section>
-      <section className="default-padding bg-base-100 py-12">
-        <div className="mx-auto flex max-w-screen-lg flex-col gap-8">
-          <h2 className="heading-small sm:heading-normal heading-color max-sm:text-center">
+      <PageHeading>{angebot.attributes.titel}</PageHeading>
+      <Prose
+        className="container-lg"
+        content={angebot.attributes.beschreibung}
+      />
+      <section className="bg-base-100">
+        <div className="container-lg flex flex-col gap-8">
+          <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
             Unsere Trainingszeiten
           </h2>
           <div className="flex flex-col gap-8">
@@ -81,7 +76,7 @@ export default async function AngebotPage({ params }: Props) {
                           key={id}
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
-                          <h4 className="heading-extrasmall heading-color">
+                          <h4 className="heading-extrasmall text-accent">
                             {attributes.titel}
                           </h4>
                           <div className="text-large flex gap-1 font-semibold text-base-700">
@@ -124,7 +119,7 @@ export default async function AngebotPage({ params }: Props) {
               )
             )}
           </div>
-          <div className="text-small heading-color flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
+          <div className="text-small flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 text-accent max-sm:mx-auto max-sm:max-w-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -146,56 +141,50 @@ export default async function AngebotPage({ params }: Props) {
           </div>
         </div>
       </section>
-      <section className="default-padding py-12">
-        <div className="mx-auto max-w-screen-lg">
-          <h2 className="heading-small sm:heading-normal heading-color max-sm:text-center">
-            Unsere Trainer
-          </h2>
-          <div className="divide-y">
-            {angebot.attributes.trainers.data.map((trainer) => (
-              <TrainerCard
-                key={trainer.id}
-                beschreibung={trainer.attributes.beschreibung}
-                name={trainer.attributes.name}
-                lizenzen={trainer.attributes.lizenzen.data}
-                bild={trainer.attributes.bild.data.attributes.url}
-              />
-            ))}
-          </div>
+      <section className="container-lg">
+        <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
+          Unsere Trainer
+        </h2>
+        <div className="divide-y">
+          {angebot.attributes.trainers.data.map((trainer) => (
+            <TrainerCard
+              key={trainer.id}
+              beschreibung={trainer.attributes.beschreibung}
+              name={trainer.attributes.name}
+              lizenzen={trainer.attributes.lizenzen.data}
+              bild={trainer.attributes.bild.data.attributes.url}
+            />
+          ))}
         </div>
       </section>
-      <section className="default-padding py-12">
-        <div className="mx-auto flex max-w-screen-lg flex-col gap-12">
-          <section className="flex w-full max-w-sm flex-col gap-4 max-sm:mx-auto">
-            <h2 className="heading-small heading-color">
-              Häufig gestellte Fragen
-            </h2>
-            <div>
-              <p>Sie können die gesuchte Antwort nicht finden?</p>
-              <div className="flex gap-1">
-                <p>Kontaktieren Sie uns</p>
-                <Link href="/kontakt" className="heading-color font-semibold">
-                  hier.
-                </Link>
-              </div>
+      <section className="container-lg flex flex-col gap-12">
+        <section className="flex max-w-sm flex-col gap-4 max-sm:mx-auto">
+          <h2 className="heading-small text-accent">Häufig gestellte Fragen</h2>
+          <div>
+            <p>Sie können die gesuchte Antwort nicht finden?</p>
+            <div className="flex gap-1">
+              <p>Kontaktieren Sie uns</p>
+              <Link href="/kontakt" className="font-semibold text-accent">
+                hier.
+              </Link>
             </div>
-          </section>
-          <div className="divide-y max-sm:mx-auto max-sm:max-w-sm">
-            {angebot.attributes.faqs.data.map((faq) => (
-              <section
-                key={faq.id}
-                className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
-              >
-                <h3 className="text-extralarge md:col-span-2">
-                  {faq.attributes.frage}
-                </h3>
-                <Prose
-                  className="md:col-span-3"
-                  content={faq.attributes.antwort}
-                />
-              </section>
-            ))}
           </div>
+        </section>
+        <div className="divide-y max-sm:mx-auto max-sm:max-w-sm">
+          {angebot.attributes.faqs.data.map((faq) => (
+            <section
+              key={faq.id}
+              className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
+            >
+              <h3 className="text-extralarge md:col-span-2">
+                {faq.attributes.frage}
+              </h3>
+              <Prose
+                className="md:col-span-3"
+                content={faq.attributes.antwort}
+              />
+            </section>
+          ))}
         </div>
       </section>
     </main>

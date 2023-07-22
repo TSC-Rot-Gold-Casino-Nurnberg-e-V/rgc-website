@@ -9,8 +9,14 @@
 }
 
 @layer components {
-  .heading-color {
-    @apply text-secondary-900;
+  .container-lg {
+    @apply mx-auto max-w-screen-lg px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10;
+  }
+  .container-md {
+    @apply mx-auto max-w-screen-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10;
+  }
+  .container-sm {
+    @apply mx-auto max-w-screen-sm px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10;
   }
 
   .heading-extralarge {
@@ -51,7 +57,7 @@
 }
 
 @layer utilities {
-  .default-padding {
-    @apply px-4 sm:px-6 md:px-8;
+  .text-accent {
+    @apply text-secondary-900;
   }
 }

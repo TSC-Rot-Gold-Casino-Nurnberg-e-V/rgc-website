@@ -9,7 +9,7 @@ export default async function VereinsgeschichtePage() {
     <main>
       <PageHeading>Vereinsgeschichte</PageHeading>
       <Prose
-        className="default-padding mx-auto max-w-screen-md"
+        className="container-md"
         content={vereinsgeschichte.attributes.inhalt}
       />
     </main>

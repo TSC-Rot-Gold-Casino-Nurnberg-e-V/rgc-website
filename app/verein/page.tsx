@@ -9,8 +9,8 @@ export default async function VereinsgeschichtePage() {
   return (
     <main>
       <PageHeading>Der Verein</PageHeading>
-      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-4 py-6">
-        <h2 className="heading-normal heading-color">Über uns</h2>
+      <section className="container-md flex flex-col gap-4">
+        <h2 className="heading-normal text-accent">Über uns</h2>
         <p>
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
@@ -22,8 +22,8 @@ export default async function VereinsgeschichtePage() {
           Zur kompletten Geschichte unseres Vereins
         </Link>
       </section>
-      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-2">
-        <h2 className="heading-normal heading-color">Dokumente</h2>
+      <section className="container-md flex flex-col gap-2">
+        <h2 className="heading-normal text-accent">Dokumente</h2>
         {dokumente.map((dokument) => {
           return (
             <Link
@@ -37,8 +37,8 @@ export default async function VereinsgeschichtePage() {
           );
         })}
       </section>
-      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-4">
-        <h2 className="heading-normal heading-color">Vorstandschaft</h2>
+      <section className="container-md flex flex-col gap-4">
+        <h2 className="heading-normal text-accent">Vorstandschaft</h2>
         <div className="flex flex-wrap justify-between gap-y-10">
           {vorstandsmitglieder.map((vorstandsmitglied) => (
             <div className="flex flex-col gap-3" key={vorstandsmitglied.id}>

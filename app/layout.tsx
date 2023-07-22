@@ -22,7 +22,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex h-full flex-col">
         <RouterStorage />
         <Navbar />
-        <div className={`flex grow flex-col bg-base-50 ${manrope.className}`}>
+        <div
+          className={`flex grow flex-col bg-base-50 text-base-700 ${manrope.className}`}
+        >
           {children}
         </div>
         <Sponsors />
