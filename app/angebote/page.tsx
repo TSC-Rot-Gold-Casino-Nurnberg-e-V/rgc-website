@@ -6,13 +6,12 @@ import standard from "../../public/eventImage.png";
 import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
+import { PageHeading } from "../../components/PageHeading";
 
 export default function AngebotePage() {
   return (
     <main>
-      <h1 className="heading-large md:heading-extralarge primary-gradient py-10 text-center text-secondary-950 md:py-12">
-        Angebot
-      </h1>
+      <PageHeading>Angebot</PageHeading>
       <Competition />
       <Formation />
       <Youth />

@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getDokumente, getVorstandsmitglieder } from "../../api/api";
+import { PageHeading } from "../../components/PageHeading";
 
 export default async function VereinsgeschichtePage() {
   const dokumente = await getDokumente();
   const vorstandsmitglieder = await getVorstandsmitglieder();
   return (
-    <main className="mx-auto flex max-w-3xl flex-col gap-8 py-8 max-md:p-6">
-      <div className="flex flex-col gap-4">
-        <h2 className="text-3xl font-bold text-red-900">Der Verein</h2>
-        <h3 className="text-2xl font-semibold">Über uns</h3>
+    <main>
+      <PageHeading>Der Verein</PageHeading>
+      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-4 py-6">
+        <h2 className="heading-normal text-secondary-900">Über uns</h2>
         <p>
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
@@ -20,10 +21,9 @@ export default async function VereinsgeschichtePage() {
         <Link href="/vereinsgeschichte" className="font-semibold text-red-900">
           Zur kompletten Geschichte unseres Vereins
         </Link>
-      </div>
-      <div className="flex flex-col gap-2">
-        <h3 className="text-2xl font-semibold">Dokumente</h3>
-
+      </section>
+      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-2">
+        <h2 className="heading-normal text-secondary-900">Dokumente</h2>
         {dokumente.map((dokument) => {
           return (
             <Link
@@ -36,9 +36,9 @@ export default async function VereinsgeschichtePage() {
             </Link>
           );
         })}
-      </div>
-      <div className="flex flex-col gap-4">
-        <h3 className="text-2xl font-semibold">Vorstandschaft</h3>
+      </section>
+      <section className="default-padding mx-auto flex max-w-screen-md flex-col gap-4">
+        <h2 className="heading-normal text-secondary-900">Vorstandschaft</h2>
         <div className="flex flex-wrap justify-between gap-y-10">
           {vorstandsmitglieder.map((vorstandsmitglied) => (
             <div className="flex flex-col gap-3" key={vorstandsmitglied.id}>
@@ -68,7 +68,7 @@ export default async function VereinsgeschichtePage() {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </main>
   );
 }

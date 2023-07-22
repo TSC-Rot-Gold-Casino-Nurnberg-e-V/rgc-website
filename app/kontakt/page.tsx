@@ -1,11 +1,13 @@
 import { ContactForm } from "./ContactForm";
+import { PageHeading } from "../../components/PageHeading";
 
 export default function KontaktPage() {
   return (
-    <div className="bg-base-500">
-      <main className="default-padding mx-auto max-w-3xl grow bg-base-500">
+    <main className="flex flex-col content-center bg-base-950">
+      <PageHeading>Kontakt</PageHeading>
+      <div className="mx-auto">
         <ContactForm />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

@@ -42,8 +42,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 text-base-50">
-      <h1 className="text-3xl font-bold">Kontaktformular</h1>
+    <div className="flex flex-col gap-8 pb-12 text-base-50">
       <div className="text-xl">
         <p>Rot-Gold-Casino e.V.</p>
         <p>Venusweg 7</p>

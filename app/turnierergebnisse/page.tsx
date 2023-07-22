@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTurnierergebnisse } from "../../api/api";
 import { formatDate } from "../../utils/formatDate";
+import { PageHeading } from "../../components/PageHeading";
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
@@ -10,16 +11,17 @@ export default async function Turnierergebnisse() {
   const uniqueYears: Array<number> = [...new Set(allYears)];
 
   return (
-    <main className="m-auto max-w-3xl grow space-y-8 py-8">
-      <h1 className="text-center text-2xl font-bold text-red-900">
-        Turnierergebnisse
-      </h1>
+    <main>
+      <PageHeading>Turnier&shy;ergebnisse</PageHeading>
       {uniqueYears.map((uniqueYear) => (
-        <div key={uniqueYear} className="space-y-2">
-          <div className="text-xl font-bold text-red-900">
+        <section
+          key={uniqueYear}
+          className="default-padding m-auto max-w-screen-md space-y-2 py-6"
+        >
+          <h2 className="heading-normal text-secondary-900">
             Turniere {uniqueYear}
-          </div>
-          <div className="m-auto flex max-w-3xl flex-col gap-2">
+          </h2>
+          <div className="flex flex-col gap-2">
             {turnierergebnisse
               .filter((turnierergebnis) =>
                 turnierergebnis.attributes.start.includes(uniqueYear.toString())
@@ -29,6 +31,7 @@ export default async function Turnierergebnisse() {
                   target="_blank"
                   key={turnierergebnis.id}
                   href={turnierergebnis.attributes.link}
+                  className="hover:text-secondary-900"
                 >
                   {turnierergebnis.attributes.ende !== null ? (
                     <div>
@@ -47,8 +50,8 @@ export default async function Turnierergebnisse() {
                   )}
                 </Link>
               ))}
-          </div>{" "}
-        </div>
+          </div>
+        </section>
       ))}
     </main>
   );
