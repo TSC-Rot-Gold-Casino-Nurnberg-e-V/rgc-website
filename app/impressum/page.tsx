@@ -1,14 +1,16 @@
 import { getImpressum } from "../../api/api";
-import sanitizeHtml from "sanitize-html";
+import { Prose } from "../../components/Prose";
+import { PageHeading } from "../../components/PageHeading";
 
 export default async function ImpressumPage() {
   const impressum = await getImpressum();
   return (
-    <main
-      className="default-padding prose mx-auto max-w-3xl grow"
-      dangerouslySetInnerHTML={{
-        __html: sanitizeHtml(impressum.attributes.inhalt),
-      }}
-    />
+    <main>
+      <PageHeading>Impressum</PageHeading>
+      <Prose
+        className="default-padding mx-auto max-w-screen-md"
+        content={impressum.attributes.inhalt}
+      />
+    </main>
   );
 }

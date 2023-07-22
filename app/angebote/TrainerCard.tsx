@@ -1,6 +1,6 @@
 import Image from "next/image";
-import sanitizeHtml from "sanitize-html";
 import { Lizenz } from "../../model/Lizenz";
+import { Prose } from "../../components/Prose";
 
 interface Props {
   name: string;
@@ -20,7 +20,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
     />
     <section className="flex flex-col gap-4 sm:gap-6">
       <div className="flex flex-col gap-2">
-        <h3 className="heading-extrasmall pt-2">{name}</h3>
+        <h3 className="heading-extrasmall pt-2 text-base-800">{name}</h3>
         <div className="flex flex-wrap gap-2">
           {lizenzen.map((lizenz) => (
             <div
@@ -32,12 +32,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
           ))}
         </div>
       </div>
-      <div
-        className="prose"
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(beschreibung),
-        }}
-      />
+      <Prose content={beschreibung} />
     </section>
   </div>
 );

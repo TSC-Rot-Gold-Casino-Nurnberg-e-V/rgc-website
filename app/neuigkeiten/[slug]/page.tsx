@@ -2,6 +2,7 @@ import { getNeuigkeit, getSlugs } from "../../../api/api";
 import { sanitizeHTMLField } from "../../../utils/sanitizeHTMLField";
 import { formatDate } from "../../../utils/formatDate";
 import Link from "next/link";
+import { Prose } from "../../../components/Prose";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("neuigkeiten");
@@ -18,17 +19,12 @@ export default async function NeuigkeitPage({ params }: Props) {
   const neuigkeit = await getNeuigkeit(params.slug);
 
   return (
-    <main className="default-padding grow bg-gradient-to-r from-base-50 to-base-300 py-6 sm:py-12">
-      <div className="prose-xl prose mx-auto">
+    <main className="default-padding grow py-6">
+      <div className="mx-auto max-w-screen-md space-y-4">
         <time className="text-normal text-base-500">
           {formatDate(new Date(neuigkeit.attributes.datum))}
         </time>
-        <div
-          className="prose-h1:heading-normal sm:prose-h1:heading-large prose-headings:text-secondary-900 prose-p:hyphens-auto prose-img:max-h-[24rem] prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:object-top sm:prose-img:max-h-[32rem]"
-          dangerouslySetInnerHTML={{
-            __html: sanitizeHTMLField(neuigkeit.attributes.beschreibung),
-          }}
-        />
+        <Prose content={neuigkeit.attributes.beschreibung} />
         <Link
           href="/neuigkeiten"
           className="flex w-fit items-center gap-2 p-1 text-secondary-900 no-underline"

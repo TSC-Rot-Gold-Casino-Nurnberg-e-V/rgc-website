@@ -1,14 +1,16 @@
 import { getDatenschutzerklaerung } from "../../api/api";
-import sanitizeHtml from "sanitize-html";
+import { Prose } from "../../components/Prose";
+import { PageHeading } from "../../components/PageHeading";
 
 export default async function DatenschutzerklaerungPage() {
   const datenschutzerklaerung = await getDatenschutzerklaerung();
   return (
-    <main
-      className="default-padding prose mx-auto break-words"
-      dangerouslySetInnerHTML={{
-        __html: sanitizeHtml(datenschutzerklaerung.attributes.inhalt),
-      }}
-    />
+    <main>
+      <PageHeading>Datenschutz&shy;erklärung</PageHeading>
+      <Prose
+        className="default-padding mx-auto max-w-screen-md"
+        content={datenschutzerklaerung.attributes.inhalt}
+      />
+    </main>
   );
 }

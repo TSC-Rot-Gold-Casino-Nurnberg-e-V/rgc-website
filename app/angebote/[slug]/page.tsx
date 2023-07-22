@@ -1,11 +1,12 @@
 import { getAngebot, getSlugs } from "../../../api/api";
-import sanitizeHtml from "sanitize-html";
 import { Wochentag } from "../../../model/Wochentag";
 import { Training } from "../../../model/Training";
 import Image from "next/image";
 import Link from "next/link";
 import { TrainerCard } from "../TrainerCard";
 import { formatTime } from "../../../utils/formatTime";
+import { Prose } from "../../../components/Prose";
+import { PageHeading } from "../../../components/PageHeading";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
@@ -38,20 +39,19 @@ export default async function AngebotPage({ params }: Props) {
 
   return (
     <main>
-      <section className="default-padding py-12">
-        <div className="prose-lg prose mx-auto max-w-screen-lg prose-headings:text-secondary-900">
-          <h1 className="max-sm:text-center">{angebot.attributes.titel}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: sanitizeHtml(angebot.attributes.beschreibung),
-            }}
+      <section>
+        <PageHeading>{angebot.attributes.titel}</PageHeading>
+        <div className="default-padding mx-auto space-y-6 py-12">
+          <Prose
+            className="mx-auto max-w-screen-lg"
+            content={angebot.attributes.beschreibung}
           />
           <div />
         </div>
       </section>
       <section className="default-padding bg-base-100 py-12">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-8">
-          <h2 className="heading-normal text-secondary-900 max-sm:text-center">
+          <h2 className="heading-small sm:heading-normal text-secondary-900 max-sm:text-center">
             Unsere Trainingszeiten
           </h2>
           <div className="flex flex-col gap-8">
@@ -148,7 +148,7 @@ export default async function AngebotPage({ params }: Props) {
       </section>
       <section className="default-padding py-12">
         <div className="mx-auto max-w-screen-lg">
-          <h2 className="heading-normal text-secondary-900 max-sm:text-center">
+          <h2 className="heading-small sm:heading-normal text-secondary-900 max-sm:text-center">
             Unsere Trainer
           </h2>
           <div className="divide-y">
@@ -192,11 +192,9 @@ export default async function AngebotPage({ params }: Props) {
                 <h3 className="text-extralarge md:col-span-2">
                   {faq.attributes.frage}
                 </h3>
-                <div
-                  className="prose space-y-0 md:col-span-3"
-                  dangerouslySetInnerHTML={{
-                    __html: sanitizeHtml(faq.attributes.antwort),
-                  }}
+                <Prose
+                  className="md:col-span-3"
+                  content={faq.attributes.antwort}
                 />
               </section>
             ))}
