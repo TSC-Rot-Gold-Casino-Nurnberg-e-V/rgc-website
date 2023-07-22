@@ -1,5 +1,4 @@
 import { getNeuigkeit, getSlugs } from "../../../api/api";
-import { sanitizeHTMLField } from "../../../utils/sanitizeHTMLField";
 import { formatDate } from "../../../utils/formatDate";
 import Link from "next/link";
 import { Prose } from "../../../components/Prose";
