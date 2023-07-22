@@ -18,13 +18,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de" className="h-full">
-      <body className="flex h-full flex-col">
+    <html lang="de">
+      <body>
         <RouterStorage />
         <Navbar />
-        <div
-          className={`flex grow flex-col bg-base-50 text-base-700 ${manrope.className}`}
-        >
+        <div className={`bg-base-50 text-base-700 ${manrope.className}`}>
           {children}
         </div>
         <Sponsors />
