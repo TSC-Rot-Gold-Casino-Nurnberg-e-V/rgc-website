@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { getNeuigkeiten } from "../../api/api";
 import { FurtherNeuigkeiten } from "./FurtherNeuigkeiten";
 import { NeuigkeitCard } from "./NeuigkeitCard";
