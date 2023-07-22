@@ -51,7 +51,7 @@ export default async function AngebotPage({ params }: Props) {
       </section>
       <section className="default-padding bg-base-100 py-12">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-8">
-          <h2 className="heading-small sm:heading-normal text-secondary-900 max-sm:text-center">
+          <h2 className="heading-small sm:heading-normal heading-color max-sm:text-center">
             Unsere Trainingszeiten
           </h2>
           <div className="flex flex-col gap-8">
@@ -81,7 +81,7 @@ export default async function AngebotPage({ params }: Props) {
                           key={id}
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
-                          <h4 className="heading-extrasmall text-secondary-900">
+                          <h4 className="heading-extrasmall heading-color">
                             {attributes.titel}
                           </h4>
                           <div className="text-large flex gap-1 font-semibold text-base-700">
@@ -124,7 +124,7 @@ export default async function AngebotPage({ params }: Props) {
               )
             )}
           </div>
-          <div className="text-small flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 text-secondary-900 max-sm:mx-auto max-sm:max-w-sm">
+          <div className="text-small heading-color flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -148,7 +148,7 @@ export default async function AngebotPage({ params }: Props) {
       </section>
       <section className="default-padding py-12">
         <div className="mx-auto max-w-screen-lg">
-          <h2 className="heading-small sm:heading-normal text-secondary-900 max-sm:text-center">
+          <h2 className="heading-small sm:heading-normal heading-color max-sm:text-center">
             Unsere Trainer
           </h2>
           <div className="divide-y">
@@ -167,17 +167,14 @@ export default async function AngebotPage({ params }: Props) {
       <section className="default-padding py-12">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-12">
           <section className="flex w-full max-w-sm flex-col gap-4 max-sm:mx-auto">
-            <h2 className="heading-small text-secondary-900">
+            <h2 className="heading-small heading-color">
               Häufig gestellte Fragen
             </h2>
             <div>
               <p>Sie können die gesuchte Antwort nicht finden?</p>
               <div className="flex gap-1">
                 <p>Kontaktieren Sie uns</p>
-                <Link
-                  href="/kontakt"
-                  className="font-semibold text-secondary-900"
-                >
+                <Link href="/kontakt" className="heading-color font-semibold">
                   hier.
                 </Link>
               </div>

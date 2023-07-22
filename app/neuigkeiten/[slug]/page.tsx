@@ -27,7 +27,7 @@ export default async function NeuigkeitPage({ params }: Props) {
         <Prose content={neuigkeit.attributes.beschreibung} />
         <Link
           href="/neuigkeiten"
-          className="flex w-fit items-center gap-2 p-1 text-secondary-900 no-underline"
+          className="heading-color flex w-fit items-center gap-2 p-1 no-underline"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

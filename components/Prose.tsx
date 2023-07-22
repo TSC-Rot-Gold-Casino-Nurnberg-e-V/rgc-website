@@ -19,13 +19,13 @@ export const Prose = ({
     prose-h4:heading-extrasmall
     prose-p:text-normal
     sm:prose-p:text-large
+    prose-headings:heading-color
+    prose-a:heading-color
     prose
     max-w-screen-lg
     prose-headings:hyphens-auto
-    prose-headings:text-secondary-900
     prose-p:hyphens-auto
     prose-p:text-base-600
-    prose-a:text-secondary-900
     prose-strong:font-bold
     prose-strong:text-base-900
     prose-li:accent-secondary-900

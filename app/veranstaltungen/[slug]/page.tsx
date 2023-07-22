@@ -30,7 +30,7 @@ export default async function VeranstaltungPage({ params }: Props) {
           <>{formattedStartDate}</>
         )}
       </p>
-      <h1 className="heading-normal sm:heading-large hyphens-auto text-secondary-900">
+      <h1 className="heading-normal sm:heading-large heading-color hyphens-auto">
         {veranstaltung.attributes.titel}
       </h1>
       <Prose content={veranstaltung.attributes.beschreibung} />

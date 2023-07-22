@@ -9,6 +9,10 @@
 }
 
 @layer components {
+  .heading-color {
+    @apply text-secondary-900;
+  }
+
   .heading-extralarge {
     @apply text-[60px] font-bold leading-[60px];
   }
@@ -24,6 +28,7 @@
   .heading-extrasmall {
     @apply text-[24px] font-bold leading-[32px];
   }
+
   .text-extralarge {
     @apply text-[20px] leading-[28px];
   }
@@ -39,6 +44,7 @@
   .text-extrasmall {
     @apply text-[12px] leading-[16px];
   }
+
   .primary-gradient {
     @apply bg-gradient-to-br from-primary-300 from-10% via-primary-100 via-40% to-primary-300 to-90%;
   }

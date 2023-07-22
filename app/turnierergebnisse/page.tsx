@@ -18,7 +18,7 @@ export default async function Turnierergebnisse() {
           key={uniqueYear}
           className="default-padding m-auto max-w-screen-md space-y-2 py-6"
         >
-          <h2 className="heading-normal text-secondary-900">
+          <h2 className="heading-normal heading-color">
             Turniere {uniqueYear}
           </h2>
           <div className="flex flex-col gap-2">
@@ -31,7 +31,7 @@ export default async function Turnierergebnisse() {
                   target="_blank"
                   key={turnierergebnis.id}
                   href={turnierergebnis.attributes.link}
-                  className="hover:text-secondary-900"
+                  className="hover:heading-color"
                 >
                   {turnierergebnis.attributes.ende !== null ? (
                     <div>
