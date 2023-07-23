@@ -28,12 +28,12 @@ const HeroSection = () => (
   <section className="relative bg-base-950">
     <div
       role="banner"
-      className="container-lg relative z-10 flex flex-col gap-6 text-primary-50"
+      className="container-lg relative z-10 space-y-6 text-primary-50"
     >
       <h1 className="heading-small sm:heading-normal md:heading-large primary-gradient max-w-screen-sm bg-clip-text font-extrabold uppercase text-transparent">
         Herzlich Willkommen im RGC
       </h1>
-      <div className="flex max-w-screen-sm flex-col gap-4">
+      <div className="max-w-screen-sm space-y-4">
         <h2 className="heading-extrasmall md:heading-small text-base-50">
           Ihr Verein für Tanzsport in Nürnberg / Fürth
         </h2>
@@ -45,7 +45,7 @@ const HeroSection = () => (
           unvergessliche Momente auf der Tanzfläche.
         </p>
       </div>
-      <Link className="w-fit rounded-md" href="/angebote">
+      <Link className="block w-fit rounded-md" href="/angebote">
         <Button tabIndex={-1}>Komm vorbei</Button>
       </Link>
     </div>
@@ -64,16 +64,13 @@ const HeroSection = () => (
 // TODO: Links zu den Angeboten mit Anker ergänzen
 const AngebotSection = () => (
   <div className="bg-gradient-to-br from-base-500 to-base-800">
-    <section
-      aria-label="Kursangebote"
-      className="container-lg flex flex-col gap-12"
-    >
-      <div className="flex flex-col items-center gap-6">
+    <section aria-label="Kursangebote" className="container-lg space-y-12">
+      <div className="space-y-6 text-center">
         <h2 className="heading-small max-md:heading-normal md:heading-large text-base-50">
           Unser Angebot
         </h2>
         <p
-          className="text-normal lg:text-large max-w-2xl hyphens-auto text-base-50"
+          className="text-normal lg:text-large mx-auto max-w-screen-sm hyphens-auto text-base-50"
           aria-label="Angebotsbeschreibung"
         >
           Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein,
@@ -150,7 +147,7 @@ const AngebotCard = ({
 const VereinsgeschichteSection = () => (
   <section className="relative" aria-label="Vereinsinformationen">
     <div className="relative z-10 w-full bg-gradient-to-r from-base-950">
-      <div className="container-lg flex flex-col justify-center py-12">
+      <div className="container-lg flex flex-col justify-center">
         <h2 className="heading-normal md:heading-large order-2 mt-6 text-base-50">
           Über uns
         </h2>
@@ -210,7 +207,7 @@ const Stats = () => (
 );
 
 const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
-  <section className="container-lg flex flex-col justify-center gap-8 sm:gap-10 md:gap-12">
+  <section className="container-lg space-y-8">
     <h2 className="heading-small max-md:heading-normal md:heading-large text-center text-accent">
       News
     </h2>
@@ -246,7 +243,7 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
         </Link>
       ))}
     </div>
-    <div className="mx-auto">
+    <div className="mx-auto w-fit">
       <Link className="rounded-md" href="/neuigkeiten">
         <Button tabIndex={-1}>Weitere News</Button>
       </Link>

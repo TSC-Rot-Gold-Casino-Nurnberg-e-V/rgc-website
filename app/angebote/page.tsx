@@ -58,7 +58,7 @@ const Competition = () => (
 
 const Formation = () => (
   <section className="container-lg">
-    <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
+    <div className="space-y-6">
       <div className="flex flex-col items-center gap-3 text-base-800">
         <h2 className="heading-normal sm:heading-large text-center text-accent">
           Formationstanzen
@@ -136,7 +136,7 @@ const Youth = () => (
 
 const Hobby = () => (
   <section className="container-lg flex gap-6 max-md:flex-col md:items-center">
-    <div className="flex flex-col gap-3 max-md:text-center md:basis-1/2">
+    <div className="space-y-3 max-md:text-center md:basis-1/2">
       <h2 className="heading-normal sm:heading-large text-accent">
         Freizeittanzen
       </h2>

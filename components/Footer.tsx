@@ -11,7 +11,7 @@ import logo from "../public/RGC_Logo_white.svg";
 export const Footer = () => (
   <footer className="bg-base-950">
     <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
-      <div className="order-1 flex h-full flex-col gap-3">
+      <div className="order-1 h-full space-y-3">
         <Link href="/" className="w-fit rounded-md">
           <Image
             src={logo}
@@ -19,7 +19,7 @@ export const Footer = () => (
             className="max-h-12 w-20 object-cover"
           />
         </Link>
-        <div className="flex flex-col gap-1.5">
+        <div className="space-y-1.5">
           <FooterLink
             text="Tanzsportclub Rot-Gold-Casino Nürnberg e.V."
             href="/"
@@ -32,9 +32,9 @@ export const Footer = () => (
           </p>
         </div>
       </div>
-      <div className="order-3 flex flex-col gap-4 lg:order-2">
+      <div className="order-3 space-y-4 lg:order-2">
         <CategoryHeading text="Informationen" />
-        <div className="flex flex-col gap-1">
+        <div className="space-y-1">
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/verein" />
           <FooterLink text="News" href="/neuigkeiten" />
@@ -45,9 +45,9 @@ export const Footer = () => (
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
         </div>
       </div>
-      <div className="order-4 flex flex-col gap-4 lg:order-3">
+      <div className="order-4 space-y-4 lg:order-3">
         <CategoryHeading text="Angebot" />
-        <div className="flex flex-col gap-1">
+        <div className="space-y-1">
           {/* TODO Verlinkungen klären mit Ankerpunkten */}
           <FooterLink text="Turniertanzen" href="/angebote" />
           <FooterLink text="Formationstanzen" href="/angebote" />
@@ -55,9 +55,9 @@ export const Footer = () => (
           <FooterLink text="Freizeittanzen" href="/angebote" />
         </div>
       </div>
-      <div className="order-2 flex flex-col gap-4 lg:order-4">
+      <div className="order-2 space-y-4 lg:order-4">
         <CategoryHeading text="Kontakt" />
-        <div className="flex flex-col gap-3">
+        <div className="space-y-3">
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             icon={<MapIcon />}
@@ -101,7 +101,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
   ({ text, href, className = "", ...rest }, ref) => (
     <Link
       href={href}
-      className={`w-fit rounded-md hover:text-base-50 ${className}`}
+      className={`block w-fit rounded-md hover:text-base-50 ${className}`}
       {...rest}
       ref={ref}
     >

@@ -10,7 +10,7 @@ export default async function VeranstaltungenPage() {
   return (
     <main>
       <PageHeading>Veranstaltungen</PageHeading>
-      <div className="container-md flex flex-col gap-8">
+      <div className="container-md space-y-8">
         {veranstaltungen.length !== 0 ? (
           <div>
             {veranstaltungen.map((veranstaltung) => (

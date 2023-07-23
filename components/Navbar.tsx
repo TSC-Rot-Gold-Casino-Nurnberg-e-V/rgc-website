@@ -16,7 +16,7 @@ export const Navbar = () => {
         hideNavbar ? "-top-20" : "top-0"
       } z-30 transition-all duration-500`}
     >
-      <div className="m-auto flex h-20 max-w-screen-lg items-center justify-between">
+      <div className="mx-auto flex h-20 max-w-screen-lg items-center justify-between">
         <Link href="/" className="rounded-md">
           <Image
             src={logo}

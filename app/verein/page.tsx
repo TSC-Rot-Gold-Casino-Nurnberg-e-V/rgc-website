@@ -9,7 +9,7 @@ export default async function VereinsgeschichtePage() {
   return (
     <main>
       <PageHeading>Der Verein</PageHeading>
-      <section className="container-md flex flex-col gap-4">
+      <section className="container-md space-y-4">
         <h2 className="heading-normal text-accent">Über uns</h2>
         <p>
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
@@ -18,18 +18,21 @@ export default async function VereinsgeschichtePage() {
           Faktor des gesellschaftlichen Lebens. Mit etwa 600 Mitgliedern zählt
           er zu den größten Tanzsportclubs in Bayern und Deutschland.
         </p>
-        <Link href="/vereinsgeschichte" className="font-semibold text-red-900">
+        <Link
+          href="/vereinsgeschichte"
+          className="block font-semibold text-red-900"
+        >
           Zur kompletten Geschichte unseres Vereins
         </Link>
       </section>
-      <section className="container-md flex flex-col gap-2">
+      <section className="container-md space-y-2">
         <h2 className="heading-normal text-accent">Dokumente</h2>
         {dokumente.map((dokument) => {
           return (
             <Link
               href={dokument.attributes.datei.data.attributes.url}
               key={dokument.id}
-              className="hover:text-red-900"
+              className="block hover:text-red-900"
               target="_blank"
             >
               {dokument.attributes.titel}
@@ -37,11 +40,11 @@ export default async function VereinsgeschichtePage() {
           );
         })}
       </section>
-      <section className="container-md flex flex-col gap-4">
+      <section className="container-md space-y-4">
         <h2 className="heading-normal text-accent">Vorstandschaft</h2>
         <div className="flex flex-wrap justify-between gap-y-10">
           {vorstandsmitglieder.map((vorstandsmitglied) => (
-            <div className="flex flex-col gap-3" key={vorstandsmitglied.id}>
+            <div className="space-y-3" key={vorstandsmitglied.id}>
               <div className="relative h-60 w-60 rounded-md">
                 <Image
                   src={vorstandsmitglied.attributes.bild.data.attributes.url}
@@ -51,17 +54,17 @@ export default async function VereinsgeschichtePage() {
                 />
               </div>
 
-              <div className="flex max-w-[240px] flex-col gap-1">
-                <div className="flex w-fit items-center text-xl font-bold">
+              <div className="max-w-[240px] space-y-1">
+                <div className="text-large font-bold">
                   {vorstandsmitglied.attributes.rolle}
                 </div>
-                <div className="w-fit text-sm text-base-500">
+                <div className="text-small">
                   {vorstandsmitglied.attributes.name}
                 </div>
-                <div className="w-fit text-sm text-base-500">
+                <div className="text-small">
                   Tel: {vorstandsmitglied.attributes.telefonnummer}
                 </div>
-                <div className="w-fit text-sm text-base-500">
+                <div className="text-small">
                   E-Mail: {vorstandsmitglied.attributes.email}
                 </div>
               </div>

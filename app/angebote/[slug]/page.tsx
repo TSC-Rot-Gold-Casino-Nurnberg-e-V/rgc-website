@@ -45,14 +45,14 @@ export default async function AngebotPage({ params }: Props) {
         content={angebot.attributes.beschreibung}
       />
       <section className="bg-base-100">
-        <div className="container-lg flex flex-col gap-8">
+        <div className="container-lg space-y-8">
           <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
             Unsere Trainingszeiten
           </h2>
-          <div className="flex flex-col gap-8">
+          <div className="space-y-8">
             {Array.from(trainingsGroupedByWochentag).map(
               ([wochentagTitel, trainings]) => (
-                <div key={wochentagTitel} className="flex flex-col gap-4">
+                <div key={wochentagTitel} className="space-y-4">
                   <h3 className="heading-extrasmall text-base-600 max-sm:text-center">
                     {wochentagTitel}
                   </h3>
@@ -157,8 +157,8 @@ export default async function AngebotPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <section className="container-lg flex flex-col gap-12">
-        <section className="flex max-w-sm flex-col gap-4 max-sm:mx-auto">
+      <section className="container-lg space-y-12">
+        <section className="max-w-sm space-y-4 max-sm:mx-auto">
           <h2 className="heading-small text-accent">Häufig gestellte Fragen</h2>
           <div>
             <p>Sie können die gesuchte Antwort nicht finden?</p>
