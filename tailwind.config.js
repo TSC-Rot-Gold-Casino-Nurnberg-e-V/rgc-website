@@ -9,8 +9,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "mid-grey": "#B1B8C6",
-        "dark-grey": "#2D3648",
         primary: {
           50: "#fcf9f0",
           100: "#f7f1dd",
@@ -44,5 +42,6 @@ module.exports = {
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     logs: false,
+    themes: false,
   },
 };

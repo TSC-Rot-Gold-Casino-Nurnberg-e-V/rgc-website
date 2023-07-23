@@ -1,6 +1,6 @@
 import Image from "next/image";
-import sanitizeHtml from "sanitize-html";
 import { Lizenz } from "../../model/Lizenz";
+import { Prose } from "../../components/Prose";
 
 interface Props {
   name: string;
@@ -18,26 +18,21 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
       width={384} // max-w-sm
       className="h-full max-h-80 w-full rounded-2xl object-cover sm:h-80 sm:w-60"
     />
-    <section className="flex flex-col gap-4 sm:gap-6">
-      <div className="flex flex-col gap-2">
-        <h3 className="heading-extrasmall pt-2">{name}</h3>
+    <section className="space-y-4 sm:space-y-6">
+      <div className="space-y-2">
+        <h3 className="heading-extrasmall pt-2 text-base-800">{name}</h3>
         <div className="flex flex-wrap gap-2">
           {lizenzen.map((lizenz) => (
             <div
               key={lizenz.id}
-              className="badge-outline badge px-4 py-3 text-secondary-900"
+              className="badge-outline badge px-4 py-3 text-accent"
             >
               {lizenz.attributes.name}
             </div>
           ))}
         </div>
       </div>
-      <div
-        className="prose"
-        dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(beschreibung),
-        }}
-      />
+      <Prose content={beschreibung} />
     </section>
   </div>
 );

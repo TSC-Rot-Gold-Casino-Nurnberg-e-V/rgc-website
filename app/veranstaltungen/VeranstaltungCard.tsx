@@ -32,7 +32,7 @@ export const VeranstaltungCard = ({
           <>{formattedStartDate}</>
         )}
       </div>
-      <div className="flex max-w-lg grow flex-col max-md:m-auto lg:max-w-xl">
+      <div className="flex max-w-lg grow flex-col max-md:mx-auto lg:max-w-xl">
         <div className="text-2xl font-bold text-red-900 group-hover:text-red-800 max-md:text-center">
           {titel}
         </div>

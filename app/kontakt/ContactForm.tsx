@@ -42,17 +42,16 @@ export const ContactForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 text-base-50">
-      <h1 className="text-3xl font-bold">Kontaktformular</h1>
+    <div className="space-y-8 text-base-50">
       <div className="text-xl">
         <p>Rot-Gold-Casino e.V.</p>
         <p>Venusweg 7</p>
         <p>90763 Fürth</p>
       </div>
       <p className="text-xl">Eure Nachricht an uns.</p>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
-        <div className="flex w-full flex-col gap-4">
-          <div className="flex flex-col gap-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <div className="space-y-4">
+          <div className="space-y-2">
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -69,7 +68,7 @@ export const ContactForm = () => {
               </p>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="space-y-2">
             <label htmlFor="mail">Email</label>
             <input
               id="mail"
@@ -86,7 +85,7 @@ export const ContactForm = () => {
               </p>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="space-y-2">
             <label htmlFor="phone">Telefon</label>
             <input
               type="number"
@@ -104,7 +103,7 @@ export const ContactForm = () => {
               </p>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="space-y-2">
             <label htmlFor="phone">Nachricht</label>
             <textarea
               id="message"
@@ -121,7 +120,7 @@ export const ContactForm = () => {
               </p>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="space-y-2">
             <label htmlFor="datenschutzerklaerung">Datenschutz</label>
             <div className="flex gap-2">
               <input

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getTurnierergebnisse } from "../../api/api";
 import { formatDate } from "../../utils/formatDate";
+import { PageHeading } from "../../components/PageHeading";
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
@@ -10,46 +11,49 @@ export default async function Turnierergebnisse() {
   const uniqueYears: Array<number> = [...new Set(allYears)];
 
   return (
-    <main className="m-auto max-w-3xl grow space-y-8 py-8">
-      <h1 className="text-center text-2xl font-bold text-red-900">
-        Turnierergebnisse
-      </h1>
-      {uniqueYears.map((uniqueYear) => (
-        <div key={uniqueYear} className="space-y-2">
-          <div className="text-xl font-bold text-red-900">
-            Turniere {uniqueYear}
-          </div>
-          <div className="m-auto flex max-w-3xl flex-col gap-2">
-            {turnierergebnisse
-              .filter((turnierergebnis) =>
-                turnierergebnis.attributes.start.includes(uniqueYear.toString())
-              )
-              .map((turnierergebnis) => (
-                <Link
-                  target="_blank"
-                  key={turnierergebnis.id}
-                  href={turnierergebnis.attributes.link}
-                >
-                  {turnierergebnis.attributes.ende !== null ? (
-                    <div>
-                      {formatDate(new Date(turnierergebnis.attributes.start))}{" "}
-                      bis{" "}
-                      {formatDate(new Date(turnierergebnis.attributes.ende))}
-                      {": "}
-                      {turnierergebnis.attributes.titel}
-                    </div>
-                  ) : (
-                    <div>
-                      {formatDate(new Date(turnierergebnis.attributes.start))}
-                      {": "}
-                      {turnierergebnis.attributes.titel}
-                    </div>
-                  )}
-                </Link>
-              ))}
-          </div>{" "}
-        </div>
-      ))}
+    <main>
+      <PageHeading>Turnier&shy;ergebnisse</PageHeading>
+      <div className="container-md space-y-8">
+        {uniqueYears.map((uniqueYear) => (
+          <section key={uniqueYear} className="space-y-2">
+            <h2 className="heading-normal text-accent">
+              Turniere {uniqueYear}
+            </h2>
+            <div className="space-y-2">
+              {turnierergebnisse
+                .filter((turnierergebnis) =>
+                  turnierergebnis.attributes.start.includes(
+                    uniqueYear.toString()
+                  )
+                )
+                .map((turnierergebnis) => (
+                  <Link
+                    target="_blank"
+                    key={turnierergebnis.id}
+                    href={turnierergebnis.attributes.link}
+                    className="hover:text-accent"
+                  >
+                    {turnierergebnis.attributes.ende !== null ? (
+                      <div>
+                        {formatDate(new Date(turnierergebnis.attributes.start))}{" "}
+                        bis{" "}
+                        {formatDate(new Date(turnierergebnis.attributes.ende))}
+                        {": "}
+                        {turnierergebnis.attributes.titel}
+                      </div>
+                    ) : (
+                      <div>
+                        {formatDate(new Date(turnierergebnis.attributes.start))}
+                        {": "}
+                        {turnierergebnis.attributes.titel}
+                      </div>
+                    )}
+                  </Link>
+                ))}
+            </div>
+          </section>
+        ))}
+      </div>
     </main>
   );
 }
