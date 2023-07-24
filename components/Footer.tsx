@@ -48,11 +48,13 @@ export const Footer = () => (
       <div className="order-4 space-y-4 lg:order-3">
         <CategoryHeading text="Angebot" />
         <div className="space-y-1">
-          {/* TODO Verlinkungen klären mit Ankerpunkten */}
-          <FooterLink text="Turniertanzen" href="/angebote" />
-          <FooterLink text="Formationstanzen" href="/angebote" />
-          <FooterLink text="Kindertanzen" href="/angebote" />
-          <FooterLink text="Freizeittanzen" href="/angebote" />
+          <FooterLink text="Turniertanzen" href="/angebote#turniertanzen" />
+          <FooterLink
+            text="Formationstanzen"
+            href="/angebote#formationstanzen"
+          />
+          <FooterLink text="Kindertanzen" href="/angebote#kindertanzen" />
+          <FooterLink text="Freizeittanzen" href="/angebote#freizeittanzen" />
         </div>
       </div>
       <div className="order-2 space-y-4 lg:order-4">
