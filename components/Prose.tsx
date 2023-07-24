@@ -25,7 +25,6 @@ export const Prose = ({
     prose-p:text-base-600
     prose-a:text-accent
     prose-strong:font-bold
-    prose-strong:text-base-900
     prose-li:accent-secondary-900
     prose-img:max-h-[24rem]
     prose-img:w-full
