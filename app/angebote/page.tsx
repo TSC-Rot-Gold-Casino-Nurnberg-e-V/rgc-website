@@ -19,9 +19,9 @@ export default function AngebotePage() {
     </main>
   );
 }
-// TODO korrekte Links hinterlegen
+
 const Competition = () => (
-  <section className="container-lg">
+  <section className="container-lg" id="turniertanzen">
     <div className="grid gap-12 sm:justify-items-center lg:grid-cols-[auto_1fr]">
       <div className="flex max-w-3xl flex-col justify-center gap-3 max-lg:mx-auto max-lg:text-center lg:max-w-sm">
         <h2 className="heading-normal md:heading-large text-accent">
@@ -46,7 +46,7 @@ const Competition = () => (
         <AngebotCard
           priority={true}
           title="Latein"
-          href="/angebote"
+          href="/angebote/turniertanz-latein"
           image={latein}
           className="h-96"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -56,8 +56,9 @@ const Competition = () => (
   </section>
 );
 
+// TODO korrekte Links hinterlegen (https://github.com/TSC-Rot-Gold-Casino-Nurnberg-e-V/rgc-website/issues/54)
 const Formation = () => (
-  <section className="container-lg">
+  <section className="container-lg" id="formationstanzen">
     <div className="space-y-6">
       <div className="flex flex-col items-center gap-3 text-base-800">
         <h2 className="heading-normal sm:heading-large text-center text-accent">
@@ -93,7 +94,7 @@ const Formation = () => (
 );
 
 const Youth = () => (
-  <section className="container-lg">
+  <section className="container-lg" id="kindertanzen">
     <div className="mx-auto grid max-w-screen-lg gap-6 sm:grid-cols-2 lg:grid-cols-[auto_1fr_1fr]">
       <div className="flex flex-col gap-6 sm:max-lg:col-span-2 md:max-lg:flex-row">
         <div className="flex flex-col justify-center gap-3 max-md:mx-auto max-md:text-center">
@@ -110,7 +111,7 @@ const Youth = () => (
         <div className="h-80 w-full">
           <AngebotCard
             title="Allgemein"
-            href="/angebote"
+            href="/angebote/kindertanzen"
             image={formation}
             imageSizes="(max-width: 768px) 100vw, 50vw"
           />
@@ -118,14 +119,14 @@ const Youth = () => (
       </div>
       <AngebotCard
         title="Latein"
-        href="/angebote"
+        href="/angebote/kinder-junioren-jugend-latein"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       <AngebotCard
         title="Standard"
-        href="/angebote"
+        href="/angebote/kinder-junioren-jugend-standard"
         image={kinder}
         className="h-96 lg:h-full"
         imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -135,7 +136,10 @@ const Youth = () => (
 );
 
 const Hobby = () => (
-  <section className="container-lg flex gap-6 max-md:flex-col md:items-center">
+  <section
+    className="container-lg flex gap-6 max-md:flex-col md:items-center"
+    id="freizeittanzen"
+  >
     <div className="space-y-3 max-md:text-center md:basis-1/2">
       <h2 className="heading-normal sm:heading-large text-accent">
         Freizeittanzen
@@ -150,7 +154,7 @@ const Hobby = () => (
     <div className="h-96 md:basis-1/2">
       <AngebotCard
         title="Freizeittanzen"
-        href="/angebote"
+        href="/angebote/freizeittanz"
         image={formation}
         imageSizes="(max-width: 768px) 100vw, 50vw"
       />

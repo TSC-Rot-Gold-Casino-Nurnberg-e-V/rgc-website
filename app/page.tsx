@@ -61,7 +61,6 @@ const HeroSection = () => (
   </section>
 );
 
-// TODO: Links zu den Angeboten mit Anker ergänzen
 const AngebotSection = () => (
   <div className="bg-gradient-to-br from-base-500 to-base-800">
     <section aria-label="Kursangebote" className="container-lg space-y-12">
@@ -83,21 +82,21 @@ const AngebotSection = () => (
           title="Einzeltanz"
           image={einzeltanz}
           className="max-h-[28rem] "
-          href="/angebote"
+          href="/angebote#turniertanzen"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <AngebotCard
           title="Formation"
           image={formation}
           className="max-h-[28rem]"
-          href="/angebote"
+          href="/angebote#formationstanzen"
           imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <AngebotCard
           title="Kindertanzen"
           image={kindertanzen}
           className="max-h-[28rem] sm:max-lg:col-span-2"
-          href="/angebote"
+          href="/angebote#kindertanzen"
           imageSizes="(max-width: 1024px) 100vw, 33vw"
         />
       </div>
@@ -163,10 +162,7 @@ const VereinsgeschichteSection = () => (
           Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur
           im Mittelpunkt unserer Arbeit.
         </p>
-        <Link
-          href="/vereinsgeschichte"
-          className="order-4 mt-6 w-fit rounded-md"
-        >
+        <Link href="/verein" className="order-4 mt-6 w-fit rounded-md">
           <Button tabIndex={-1}>Mehr erfahren</Button>
         </Link>
       </div>
