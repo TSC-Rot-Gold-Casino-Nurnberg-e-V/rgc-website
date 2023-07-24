@@ -46,7 +46,7 @@ describe("homepage", () => {
       cy.findByRole("link", { name: /Einzeltanz mehr erfahren/i }).should(
         "have.attr",
         "href",
-        "/angebote"
+        "/angebote#turniertanzen"
       );
     });
 
@@ -54,7 +54,7 @@ describe("homepage", () => {
       cy.findByRole("link", { name: /Formation mehr erfahren/i }).should(
         "have.attr",
         "href",
-        "/angebote"
+        "/angebote#formationstanzen"
       );
     });
 
@@ -62,7 +62,7 @@ describe("homepage", () => {
       cy.findByRole("link", { name: /Kindertanzen mehr erfahren/i }).should(
         "have.attr",
         "href",
-        "/angebote"
+        "/angebote#kindertanzen"
       );
     });
   });
@@ -88,7 +88,7 @@ describe("homepage", () => {
       cy.findByRole("heading", { name: /Über uns/i })
         .parent()
         .findByRole("link", { name: /Mehr Erfahren/i })
-        .should("have.attr", "href", "/vereinsgeschichte");
+        .should("have.attr", "href", "/verein");
     });
   });
 
