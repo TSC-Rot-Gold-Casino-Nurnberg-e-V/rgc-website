@@ -24,7 +24,8 @@ describe("footer", () => {
       .should("contain", "Turnierergebnisse")
       .should("contain", "Kontaktanfrage")
       .should("contain", "Impressum")
-      .should("contain", "Datenschutz");
+      .should("contain", "Datenschutz")
+      .should("contain", "Dokumente");
   });
 
   it("navigates to the homepage", () => {
