@@ -19,7 +19,7 @@ export default async function VereinsgeschichtePage() {
         </p>
         <Link
           href="/vereinsgeschichte"
-          className="block font-semibold text-red-900"
+          className="block font-semibold text-primary-900"
         >
           Zur kompletten Geschichte unseres Vereins
         </Link>
