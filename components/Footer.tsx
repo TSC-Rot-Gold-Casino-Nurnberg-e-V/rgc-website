@@ -43,6 +43,7 @@ export const Footer = () => (
           <FooterLink text="Kontaktanfrage" href="/kontakt" />
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
+          <FooterLink text="Dokumente" href="/dokumente" />
         </div>
       </div>
       <div className="order-4 space-y-4 lg:order-3">

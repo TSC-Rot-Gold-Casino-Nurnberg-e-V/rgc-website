@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getDokumente, getVorstandsmitglieder } from "../../api/api";
+import { getVorstandsmitglieder } from "../../api/api";
 import { PageHeading } from "../../components/PageHeading";
 
 export default async function VereinsgeschichtePage() {
-  const dokumente = await getDokumente();
   const vorstandsmitglieder = await getVorstandsmitglieder();
   return (
     <main>
@@ -20,25 +19,10 @@ export default async function VereinsgeschichtePage() {
         </p>
         <Link
           href="/vereinsgeschichte"
-          className="block font-semibold text-red-900"
+          className="block font-semibold text-accent"
         >
           Zur kompletten Geschichte unseres Vereins
         </Link>
-      </section>
-      <section className="container-md space-y-2">
-        <h2 className="heading-normal text-accent">Dokumente</h2>
-        {dokumente.map((dokument) => {
-          return (
-            <Link
-              href={dokument.attributes.datei.data.attributes.url}
-              key={dokument.id}
-              className="block hover:text-red-900"
-              target="_blank"
-            >
-              {dokument.attributes.titel}
-            </Link>
-          );
-        })}
       </section>
       <section className="container-md space-y-4">
         <h2 className="heading-normal text-accent">Vorstandschaft</h2>
