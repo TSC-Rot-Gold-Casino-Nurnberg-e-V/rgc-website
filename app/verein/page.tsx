@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getVorstandsmitglieder } from "../../api/api";
 import { PageHeading } from "../../components/PageHeading";
-import { MailIcon } from "../../components/MailIcon";
+import { MailIcon } from "../../components/icons/MailIcon";
 import { ReactElement } from "react";
 
 export default async function VereinsgeschichtePage() {
