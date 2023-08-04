@@ -5,7 +5,7 @@ export const vorstandsmitgliedSchema = z.object({
   attributes: z.object({
     rolle: z.string(),
     name: z.string(),
-    telefonnummer: z.string(),
+    telefonnummer: z.string().nullable(),
     email: z.string(),
     bild: z.object({
       data: z.object({
