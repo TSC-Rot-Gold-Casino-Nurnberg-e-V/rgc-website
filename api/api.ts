@@ -174,7 +174,6 @@ async function fetchData(path: string): Promise<{
   };
 }> {
   const isClientSide = typeof window !== "undefined";
-  console.log(isClientSide);
   const res = await fetch(BASE_URL + path, {
     headers: {
       Authorization: `Bearer ${
