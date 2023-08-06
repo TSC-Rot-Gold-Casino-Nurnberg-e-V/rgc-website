@@ -147,13 +147,14 @@ export default async function AngebotPage({ params }: Props) {
         </h2>
         <div className="divide-y">
           {angebot.attributes.trainers.data.map((trainer) => (
-            <TrainerCard
-              key={trainer.id}
-              beschreibung={trainer.attributes.beschreibung}
-              name={trainer.attributes.name}
-              lizenzen={trainer.attributes.lizenzen.data}
-              bild={trainer.attributes.bild.data.attributes.url}
-            />
+            <div key={trainer.id} className="py-12">
+              <TrainerCard
+                beschreibung={trainer.attributes.beschreibung}
+                name={trainer.attributes.name}
+                lizenzen={trainer.attributes.lizenzen.data}
+                bild={trainer.attributes.bild.data.attributes.url}
+              />
+            </div>
           ))}
         </div>
       </section>

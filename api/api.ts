@@ -29,6 +29,7 @@ import {
 } from "../model/Turnierergebnis";
 import { Pagination, paginationSchema } from "../model/Pagination";
 import { Slug, slugsSchema } from "../model/Slug";
+import { Cheftrainer, cheftrainersSchema } from "../model/Cheftrainer";
 
 export async function getNeuigkeiten(
   pageSize: number,
@@ -125,6 +126,17 @@ export async function getVorstandsmitglieder(): Promise<
   return vorstandsmitgliederSchema.parse(data);
 }
 
+export async function getCheftrainers(): Promise<Array<Cheftrainer>> {
+  const urlSearchParams = new URLSearchParams();
+  urlSearchParams.append("populate[0]", "trainer");
+  urlSearchParams.append("populate[1]", "trainer.name");
+  urlSearchParams.append("populate[2]", "trainer.beschreibung");
+  urlSearchParams.append("populate[3]", "trainer.lizenzen");
+  urlSearchParams.append("populate[4]", "trainer.bild");
+  const { data } = await fetchData(`/cheftrainers?${urlSearchParams}`);
+  return cheftrainersSchema.parse(data);
+}
+
 export async function getDokumente(): Promise<Array<Dokument>> {
   const urlSearchParams = new URLSearchParams();
   urlSearchParams.append("populate", "*");
@@ -170,6 +182,7 @@ async function fetchData(path: string): Promise<{
           : process.env.CMS_SERVER_TOKEN
       }`,
     },
+    cache: "no-store",
   });
   if (!res.ok) {
     const error = await res.json();
