@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getVorstandsmitglieder } from "../../api/api";
+import { getCheftrainers, getVorstandsmitglieder } from "../../api/api";
 import { PageHeading } from "../../components/PageHeading";
 import { MailIcon } from "../../components/icons/MailIcon";
 import { ReactElement } from "react";
+import { TrainerCard } from "../angebote/TrainerCard";
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();
+  const cheftrainers = await getCheftrainers();
   return (
     <main>
       <PageHeading>Der Verein</PageHeading>
@@ -68,6 +70,29 @@ export default async function VereinsgeschichtePage() {
             </div>
           ))}
         </div>
+      </section>
+      <section className="container-lg space-y-10">
+        <h2 className="heading-small sm:heading-normal text-center text-accent">
+          Cheftrainer
+        </h2>
+        {cheftrainers.map((cheftrainer) => (
+          <section key={cheftrainer.id}>
+            <h3 className="heading-extrasmall sm:heading-small mb-5 text-accent max-sm:text-center">
+              {cheftrainer.attributes.titel}
+            </h3>
+            <TrainerCard
+              name={cheftrainer.attributes.trainer.data.attributes.name}
+              lizenzen={[]}
+              beschreibung={
+                cheftrainer.attributes.trainer.data.attributes.beschreibung
+              }
+              bild={
+                cheftrainer.attributes.trainer.data.attributes.bild.data
+                  .attributes.url
+              }
+            />
+          </section>
+        ))}
       </section>
     </main>
   );
