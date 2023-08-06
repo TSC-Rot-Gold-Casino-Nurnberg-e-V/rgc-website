@@ -120,7 +120,7 @@ export async function getVorstandsmitglieder(): Promise<
   Array<Vorstandsmitglied>
 > {
   const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("sort", `id:asc`);
+  urlSearchParams.append("sort", `reihenfolge:asc`);
   urlSearchParams.append("populate", "*");
   const { data } = await fetchData(`/vorstandsmitglieder?${urlSearchParams}`);
   return vorstandsmitgliederSchema.parse(data);
