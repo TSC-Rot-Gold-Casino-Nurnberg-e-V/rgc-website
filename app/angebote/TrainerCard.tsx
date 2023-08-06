@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
-  <div className="flex gap-4 py-12 max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col sm:gap-10">
+  <div className="flex gap-4 max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col sm:gap-10">
     <Image
       src={bild}
       alt=""
