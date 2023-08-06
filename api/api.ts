@@ -182,6 +182,7 @@ async function fetchData(path: string): Promise<{
           : process.env.CMS_SERVER_TOKEN
       }`,
     },
+    cache: "no-store",
   });
   if (!res.ok) {
     const error = await res.json();
