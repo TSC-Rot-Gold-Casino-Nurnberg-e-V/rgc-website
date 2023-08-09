@@ -8,6 +8,7 @@ export const ortSchema = z.object({
     hausnummer: z.string(),
     postleitzahl: z.string(),
     stadt: z.string(),
+    maps: z.string(),
   }),
 });
 
