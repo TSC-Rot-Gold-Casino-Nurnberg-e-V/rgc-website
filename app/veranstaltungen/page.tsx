@@ -8,11 +8,11 @@ export const revalidate = 86400;
 export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();
   return (
-    <main>
+    <main className="bg-base-100">
       <PageHeading>Veranstaltungen</PageHeading>
-      <div className="container-md space-y-8">
-        {veranstaltungen.length !== 0 ? (
-          <div>
+      <div className="container-lg space-y-4">
+        {veranstaltungen.length > 0 ? (
+          <>
             {veranstaltungen.map((veranstaltung) => (
               <VeranstaltungCard
                 slug={veranstaltung.attributes.slug}
@@ -24,10 +24,11 @@ export default async function VeranstaltungenPage() {
                     ? new Date(veranstaltung.attributes.ende)
                     : null
                 }
+                ort={veranstaltung.attributes.ort.data}
                 key={veranstaltung.attributes.slug}
               />
             ))}
-          </div>
+          </>
         ) : (
           <div>Keine Veranstaltungen verfügbar</div>
         )}
