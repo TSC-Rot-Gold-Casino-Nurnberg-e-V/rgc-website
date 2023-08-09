@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ortSchema } from "./Ort";
 
 export const veranstaltungSchema = z.object({
   id: z.number(),
@@ -9,6 +10,9 @@ export const veranstaltungSchema = z.object({
     beschreibung: z.string(),
     start: z.string(),
     ende: z.string().nullable(),
+    ort: z.object({
+      data: ortSchema,
+    }),
   }),
 });
 
