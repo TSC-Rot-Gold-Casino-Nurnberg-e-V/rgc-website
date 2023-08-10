@@ -2,9 +2,6 @@ import { getVeranstaltungen } from "../../api/api";
 import { VeranstaltungCard } from "./VeranstaltungCard";
 import { PageHeading } from "../../components/PageHeading";
 
-// FIXME: revalidate will not work with static export (https://github.com/orgs/TSC-Rot-Gold-Casino-Nurnberg-e-V/projects/1/views/1?pane=issue&itemId=32092768)
-export const revalidate = 86400;
-
 export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();
   return (
