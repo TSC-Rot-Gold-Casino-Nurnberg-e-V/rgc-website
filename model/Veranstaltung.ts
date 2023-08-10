@@ -6,7 +6,6 @@ export const veranstaltungSchema = z.object({
   attributes: z.object({
     slug: z.string(),
     titel: z.string(),
-    vorschautext: z.string(),
     beschreibung: z.string(),
     start: z.string(),
     ende: z.string().nullable(),
