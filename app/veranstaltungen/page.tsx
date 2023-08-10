@@ -17,7 +17,6 @@ export default async function VeranstaltungenPage() {
               <VeranstaltungCard
                 slug={veranstaltung.attributes.slug}
                 titel={veranstaltung.attributes.titel}
-                vorschautext={veranstaltung.attributes.vorschautext}
                 start={new Date(veranstaltung.attributes.start)}
                 ende={
                   veranstaltung.attributes.ende !== null
