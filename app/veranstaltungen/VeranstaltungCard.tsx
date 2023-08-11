@@ -12,21 +12,24 @@ interface Props {
 }
 
 export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
-  <Link href={`/veranstaltungen/${slug}`} className="group block rounded-xl">
-    <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md">
-      <div className="w-24 rounded-l-xl bg-secondary-900 px-6 py-4 text-center">
+  <Link
+    href={`/veranstaltungen/${slug}`}
+    className="group block rounded-xl transition-all hover:scale-[1.01]"
+  >
+    <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md max-sm:flex-col">
+      <div className="flex items-center justify-center bg-secondary-900 px-6 py-4 text-center max-sm:gap-2 max-sm:rounded-t-xl sm:w-24 sm:flex-col sm:rounded-l-xl">
         <div className="primary-gradient heading-normal bg-clip-text font-extrabold text-transparent">
           {start.getDate()}
         </div>
-        <div className="primary-gradient text-extralarge bg-clip-text font-semibold text-transparent">
+        <div className="primary-gradient heading-small sm:heading-extrasmall bg-clip-text font-semibold text-transparent">
           {start.toLocaleString("de-DE", { month: "short" })}
         </div>
       </div>
-      <div className="w-full space-y-4 overflow-hidden px-6 py-4">
-        <h2 className="heading-small truncate transition-colors group-hover:text-accent group-focus:text-accent">
+      <div className="w-full space-y-6 overflow-hidden p-6 max-sm:pt-4">
+        <h2 className="heading-small line-clamp-3 transition-colors group-hover:text-accent group-focus:text-accent max-sm:hyphens-auto sm:line-clamp-2">
           {titel}
         </h2>
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-between gap-4 max-sm:flex-col">
           <div className="flex gap-2">
             <div className="min-w-fit">
               <MapIcon />
