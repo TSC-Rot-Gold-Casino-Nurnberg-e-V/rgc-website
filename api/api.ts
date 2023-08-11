@@ -75,12 +75,13 @@ export async function getSlugs(collection: string): Promise<Array<string>> {
 
 export async function getVeranstaltungen(): Promise<Array<Veranstaltung>> {
   const urlSearchParams = new URLSearchParams();
-  const sortProperty: keyof Veranstaltung["attributes"] = "start";
-  urlSearchParams.append("sort", `${sortProperty}:asc`);
+  const currentDateISO = new Date().toISOString().substring(0, 10);
+  const start: keyof Veranstaltung["attributes"] = "start";
+  const ende: keyof Veranstaltung["attributes"] = "ende";
+  urlSearchParams.append(`filters[$or][0][${start}][$gte]`, currentDateISO);
+  urlSearchParams.append(`filters[$or][1][${ende}][$gte]`, currentDateISO);
+  urlSearchParams.append("sort", `${start}:asc`);
   urlSearchParams.append("populate", "*");
-  const isoDate = new Date().toISOString().substring(0, 10);
-  const filterProperty: keyof Veranstaltung["attributes"] = "start";
-  urlSearchParams.append(`filters[${filterProperty}][$gte]`, isoDate);
   const { data } = await fetchData(`/veranstaltungen?${urlSearchParams}`);
   return veranstaltungenSchema.parse(data);
 }
