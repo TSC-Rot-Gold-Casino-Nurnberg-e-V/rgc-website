@@ -13,10 +13,6 @@ export const Prose = ({
 }: Props & Omit<ComponentPropsWithoutRef<"div">, "children">) => (
   <div
     className={`
-    prose-h1:heading-large
-    prose-h2:heading-normal
-    prose-h3:heading-small
-    prose-h4:heading-extrasmall
     prose
     prose-headings:hyphens-auto
     prose-headings:text-accent
