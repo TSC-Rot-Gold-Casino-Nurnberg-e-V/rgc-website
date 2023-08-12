@@ -16,8 +16,6 @@ export const Prose = ({
     prose-h2:heading-normal
     prose-h3:heading-small
     prose-h4:heading-extrasmall
-    prose-p:text-normal
-    sm:prose-p:text-large
     prose
     prose-headings:hyphens-auto
     prose-headings:text-accent
