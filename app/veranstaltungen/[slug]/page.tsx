@@ -16,10 +16,7 @@ export default async function VeranstaltungPage({ params }: Props) {
   const veranstaltung = await getVeranstaltung(params.slug);
   return (
     <main className="container-md">
-      <Prose
-        className="prose-lg"
-        content={veranstaltung.attributes.beschreibung}
-      />
+      <Prose content={veranstaltung.attributes.beschreibung} />
     </main>
   );
 }

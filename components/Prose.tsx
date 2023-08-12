@@ -14,6 +14,7 @@ export const Prose = ({
   <div
     className={twMerge(
       "prose",
+      "sm:prose-lg",
       "prose-headings:hyphens-auto",
       "prose-headings:text-accent",
       "prose-p:hyphens-auto",

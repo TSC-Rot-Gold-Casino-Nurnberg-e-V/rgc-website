@@ -41,7 +41,7 @@ export default async function AngebotPage({ params }: Props) {
     <main>
       <PageHeading>{angebot.attributes.titel}</PageHeading>
       <Prose
-        className="container-lg prose-lg"
+        className="container-lg"
         content={angebot.attributes.beschreibung}
       />
       <section className="bg-base-100">
