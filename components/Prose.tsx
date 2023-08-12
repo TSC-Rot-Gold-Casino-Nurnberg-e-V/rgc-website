@@ -5,6 +5,7 @@ interface Props {
   content: string;
 }
 
+// TODO: use tailwind-merge for className overrides
 export const Prose = ({
   content,
   className = "",
