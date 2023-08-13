@@ -11,6 +11,7 @@ import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 import { Neuigkeit } from "../model/Neuigkeit";
 import { Main } from "../components/Main";
+import { twMerge } from "tailwind-merge";
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(3);
@@ -117,11 +118,14 @@ const AngebotCard = ({
   image,
   href,
   imageSizes,
-  className = "",
+  className,
   ...rest
 }: AngebotCardProps) => (
   <Link
-    className={`group relative rounded-md hover:cursor-pointer ${className}`}
+    className={twMerge(
+      "group relative rounded-md hover:cursor-pointer",
+      className
+    )}
     {...rest}
     href={href}
   >
