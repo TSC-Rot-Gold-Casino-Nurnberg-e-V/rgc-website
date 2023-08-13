@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+import { ComponentProps, forwardRef, ReactElement } from "react";
 import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
@@ -95,7 +95,7 @@ const CategoryHeading = ({ text }: CategoryHeadingProps) => (
   <h1 className="text-xl font-bold text-base-50">{text}</h1>
 );
 
-interface FooterLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface FooterLinkProps extends ComponentProps<"a"> {
   text: string;
   href: string;
 }
