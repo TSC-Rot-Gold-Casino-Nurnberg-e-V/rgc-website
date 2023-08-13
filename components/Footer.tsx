@@ -6,6 +6,7 @@ import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
 import { MapIcon } from "./icons/MapIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
+import { twMerge } from "tailwind-merge";
 
 export const Footer = () => (
   <footer className="bg-base-950">
@@ -100,10 +101,13 @@ interface FooterLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
-  ({ text, href, className = "", ...rest }, ref) => (
+  ({ text, href, className, ...rest }, ref) => (
     <Link
       href={href}
-      className={`block w-fit rounded-md hover:text-base-50 ${className}`}
+      className={twMerge(
+        "block w-fit rounded-md hover:text-base-50",
+        className
+      )}
       {...rest}
       ref={ref}
     >
