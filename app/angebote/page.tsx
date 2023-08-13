@@ -7,16 +7,18 @@ import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
 import { PageHeading } from "../../components/PageHeading";
+import { Main } from "../../components/Main";
+import { twMerge } from "tailwind-merge";
 
 export default function AngebotePage() {
   return (
-    <main>
+    <Main>
       <PageHeading>Angebot</PageHeading>
       <Competition />
       <Formation />
       <Youth />
       <Hobby />
-    </main>
+    </Main>
   );
 }
 
@@ -176,11 +178,14 @@ const AngebotCard = ({
   href,
   priority = false,
   imageSizes,
-  className = "",
+  className,
   ...rest
 }: AngebotCardProps) => (
   <Link
-    className={`group relative w-full rounded-md hover:cursor-pointer ${className}`}
+    className={twMerge(
+      "group relative w-full rounded-md hover:cursor-pointer ",
+      className
+    )}
     {...rest}
     href={href}
   >

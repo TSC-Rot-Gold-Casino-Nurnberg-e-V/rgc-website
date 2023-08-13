@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getTurnierergebnisse } from "../../api/api";
 import { formatDate } from "../../utils/formatDate";
 import { PageHeading } from "../../components/PageHeading";
+import { Main } from "../../components/Main";
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
@@ -11,7 +12,7 @@ export default async function Turnierergebnisse() {
   const uniqueYears: Array<number> = [...new Set(allYears)];
 
   return (
-    <main>
+    <Main>
       <PageHeading>Turnier&shy;ergebnisse</PageHeading>
       <div className="container-md space-y-8">
         {uniqueYears.map((uniqueYear) => (
@@ -54,6 +55,6 @@ export default async function Turnierergebnisse() {
           </section>
         ))}
       </div>
-    </main>
+    </Main>
   );
 }

@@ -33,12 +33,10 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
   }
 
   useEffect(() => {
-    const position = sessionStorage.getItem("position");
-    const shouldRestorePreviousScrollPosition = sessionStorage
-      .getItem("route")
-      ?.startsWith("/neuigkeiten/");
-    if (position !== null && shouldRestorePreviousScrollPosition) {
-      window.scrollTo(0, parseInt(position));
+    const prevScrollY = sessionStorage.getItem("prevScrollY");
+    const prevPathname = sessionStorage.getItem("prevPathname");
+    if (prevScrollY !== null && prevPathname?.startsWith("/neuigkeiten/")) {
+      window.scrollTo(0, parseInt(prevScrollY));
     }
     setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
     const neuigkeitenInStorage = sessionStorage.getItem("neuigkeiten");

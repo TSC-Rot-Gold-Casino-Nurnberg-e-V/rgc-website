@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+import { ComponentProps, forwardRef, ReactElement } from "react";
 import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
-import { MapIcon } from "./icons/MapIcon";
+import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
+import { twMerge } from "tailwind-merge";
 
 export const Footer = () => (
   <footer className="bg-base-950">
@@ -62,7 +63,7 @@ export const Footer = () => (
         <div className="space-y-3">
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
-            icon={<MapIcon />}
+            icon={<LocationIcon />}
             text="Venusweg 7, 90763 Fürth"
           />
           <ContactLink
@@ -94,16 +95,19 @@ const CategoryHeading = ({ text }: CategoryHeadingProps) => (
   <h1 className="text-xl font-bold text-base-50">{text}</h1>
 );
 
-interface FooterLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface FooterLinkProps extends ComponentProps<"a"> {
   text: string;
   href: string;
 }
 
 const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
-  ({ text, href, className = "", ...rest }, ref) => (
+  ({ text, href, className, ...rest }, ref) => (
     <Link
       href={href}
-      className={`block w-fit rounded-md hover:text-base-50 ${className}`}
+      className={twMerge(
+        "block w-fit rounded-md hover:text-base-50",
+        className
+      )}
       {...rest}
       ref={ref}
     >

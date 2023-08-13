@@ -1,45 +1,65 @@
 import Link from "next/link";
-import { formatDate } from "../../utils/formatDate";
+import { LocationIcon } from "../../components/icons/LocationIcon";
+import { Ort } from "../../model/Ort";
+import { CalendarIcon } from "../../components/icons/CalendarIcon";
 
 interface Props {
   titel: string;
   start: Date;
   ende: Date | null;
   slug: string;
-  vorschautext: string;
+  ort: Ort;
 }
 
-export const VeranstaltungCard = ({
-  slug,
-  titel,
-  start,
-  ende,
-  vorschautext,
-}: Props) => {
-  const formattedStartDate = formatDate(start);
-  return (
-    <Link
-      href={`/veranstaltungen/${slug}`}
-      className="group flex flex-col justify-between gap-4 rounded bg-white px-8 py-6 shadow hover:shadow-md md:flex-row md:gap-12 md:px-10 md:py-8"
-    >
-      <div className="max-sm: flex flex-row gap-2 self-center font-semibold tracking-wider opacity-50 group-hover:text-red-900 group-hover:opacity-100 md:flex-col">
-        {ende !== null ? (
-          <>
-            {formattedStartDate} <div>{" bis "}</div>
-            {formatDate(ende)}
-          </>
-        ) : (
-          <>{formattedStartDate}</>
-        )}
+export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
+  <Link
+    href={`/veranstaltungen/${slug}`}
+    className="group block rounded-xl transition-all hover:scale-[1.01]"
+  >
+    <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md max-sm:flex-col">
+      <div className="flex items-center justify-center bg-secondary-900 px-6 py-4 text-center max-sm:gap-2 max-sm:rounded-t-xl sm:w-24 sm:flex-col sm:rounded-l-xl">
+        <div className="primary-gradient heading-normal bg-clip-text font-extrabold text-transparent">
+          {start.getDate()}
+        </div>
+        <div className="primary-gradient heading-small sm:heading-extrasmall bg-clip-text font-semibold text-transparent">
+          {start.toLocaleString("de-DE", { month: "short" })}
+        </div>
       </div>
-      <div className="flex max-w-lg grow flex-col max-md:mx-auto lg:max-w-xl">
-        <div className="text-2xl font-bold text-red-900 group-hover:text-red-800 max-md:text-center">
+      <div className="w-full space-y-6 overflow-hidden p-6 max-sm:pt-4">
+        <h2 className="heading-small line-clamp-3 transition-colors group-hover:text-accent group-focus:text-accent max-sm:hyphens-auto sm:line-clamp-2">
           {titel}
-        </div>
-        <div className="line-clamp-2 opacity-50 group-hover:opacity-70 max-md:text-center">
-          {vorschautext}
+        </h2>
+        <div className="flex justify-between gap-4 max-sm:flex-col">
+          <div className="flex gap-2">
+            <div className="min-w-fit">
+              <LocationIcon />
+            </div>
+            <span>{ort.attributes.name}</span>
+          </div>
+          {ende && (
+            <div className="flex gap-2">
+              <div className="min-w-fit">
+                <CalendarIcon />
+              </div>
+              <div className="flex gap-1">
+                <span>
+                  {start.toLocaleDateString("de-DE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                  })}
+                </span>
+                <span>-</span>
+                <span>
+                  {ende.toLocaleDateString("de-DE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                  })}
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </Link>
-  );
-};
+    </div>
+  </Link>
+);

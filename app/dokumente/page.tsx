@@ -1,13 +1,14 @@
 import { PageHeading } from "../../components/PageHeading";
 import { getDokumente } from "../../api/api";
 import Link from "next/link";
+import { Main } from "../../components/Main";
 
 export default async function DokumentePage() {
   const dokumente = await getDokumente();
   return (
-    <main>
+    <Main>
       <PageHeading>Dokumente</PageHeading>
-      <p className="container-sm pb-0">
+      <p className="container-sm sm:text-large pb-0">
         Hier findest du alle wichtigen Dokumente rund um deine Mitgliedschaft
         und den Verein.
       </p>
@@ -24,7 +25,7 @@ export default async function DokumentePage() {
           </Link>
         ))}
       </div>
-    </main>
+    </Main>
   );
 }
 

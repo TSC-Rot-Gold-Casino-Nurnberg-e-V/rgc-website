@@ -5,12 +5,13 @@ import { PageHeading } from "../../components/PageHeading";
 import { MailIcon } from "../../components/icons/MailIcon";
 import { ReactElement } from "react";
 import { TrainerCard } from "../angebote/TrainerCard";
+import { Main } from "../../components/Main";
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();
   const cheftrainers = await getCheftrainers();
   return (
-    <main>
+    <Main>
       <PageHeading>Der Verein</PageHeading>
       <section className="container-md space-y-4">
         <h2 className="heading-small sm:heading-normal text-accent">
@@ -94,7 +95,7 @@ export default async function VereinsgeschichtePage() {
           </section>
         ))}
       </section>
-    </main>
+    </Main>
   );
 }
 

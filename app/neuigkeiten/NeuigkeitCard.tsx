@@ -23,9 +23,9 @@ export const NeuigkeitCard = ({
     href={`/neuigkeiten/${slug}`}
     key={slug}
     className="group rounded-xl transition-all duration-500 hover:!opacity-100 group-hover/container:opacity-50"
-    onClick={() =>
-      sessionStorage.setItem("position", window.scrollY.toString())
-    }
+    onClick={() => {
+      sessionStorage.setItem("prevScrollY", window.scrollY.toString());
+    }}
   >
     <div className="relative h-[24rem] w-full max-w-md overflow-hidden rounded-xl transition-all">
       <div className="absolute inset-0 h-full shrink-0">

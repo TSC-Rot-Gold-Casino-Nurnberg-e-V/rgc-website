@@ -7,14 +7,16 @@ import logo from "../public/RGC_Logo_white.svg";
 import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { usePathname } from "next/navigation";
+import { twJoin, twMerge } from "tailwind-merge";
 
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
   return (
     <nav
-      className={`sticky h-20 w-full bg-base-950 px-8 text-base-50 ${
+      className={twJoin(
+        "sticky z-30 h-20 w-full bg-base-950 px-8 text-base-50 transition-all duration-500",
         hideNavbar ? "-top-20" : "top-0"
-      } z-30 transition-all duration-500`}
+      )}
     >
       <div className="mx-auto flex h-20 max-w-screen-lg items-center justify-between">
         <Link href="/" className="rounded-md">
@@ -100,17 +102,19 @@ interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ text, href, className = "", shouldHideOnSmallViewport, ...rest }, ref) => {
+  ({ text, href, className, shouldHideOnSmallViewport, ...rest }, ref) => {
     const pathname = usePathname();
     const isActive = pathname?.startsWith(href);
     return (
       <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
         <Link
-          className={`whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4 ${
+          className={twMerge(
+            "whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
             isActive
-              ? "underline decoration-base-200 decoration-2 underline-offset-8 "
-              : "text-base-300"
-          } ${className}`}
+              ? "underline decoration-base-200 decoration-2 underline-offset-8"
+              : "text-base-300",
+            className
+          )}
           {...rest}
           href={href}
           ref={ref}
@@ -136,7 +140,7 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
       <NavLink
         text={text}
         href={href}
-        className={`rounded-2xl ${active ? "bg-base-700" : ""}`}
+        className={twJoin("rounded-2xl", active && "bg-base-700")}
       />
     )}
   </Menu.Item>

@@ -1,17 +1,16 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-
-// TODO evtl. mit neuem App-Router lösbar
-//  ("route" wird benötigt um zu entscheiden, ob scroll-Position zurückgesetzt werden muss)
+import { useEffect, useRef } from "react";
 
 export const RouterStorage = () => {
+  const prevPathname = useRef<string>("/");
   const pathname = usePathname();
 
   useEffect(() => {
     if (pathname) {
-      sessionStorage.setItem("route", pathname);
+      sessionStorage.setItem("prevPathname", prevPathname.current);
+      prevPathname.current = pathname;
     }
   }, [pathname]);
 
