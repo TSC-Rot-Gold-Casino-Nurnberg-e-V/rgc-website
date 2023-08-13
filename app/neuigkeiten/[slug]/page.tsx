@@ -2,6 +2,7 @@ import { getNeuigkeit, getSlugs } from "../../../api/api";
 import { formatDate } from "../../../utils/formatDate";
 import Link from "next/link";
 import { Prose } from "../../../components/Prose";
+import { Main } from "../../../components/Main";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("neuigkeiten");
@@ -18,7 +19,7 @@ export default async function NeuigkeitPage({ params }: Props) {
   const neuigkeit = await getNeuigkeit(params.slug);
 
   return (
-    <main className="container-md space-y-4">
+    <Main className="container-md space-y-4">
       <time className="text-normal text-base-500">
         {formatDate(new Date(neuigkeit.attributes.datum))}
       </time>
@@ -43,6 +44,6 @@ export default async function NeuigkeitPage({ params }: Props) {
         </svg>
         <span className="text-large">zurück</span>
       </Link>
-    </main>
+    </Main>
   );
 }

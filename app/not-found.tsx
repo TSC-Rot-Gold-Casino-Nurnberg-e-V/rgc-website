@@ -1,3 +1,5 @@
+import { Main } from "../components/Main";
+
 export default function NotFound() {
-  return <main className="container-md">404 - Sorry bro!</main>;
+  return <Main className="container-md">404 - Sorry bro!</Main>;
 }

@@ -2,12 +2,13 @@ import { getNeuigkeiten } from "../../api/api";
 import { FurtherNeuigkeiten } from "./FurtherNeuigkeiten";
 import { NeuigkeitCard } from "./NeuigkeitCard";
 import { PageHeading } from "../../components/PageHeading";
+import { Main } from "../../components/Main";
 
 export default async function NeuigkeitenPage() {
   const { neuigkeiten, pagination } = await getNeuigkeiten(6);
 
   return (
-    <main className="bg-base-950">
+    <Main className="bg-base-950">
       <PageHeading>Neuigkeiten</PageHeading>
       <div className="group/container container-lg grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {neuigkeiten.map((neuigkeit) => (
@@ -25,6 +26,6 @@ export default async function NeuigkeitenPage() {
           paginationTotal={pagination.total}
         />
       </div>
-    </main>
+    </Main>
   );
 }

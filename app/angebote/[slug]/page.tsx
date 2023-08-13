@@ -7,6 +7,7 @@ import { TrainerCard } from "../TrainerCard";
 import { formatTime } from "../../../utils/formatTime";
 import { Prose } from "../../../components/Prose";
 import { PageHeading } from "../../../components/PageHeading";
+import { Main } from "../../../components/Main";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
@@ -38,7 +39,7 @@ export default async function AngebotPage({ params }: Props) {
   });
 
   return (
-    <main>
+    <Main>
       <PageHeading>{angebot.attributes.titel}</PageHeading>
       <Prose
         className="container-lg"
@@ -188,6 +189,6 @@ export default async function AngebotPage({ params }: Props) {
           ))}
         </div>
       </section>
-    </main>
+    </Main>
   );
 }

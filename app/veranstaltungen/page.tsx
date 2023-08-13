@@ -1,11 +1,12 @@
 import { getVeranstaltungen } from "../../api/api";
 import { VeranstaltungCard } from "./VeranstaltungCard";
 import { PageHeading } from "../../components/PageHeading";
+import { Main } from "../../components/Main";
 
 export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();
   return (
-    <main className="bg-base-100">
+    <Main className="bg-base-100">
       <PageHeading>Veranstaltungen</PageHeading>
       <div className="container-lg space-y-4">
         {veranstaltungen.length > 0 ? (
@@ -29,6 +30,6 @@ export default async function VeranstaltungenPage() {
           <div>Keine Veranstaltungen verfügbar</div>
         )}
       </div>
-    </main>
+    </Main>
   );
 }

@@ -1,5 +1,6 @@
 import { getSlugs, getVeranstaltung } from "../../../api/api";
 import { Prose } from "../../../components/Prose";
+import { Main } from "../../../components/Main";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
@@ -15,8 +16,8 @@ interface Props {
 export default async function VeranstaltungPage({ params }: Props) {
   const veranstaltung = await getVeranstaltung(params.slug);
   return (
-    <main className="container-md">
+    <Main className="container-md">
       <Prose content={veranstaltung.attributes.beschreibung} />
-    </main>
+    </Main>
   );
 }

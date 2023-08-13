@@ -10,17 +10,18 @@ import Link from "next/link";
 import { AnchorHTMLAttributes } from "react";
 import { formatDate } from "../utils/formatDate";
 import { Neuigkeit } from "../model/Neuigkeit";
+import { Main } from "../components/Main";
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(3);
   return (
-    <main>
+    <Main>
       <HeroSection />
       <AngebotSection />
       <VereinsgeschichteSection />
       <Stats />
       <Neuigkeiten neuigkeiten={neuigkeiten} />
-    </main>
+    </Main>
   );
 }
 

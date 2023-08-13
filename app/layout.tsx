@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de" className="h-full scroll-pt-20">
+    <html lang="de" className="min-h-screen scroll-pt-20">
       <body className="flex h-full flex-col">
         <RouterStorage />
         <Navbar />

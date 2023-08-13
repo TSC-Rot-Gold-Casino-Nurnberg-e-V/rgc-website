@@ -7,16 +7,17 @@ import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
 import { PageHeading } from "../../components/PageHeading";
+import { Main } from "../../components/Main";
 
 export default function AngebotePage() {
   return (
-    <main>
+    <Main>
       <PageHeading>Angebot</PageHeading>
       <Competition />
       <Formation />
       <Youth />
       <Hobby />
-    </main>
+    </Main>
   );
 }
 
