@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapIcon } from "../../components/icons/MapIcon";
+import { LocationIcon } from "../../components/icons/LocationIcon";
 import { Ort } from "../../model/Ort";
 import { CalendarIcon } from "../../components/icons/CalendarIcon";
 
@@ -32,7 +32,7 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
         <div className="flex justify-between gap-4 max-sm:flex-col">
           <div className="flex gap-2">
             <div className="min-w-fit">
-              <MapIcon />
+              <LocationIcon />
             </div>
             <span>{ort.attributes.name}</span>
           </div>

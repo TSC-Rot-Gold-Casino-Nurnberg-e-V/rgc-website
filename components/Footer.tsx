@@ -4,7 +4,7 @@ import { ComponentProps, forwardRef, ReactElement } from "react";
 import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
-import { MapIcon } from "./icons/MapIcon";
+import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
 
@@ -63,7 +63,7 @@ export const Footer = () => (
         <div className="space-y-3">
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
-            icon={<MapIcon />}
+            icon={<LocationIcon />}
             text="Venusweg 7, 90763 Fürth"
           />
           <ContactLink
