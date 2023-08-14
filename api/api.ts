@@ -200,13 +200,12 @@ async function fetchData(path: string): Promise<{
   };
 }> {
   const isClientSide = typeof window !== "undefined";
+  const token = isClientSide
+    ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
+    : process.env.CMS_SERVER_TOKEN;
   const res = await fetch(BASE_URL + path, {
     headers: {
-      Authorization: `Bearer ${
-        isClientSide
-          ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
-          : process.env.CMS_SERVER_TOKEN
-      }`,
+      Authorization: `Bearer ${token}`,
     },
   });
   if (!res.ok) {
