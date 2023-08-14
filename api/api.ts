@@ -31,16 +31,22 @@ import { Pagination, paginationSchema } from "../model/Pagination";
 import { Slug, slugsSchema } from "../model/Slug";
 import { Cheftrainer, cheftrainersSchema } from "../model/Cheftrainer";
 
+import { stringify } from "qs";
+
 export async function getNeuigkeiten(
   pageSize: number,
   page: number = 1
 ): Promise<{ neuigkeiten: Array<Neuigkeit>; pagination: Pagination }> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("sort", "datum:desc");
-  urlSearchParams.append("populate", "*");
-  urlSearchParams.append("pagination[pageSize]", pageSize.toString());
-  urlSearchParams.append("pagination[page]", page.toString());
-  const { data, meta } = await fetchData(`/neuigkeiten?${urlSearchParams}`);
+  const sortProperty: keyof Neuigkeit["attributes"] = "datum";
+  const query = stringify({
+    sort: `${sortProperty}:desc`,
+    populate: "*",
+    pagination: {
+      pageSize: pageSize,
+      page: page,
+    },
+  });
+  const { data, meta } = await fetchData(`/neuigkeiten?${query}`);
   return {
     neuigkeiten: neuigkeitenSchema.parse(data),
     pagination: paginationSchema.parse(meta.pagination),
@@ -48,25 +54,28 @@ export async function getNeuigkeiten(
 }
 
 export async function getNeuigkeit(slug: string): Promise<Neuigkeit> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(
-    `/slugify/slugs/neuigkeit/${slug}?${urlSearchParams}`
-  );
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/slugify/slugs/neuigkeit/${slug}?${query}`);
   return neuigkeitSchema.parse(data);
 }
 export async function getSlugs(collection: string): Promise<Array<string>> {
   const pageSize = 25;
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("fields", "slug");
-  const { data, meta } = await fetchData(`/${collection}?${urlSearchParams}`);
+  const query = stringify({
+    fields: "slug",
+  });
+  const { data, meta } = await fetchData(`/${collection}?${query}`);
   const pagination: Pagination = paginationSchema.parse(meta.pagination);
   let allSlugs: Array<Slug> = slugsSchema.parse(data);
   for (let page = 2; page <= pagination.pageCount; page++) {
-    const urlSearchParams = new URLSearchParams();
-    urlSearchParams.append("pagination[pageSize]", pageSize.toString());
-    urlSearchParams.append("pagination[page]", page.toString());
-    const { data } = await fetchData(`/${collection}?${urlSearchParams}`);
+    const query = stringify({
+      pagination: {
+        pageSize: pageSize,
+        page: page,
+      },
+    });
+    const { data } = await fetchData(`/${collection}?${query}`);
     const slugs: Array<Slug> = slugsSchema.parse(data);
     allSlugs = allSlugs.concat(slugs);
   }
@@ -74,23 +83,29 @@ export async function getSlugs(collection: string): Promise<Array<string>> {
 }
 
 export async function getVeranstaltungen(): Promise<Array<Veranstaltung>> {
-  const urlSearchParams = new URLSearchParams();
   const currentDateISO = new Date().toISOString().substring(0, 10);
   const start: keyof Veranstaltung["attributes"] = "start";
   const ende: keyof Veranstaltung["attributes"] = "ende";
-  urlSearchParams.append(`filters[$or][0][${start}][$gte]`, currentDateISO);
-  urlSearchParams.append(`filters[$or][1][${ende}][$gte]`, currentDateISO);
-  urlSearchParams.append("sort", `${start}:asc`);
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/veranstaltungen?${urlSearchParams}`);
+  const query = stringify({
+    sort: `${start}:asc`,
+    populate: "*",
+    filters: {
+      $or: [
+        { [start]: { $gte: currentDateISO } },
+        { [ende]: { $gte: currentDateISO } },
+      ],
+    },
+  });
+  const { data } = await fetchData(`/veranstaltungen?${query}`);
   return veranstaltungenSchema.parse(data);
 }
 
 export async function getVeranstaltung(slug: string): Promise<Veranstaltung> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
+  const query = stringify({
+    populate: "*",
+  });
   const { data } = await fetchData(
-    `/slugify/slugs/veranstaltung/${slug}?${urlSearchParams}`
+    `/slugify/slugs/veranstaltung/${slug}?${query}`
   );
   return veranstaltungSchema.parse(data);
 }
@@ -101,68 +116,78 @@ export async function getVereinsgeschichte(): Promise<Vereinsgeschichte> {
 }
 
 export async function getAngebot(slug: string): Promise<Angebot> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "trainers");
-  urlSearchParams.append("populate[1]", "trainers.bild");
-  urlSearchParams.append("populate[2]", "trainings");
-  urlSearchParams.append("populate[3]", "trainings.wochentag");
-  urlSearchParams.append("populate[4]", "trainings.trainers");
-  urlSearchParams.append("populate[5]", "trainings.trainers.bild");
-  urlSearchParams.append("populate[6]", "trainings.trainers.lizenzen");
-  urlSearchParams.append("populate[7]", "trainers.lizenzen");
-  urlSearchParams.append("populate[8]", "faqs");
-  const { data } = await fetchData(
-    `/slugify/slugs/angebot/${slug}?${urlSearchParams}`
-  );
+  const query = stringify({
+    populate: {
+      faqs: true,
+      trainers: {
+        populate: "*",
+      },
+      trainings: {
+        populate: {
+          wochentag: true,
+          trainers: {
+            populate: "*",
+          },
+        },
+      },
+    },
+  });
+  const { data } = await fetchData(`/slugify/slugs/angebot/${slug}?${query}`);
   return angebotSchema.parse(data);
 }
 
 export async function getVorstandsmitglieder(): Promise<
   Array<Vorstandsmitglied>
 > {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("sort", `reihenfolge:asc`);
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/vorstandsmitglieder?${urlSearchParams}`);
+  const query = stringify({
+    sort: `reihenfolge:asc`,
+    populate: "*",
+  });
+  const { data } = await fetchData(`/vorstandsmitglieder?${query}`);
   return vorstandsmitgliederSchema.parse(data);
 }
 
 export async function getCheftrainers(): Promise<Array<Cheftrainer>> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate[0]", "trainer");
-  urlSearchParams.append("populate[1]", "trainer.name");
-  urlSearchParams.append("populate[2]", "trainer.beschreibung");
-  urlSearchParams.append("populate[3]", "trainer.lizenzen");
-  urlSearchParams.append("populate[4]", "trainer.bild");
-  const { data } = await fetchData(`/cheftrainers?${urlSearchParams}`);
+  const query = stringify({
+    populate: {
+      trainer: {
+        populate: "*",
+      },
+    },
+  });
+  const { data } = await fetchData(`/cheftrainers?${query}`);
   return cheftrainersSchema.parse(data);
 }
 
 export async function getDokumente(): Promise<Array<Dokument>> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/dokumente?${urlSearchParams}`);
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/dokumente?${query}`);
   return dokumenteSchema.parse(data);
 }
 
 export async function getDatenschutzerklaerung(): Promise<Datenschutzerklaerung> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/datenschutzerklaerung?${urlSearchParams}`);
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/datenschutzerklaerung?${query}`);
   return datenschutzerklaerungSchema.parse(data);
 }
 
 export async function getImpressum(): Promise<Impressum> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/impressum?${urlSearchParams}`);
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/impressum?${query}`);
   return impressumSchema.parse(data);
 }
 
 export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
-  const urlSearchParams = new URLSearchParams();
-  urlSearchParams.append("populate", "*");
-  const { data } = await fetchData(`/turnierergebnisse?${urlSearchParams}`);
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/turnierergebnisse?${query}`);
   return turnierergebnisseSchema.parse(data);
 }
 
@@ -175,13 +200,12 @@ async function fetchData(path: string): Promise<{
   };
 }> {
   const isClientSide = typeof window !== "undefined";
+  const token = isClientSide
+    ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
+    : process.env.CMS_SERVER_TOKEN;
   const res = await fetch(BASE_URL + path, {
     headers: {
-      Authorization: `Bearer ${
-        isClientSide
-          ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
-          : process.env.CMS_SERVER_TOKEN
-      }`,
+      Authorization: `Bearer ${token}`,
     },
   });
   if (!res.ok) {
