@@ -159,36 +159,36 @@ export default async function AngebotPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <section className="container-lg space-y-12">
-        <section className="max-w-sm space-y-4 max-sm:mx-auto">
+      <div className="container-lg">
+        <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
           <h2 className="heading-small text-accent">Häufig gestellte Fragen</h2>
+          <div className="divide-y">
+            {angebot.attributes.faqs.data.map((faq) => (
+              <section
+                key={faq.id}
+                className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
+              >
+                <h3 className="text-extralarge md:col-span-2">
+                  {faq.attributes.frage}
+                </h3>
+                <Prose
+                  className="md:col-span-3"
+                  content={faq.attributes.antwort}
+                />
+              </section>
+            ))}
+          </div>
           <div>
-            <p>Sie können die gesuchte Antwort nicht finden?</p>
+            <p>Haben Sie weitere Fragen?</p>
             <div className="flex gap-1">
-              <p>Kontaktieren Sie uns</p>
+              <p>Dann kontaktieren Sie uns</p>
               <Link href="/kontakt" className="font-semibold text-accent">
                 hier.
               </Link>
             </div>
           </div>
         </section>
-        <div className="divide-y max-sm:mx-auto max-sm:max-w-sm">
-          {angebot.attributes.faqs.data.map((faq) => (
-            <section
-              key={faq.id}
-              className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
-            >
-              <h3 className="text-extralarge md:col-span-2">
-                {faq.attributes.frage}
-              </h3>
-              <Prose
-                className="md:col-span-3"
-                content={faq.attributes.antwort}
-              />
-            </section>
-          ))}
-        </div>
-      </section>
+      </div>
     </Main>
   );
 }
