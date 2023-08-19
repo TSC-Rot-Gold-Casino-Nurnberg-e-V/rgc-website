@@ -1,6 +1,6 @@
 import { getNeuigkeiten } from "../../api/api";
 import { FurtherNeuigkeiten } from "./FurtherNeuigkeiten";
-import { NeuigkeitCard } from "./NeuigkeitCard";
+import { NeuigkeitCard } from "../../components/NeuigkeitCard";
 import { PageHeading } from "../../components/PageHeading";
 import { Main } from "../../components/Main";
 

@@ -4,7 +4,7 @@ import { Neuigkeit } from "../../model/Neuigkeit";
 import { useEffect, useState } from "react";
 import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
-import { NeuigkeitCard } from "./NeuigkeitCard";
+import { NeuigkeitCard } from "../../components/NeuigkeitCard";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;

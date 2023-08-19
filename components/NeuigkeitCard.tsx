@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { formatDate } from "../../utils/formatDate";
+import { formatDate } from "../utils/formatDate";
 
 interface Props {
   titel: string;
