@@ -8,7 +8,7 @@ export const Button = ({
 }: PropsWithChildren<ComponentPropsWithoutRef<"button">>) => (
   <button
     className={twMerge(
-      "primary-gradient",
+      "gold-gradient",
       "btn",
       "w-fit",
       "rounded-md",

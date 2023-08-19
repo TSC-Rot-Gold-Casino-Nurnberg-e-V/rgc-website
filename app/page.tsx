@@ -32,7 +32,7 @@ const HeroSection = () => (
       role="banner"
       className="container-lg relative z-10 space-y-6 text-primary-50"
     >
-      <h1 className="heading-small sm:heading-normal md:heading-large primary-gradient max-w-screen-sm bg-clip-text font-extrabold uppercase text-transparent">
+      <h1 className="heading-small sm:heading-normal md:heading-large gold-gradient max-w-screen-sm bg-clip-text font-extrabold uppercase text-transparent">
         Herzlich Willkommen im RGC
       </h1>
       <div className="max-w-screen-sm space-y-4">
@@ -185,7 +185,7 @@ const VereinsgeschichteSection = () => (
 
 const Stats = () => (
   <section
-    className="primary-gradient flex justify-center"
+    className="gold-gradient flex justify-center"
     aria-label="Vereinsstatistik"
   >
     <div className="container-lg grid w-full gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
