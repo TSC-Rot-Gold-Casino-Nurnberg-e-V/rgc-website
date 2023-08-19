@@ -12,6 +12,8 @@ interface Props extends ComponentPropsWithoutRef<"a"> {
   datum: string;
   vorschaubild: string;
   slug: string;
+  sizes: string;
+  loadImageWithPriority?: boolean;
 }
 
 export const NeuigkeitCard = ({
@@ -21,6 +23,8 @@ export const NeuigkeitCard = ({
   datum,
   slug,
   className,
+  sizes,
+  loadImageWithPriority = false,
   ...props
 }: Props) => (
   <Link
@@ -41,8 +45,8 @@ export const NeuigkeitCard = ({
           alt=""
           fill
           className="rounded-xl object-cover object-top transition-all duration-500 group-hover:scale-105"
-          sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
-          priority
+          sizes={sizes}
+          priority={loadImageWithPriority}
         />
       </div>
       <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">

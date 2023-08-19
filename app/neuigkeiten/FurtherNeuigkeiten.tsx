@@ -55,6 +55,7 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
           vorschautext={neuigkeit.vorschautext}
           datum={neuigkeit.datum}
           vorschaubild={neuigkeit.vorschaubild.url}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       ))}
       {neuigkeiten.length + furtherNeuigkeiten.length < paginationTotal && (

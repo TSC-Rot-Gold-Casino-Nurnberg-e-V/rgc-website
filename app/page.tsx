@@ -221,6 +221,7 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
           titel={neuigkeit.titel}
           vorschautext={neuigkeit.vorschautext}
           vorschaubild={neuigkeit.vorschaubild.url}
+          sizes="(max-width: 640px) 100vw, 50vw"
         />
       ))}
     </div>
