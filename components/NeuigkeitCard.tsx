@@ -49,7 +49,7 @@ export const NeuigkeitCard = ({
           priority={loadImageWithPriority}
         />
       </div>
-      <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-900 p-6">
+      <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-950 p-6">
         <div className="relative top-16 flex h-full flex-col justify-end gap-3 transition-all duration-300 group-hover:top-0">
           <time dateTime={datum} className="text-extrasmall text-base-300">
             {formatDate(new Date(datum))}
