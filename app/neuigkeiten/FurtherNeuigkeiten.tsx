@@ -1,7 +1,7 @@
 "use client";
 
 import { Neuigkeit } from "../../model/Neuigkeit";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "../../components/NeuigkeitCard";
@@ -31,19 +31,6 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
     sessionStorage.setItem("page", nextPage.toString());
     setIsLoading(false);
   }
-
-  useEffect(() => {
-    const prevScrollY = sessionStorage.getItem("prevScrollY");
-    const prevPathname = sessionStorage.getItem("prevPathname");
-    if (prevScrollY !== null && prevPathname?.startsWith("/neuigkeiten/")) {
-      window.scrollTo(0, parseInt(prevScrollY));
-    }
-    setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
-    const neuigkeitenInStorage = sessionStorage.getItem("neuigkeiten");
-    if (neuigkeitenInStorage !== null) {
-      setFurtherNeuigkeiten(JSON.parse(neuigkeitenInStorage));
-    }
-  }, []);
 
   return (
     <>

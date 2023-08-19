@@ -33,9 +33,6 @@ export const NeuigkeitCard = ({
       "group rounded-xl transition-all duration-300 hover:scale-105",
       className
     )}
-    onClick={() => {
-      sessionStorage.setItem("prevScrollY", window.scrollY.toString());
-    }}
     {...props}
   >
     <div className="relative h-[24rem] w-full overflow-hidden rounded-xl transition-all">
