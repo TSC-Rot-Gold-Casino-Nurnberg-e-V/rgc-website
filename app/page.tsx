@@ -32,7 +32,7 @@ const HeroSection = () => (
       role="banner"
       className="container-lg relative z-10 space-y-6 text-primary-50"
     >
-      <h1 className="heading-small sm:heading-normal md:heading-large gold-gradient max-w-screen-sm bg-clip-text font-extrabold uppercase text-transparent">
+      <h1 className="heading-small sm:heading-normal md:heading-large text-gold max-w-screen-sm font-extrabold uppercase">
         Herzlich Willkommen im RGC
       </h1>
       <div className="max-w-screen-sm space-y-4">

@@ -60,4 +60,7 @@
   .text-accent {
     @apply text-secondary-900;
   }
+  .text-gold {
+    @apply gold-gradient bg-clip-text text-transparent;
+  }
 }
