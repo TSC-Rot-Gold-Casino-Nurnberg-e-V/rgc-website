@@ -62,5 +62,7 @@
   }
   .text-gold {
     @apply gold-gradient bg-clip-text text-transparent;
+    /* prevents strange lines on Safari (https://stackoverflow.com/questions/73143985/strange-lines-when-using-background-clip-text-on-safari) */
+    clip-path: inset(1px);
   }
 }
