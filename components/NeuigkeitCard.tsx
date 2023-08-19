@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { formatDate } from "../utils/formatDate";
+import { twMerge } from "tailwind-merge";
+import { ComponentPropsWithoutRef } from "react";
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<"a"> {
   titel: string;
   vorschautext: string;
   datum: string;
@@ -18,16 +20,21 @@ export const NeuigkeitCard = ({
   vorschautext,
   datum,
   slug,
+  className,
+  ...props
 }: Props) => (
   <Link
     href={`/neuigkeiten/${slug}`}
-    key={slug}
-    className="group rounded-xl transition-all duration-500 hover:!opacity-100 group-hover/container:opacity-50"
+    className={twMerge(
+      "group rounded-xl transition-all duration-500 hover:scale-105",
+      className
+    )}
     onClick={() => {
       sessionStorage.setItem("prevScrollY", window.scrollY.toString());
     }}
+    {...props}
   >
-    <div className="relative h-[24rem] w-full max-w-md overflow-hidden rounded-xl transition-all">
+    <div className="relative h-[24rem] w-full overflow-hidden rounded-xl transition-all">
       <div className="absolute inset-0 h-full shrink-0">
         <Image
           src={vorschaubild}
