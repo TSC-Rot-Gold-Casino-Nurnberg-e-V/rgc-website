@@ -8,7 +8,7 @@ export default async function ImpressumPage() {
   return (
     <Main>
       <PageHeading>Impressum</PageHeading>
-      <Prose className="container-md" content={impressum.attributes.inhalt} />
+      <Prose className="container-md" content={impressum.inhalt} />
     </Main>
   );
 }

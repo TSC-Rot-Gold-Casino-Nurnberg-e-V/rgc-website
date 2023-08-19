@@ -13,12 +13,12 @@ export default async function NeuigkeitenPage() {
       <div className="group/container container-lg grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {neuigkeiten.map((neuigkeit) => (
           <NeuigkeitCard
-            slug={neuigkeit.attributes.slug}
-            key={neuigkeit.attributes.slug}
-            titel={neuigkeit.attributes.titel}
-            vorschautext={neuigkeit.attributes.vorschautext}
-            datum={neuigkeit.attributes.datum}
-            vorschaubild={neuigkeit.attributes.vorschaubild.data.attributes.url}
+            slug={neuigkeit.slug}
+            key={neuigkeit.slug}
+            titel={neuigkeit.titel}
+            vorschautext={neuigkeit.vorschautext}
+            datum={neuigkeit.datum}
+            vorschaubild={neuigkeit.vorschaubild.url}
           />
         ))}
         <FurtherNeuigkeiten

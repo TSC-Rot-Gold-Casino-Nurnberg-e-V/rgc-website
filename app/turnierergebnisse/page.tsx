@@ -7,7 +7,7 @@ import { Main } from "../../components/Main";
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
   const allYears: Array<number> = turnierergebnisse.map((turnierergebnis) =>
-    new Date(turnierergebnis.attributes.start).getFullYear()
+    new Date(turnierergebnis.start).getFullYear()
   );
   const uniqueYears: Array<number> = [...new Set(allYears)];
 
@@ -23,30 +23,27 @@ export default async function Turnierergebnisse() {
             <div className="space-y-2">
               {turnierergebnisse
                 .filter((turnierergebnis) =>
-                  turnierergebnis.attributes.start.includes(
-                    uniqueYear.toString()
-                  )
+                  turnierergebnis.start.includes(uniqueYear.toString())
                 )
                 .map((turnierergebnis) => (
                   <Link
                     target="_blank"
                     key={turnierergebnis.id}
-                    href={turnierergebnis.attributes.link}
+                    href={turnierergebnis.link}
                     className="hover:text-accent"
                   >
-                    {turnierergebnis.attributes.ende !== null ? (
+                    {turnierergebnis.ende !== null ? (
                       <div>
-                        {formatDate(new Date(turnierergebnis.attributes.start))}{" "}
-                        bis{" "}
-                        {formatDate(new Date(turnierergebnis.attributes.ende))}
+                        {formatDate(new Date(turnierergebnis.start))} bis{" "}
+                        {formatDate(new Date(turnierergebnis.ende))}
                         {": "}
-                        {turnierergebnis.attributes.titel}
+                        {turnierergebnis.titel}
                       </div>
                     ) : (
                       <div>
-                        {formatDate(new Date(turnierergebnis.attributes.start))}
+                        {formatDate(new Date(turnierergebnis.start))}
                         {": "}
-                        {turnierergebnis.attributes.titel}
+                        {turnierergebnis.titel}
                       </div>
                     )}
                   </Link>

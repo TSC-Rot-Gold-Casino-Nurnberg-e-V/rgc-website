@@ -16,12 +16,12 @@ export default async function DokumentePage() {
         {dokumente.map((dokument) => (
           <Link
             key={dokument.id}
-            href={dokument.attributes.datei.data.attributes.url}
+            href={dokument.datei.url}
             className="flex items-center gap-2 rounded-md border border-transparent p-2 transition-colors hover:border-primary-900 hover:text-accent"
             target="_blank"
           >
             <DocumentIcon />
-            <span className="text-large">{dokument.attributes.titel}</span>
+            <span className="text-large">{dokument.titel}</span>
           </Link>
         ))}
       </div>

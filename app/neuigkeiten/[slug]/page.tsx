@@ -21,9 +21,9 @@ export default async function NeuigkeitPage({ params }: Props) {
   return (
     <Main className="container-md space-y-4">
       <time className="text-normal text-base-500">
-        {formatDate(new Date(neuigkeit.attributes.datum))}
+        {formatDate(new Date(neuigkeit.datum))}
       </time>
-      <Prose content={neuigkeit.attributes.beschreibung} />
+      <Prose content={neuigkeit.beschreibung} />
       <Link
         href="/neuigkeiten"
         className="flex w-fit items-center gap-2 p-1 text-accent no-underline"

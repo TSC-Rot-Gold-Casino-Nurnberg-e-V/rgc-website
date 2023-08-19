@@ -1,21 +1,25 @@
 import { z } from "zod";
 
-export const vorstandsmitgliedSchema = z.object({
-  id: z.number(),
-  attributes: z.object({
-    rolle: z.string(),
-    name: z.string(),
-    telefonnummer: z.string().nullable(),
-    email: z.string(),
-    bild: z.object({
-      data: z.object({
-        attributes: z.object({
-          url: z.string(),
-        }),
-      }),
+export const vorstandsmitgliedSchema = z
+  .object({
+    id: z.number(),
+    attributes: z.object({
+      rolle: z.string(),
+      name: z.string(),
+      telefonnummer: z.string().nullable(),
+      email: z.string(),
+      bild: z
+        .object({
+          data: z.object({
+            attributes: z.object({
+              url: z.string(),
+            }),
+          }),
+        })
+        .transform(({ data }) => ({ ...data.attributes })),
     }),
-  }),
-});
+  })
+  .transform(({ id, attributes }) => ({ id, ...attributes }));
 
 export const vorstandsmitgliederSchema = z.array(vorstandsmitgliedSchema);
 

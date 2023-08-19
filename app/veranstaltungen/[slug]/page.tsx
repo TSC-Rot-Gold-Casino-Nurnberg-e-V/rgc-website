@@ -20,31 +20,25 @@ export default async function VeranstaltungPage({ params }: Props) {
   const veranstaltung = await getVeranstaltung(params.slug);
   return (
     <Main className="container-md space-y-4">
-      <Prose content={veranstaltung.attributes.beschreibung} />
+      <Prose content={veranstaltung.beschreibung} />
 
       <div className="flex justify-between gap-4 max-sm:flex-col">
         <div className="flex gap-4">
           <CalendarIcon />
           <div className="flex gap-2">
             <p>
-              {new Date(veranstaltung.attributes.start).toLocaleDateString(
-                "de-DE",
-                {
-                  day: "2-digit",
-                  month: "2-digit",
-                }
-              )}
+              {new Date(veranstaltung.start).toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "2-digit",
+              })}
             </p>
-            {veranstaltung.attributes.ende && (
+            {veranstaltung.ende && (
               <>
                 <p>bis</p>
-                {new Date(veranstaltung.attributes.ende).toLocaleDateString(
-                  "de-DE",
-                  {
-                    day: "2-digit",
-                    month: "2-digit",
-                  }
-                )}
+                {new Date(veranstaltung.ende).toLocaleDateString("de-DE", {
+                  day: "2-digit",
+                  month: "2-digit",
+                })}
               </>
             )}
           </div>
@@ -54,20 +48,18 @@ export default async function VeranstaltungPage({ params }: Props) {
           <LocationIcon />
           <div className="space-y-4">
             <div>
-              <p>{veranstaltung.attributes.ort.data.attributes.name}</p>
+              <p>{veranstaltung.ort.name}</p>
               <div className="flex gap-2">
-                <p>{veranstaltung.attributes.ort.data.attributes.strasse}</p>
-                <p>{veranstaltung.attributes.ort.data.attributes.hausnummer}</p>
+                <p>{veranstaltung.ort.strasse}</p>
+                <p>{veranstaltung.ort.hausnummer}</p>
               </div>
               <div className="flex gap-2">
-                <p>
-                  {veranstaltung.attributes.ort.data.attributes.postleitzahl}
-                </p>
-                <p>{veranstaltung.attributes.ort.data.attributes.stadt}</p>
+                <p>{veranstaltung.ort.postleitzahl}</p>
+                <p>{veranstaltung.ort.stadt}</p>
               </div>
             </div>
             <a
-              href={veranstaltung.attributes.ort.data.attributes.maps}
+              href={veranstaltung.ort.maps}
               target="_blank"
               className="flex w-fit gap-2 rounded-lg border border-base-700 px-3 py-2 transition-all hover:scale-[1.01] hover:border-secondary-900 hover:text-accent hover:shadow"
             >

@@ -34,7 +34,7 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
             <div className="min-w-fit">
               <LocationIcon />
             </div>
-            <span>{ort.attributes.name}</span>
+            <span>{ort.name}</span>
           </div>
           {ende && (
             <div className="flex gap-2">

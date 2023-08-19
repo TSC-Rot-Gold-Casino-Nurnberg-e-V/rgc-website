@@ -37,7 +37,7 @@ export async function getNeuigkeiten(
   pageSize: number,
   page: number = 1
 ): Promise<{ neuigkeiten: Array<Neuigkeit>; pagination: Pagination }> {
-  const sortProperty: keyof Neuigkeit["attributes"] = "datum";
+  const sortProperty: keyof Neuigkeit = "datum";
   const query = stringify({
     sort: `${sortProperty}:desc`,
     populate: "*",
@@ -79,13 +79,13 @@ export async function getSlugs(collection: string): Promise<Array<string>> {
     const slugs: Array<Slug> = slugsSchema.parse(data);
     allSlugs = allSlugs.concat(slugs);
   }
-  return allSlugs.map((slug) => slug.attributes.slug);
+  return allSlugs;
 }
 
 export async function getVeranstaltungen(): Promise<Array<Veranstaltung>> {
   const currentDateISO = new Date().toISOString().substring(0, 10);
-  const start: keyof Veranstaltung["attributes"] = "start";
-  const ende: keyof Veranstaltung["attributes"] = "ende";
+  const start: keyof Veranstaltung = "start";
+  const ende: keyof Veranstaltung = "ende";
   const query = stringify({
     sort: `${start}:asc`,
     populate: "*",
