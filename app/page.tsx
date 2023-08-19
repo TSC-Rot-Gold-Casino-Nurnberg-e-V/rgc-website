@@ -215,14 +215,14 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
     <div className="flex w-full flex-wrap justify-center gap-6">
       {neuigkeiten.map((neuigkeit) => (
         <Link
-          href={`/neuigkeiten/${neuigkeit.attributes.slug}`}
+          href={`/neuigkeiten/${neuigkeit.slug}`}
           key={neuigkeit.id}
           className="group rounded-xl"
         >
           <div className="relative h-[20rem] w-72 overflow-hidden rounded-xl transition-all">
             <div className="absolute inset-0 h-full shrink-0">
               <Image
-                src={neuigkeit.attributes.vorschaubild.data.attributes.url}
+                src={neuigkeit.vorschaubild.url}
                 alt=""
                 fill
                 className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
@@ -231,13 +231,13 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
             </div>
             <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
               <time
-                dateTime={neuigkeit.attributes.datum}
+                dateTime={neuigkeit.datum}
                 className="text-extrasmall text-base-300"
               >
-                {formatDate(new Date(neuigkeit.attributes.datum))}
+                {formatDate(new Date(neuigkeit.datum))}
               </time>
               <h3 className="text-normal line-clamp-3 max-w-xs font-semibold text-base-200">
-                {neuigkeit.attributes.titel}
+                {neuigkeit.titel}
               </h3>
             </article>
           </div>

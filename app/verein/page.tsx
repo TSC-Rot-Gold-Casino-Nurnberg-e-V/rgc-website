@@ -42,29 +42,27 @@ export default async function VereinsgeschichtePage() {
               key={vorstandsmitglied.id}
             >
               <Image
-                src={vorstandsmitglied.attributes.bild.data.attributes.url}
+                src={vorstandsmitglied.bild.url}
                 width={300}
                 height={300}
                 alt=""
                 className="mb-4 rounded-3xl"
               />
               <h3 className="text-extralarge font-bold text-accent">
-                {vorstandsmitglied.attributes.name}
+                {vorstandsmitglied.name}
               </h3>
-              <p className="mb-4 text-base-700">
-                {vorstandsmitglied.attributes.rolle}
-              </p>
-              {vorstandsmitglied.attributes.telefonnummer && (
+              <p className="mb-4 text-base-700">{vorstandsmitglied.rolle}</p>
+              {vorstandsmitglied.telefonnummer && (
                 <ContactLink
-                  href={`tel:${vorstandsmitglied.attributes.telefonnummer}`}
-                  text={vorstandsmitglied.attributes.telefonnummer}
+                  href={`tel:${vorstandsmitglied.telefonnummer}`}
+                  text={vorstandsmitglied.telefonnummer}
                   icon={<PhoneIcon />}
                 />
               )}
               <div className="mt-2">
                 <ContactLink
-                  href={`mailto:${vorstandsmitglied.attributes.email}`}
-                  text={vorstandsmitglied.attributes.email}
+                  href={`mailto:${vorstandsmitglied.email}`}
+                  text={vorstandsmitglied.email}
                   icon={<MailIcon />}
                 />
               </div>
@@ -79,18 +77,13 @@ export default async function VereinsgeschichtePage() {
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
             <h3 className="heading-extrasmall sm:heading-small mb-5 text-accent max-sm:text-center">
-              {cheftrainer.attributes.titel}
+              {cheftrainer.titel}
             </h3>
             <TrainerCard
-              name={cheftrainer.attributes.trainer.data.attributes.name}
+              name={cheftrainer.trainer.name}
               lizenzen={[]}
-              beschreibung={
-                cheftrainer.attributes.trainer.data.attributes.beschreibung
-              }
-              bild={
-                cheftrainer.attributes.trainer.data.attributes.bild.data
-                  .attributes.url
-              }
+              beschreibung={cheftrainer.trainer.beschreibung}
+              bild={cheftrainer.trainer.bild.url}
             />
           </section>
         ))}

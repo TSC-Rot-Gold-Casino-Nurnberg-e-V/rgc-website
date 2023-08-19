@@ -23,12 +23,12 @@ interface Props {
 export default async function AngebotPage({ params }: Props) {
   const angebot = await getAngebot(params.slug);
   const trainingsGroupedByWochentag = new Map<
-    Wochentag["attributes"]["titel"], // type string
+    Wochentag["titel"], // type string
     Array<Training>
   >();
 
-  angebot.attributes.trainings.data.forEach((training) => {
-    const wochentagTitel = training.attributes.wochentag.data.attributes.titel;
+  angebot.trainings.forEach((training) => {
+    const wochentagTitel = training.wochentag.titel;
     const trainings = trainingsGroupedByWochentag.get(wochentagTitel);
 
     if (trainings === undefined) {
@@ -40,11 +40,8 @@ export default async function AngebotPage({ params }: Props) {
 
   return (
     <Main>
-      <PageHeading>{angebot.attributes.titel}</PageHeading>
-      <Prose
-        className="container-lg"
-        content={angebot.attributes.beschreibung}
-      />
+      <PageHeading>{angebot.titel}</PageHeading>
+      <Prose className="container-lg" content={angebot.beschreibung} />
       <section className="bg-base-100">
         <div className="container-lg space-y-8">
           <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
@@ -62,9 +59,9 @@ export default async function AngebotPage({ params }: Props) {
                       .map((training) => ({
                         ...training,
                         attributes: {
-                          ...training.attributes,
-                          start: new Date("2000T" + training.attributes.start),
-                          ende: new Date("2000T" + training.attributes.ende),
+                          ...training,
+                          start: new Date("2000T" + training.start),
+                          ende: new Date("2000T" + training.ende),
                         },
                       }))
                       .sort(
@@ -96,12 +93,10 @@ export default async function AngebotPage({ params }: Props) {
                           </div>
                           <div className="flex grow justify-between pt-4">
                             <div className="flex gap-2 self-end">
-                              {attributes.trainers.data.map((trainer) => (
+                              {attributes.trainers.map((trainer) => (
                                 <Image
                                   key={trainer.id}
-                                  src={
-                                    trainer.attributes.bild.data.attributes.url
-                                  }
+                                  src={trainer.bild.url}
                                   width={56} // w-14
                                   height={56} // h-14
                                   alt=""
@@ -147,13 +142,13 @@ export default async function AngebotPage({ params }: Props) {
           Unsere Trainer
         </h2>
         <div className="divide-y">
-          {angebot.attributes.trainers.data.map((trainer) => (
+          {angebot.trainers.map((trainer) => (
             <div key={trainer.id} className="py-12">
               <TrainerCard
-                beschreibung={trainer.attributes.beschreibung}
-                name={trainer.attributes.name}
-                lizenzen={trainer.attributes.lizenzen.data}
-                bild={trainer.attributes.bild.data.attributes.url}
+                beschreibung={trainer.beschreibung}
+                name={trainer.name}
+                lizenzen={trainer.lizenzen}
+                bild={trainer.bild.url}
               />
             </div>
           ))}
@@ -163,18 +158,13 @@ export default async function AngebotPage({ params }: Props) {
         <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
           <h2 className="heading-small text-accent">Häufig gestellte Fragen</h2>
           <div className="divide-y">
-            {angebot.attributes.faqs.data.map((faq) => (
+            {angebot.faqs.map((faq) => (
               <section
                 key={faq.id}
                 className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
               >
-                <h3 className="text-extralarge md:col-span-2">
-                  {faq.attributes.frage}
-                </h3>
-                <Prose
-                  className="md:col-span-3"
-                  content={faq.attributes.antwort}
-                />
+                <h3 className="text-extralarge md:col-span-2">{faq.frage}</h3>
+                <Prose className="md:col-span-3" content={faq.antwort} />
               </section>
             ))}
           </div>

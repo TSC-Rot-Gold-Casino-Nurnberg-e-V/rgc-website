@@ -13,16 +13,16 @@ export default async function VeranstaltungenPage() {
           <>
             {veranstaltungen.map((veranstaltung) => (
               <VeranstaltungCard
-                slug={veranstaltung.attributes.slug}
-                titel={veranstaltung.attributes.titel}
-                start={new Date(veranstaltung.attributes.start)}
+                slug={veranstaltung.slug}
+                titel={veranstaltung.titel}
+                start={new Date(veranstaltung.start)}
                 ende={
-                  veranstaltung.attributes.ende !== null
-                    ? new Date(veranstaltung.attributes.ende)
+                  veranstaltung.ende !== null
+                    ? new Date(veranstaltung.ende)
                     : null
                 }
-                ort={veranstaltung.attributes.ort.data}
-                key={veranstaltung.attributes.slug}
+                ort={veranstaltung.ort}
+                key={veranstaltung.slug}
               />
             ))}
           </>

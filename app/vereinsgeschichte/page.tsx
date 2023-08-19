@@ -8,10 +8,7 @@ export default async function VereinsgeschichtePage() {
   return (
     <Main>
       <PageHeading>Vereinsgeschichte</PageHeading>
-      <Prose
-        className="container-md"
-        content={vereinsgeschichte.attributes.inhalt}
-      />
+      <Prose className="container-md" content={vereinsgeschichte.inhalt} />
     </Main>
   );
 }

@@ -8,10 +8,7 @@ export default async function DatenschutzerklaerungPage() {
   return (
     <Main>
       <PageHeading>Datenschutz&shy;erklärung</PageHeading>
-      <Prose
-        className="container-md"
-        content={datenschutzerklaerung.attributes.inhalt}
-      />
+      <Prose className="container-md" content={datenschutzerklaerung.inhalt} />
     </Main>
   );
 }
