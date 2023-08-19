@@ -50,14 +50,15 @@ export const NeuigkeitCard = ({
         />
       </div>
       <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-950 p-6">
-        <div className="relative top-16 flex h-full flex-col justify-end gap-3 transition-all duration-300 group-hover:top-0">
+        <div className="relative top-20 flex h-full flex-col justify-end gap-3 transition-all duration-300 group-hover:top-0">
           <time dateTime={datum} className="text-extrasmall text-base-300">
             {formatDate(new Date(datum))}
           </time>
           <h2 className="text-large line-clamp-3 max-w-xs font-semibold text-base-200">
             {titel}
           </h2>
-          <p className="line-clamp-3 text-transparent transition-all duration-300 group-hover:text-base-300">
+          {/* 72px = height of 3 lines */}
+          <p className="line-clamp-3 min-h-[72px] text-transparent transition-all duration-300 group-hover:text-base-300">
             {vorschautext}
           </p>
         </div>
