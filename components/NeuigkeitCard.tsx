@@ -41,12 +41,12 @@ export const NeuigkeitCard = ({
           src={vorschaubild}
           alt=""
           fill
-          className="rounded-xl object-cover object-top transition-all duration-300 group-hover:scale-105"
+          className="rounded-xl object-cover object-top transition-all duration-300"
           sizes={sizes}
           priority={loadImageWithPriority}
         />
       </div>
-      <article className="relative z-10 h-full rounded-md bg-gradient-to-b from-transparent to-base-950 p-6">
+      <article className="relative z-10 h-full rounded-xl bg-gradient-to-b from-transparent to-base-950 p-6">
         <div className="relative top-20 flex h-full flex-col justify-end gap-3 transition-all duration-300 group-hover:top-0">
           <time dateTime={datum} className="text-extrasmall text-base-300">
             {formatDate(new Date(datum))}
