@@ -1,7 +1,7 @@
 "use client";
 
 import { Neuigkeit } from "../../model/Neuigkeit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "../../components/NeuigkeitCard";
@@ -17,6 +17,17 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
   >([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const cachedPage = sessionStorage.getItem("page");
+    if (cachedPage !== null) {
+      setPage(parseInt(cachedPage));
+    }
+    const cachedNeuigkeiten = sessionStorage.getItem("neuigkeiten");
+    if (cachedNeuigkeiten !== null) {
+      setFurtherNeuigkeiten(JSON.parse(cachedNeuigkeiten));
+    }
+  }, []);
 
   async function getMoreNeuigkeiten() {
     setIsLoading(true);
