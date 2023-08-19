@@ -19,6 +19,7 @@ export default async function NeuigkeitenPage() {
             vorschautext={neuigkeit.vorschautext}
             datum={neuigkeit.datum}
             vorschaubild={neuigkeit.vorschaubild.url}
+            className="hover:!opacity-100 group-hover/container:opacity-50"
           />
         ))}
         <FurtherNeuigkeiten
