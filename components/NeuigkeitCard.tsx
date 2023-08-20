@@ -30,7 +30,7 @@ export const NeuigkeitCard = ({
   <Link
     href={`/neuigkeiten/${slug}`}
     className={twMerge(
-      "group rounded-xl transition-all duration-300 hover:scale-105",
+      "group rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl",
       className
     )}
     {...props}
