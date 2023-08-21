@@ -8,13 +8,13 @@ import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
 import { AnchorHTMLAttributes } from "react";
-import { formatDate } from "../utils/formatDate";
 import { Neuigkeit } from "../model/Neuigkeit";
 import { Main } from "../components/Main";
 import { twMerge } from "tailwind-merge";
+import { NeuigkeitCard } from "../components/NeuigkeitCard";
 
 export default async function HomePage() {
-  const { neuigkeiten } = await getNeuigkeiten(3);
+  const { neuigkeiten } = await getNeuigkeiten(4);
   return (
     <Main>
       <HeroSection />
@@ -32,7 +32,7 @@ const HeroSection = () => (
       role="banner"
       className="container-lg relative z-10 space-y-6 text-primary-50"
     >
-      <h1 className="heading-small sm:heading-normal md:heading-large primary-gradient max-w-screen-sm bg-clip-text font-extrabold uppercase text-transparent">
+      <h1 className="heading-small sm:heading-normal md:heading-large text-gold max-w-screen-sm font-extrabold uppercase">
         Herzlich Willkommen im RGC
       </h1>
       <div className="max-w-screen-sm space-y-4">
@@ -185,7 +185,7 @@ const VereinsgeschichteSection = () => (
 
 const Stats = () => (
   <section
-    className="primary-gradient flex justify-center"
+    className="gold-gradient flex justify-center"
     aria-label="Vereinsstatistik"
   >
     <div className="container-lg grid w-full gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
@@ -212,36 +212,17 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
     <h2 className="heading-small max-md:heading-normal md:heading-large text-center text-accent">
       News
     </h2>
-    <div className="flex w-full flex-wrap justify-center gap-6">
+    <div className="group/container grid gap-6 sm:grid-cols-2">
       {neuigkeiten.map((neuigkeit) => (
-        <Link
-          href={`/neuigkeiten/${neuigkeit.slug}`}
+        <NeuigkeitCard
           key={neuigkeit.id}
-          className="group rounded-xl"
-        >
-          <div className="relative h-[20rem] w-72 overflow-hidden rounded-xl transition-all">
-            <div className="absolute inset-0 h-full shrink-0">
-              <Image
-                src={neuigkeit.vorschaubild.url}
-                alt=""
-                fill
-                className="rounded-xl object-cover object-top transition-all duration-700 group-hover:scale-105 group-focus:scale-105"
-                sizes="(max-width: 712px) 100vw, (max-width: 1072px) 50vw, 33vw"
-              />
-            </div>
-            <article className="relative z-10 flex h-full flex-col justify-end gap-3 rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
-              <time
-                dateTime={neuigkeit.datum}
-                className="text-extrasmall text-base-300"
-              >
-                {formatDate(new Date(neuigkeit.datum))}
-              </time>
-              <h3 className="text-normal line-clamp-3 max-w-xs font-semibold text-base-200">
-                {neuigkeit.titel}
-              </h3>
-            </article>
-          </div>
-        </Link>
+          slug={neuigkeit.slug}
+          datum={neuigkeit.datum}
+          titel={neuigkeit.titel}
+          vorschautext={neuigkeit.vorschautext}
+          vorschaubild={neuigkeit.vorschaubild.url}
+          sizes="(max-width: 640px) 100vw, 50vw"
+        />
       ))}
     </div>
     <div className="mx-auto w-fit">

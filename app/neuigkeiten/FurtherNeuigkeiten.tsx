@@ -4,7 +4,7 @@ import { Neuigkeit } from "../../model/Neuigkeit";
 import { useEffect, useState } from "react";
 import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
-import { NeuigkeitCard } from "./NeuigkeitCard";
+import { NeuigkeitCard } from "../../components/NeuigkeitCard";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;
@@ -17,6 +17,17 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
   >([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const cachedPage = sessionStorage.getItem("page");
+    if (cachedPage !== null) {
+      setPage(parseInt(cachedPage));
+    }
+    const cachedNeuigkeiten = sessionStorage.getItem("neuigkeiten");
+    if (cachedNeuigkeiten !== null) {
+      setFurtherNeuigkeiten(JSON.parse(cachedNeuigkeiten));
+    }
+  }, []);
 
   async function getMoreNeuigkeiten() {
     setIsLoading(true);
@@ -32,19 +43,6 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
     setIsLoading(false);
   }
 
-  useEffect(() => {
-    const prevScrollY = sessionStorage.getItem("prevScrollY");
-    const prevPathname = sessionStorage.getItem("prevPathname");
-    if (prevScrollY !== null && prevPathname?.startsWith("/neuigkeiten/")) {
-      window.scrollTo(0, parseInt(prevScrollY));
-    }
-    setPage(parseInt(sessionStorage.getItem("page") ?? "1"));
-    const neuigkeitenInStorage = sessionStorage.getItem("neuigkeiten");
-    if (neuigkeitenInStorage !== null) {
-      setFurtherNeuigkeiten(JSON.parse(neuigkeitenInStorage));
-    }
-  }, []);
-
   return (
     <>
       {furtherNeuigkeiten.map((neuigkeit) => (
@@ -55,6 +53,8 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
           vorschautext={neuigkeit.vorschautext}
           datum={neuigkeit.datum}
           vorschaubild={neuigkeit.vorschaubild.url}
+          className="hover:!opacity-100 group-hover/container:opacity-50"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       ))}
       {neuigkeiten.length + furtherNeuigkeiten.length < paginationTotal && (

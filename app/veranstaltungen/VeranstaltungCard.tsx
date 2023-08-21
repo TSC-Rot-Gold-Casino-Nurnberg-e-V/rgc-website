@@ -18,10 +18,10 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
   >
     <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md max-sm:flex-col">
       <div className="flex items-center justify-center bg-secondary-900 px-6 py-4 text-center max-sm:gap-2 max-sm:rounded-t-xl sm:w-24 sm:flex-col sm:rounded-l-xl">
-        <div className="primary-gradient heading-normal bg-clip-text font-extrabold text-transparent">
+        <div className="text-gold heading-normal border border-transparent font-extrabold">
           {start.getDate()}
         </div>
-        <div className="primary-gradient heading-small sm:heading-extrasmall bg-clip-text font-semibold text-transparent">
+        <div className="text-gold heading-small sm:heading-extrasmall font-semibold">
           {start.toLocaleString("de-DE", { month: "short" })}
         </div>
       </div>

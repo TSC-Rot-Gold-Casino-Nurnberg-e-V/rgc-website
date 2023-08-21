@@ -121,7 +121,7 @@ describe("homepage", () => {
         .siblings()
         .first()
         .findAllByRole("link")
-        .should("have.lengthOf", 3);
+        .should("have.lengthOf", 4);
     });
 
     it("renders CTA for news page", () => {
