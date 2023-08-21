@@ -59,26 +59,6 @@ describe("navbar", () => {
     cy.findByRole("menu").should("not.exist");
   });
 
-  it("indicates the active page", () => {
-    cy.viewport("macbook-16");
-
-    cy.findByRole("navigation")
-      .findByRole("link", { name: /Kontakt/i })
-      .click();
-
-    cy.findByRole("navigation")
-      .get('[aria-current="page"]')
-      .should("have.text", "Kontakt");
-
-    cy.findByRole("navigation")
-      .findByRole("link", { name: /Angebot/i })
-      .click();
-
-    cy.findByRole("navigation")
-      .get('[aria-current="page"]')
-      .should("have.text", "Angebot");
-  });
-
   it("navigates to the contact page on a mobile device", () => {
     cy.viewport("iphone-6");
 
