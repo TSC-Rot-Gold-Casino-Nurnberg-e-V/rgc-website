@@ -8,7 +8,7 @@ export default async function DokumentePage() {
   return (
     <Main>
       <PageHeading>Dokumente</PageHeading>
-      <p className="container-sm sm:text-large pb-0">
+      <p className="container-sm paragraph pb-0">
         Hier findest du alle wichtigen Dokumente rund um deine Mitgliedschaft
         und den Verein.
       </p>

@@ -17,7 +17,7 @@ export default async function VereinsgeschichtePage() {
         <h2 className="heading-small sm:heading-normal text-accent">
           Über uns
         </h2>
-        <p>
+        <p className="paragraph">
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
           sportliche Erfolge gemacht, als auch in der Region als wesentlicher
@@ -26,7 +26,7 @@ export default async function VereinsgeschichtePage() {
         </p>
         <Link
           href="/vereinsgeschichte"
-          className="block rounded font-semibold text-accent"
+          className="paragraph block rounded font-semibold text-accent"
         >
           Zur kompletten Geschichte unseres Vereins
         </Link>

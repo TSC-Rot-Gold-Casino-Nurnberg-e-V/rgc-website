@@ -29,7 +29,7 @@ const Competition = () => (
         <h2 className="heading-normal md:heading-large text-accent">
           Turniertanz
         </h2>
-        <p className="text-normal">
+        <p className="paragraph">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes
           Trainerteam begleitet dich auf dem Weg zum Turniertänzer und
@@ -66,7 +66,7 @@ const Formation = () => (
         <h2 className="heading-normal sm:heading-large text-center text-accent">
           Formationstanzen
         </h2>
-        <p className="text-normal max-w-3xl text-center">
+        <p className="paragraph max-w-3xl text-center">
           Formationstanzen ist nicht nur eine besondere Form des Tanzens,
           sondern auch eine tolle Möglichkeit, neue Leute kennenzulernen und
           gemeinsam etwas zu erschaffen. Bei uns findest du die perfekte
@@ -103,7 +103,7 @@ const Youth = () => (
           <h2 className="heading-normal sm:heading-large text-accent">
             Kinder & Jugend
           </h2>
-          <p className="text-normal max-w-3xl lg:max-w-sm">
+          <p className="paragraph max-w-3xl lg:max-w-sm">
             Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten
             Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen
             Tanzrichtungen ein Programm, das Spaß und Freude am Tanzen
@@ -146,7 +146,7 @@ const Hobby = () => (
       <h2 className="heading-normal sm:heading-large text-accent">
         Freizeittanzen
       </h2>
-      <p className="text-normal">
+      <p className="paragraph">
         In unseren Freizeittanz-Kursen ist jeder willkommen, der Lust auf
         Bewegung und Musik hat – unabhängig von Alter, Geschlecht oder
         Vorerfahrung. Entdecke deine Leidenschaft für verschiedene Tanzstile und

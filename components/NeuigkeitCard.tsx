@@ -53,7 +53,7 @@ export const NeuigkeitCard = ({
             {titel}
           </h2>
           {/* 72px = height of 3 lines */}
-          <p className="line-clamp-3 min-h-[72px] text-transparent transition-all duration-300 group-hover:text-base-300">
+          <p className="text-normal line-clamp-3 min-h-[72px] text-transparent transition-all duration-300 group-hover:text-base-300">
             {vorschautext}
           </p>
         </div>
