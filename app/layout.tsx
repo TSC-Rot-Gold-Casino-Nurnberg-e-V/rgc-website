@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import { Navbar } from "../components/Navbar";
 import { Sponsors } from "../components/Sponsors";
 import { Footer } from "../components/Footer";
-import { Manrope } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 
 import "../styles/globals.css";
 import { ReactNode } from "react";
 
-const manrope = Manrope({ subsets: ["latin"] });
+const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TSC Rot-Gold-Casino Nürnberg e.V.",
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="flex min-h-screen flex-col">
         <Navbar />
         <div
-          className={`flex grow flex-col bg-base-50 text-base-700 ${manrope.className}`}
+          className={`flex grow flex-col bg-base-50 text-base-700 ${nunitoSans.className}`}
         >
           {children}
         </div>
