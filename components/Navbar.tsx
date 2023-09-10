@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <nav
       className={twJoin(
-        "sticky z-30 h-20 w-full bg-base-950 px-8 text-base-50 transition-all duration-500",
+        "sticky z-30 h-20 w-full bg-base-900 px-8 text-base-50 transition-all duration-500",
         hideNavbar ? "-top-20" : "top-0"
       )}
     >

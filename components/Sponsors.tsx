@@ -5,7 +5,7 @@ import aragLogo from "../public/aragLogo.jpg";
 import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
 
 export const Sponsors = () => (
-  <section className="bg-base-950">
+  <section className="bg-base-900">
     <div className="container-lg flex flex-wrap items-center justify-around gap-6 gap-y-12">
       <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
         <Image src={sbbLogo} alt="" width={208} />

@@ -27,7 +27,7 @@ export default async function HomePage() {
 }
 
 const HeroSection = () => (
-  <section className="relative bg-base-950">
+  <section className="relative bg-base-900">
     <div
       role="banner"
       className="container-lg relative z-10 space-y-6 text-primary-50"
@@ -150,7 +150,7 @@ const AngebotCard = ({
 
 const VereinsgeschichteSection = () => (
   <section className="relative" aria-label="Vereinsinformationen">
-    <div className="relative z-10 w-full bg-gradient-to-r from-base-950">
+    <div className="relative z-10 w-full bg-gradient-to-r from-base-900">
       <div className="container-lg flex flex-col justify-center">
         <h2 className="heading-normal md:heading-large order-2 mt-6 text-base-50">
           Über uns
