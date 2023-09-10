@@ -26,9 +26,7 @@ const Competition = () => (
   <section className="container-lg" id="turniertanzen">
     <div className="grid gap-12 sm:justify-items-center lg:grid-cols-[auto_1fr]">
       <div className="flex max-w-3xl flex-col justify-center gap-3 max-lg:mx-auto max-lg:text-center lg:max-w-sm">
-        <h2 className="heading-normal md:heading-large text-accent">
-          Turniertanz
-        </h2>
+        <h2 className="heading-normal text-accent">Turniertanz</h2>
         <p className="paragraph">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes
@@ -63,7 +61,7 @@ const Formation = () => (
   <section className="container-lg" id="formationstanzen">
     <div className="space-y-6">
       <div className="flex flex-col items-center gap-3 text-base-800">
-        <h2 className="heading-normal sm:heading-large text-center text-accent">
+        <h2 className="heading-normal text-center text-accent">
           Formationstanzen
         </h2>
         <p className="paragraph max-w-3xl text-center">
@@ -100,9 +98,7 @@ const Youth = () => (
     <div className="mx-auto grid max-w-screen-lg gap-6 sm:grid-cols-2 lg:grid-cols-[auto_1fr_1fr]">
       <div className="flex flex-col gap-6 sm:max-lg:col-span-2 md:max-lg:flex-row">
         <div className="flex flex-col justify-center gap-3 max-md:mx-auto max-md:text-center">
-          <h2 className="heading-normal sm:heading-large text-accent">
-            Kinder & Jugend
-          </h2>
+          <h2 className="heading-normal text-accent">Kinder & Jugend</h2>
           <p className="paragraph max-w-3xl lg:max-w-sm">
             Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten
             Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen
@@ -143,9 +139,7 @@ const Hobby = () => (
     id="freizeittanzen"
   >
     <div className="space-y-3 max-md:text-center md:basis-1/2">
-      <h2 className="heading-normal sm:heading-large text-accent">
-        Freizeittanzen
-      </h2>
+      <h2 className="heading-normal text-accent">Freizeittanzen</h2>
       <p className="paragraph">
         In unseren Freizeittanz-Kursen ist jeder willkommen, der Lust auf
         Bewegung und Musik hat – unabhängig von Alter, Geschlecht oder

@@ -8,7 +8,7 @@ export default async function NeuigkeitenPage() {
   const { neuigkeiten, pagination } = await getNeuigkeiten(6);
 
   return (
-    <Main className="bg-base-950">
+    <Main className="bg-base-900">
       <PageHeading>Neuigkeiten</PageHeading>
       <div className="group/container container-lg grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {neuigkeiten.map((neuigkeit) => (

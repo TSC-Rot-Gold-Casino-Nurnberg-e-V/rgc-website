@@ -9,7 +9,7 @@ import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
 
 export const Footer = () => (
-  <footer className="bg-base-950">
+  <footer className="bg-base-900">
     <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
       <div className="order-1 h-full space-y-3">
         <Link href="/" className="w-fit rounded-md">
