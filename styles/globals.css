@@ -6,6 +6,15 @@
   *:focus-visible {
     @apply outline outline-2 outline-offset-4 outline-secondary-800;
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-barlow-condensed;
+  }
 }
 
 @layer components {

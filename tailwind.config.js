@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        barlow: "var(--font-barlow)",
+        "barlow-condensed": "var(--font-barlow-condensed)",
+      },
       colors: {
         primary: {
           50: "#fcf9f0",
