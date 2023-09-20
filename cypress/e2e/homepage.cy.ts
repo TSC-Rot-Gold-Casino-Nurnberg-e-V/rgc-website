@@ -5,20 +5,20 @@ describe("homepage", () => {
 
   describe("hero banner section", () => {
     it("renders a heading", () => {
-      cy.findByRole("heading", { name: /Herzlich Willkommen im RGC/i }).should(
-        "exist"
-      );
+      cy.findByRole("heading", {
+        name: /Herzlich Willkommen im Rot-Gold-Casino/i,
+      }).should("exist");
     });
 
     it("renders a subheading", () => {
       cy.findByRole("heading", {
-        name: /Ihr Verein für Tanzsport in Nürnberg \/ Fürth/i,
+        name: /Dein Verein für Tanzsport in Nürnberg \/ Fürth/i,
       }).should("exist");
     });
 
     it("renders a description", () => {
       cy.findByText(
-        /Erleben Sie die faszinierende Welt des Tanzens! Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance. Werden Sie Teil unserer Tanzfamilie und erleben Sie mit uns unvergessliche Momente auf der Tanzfläche./i
+        /Erlebe die faszinierende Welt des Tanzens! Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance. Werde Teil unserer Tanzfamilie und erlebe mit uns unvergessliche Momente auf der Tanzfläche./i
       ).should("exist");
     });
 
@@ -38,7 +38,7 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(
-        "Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance."
+        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance."
       ).should("exist");
     });
 

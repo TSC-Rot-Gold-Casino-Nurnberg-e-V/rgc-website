@@ -67,7 +67,7 @@ const Formation = () => (
         <p className="paragraph max-w-3xl text-center">
           Formationstanzen ist nicht nur eine besondere Form des Tanzens,
           sondern auch eine tolle Möglichkeit, neue Leute kennenzulernen und
-          gemeinsam etwas zu erschaffen. Bei uns findest du die perfekte
+          gemeinsam etwas zu erschaffen. Bei uns findest Du die perfekte
           Mischung aus anspruchsvoller Choreografie und gemeinsamem Teamspirit.
         </p>
       </div>
