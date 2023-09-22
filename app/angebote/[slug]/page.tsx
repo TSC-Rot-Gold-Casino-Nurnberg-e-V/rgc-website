@@ -171,7 +171,7 @@ export default async function AngebotPage({ params }: Props) {
           <div>
             <p>Du hast weitere Fragen?</p>
             <div className="flex gap-1">
-              <p>Dann kontaktier uns</p>
+              <p>Dann kontaktiere uns</p>
               <Link href="/kontakt" className="font-semibold text-accent">
                 hier.
               </Link>
