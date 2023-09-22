@@ -33,18 +33,18 @@ const HeroSection = () => (
       className="container-lg relative z-10 space-y-6 text-primary-50"
     >
       <h1 className="heading-small sm:heading-normal md:heading-large text-gold max-w-screen-sm font-extrabold uppercase">
-        Herzlich Willkommen im RGC
+        Herzlich Willkommen im Rot-Gold-Casino
       </h1>
-      <div className="max-w-screen-sm space-y-4">
+      <div className="max-w-screen-md space-y-4">
         <h2 className="heading-extrasmall md:heading-small text-base-50">
-          Ihr Verein für Tanzsport in Nürnberg / Fürth
+          Dein Verein für Tanzsport in Nürnberg / Fürth
         </h2>
         <p className="text-normal md:text-large text-base-50">
-          Erleben Sie die faszinierende Welt des Tanzens! Bei uns finden Sie
-          alles, was das Tänzerherz begehrt - von Latein, Standard und
-          Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.
-          Werden Sie Teil unserer Tanzfamilie und erleben Sie mit uns
-          unvergessliche Momente auf der Tanzfläche.
+          Erlebe die faszinierende Welt des Tanzens! Bei uns findest Du alles,
+          was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen
+          bis hin zu Breitensport, Kindertanzen und Breakdance. Werde Teil
+          unserer Tanzfamilie und erlebe mit uns unvergessliche Momente auf der
+          Tanzfläche.
         </p>
       </div>
       <Link className="block w-fit rounded-md" href="/angebote">
@@ -74,7 +74,7 @@ const AngebotSection = () => (
           className="text-normal lg:text-large mx-auto max-w-screen-sm hyphens-auto text-base-50"
           aria-label="Angebotsbeschreibung"
         >
-          Bei uns finden Sie alles, was das Tänzerherz begehrt - von Latein,
+          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein,
           Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
         </p>
