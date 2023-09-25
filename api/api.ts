@@ -141,7 +141,12 @@ export async function getVorstandsmitglieder(): Promise<
 > {
   const query = stringify({
     sort: `reihenfolge:asc`,
-    populate: "*",
+    populate: {
+      person: {
+        populate: "*",
+      },
+      bild: true,
+    },
   });
   const { data } = await fetchData(`/vorstandsmitglieder?${query}`);
   return vorstandsmitgliederSchema.parse(data);

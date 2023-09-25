@@ -42,14 +42,14 @@ export default async function VereinsgeschichtePage() {
               key={vorstandsmitglied.id}
             >
               <Image
-                src={vorstandsmitglied.bild.url}
+                src={vorstandsmitglied.person.bild.url}
                 width={300}
                 height={300}
                 alt=""
                 className="mb-4 rounded-3xl"
               />
               <h3 className="text-extralarge font-bold text-accent">
-                {vorstandsmitglied.name}
+                {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
               </h3>
               <p className="mb-4 text-base-700">{vorstandsmitglied.rolle}</p>
               {vorstandsmitglied.telefonnummer && (
