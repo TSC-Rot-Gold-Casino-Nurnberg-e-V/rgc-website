@@ -145,7 +145,6 @@ export async function getVorstandsmitglieder(): Promise<
       person: {
         populate: "*",
       },
-      bild: true,
     },
   });
   const { data } = await fetchData(`/vorstandsmitglieder?${query}`);
