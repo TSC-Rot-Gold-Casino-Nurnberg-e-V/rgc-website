@@ -156,7 +156,12 @@ export async function getCheftrainers(): Promise<Array<Cheftrainer>> {
   const query = stringify({
     populate: {
       trainer: {
-        populate: "*",
+        populate: {
+          lizenzen: true,
+          person: {
+            populate: "*",
+          },
+        },
       },
     },
   });

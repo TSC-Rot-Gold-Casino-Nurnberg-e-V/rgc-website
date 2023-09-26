@@ -96,7 +96,7 @@ export default async function AngebotPage({ params }: Props) {
                               {attributes.trainers.map((trainer) => (
                                 <Image
                                   key={trainer.id}
-                                  src={trainer.bild.url}
+                                  src={trainer.person.bild.url}
                                   width={56} // w-14
                                   height={56} // h-14
                                   alt=""
@@ -146,9 +146,9 @@ export default async function AngebotPage({ params }: Props) {
             <div key={trainer.id} className="py-12">
               <TrainerCard
                 beschreibung={trainer.beschreibung}
-                name={trainer.name}
+                name={`${trainer.person.vorname} ${trainer.person.nachname}`}
                 lizenzen={trainer.lizenzen}
-                bild={trainer.bild.url}
+                bild={trainer.person.bild.url}
               />
             </div>
           ))}

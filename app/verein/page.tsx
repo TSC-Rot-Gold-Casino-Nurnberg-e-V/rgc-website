@@ -80,10 +80,10 @@ export default async function VereinsgeschichtePage() {
               {cheftrainer.titel}
             </h3>
             <TrainerCard
-              name={cheftrainer.trainer.name}
+              name={`${cheftrainer.trainer.person.vorname} ${cheftrainer.trainer.person.nachname}`}
               lizenzen={[]}
               beschreibung={cheftrainer.trainer.beschreibung}
-              bild={cheftrainer.trainer.bild.url}
+              bild={cheftrainer.trainer.person.bild.url}
             />
           </section>
         ))}
