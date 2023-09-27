@@ -5,7 +5,7 @@ export const personSchema = z
     id: z.number(),
     attributes: z.object({
       vorname: z.string(),
-      nachname: z.string(),
+      nachname: z.string().nullable(),
       bild: z
         .object({
           data: z.object({
