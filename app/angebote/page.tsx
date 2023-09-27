@@ -74,7 +74,7 @@ const Formation = () => (
       <div className="flex gap-6 max-sm:flex-col">
         <AngebotCard
           title="Standard"
-          href="/angebote"
+          href="/angebote/formationen/standard"
           image={formation}
           className="h-80"
           priority={true}
@@ -82,7 +82,7 @@ const Formation = () => (
         />
         <AngebotCard
           title="Latein"
-          href="/angebote"
+          href="/angebote/formationen/latein"
           image={formation}
           priority={true}
           className="h-80"
