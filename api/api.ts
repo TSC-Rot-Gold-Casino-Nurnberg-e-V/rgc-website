@@ -32,6 +32,7 @@ import { Slug, slugsSchema } from "../model/Slug";
 import { Cheftrainer, cheftrainersSchema } from "../model/Cheftrainer";
 
 import { stringify } from "qs";
+import { formationSchema } from "../model/Formation";
 
 export async function getNeuigkeiten(
   pageSize: number,
@@ -144,6 +145,35 @@ export async function getAngebot(slug: string): Promise<Angebot> {
   });
   const { data } = await fetchData(`/slugify/slugs/angebot/${slug}?${query}`);
   return angebotSchema.parse(data);
+}
+
+export async function getFormation(slug: string) {
+  const query = stringify({
+    populate: {
+      teams: {
+        populate: {
+          trainers: {
+            populate: {
+              lizenzen: true,
+              person: {
+                populate: "*",
+              },
+            },
+          },
+          kapitaene: {
+            populate: "*",
+          },
+          mitglieder: {
+            populate: "*",
+          },
+          choreo: true,
+          liga: true,
+        },
+      },
+    },
+  });
+  const { data } = await fetchData(`/slugify/slugs/formation/${slug}?${query}`);
+  return formationSchema.parse(data);
 }
 
 export async function getVorstandsmitglieder(): Promise<
