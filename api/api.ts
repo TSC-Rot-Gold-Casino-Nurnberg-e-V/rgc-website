@@ -120,13 +120,23 @@ export async function getAngebot(slug: string): Promise<Angebot> {
     populate: {
       faqs: true,
       trainers: {
-        populate: "*",
+        populate: {
+          lizenzen: true,
+          person: {
+            populate: "*",
+          },
+        },
       },
       trainings: {
         populate: {
           wochentag: true,
           trainers: {
-            populate: "*",
+            populate: {
+              lizenzen: true,
+              person: {
+                populate: "*",
+              },
+            },
           },
         },
       },
