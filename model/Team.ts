@@ -18,11 +18,6 @@ export const teamSchema = z
           data: z.array(personSchema),
         })
         .transform(({ data }) => data),
-      mitglieder: z
-        .object({
-          data: z.array(personSchema),
-        })
-        .transform(({ data }) => data),
       choreo: z
         .object({
           data: choreoSchema,

@@ -163,9 +163,6 @@ export async function getFormation(slug: string) {
           kapitaene: {
             populate: "*",
           },
-          mitglieder: {
-            populate: "*",
-          },
           choreo: true,
           liga: true,
         },
