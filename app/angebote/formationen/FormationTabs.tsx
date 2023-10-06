@@ -44,6 +44,7 @@ export const FormationTabs = ({ teams }: Props) => (
               className="mb-4 aspect-[3/2] w-full rounded-xl object-cover"
               width={800}
               height={600}
+              priority
             />
             <div className="text-extralarge flex justify-between gap-4 max-sm:flex-col">
               <div className="flex items-center gap-2">
