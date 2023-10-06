@@ -152,6 +152,7 @@ export async function getFormation(slug: string) {
     populate: {
       teams: {
         populate: {
+          bild: true,
           trainers: {
             populate: {
               lizenzen: true,

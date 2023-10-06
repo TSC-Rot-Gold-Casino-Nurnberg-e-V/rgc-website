@@ -8,6 +8,15 @@ export const teamSchema = z
     id: z.number(),
     attributes: z.object({
       titel: z.string(),
+      bild: z
+        .object({
+          data: z.object({
+            attributes: z.object({
+              url: z.string(),
+            }),
+          }),
+        })
+        .transform(({ data }) => ({ ...data.attributes })),
       trainers: z
         .object({
           data: z.array(trainerSchema),
