@@ -4,9 +4,9 @@ import { Main } from "../../components/Main";
 
 export default function KontaktPage() {
   return (
-    <Main className="flex flex-col content-center bg-base-900">
+    <Main>
       <PageHeading>Kontakt</PageHeading>
-      <div className="mx-auto">
+      <div>
         <ContactForm />
       </div>
     </Main>

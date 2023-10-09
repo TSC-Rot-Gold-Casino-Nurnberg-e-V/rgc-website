@@ -1,153 +1,22 @@
-"use client";
-
-import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import Link from "next/link";
-import { Button } from "../../components/Button";
-
-const forminputs = z.object({
-  name: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
-  mail: z
-    .string()
-    .min(1, "Bitte füllen Sie dieses Feld aus.")
-    .email("Dies ist keine valide Mailadresse."),
-  phone: z.coerce.number().min(1, "Bitte füllen Sie dieses Feld aus."),
-  message: z.string().min(1, "Bitte füllen Sie dieses Feld aus."),
-  datenschutzerklaerung: z.literal(true, {
-    errorMap: () => ({
-      message: "Bitte akzeptieren Sie die Datenschutzerklärung.",
-    }),
-  }),
-});
-
-type Forminputs = z.infer<typeof forminputs>;
-
-export const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<Forminputs>({
-    mode: "all",
-    resolver: zodResolver(forminputs),
-  });
-
-  const onSubmit: SubmitHandler<Forminputs> = (formInputs) => {
-    console.log("onSubmit");
-    console.log(formInputs);
-    reset();
-  };
-
+export function ContactForm() {
   return (
-    <div className="space-y-8 text-base-50">
-      <div className="text-xl">
-        <p>Rot-Gold-Casino e.V.</p>
-        <p>Venusweg 7</p>
-        <p>90763 Fürth</p>
-      </div>
-      <p className="text-xl">Eure Nachricht an uns.</p>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              {...register("name")}
-              className={`text-normal w-full max-w-md rounded-md p-2 ${
-                errors.name
-                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
-                  : ""
-              }`}
-            />
-            {errors.name && (
-              <p className="text-sm font-semibold text-secondary-400">
-                {errors.name.message}
-              </p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="mail">Email</label>
-            <input
-              id="mail"
-              {...register("mail")}
-              className={`text-normal w-full max-w-md rounded-md p-2 ${
-                errors.mail
-                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
-                  : ""
-              }`}
-            />
-            {errors.mail && (
-              <p className="text-sm font-semibold text-secondary-400">
-                {errors.mail.message}
-              </p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="phone">Telefon</label>
-            <input
-              type="number"
-              id="phone"
-              {...register("phone")}
-              className={`text-normal w-full max-w-md rounded-md p-2 ${
-                errors.phone
-                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
-                  : ""
-              }`}
-            />
-            {errors.phone && (
-              <p className="text-sm font-semibold text-secondary-400">
-                {errors.phone.message}
-              </p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="phone">Nachricht</label>
-            <textarea
-              id="message"
-              {...register("message")}
-              className={`text-normal w-full max-w-md rounded-md p-2 ${
-                errors.message
-                  ? "text-secondary-400 outline outline-2 outline-offset-4 outline-secondary-400"
-                  : ""
-              }`}
-            />
-            {errors.message && (
-              <p className="text-sm font-semibold text-secondary-400">
-                {errors.message.message}
-              </p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <label htmlFor="datenschutzerklaerung">Datenschutz</label>
-            <div className="flex gap-2">
-              <input
-                type="checkbox"
-                id="datenschutzerklaerung"
-                {...register("datenschutzerklaerung")}
-              />
-              <span>
-                Hiermit akzeptiere ich die
-                <Link
-                  href="/datenschutzerklaerung"
-                  className="text-primary-300"
-                >
-                  {" "}
-                  Datenschutzerklärung.
-                </Link>
-              </span>
-            </div>
-            {errors.datenschutzerklaerung && (
-              <p className="text-sm font-semibold text-secondary-400">
-                {errors.datenschutzerklaerung.message}
-              </p>
-            )}
-          </div>
+    <div>
+      <div>Platzhalter Text</div>
+      <div>
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">E-Mail</span>
+          </label>
+          <input
+            type="email"
+            className="input-bordered input w-full max-w-xs"
+          />
+          <label className="label">
+            <span className="label-text-alt">Bottom Left label</span>
+          </label>
         </div>
-        <Button type="submit">Senden</Button>
-      </form>
+        <textarea className="h-52 w-full" />
+      </div>
     </div>
   );
-};
+}
