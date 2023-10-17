@@ -4,6 +4,10 @@ import { Button } from "../../components/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { twJoin } from "tailwind-merge";
+import { useState } from "react";
+import { ContactInquiryConfirmationDialog } from "./ContactInquiryConfirmationDialog";
+import { SendIcon } from "../../components/icons/SendIcon";
 
 export interface Inputs {
   email: string;
@@ -22,21 +26,33 @@ export function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>({ resolver: zodResolver(inputSchema) });
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
 
-    const response = await fetch("/api", {
+  const onSubmit: SubmitHandler<Inputs> = async (input) => {
+    setIsLoading(true);
+    await fetch("/api/contact-inquiry", {
       method: "POST",
-      body: JSON.stringify({ email: data.email }),
+      body: JSON.stringify({
+        email: input.email,
+        message: input.message,
+      }),
     });
-    const result = await response.json();
-    console.log(result);
+    setIsLoading(false);
+    setShowConfirmationDialog(true);
+    reset();
+    // TODO: show success dialog
   };
 
   return (
     <div className="container-md flex items-center justify-between">
+      <ContactInquiryConfirmationDialog
+        isOpen={showConfirmationDialog}
+        onClose={() => setShowConfirmationDialog(false)}
+      />
       <div>Platzhalter Text</div>
       <form
         className="form-control w-full max-w-xs gap-4"
@@ -71,7 +87,17 @@ export function ContactForm() {
             {errors.message.message}
           </span>
         )}
-        <Button type="submit">Abschicken</Button>
+        <Button
+          disabled={isLoading}
+          type="submit"
+          className={twJoin(
+            isLoading && "loading",
+            "flex h-fit w-full items-center gap-2"
+          )}
+        >
+          {!isLoading && <SendIcon />}
+          <span>Abschicken</span>
+        </Button>
       </form>
     </div>
   );
