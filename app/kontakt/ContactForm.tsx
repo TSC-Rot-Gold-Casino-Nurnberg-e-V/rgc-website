@@ -7,7 +7,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { twJoin } from "tailwind-merge";
 import { useState } from "react";
 import { ContactInquiryConfirmationDialog } from "./ContactInquiryConfirmationDialog";
-import { SendIcon } from "../../components/icons/SendIcon";
 
 export interface Inputs {
   email: string;
@@ -95,8 +94,7 @@ export function ContactForm() {
             "flex h-fit w-full items-center gap-2"
           )}
         >
-          {!isLoading && <SendIcon />}
-          <span>Abschicken</span>
+          Abschicken
         </Button>
       </form>
     </div>
