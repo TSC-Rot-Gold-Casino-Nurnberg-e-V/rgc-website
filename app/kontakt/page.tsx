@@ -6,9 +6,7 @@ export default function KontaktPage() {
   return (
     <Main>
       <PageHeading>Kontakt</PageHeading>
-      <div>
-        <ContactForm />
-      </div>
+      <ContactForm />
     </Main>
   );
 }
