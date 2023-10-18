@@ -43,7 +43,6 @@ export function ContactForm() {
     setIsLoading(false);
     setShowConfirmationDialog(true);
     reset();
-    // TODO: show success dialog
   };
 
   return (
