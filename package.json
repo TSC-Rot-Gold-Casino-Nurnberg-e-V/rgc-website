@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:email": "email dev --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,6 +14,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.10",
     "@hookform/resolvers": "^3.3.2",
+    "@react-email/components": "^0.0.7",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
@@ -22,6 +24,7 @@
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-email": "^1.9.5",
     "react-hook-form": "^7.47.0",
     "resend": "^1.1.0",
     "sanitize-html": "^2.9.0",
