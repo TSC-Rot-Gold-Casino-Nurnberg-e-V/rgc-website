@@ -1,0 +1,169 @@
+import {
+  Body,
+  Container,
+  Head,
+  Heading,
+  Html,
+  Img,
+  Link,
+  Preview,
+  Text,
+  Tailwind,
+  Hr,
+  Font,
+  Section,
+  Row,
+  Column,
+} from "@react-email/components";
+import * as React from "react";
+import colors from "tailwindcss/colors";
+
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
+
+export const ContactInquiryConfirmationEmail = () => (
+  <Html lang="de">
+    <Head>
+      <Font
+        fontFamily="Manrope"
+        fallbackFontFamily="Helvetica"
+        webFont={{
+          url: "https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F87jxeN7B.ttf",
+          format: "truetype",
+        }}
+        fontWeight={400}
+        fontStyle="normal"
+      />
+    </Head>
+    <Preview>
+      Vielen Dank für deine Anfrage. Wir werden uns schnellstmöglich mit dir in
+      Verbindung setzten.
+    </Preview>
+    <Tailwind
+      config={{
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#fcf9f0",
+                100: "#f7f1dd",
+                200: "#eedfba",
+                300: "#e0c280",
+                400: "#d7ab60",
+                500: "#ce9441",
+                600: "#c07d36",
+                700: "#a0632e",
+                800: "#81502b",
+                900: "#684326",
+                950: "#382112",
+              },
+              secondary: {
+                50: "#fdf3f3",
+                100: "#fbe5e5",
+                200: "#f9cfcf",
+                300: "#f3aeae",
+                400: "#ea7f7f",
+                500: "#de5555",
+                600: "#ca3838",
+                700: "#aa2c2c",
+                800: "#8c2828",
+                900: "#752727",
+                950: "#3f1010",
+              },
+              base: colors.stone,
+            },
+          },
+        },
+      }}
+    >
+      <Body className="bg-base-100 p-8 font-sans text-base-700">
+        <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
+          <Img
+            src={`${baseUrl}/static/notion-logo.png`}
+            width="56"
+            height="56"
+            alt="Notion's Logo"
+            className="mb-4"
+          />
+          <Heading
+            as="h1"
+            className="text-[36px] font-bold leading-[40px] text-secondary-900"
+          >
+            Bestätigung der Anfrage
+          </Heading>
+          <Text className="break-words text-[16px] leading-[24px]">
+            Vielen Dank für deine Anfrage. Wir werden uns schnellstmöglich mit
+            dir in Verbindung setzten.
+          </Text>
+          <Text className="text-[16px] leading-[24px]">Dein RGC Team</Text>
+          <Hr className="mb-4" />
+
+          <Section className="mb-4">
+            <Row>
+              <Column>
+                <Link href="https://develop.rot-gold-casino.de">
+                  <Img
+                    src={`${baseUrl}/static/notion-logo.png`}
+                    width="32"
+                    height="32"
+                    alt="Notion's Logo"
+                  />
+                </Link>
+              </Column>
+              <Column className="w-20">
+                <Row>
+                  <Column>
+                    <Link href="https://www.instagram.com/rgc_nuernberg/">
+                      <Img
+                        src={`${baseUrl}/static/instagram.png`}
+                        width="32"
+                        height="32"
+                        alt="Instagram"
+                      />
+                    </Link>
+                  </Column>
+                  <Column>
+                    <Link href="https://de-de.facebook.com/rgc.nuernberg/">
+                      <Img
+                        src={`${baseUrl}/static/facebook.png`}
+                        width="32"
+                        height="32"
+                        alt="Facebook"
+                      />
+                    </Link>
+                  </Column>
+                </Row>
+              </Column>
+            </Row>
+          </Section>
+
+          <Text className="m-0">
+            <Link
+              href="https://develop.rot-gold-casino.de/neuigkeiten"
+              className="text-secondary-900"
+            >
+              Neuigkeiten
+            </Link>{" "}
+            ・{" "}
+            <Link
+              href="https://develop.rot-gold-casino.de/veranstaltungen"
+              className="text-secondary-900"
+            >
+              Veranstaltungen
+            </Link>{" "}
+            ・{" "}
+            <Link
+              href="https://develop.rot-gold-casino.de/angebote"
+              className="text-secondary-900"
+            >
+              Angebote
+            </Link>
+          </Text>
+        </Container>
+      </Body>
+    </Tailwind>
+  </Html>
+);
+
+export default ContactInquiryConfirmationEmail;
