@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import NotionMagicLinkEmail from "../../../emails/NotionMagicLinkEmail";
+import ContactInquiryConfirmationEmail from "../../../emails/ContactInquiryConfirmationEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       from: "RGC TEST <onboarding@resend.dev>",
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
-      react: NotionMagicLinkEmail({}),
+      react: ContactInquiryConfirmationEmail(),
     });
 
     // TODO: contact-inquiry content of contact inquiry to info@rot-gold-casino.de?
