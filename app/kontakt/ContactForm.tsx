@@ -7,6 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { twJoin } from "tailwind-merge";
 import { useState } from "react";
 import { ContactInquiryConfirmationDialog } from "./ContactInquiryConfirmationDialog";
+import { LocationIcon } from "../../components/icons/LocationIcon";
+import { MailIcon } from "../../components/icons/MailIcon";
+import { HouseIcon } from "../../components/icons/HouseIcon";
 
 export interface Inputs {
   email: string;
@@ -17,7 +20,7 @@ const inputSchema = z.object({
   email: z
     .string()
     .min(1, "Dieses Feld ist ein Pflichtfeld")
-    .email("Bitte geben Sie die korrekte E-Mail Adresse an."),
+    .email("Bitte gebe eine korrekte E-Mail Adresse an."),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
 });
 export function ContactForm() {
@@ -46,45 +49,72 @@ export function ContactForm() {
   };
 
   return (
-    <div className="container-md flex items-center justify-between">
+    <div className="container-md flex items-center justify-between gap-6 max-md:flex-col md:gap-14">
       <ContactInquiryConfirmationDialog
         isOpen={showConfirmationDialog}
         onClose={() => setShowConfirmationDialog(false)}
       />
-      <div>Platzhalter Text</div>
+      <div className="flex h-full flex-col gap-10">
+        <div className="heading-small text-accent">Kontaktiere uns</div>
+        <div className="paragraph max-w-sm">
+          Wir freuen uns über dein Interesse an unserem Verein. Hinterlasse
+          deine Nachricht an uns und wir melden uns so schnell wie möglich bei
+          dir zurück.
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="text-normal flex items-center gap-2">
+            <HouseIcon />
+            <div>TSC Rot-Gold-Casino Nürnberg e.V.</div>
+          </div>
+          <div className="text-normal flex items-center gap-2">
+            <LocationIcon />
+            <div>Venusweg 7, 90763 Fürth</div>
+          </div>
+          <div className="text-normal flex items-center gap-2">
+            <MailIcon />
+            <div>info@rot-gold-casino.de</div>
+          </div>
+        </div>
+      </div>
+
       <form
-        className="form-control w-full max-w-xs gap-4"
+        className="flex w-full flex-col gap-4 sm:w-96"
         onSubmit={handleSubmit(onSubmit)}
+        noValidate
       >
         <div>
           <label className="label">
             <span className="label-text">E-Mail</span>
           </label>
-          <input
-            type="email"
-            className="input-bordered input w-full max-w-xs"
-            {...register("email")}
-          />
-          {errors.email?.message && (
-            <span className="label-text-alt text-red-300">
-              {errors.email.message}
-            </span>
-          )}
+          <div className="flex flex-col gap-2">
+            <input
+              type="email"
+              className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
+              {...register("email")}
+            />
+            {errors.email?.message && (
+              <span className="label-text-alt text-secondary-800">
+                {errors.email.message}
+              </span>
+            )}
+          </div>
         </div>
         <div>
           <label className="label">
             <span className="label-text">Nachricht</span>
           </label>
-          <textarea
-            className="h-52 w-full"
-            {...register("message", { required: true })}
-          />
+          <div className="flex flex-col gap-2">
+            <textarea
+              className="h-52 w-full rounded-lg border border-base-400"
+              {...register("message", { required: true })}
+            />
+            {errors.message?.message && (
+              <span className="label-text-alt w-full text-secondary-800">
+                {errors.message.message}
+              </span>
+            )}
+          </div>
         </div>
-        {errors.message?.message && (
-          <span className="label-text-alt text-red-300">
-            {errors.message.message}
-          </span>
-        )}
         <Button
           disabled={isLoading}
           type="submit"
