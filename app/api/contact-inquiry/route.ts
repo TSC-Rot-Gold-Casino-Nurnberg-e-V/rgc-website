@@ -14,13 +14,17 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const contactInquiry = contactInquirySchema.parse(body);
 
+  console.log("contactInquiry: ", contactInquiry);
+
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       from: "RGC TEST <onboarding@resend.dev>",
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
       react: ContactInquiryConfirmationEmail(),
     });
+
+    console.log("response: ", response);
 
     // TODO: contact-inquiry content of contact inquiry to info@rot-gold-casino.de?
 
