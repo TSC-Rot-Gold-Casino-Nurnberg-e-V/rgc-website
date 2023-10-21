@@ -73,7 +73,7 @@ export const FormationTabs = ({ teams }: Props) => (
                 <h3 className="heading-small mb-4 mt-8 text-accent">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
-                <div className="flex flex-wrap justify-around gap-4 max-sm:mx-auto">
+                <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">
                   {team.kapitaene.map((kapitaen) => (
                     <div
                       key={kapitaen.id}
@@ -82,8 +82,8 @@ export const FormationTabs = ({ teams }: Props) => (
                       <Image
                         src={kapitaen.bild.url}
                         alt=""
-                        height={200}
-                        width={200}
+                        height={128}
+                        width={128}
                         className="rounded-full"
                       />
                       <p className="text-extralarge text-center font-bold">
