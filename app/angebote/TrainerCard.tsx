@@ -20,7 +20,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
     />
     <section className="space-y-4 sm:space-y-6">
       <div className="space-y-2">
-        <h3 className="heading-extrasmall pt-2 text-base-800">{name}</h3>
+        <h3 className="heading-extrasmall pt-2">{name}</h3>
         {lizenzen.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {lizenzen.map((lizenz) => (

@@ -32,6 +32,7 @@ import { Slug, slugsSchema } from "../model/Slug";
 import { Cheftrainer, cheftrainersSchema } from "../model/Cheftrainer";
 
 import { stringify } from "qs";
+import { formationSchema } from "../model/Formation";
 
 export async function getNeuigkeiten(
   pageSize: number,
@@ -120,13 +121,23 @@ export async function getAngebot(slug: string): Promise<Angebot> {
     populate: {
       faqs: true,
       trainers: {
-        populate: "*",
+        populate: {
+          lizenzen: true,
+          person: {
+            populate: "*",
+          },
+        },
       },
       trainings: {
         populate: {
           wochentag: true,
           trainers: {
-            populate: "*",
+            populate: {
+              lizenzen: true,
+              person: {
+                populate: "*",
+              },
+            },
           },
         },
       },
@@ -136,12 +147,43 @@ export async function getAngebot(slug: string): Promise<Angebot> {
   return angebotSchema.parse(data);
 }
 
+export async function getFormation(slug: string) {
+  const query = stringify({
+    populate: {
+      teams: {
+        populate: {
+          bild: true,
+          trainers: {
+            populate: {
+              lizenzen: true,
+              person: {
+                populate: "*",
+              },
+            },
+          },
+          kapitaene: {
+            populate: "*",
+          },
+          choreo: true,
+          liga: true,
+        },
+      },
+    },
+  });
+  const { data } = await fetchData(`/slugify/slugs/formation/${slug}?${query}`);
+  return formationSchema.parse(data);
+}
+
 export async function getVorstandsmitglieder(): Promise<
   Array<Vorstandsmitglied>
 > {
   const query = stringify({
     sort: `reihenfolge:asc`,
-    populate: "*",
+    populate: {
+      person: {
+        populate: "*",
+      },
+    },
   });
   const { data } = await fetchData(`/vorstandsmitglieder?${query}`);
   return vorstandsmitgliederSchema.parse(data);
@@ -151,7 +193,12 @@ export async function getCheftrainers(): Promise<Array<Cheftrainer>> {
   const query = stringify({
     populate: {
       trainer: {
-        populate: "*",
+        populate: {
+          lizenzen: true,
+          person: {
+            populate: "*",
+          },
+        },
       },
     },
   });

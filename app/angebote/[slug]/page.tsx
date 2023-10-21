@@ -94,18 +94,18 @@ export default async function AngebotPage({ params }: Props) {
                           <div className="flex grow justify-between pt-4">
                             <div className="flex gap-2 self-end">
                               {attributes.trainers.map((trainer) => (
-                                <Link
+                                <a
                                   key={trainer.id}
-                                  href={`#${trainer.name}`}
+                                  href={`#${trainer.person.vorname} ${trainer.person.nachname}`}
                                 >
                                   <Image
-                                    src={trainer.bild.url}
+                                    src={trainer.person.bild.url}
                                     width={56} // w-14
                                     height={56} // h-14
                                     alt=""
                                     className="h-14 w-14 cursor-pointer rounded-full transition-all hover:scale-105 hover:shadow-md"
                                   />
-                                </Link>
+                                </a>
                               ))}
                             </div>
                             <p className="text-normal self-end text-base-500">
@@ -147,12 +147,16 @@ export default async function AngebotPage({ params }: Props) {
         </h2>
         <div className="divide-y">
           {angebot.trainers.map((trainer) => (
-            <div key={trainer.id} id={trainer.name} className="py-12">
+            <div
+              key={trainer.id}
+              id={`${trainer.person.vorname} ${trainer.person.nachname}`}
+              className="py-12"
+            >
               <TrainerCard
                 beschreibung={trainer.beschreibung}
-                name={trainer.name}
+                name={`${trainer.person.vorname} ${trainer.person.nachname}`}
                 lizenzen={trainer.lizenzen}
-                bild={trainer.bild.url}
+                bild={trainer.person.bild.url}
               />
             </div>
           ))}
