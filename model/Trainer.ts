@@ -1,26 +1,22 @@
 import { z } from "zod";
 import { lizenzSchema } from "./Lizenz";
+import { personSchema } from "./Person";
 
 export const trainerSchema = z
   .object({
     id: z.number(),
     attributes: z.object({
-      name: z.string(),
       beschreibung: z.string(),
       lizenzen: z
         .object({
           data: z.array(lizenzSchema),
         })
         .transform(({ data }) => data),
-      bild: z
+      person: z
         .object({
-          data: z.object({
-            attributes: z.object({
-              url: z.string(),
-            }),
-          }),
+          data: personSchema,
         })
-        .transform(({ data }) => ({ ...data.attributes })),
+        .transform(({ data }) => data),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));
