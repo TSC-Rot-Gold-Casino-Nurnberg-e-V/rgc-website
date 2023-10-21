@@ -8,6 +8,7 @@ import { Fragment } from "react";
 import { twJoin } from "tailwind-merge";
 import { TrophyIcon } from "../../../components/icons/TrophyIcon";
 import { MusicIcon } from "../../../components/icons/MusicIcon";
+import { Prose } from "../../../components/Prose";
 
 interface Props {
   teams: Array<Team>;
@@ -48,12 +49,12 @@ export const FormationTabs = ({ teams }: Props) => (
             />
             <div className="text-extralarge flex justify-between gap-4 max-sm:flex-col">
               <div className="flex items-center gap-2">
-                <TrophyIcon />
-                <p className="text-extralarge">{team.liga.name}</p>
-              </div>
-              <div className="flex items-center gap-2">
                 <MusicIcon />
                 <p>{team.choreo.name}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <TrophyIcon />
+                <p>{team.liga.name}</p>
               </div>
             </div>
             <section>
