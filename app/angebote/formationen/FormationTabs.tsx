@@ -60,18 +60,22 @@ export const FormationTabs = ({ teams }: Props) => (
             {team.choreo.beschreibung && (
               <Prose className="mt-4" content={team.choreo.beschreibung} />
             )}
-            <section>
-              <h3 className="heading-small mb-4 mt-8 text-accent">Trainer</h3>
-              {team.trainers.map((trainer) => (
-                <TrainerCard
-                  key={trainer.id}
-                  name={trainer.person.vorname + " " + trainer.person.nachname}
-                  lizenzen={[]}
-                  beschreibung={trainer.beschreibung}
-                  bild={trainer.person.bild.url}
-                />
-              ))}
-            </section>
+            {team.trainers.length > 0 && (
+              <section>
+                <h3 className="heading-small mb-4 mt-8 text-accent">Trainer</h3>
+                {team.trainers.map((trainer) => (
+                  <TrainerCard
+                    key={trainer.id}
+                    name={
+                      trainer.person.vorname + " " + trainer.person.nachname
+                    }
+                    lizenzen={[]}
+                    beschreibung={trainer.beschreibung}
+                    bild={trainer.person.bild.url}
+                  />
+                ))}
+              </section>
+            )}
             {team.kapitaene.length > 0 && (
               <section>
                 <h3 className="heading-small mb-4 mt-8 text-accent">
