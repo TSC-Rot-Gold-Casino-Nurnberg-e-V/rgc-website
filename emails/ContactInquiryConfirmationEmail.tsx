@@ -88,7 +88,7 @@ export const ContactInquiryConfirmationEmail = () => (
           />
           <Heading
             as="h1"
-            className="text-[36px] font-bold leading-[40px] text-secondary-900"
+            className="text-[30px] font-bold leading-[36px] text-secondary-900"
           >
             Bestätigung der Anfrage
           </Heading>
