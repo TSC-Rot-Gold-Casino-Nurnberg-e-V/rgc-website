@@ -5,6 +5,7 @@ export const choreoSchema = z
     id: z.number(),
     attributes: z.object({
       name: z.string(),
+      beschreibung: z.string().nullish(),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));

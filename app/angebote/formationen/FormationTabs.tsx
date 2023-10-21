@@ -57,6 +57,9 @@ export const FormationTabs = ({ teams }: Props) => (
                 <p>{team.liga.name}</p>
               </div>
             </div>
+            {team.choreo.beschreibung && (
+              <Prose className="mt-4" content={team.choreo.beschreibung} />
+            )}
             <section>
               <h3 className="heading-small mb-4 mt-8 text-accent">Trainer</h3>
               {team.trainers.map((trainer) => (
