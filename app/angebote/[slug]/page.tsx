@@ -94,10 +94,7 @@ export default async function AngebotPage({ params }: Props) {
                           <div className="flex grow justify-between pt-4">
                             <div className="flex gap-2 self-end">
                               {attributes.trainers.map((trainer) => (
-                                <Link
-                                  key={trainer.id}
-                                  href={`#${trainer.person.vorname} ${trainer.person.nachname}`}
-                                >
+                                <a key={trainer.id} href={`#${trainer.person.vorname} ${trainer.person.nachname}`}>
                                   <Image
                                     src={trainer.person.bild.url}
                                     width={56} // w-14
@@ -105,7 +102,7 @@ export default async function AngebotPage({ params }: Props) {
                                     alt=""
                                     className="h-14 w-14 cursor-pointer rounded-full transition-all hover:scale-105 hover:shadow-md"
                                   />
-                                </Link>
+                                </a>
                               ))}
                             </div>
                             <p className="text-normal self-end text-base-500">
