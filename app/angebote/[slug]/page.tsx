@@ -94,7 +94,10 @@ export default async function AngebotPage({ params }: Props) {
                           <div className="flex grow justify-between pt-4">
                             <div className="flex gap-2 self-end">
                               {attributes.trainers.map((trainer) => (
-                                <a key={trainer.id} href={`#${trainer.person.vorname} ${trainer.person.nachname}`}>
+                                <a
+                                  key={trainer.id}
+                                  href={`#${trainer.person.vorname} ${trainer.person.nachname}`}
+                                >
                                   <Image
                                     src={trainer.person.bild.url}
                                     width={56} // w-14
@@ -144,7 +147,11 @@ export default async function AngebotPage({ params }: Props) {
         </h2>
         <div className="divide-y">
           {angebot.trainers.map((trainer) => (
-            <div key={trainer.id} id={`${trainer.person.vorname} ${trainer.person.nachname}`} className="py-12">
+            <div
+              key={trainer.id}
+              id={`${trainer.person.vorname} ${trainer.person.nachname}`}
+              className="py-12"
+            >
               <TrainerCard
                 beschreibung={trainer.beschreibung}
                 name={`${trainer.person.vorname} ${trainer.person.nachname}`}
