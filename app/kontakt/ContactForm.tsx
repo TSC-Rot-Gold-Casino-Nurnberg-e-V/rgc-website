@@ -69,28 +69,35 @@ export function ContactForm() {
         isOpen={showErrorDialog}
         onClose={() => setShowErrorDialog(false)}
       />
-      <div className="grow space-y-8">
+      <section className="grow space-y-8">
         <h2 className="heading-small text-accent">Kontaktiere uns</h2>
         <div className="paragraph max-w-sm">
           Wir freuen uns über dein Interesse an unserem Verein. Hinterlasse
           deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <div className="text-normal flex items-center gap-2">
             <HouseIcon />
-            <div>TSC Rot-Gold-Casino Nürnberg e.V.</div>
+            <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
-          <div className="text-normal flex items-center gap-2">
+          <a
+            className="text-normal flex items-center gap-2 rounded-md transition-colors hover:text-accent"
+            href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
+            target="_blank"
+          >
             <LocationIcon />
-            <div>Venusweg 7, 90763 Fürth</div>
-          </div>
-          <div className="text-normal flex items-center gap-2">
+            <span>Venusweg 7, 90763 Fürth</span>
+          </a>
+          <a
+            className="text-normal flex items-center gap-2 rounded-md transition-colors hover:text-accent"
+            href="mailto:info@rot-gold-casino.de"
+          >
             <MailIcon />
-            <div>info@rot-gold-casino.de</div>
-          </div>
+            <span>info@rot-gold-casino.de</span>
+          </a>
         </div>
-      </div>
+      </section>
 
       <form
         className="flex w-full flex-col gap-4 sm:w-96"
