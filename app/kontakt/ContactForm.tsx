@@ -12,11 +12,6 @@ import { HouseIcon } from "../../components/icons/HouseIcon";
 import { Dialog } from "../../components/Dialog";
 import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
 
-export interface Inputs {
-  email: string;
-  message: string;
-}
-
 const inputSchema = z.object({
   email: z
     .string()
@@ -24,6 +19,9 @@ const inputSchema = z.object({
     .email("Bitte gebe eine korrekte E-Mail Adresse an."),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
 });
+
+type Inputs = z.infer<typeof inputSchema>;
+
 export function ContactForm() {
   const {
     register,
