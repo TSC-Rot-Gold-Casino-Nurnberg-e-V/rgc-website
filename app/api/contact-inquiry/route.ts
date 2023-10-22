@@ -8,8 +8,8 @@ import sanitize from "sanitize-html";
 const RGC_EMAIL = process.env.RGC_EMAIL;
 
 const transporter = createTransport({
-  host: "smtp.strato.de", // TODO: use strato smtp server host
-  port: 465, // TODO: use strato smtp server port
+  host: "smtp.strato.de",
+  port: 465,
   secure: true,
   // TODO: configure auth (user & pass OR accessToken)
   auth: {
