@@ -41,7 +41,7 @@ export const AngebotCard = ({
       />
     </div>
     <div className="relative z-10 mx-auto flex h-full w-fit items-end pb-12">
-      <Button tabIndex={-1} className="w-40">
+      <Button tabIndex={-1} className="w-fit">
         {title}
       </Button>
     </div>
