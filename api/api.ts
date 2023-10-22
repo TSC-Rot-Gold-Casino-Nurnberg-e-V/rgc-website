@@ -256,9 +256,17 @@ async function fetchData(path: string): Promise<{
     },
     cache: "no-store",
   });
+  await handleError(res);
+  return await res.json();
+}
+
+async function handleError(res: Response) {
   if (!res.ok) {
+    console.error("An error occurred while fetching data from the CMS: ");
+    console.error("status: ", res.status);
+    console.error("statusText: ", res.statusText);
     const error = await res.json();
+    console.error("payload: ", error);
     throw new Error(JSON.stringify(error));
   }
-  return await res.json();
 }
