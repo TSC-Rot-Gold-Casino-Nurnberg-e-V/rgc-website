@@ -118,10 +118,7 @@ export function ContactForm() {
         <Button
           disabled={isLoading}
           type="submit"
-          className={twJoin(
-            isLoading && "loading",
-            "flex h-fit w-full items-center gap-2"
-          )}
+          className={twJoin(isLoading && "loading", "w-full")}
         >
           Abschicken
         </Button>
