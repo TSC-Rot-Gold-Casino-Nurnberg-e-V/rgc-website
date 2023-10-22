@@ -14,7 +14,7 @@ export const Button = ({
       "rounded-md",
       "border-none",
       "focus:outline-offset-4",
-      "focus:outline-secondary-900",
+      "focus:outline-secondary-800",
       "px-6",
       "py-4",
       "font-bold",
