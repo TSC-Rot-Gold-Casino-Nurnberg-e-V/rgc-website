@@ -43,5 +43,7 @@ module.exports = {
   daisyui: {
     logs: false,
     themes: false,
+    base: false,
+    utils: false,
   },
 };
