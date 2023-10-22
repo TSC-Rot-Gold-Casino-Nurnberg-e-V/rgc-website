@@ -151,7 +151,7 @@ export function ContactForm() {
           type="submit"
           className={twJoin(isLoading && "loading", "w-full")}
         >
-          Abschicken
+          Nachricht senden
         </Button>
       </form>
     </div>
