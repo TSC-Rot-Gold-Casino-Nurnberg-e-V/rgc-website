@@ -16,7 +16,7 @@ const inputSchema = z.object({
   email: z
     .string()
     .min(1, "Dieses Feld ist ein Pflichtfeld")
-    .email("Bitte gebe eine korrekte E-Mail Adresse an."),
+    .email("Ungültiges E-Mail-Format"),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
 });
 
