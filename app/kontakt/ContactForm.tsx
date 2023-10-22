@@ -6,10 +6,11 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { twJoin } from "tailwind-merge";
 import { useState } from "react";
-import { ContactInquiryConfirmationDialog } from "./ContactInquiryConfirmationDialog";
 import { LocationIcon } from "../../components/icons/LocationIcon";
 import { MailIcon } from "../../components/icons/MailIcon";
 import { HouseIcon } from "../../components/icons/HouseIcon";
+import { Dialog } from "../../components/Dialog";
+import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
 
 export interface Inputs {
   email: string;
@@ -33,26 +34,41 @@ export function ContactForm() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+  const [showErrorDialog, setShowErrorDialog] = useState(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (input) => {
     setIsLoading(true);
-    await fetch("/api/contact-inquiry", {
-      method: "POST",
-      body: JSON.stringify({
-        email: input.email,
-        message: input.message,
-      }),
-    });
+    try {
+      const response = await fetch("/api/contact-inquiry", {
+        method: "POST",
+        body: JSON.stringify({
+          email: input.email,
+          message: input.message,
+        }),
+      });
+      if (response.ok) {
+        setShowConfirmationDialog(true);
+        reset();
+      } else {
+        setShowErrorDialog(true);
+      }
+    } catch (error) {
+      setShowErrorDialog(true);
+    }
     setIsLoading(false);
-    setShowConfirmationDialog(true);
-    reset();
   };
 
   return (
     <div className="container-md flex items-center justify-between gap-6 max-md:flex-col md:gap-14">
-      <ContactInquiryConfirmationDialog
+      <Dialog
         isOpen={showConfirmationDialog}
         onClose={() => setShowConfirmationDialog(false)}
+        title="Anfrage erhalten"
+        content="Vielen Dank für deine Anfrage. Unser Team wird sich schnellstmöglich mit dir in Verbindung setzten."
+      />
+      <UnexpectedErrorDialog
+        isOpen={showErrorDialog}
+        onClose={() => setShowErrorDialog(false)}
       />
       <div className="flex h-full flex-col gap-10">
         <div className="heading-small text-accent">Kontaktiere uns</div>
