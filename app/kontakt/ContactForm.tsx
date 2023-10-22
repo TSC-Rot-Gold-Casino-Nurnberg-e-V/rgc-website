@@ -58,7 +58,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="container-md flex items-center justify-between gap-6 max-md:flex-col md:gap-14">
+    <div className="container-md flex gap-10 max-sm:max-w-md max-sm:flex-col">
       <Dialog
         isOpen={showConfirmationDialog}
         onClose={() => setShowConfirmationDialog(false)}
@@ -69,12 +69,12 @@ export function ContactForm() {
         isOpen={showErrorDialog}
         onClose={() => setShowErrorDialog(false)}
       />
-      <div className="flex h-full flex-col gap-10">
-        <div className="heading-small text-accent">Kontaktiere uns</div>
+      <div className="grow space-y-8">
+        <h2 className="heading-small text-accent">Kontaktiere uns</h2>
         <div className="paragraph max-w-sm">
           Wir freuen uns über dein Interesse an unserem Verein. Hinterlasse
           deine Nachricht an uns und wir melden uns so schnell wie möglich bei
-          dir zurück.
+          dir.
         </div>
         <div className="flex flex-col gap-2">
           <div className="text-normal flex items-center gap-2">
@@ -149,7 +149,7 @@ export function ContactForm() {
         <Button
           disabled={isLoading}
           type="submit"
-          className={twJoin(isLoading && "loading", "w-full")}
+          className={twJoin(isLoading && "loading", "self-end")}
         >
           Nachricht senden
         </Button>
