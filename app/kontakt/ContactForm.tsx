@@ -132,7 +132,7 @@ export function ContactForm() {
           </label>
           <div className="flex flex-col gap-2">
             <textarea
-              className="h-52 w-full rounded-lg border border-base-400"
+              className="textarea rounded-lg border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
               {...register("message", { required: true })}
             />
             {errors.message?.message && (
