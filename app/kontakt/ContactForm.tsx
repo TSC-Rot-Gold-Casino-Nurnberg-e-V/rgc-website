@@ -17,6 +17,7 @@ const inputSchema = z.object({
     .string()
     .min(1, "Dieses Feld ist ein Pflichtfeld")
     .email("Ungültiges E-Mail-Format"),
+  subject: z.string().optional(),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
 });
 
@@ -111,6 +112,18 @@ export function ContactForm() {
                 {errors.email.message}
               </span>
             )}
+          </div>
+        </div>
+        <div>
+          <label className="label">
+            <span className="label-text">Betreff</span>
+          </label>
+          <div className="flex flex-col gap-2">
+            <input
+              type="text"
+              className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
+              {...register("subject")}
+            />
           </div>
         </div>
         <div>
