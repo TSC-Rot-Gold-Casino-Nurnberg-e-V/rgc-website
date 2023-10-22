@@ -3,6 +3,7 @@ import { z } from "zod";
 import ContactInquiryConfirmationEmail from "../../../emails/ContactInquiryConfirmationEmail";
 import { createTransport } from "nodemailer";
 import { render } from "@react-email/render";
+import sanitize from "sanitize-html";
 
 // TODO: replace with test email address (env variable?)
 const RGC_MAIL_ADDRESS = '"RGC TEST 👻" <foo@example.com>';
@@ -23,11 +24,17 @@ const contactInquiryConfirmationEmailHTML = render(
   ContactInquiryConfirmationEmail()
 );
 
-const contactInquirySchema = z.object({
-  email: z.string().email(),
-  subject: z.string().optional(),
-  message: z.string(),
-});
+const contactInquirySchema = z
+  .object({
+    email: z.string().email(),
+    subject: z.string().optional(),
+    message: z.string(),
+  })
+  .transform((data) => ({
+    ...data,
+    subject: data.subject ? sanitize(data.subject) : undefined,
+    message: sanitize(data.message),
+  }));
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
