@@ -5,8 +5,7 @@ import { createTransport } from "nodemailer";
 import { render } from "@react-email/render";
 import sanitize from "sanitize-html";
 
-// TODO: replace with test email address (env variable?)
-const RGC_MAIL_ADDRESS = '"RGC TEST 👻" <foo@example.com>';
+const RGC_EMAIL = process.env.RGC_EMAIL;
 
 const transporter = createTransport({
   host: "smtp.strato.de", // TODO: use strato smtp server host
@@ -46,15 +45,15 @@ export async function POST(request: NextRequest) {
     // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
     //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
     await transporter.sendMail({
-      from: RGC_MAIL_ADDRESS,
+      from: RGC_EMAIL,
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
       html: contactInquiryConfirmationEmailHTML,
     });
 
     await transporter.sendMail({
-      from: RGC_MAIL_ADDRESS,
-      to: RGC_MAIL_ADDRESS,
+      from: RGC_EMAIL,
+      to: RGC_EMAIL,
       subject: contactInquiry.subject ?? "Kontaktanfrage",
       text: contactInquiry.message,
     });
