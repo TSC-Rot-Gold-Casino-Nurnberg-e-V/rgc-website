@@ -1,14 +1,10 @@
-import { AnchorHTMLAttributes } from "react";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import { Button } from "../../components/Button";
 import standard from "../../public/eventImage.png";
 import latein from "../../public/einzeltanz.png";
 import formation from "../../public/formation.png";
 import kinder from "../../public/kindertanzen.png";
 import { PageHeading } from "../../components/PageHeading";
 import { Main } from "../../components/Main";
-import { twMerge } from "tailwind-merge";
+import { AngebotCard } from "./AngebotCard";
 
 export default function AngebotePage() {
   return (
@@ -156,48 +152,4 @@ const Hobby = () => (
       />
     </div>
   </section>
-);
-
-interface AngebotCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  title: string;
-  image: StaticImageData;
-  href: string;
-  priority?: boolean;
-  imageSizes?: string;
-}
-
-const AngebotCard = ({
-  title,
-  image,
-  href,
-  priority = false,
-  imageSizes,
-  className,
-  ...rest
-}: AngebotCardProps) => (
-  <Link
-    className={twMerge(
-      "group relative w-full rounded-md hover:cursor-pointer ",
-      className
-    )}
-    {...rest}
-    href={href}
-  >
-    <div className="absolute inset-0">
-      <Image
-        src={image}
-        alt=""
-        className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
-        fill
-        placeholder="blur"
-        priority={priority}
-        sizes={imageSizes}
-      />
-    </div>
-    <div className="relative z-10 mx-auto flex h-full w-fit items-end pb-12">
-      <Button tabIndex={-1} className="w-40">
-        {title}
-      </Button>
-    </div>
-  </Link>
 );
