@@ -98,11 +98,12 @@ export function ContactForm() {
         noValidate
       >
         <div>
-          <label className="label">
+          <label className="label" htmlFor="email">
             <span className="label-text">E-Mail</span>
           </label>
           <div className="flex flex-col gap-2">
             <input
+              id="email"
               type="email"
               className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
               {...register("email")}
@@ -115,11 +116,12 @@ export function ContactForm() {
           </div>
         </div>
         <div>
-          <label className="label">
+          <label className="label" htmlFor="subject">
             <span className="label-text">Betreff</span>
           </label>
           <div className="flex flex-col gap-2">
             <input
+              id="subject"
               type="text"
               className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
               {...register("subject")}
@@ -127,11 +129,12 @@ export function ContactForm() {
           </div>
         </div>
         <div>
-          <label className="label">
+          <label className="label" htmlFor="message">
             <span className="label-text">Nachricht</span>
           </label>
           <div className="flex flex-col gap-2">
             <textarea
+              id="message"
               className="textarea rounded-lg border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
               {...register("message", { required: true })}
             />
