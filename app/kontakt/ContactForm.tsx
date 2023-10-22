@@ -105,7 +105,7 @@ export function ContactForm() {
             <input
               id="email"
               type="email"
-              className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
+              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("email")}
             />
             {errors.email?.message && (
@@ -123,7 +123,7 @@ export function ContactForm() {
             <input
               id="subject"
               type="text"
-              className="input w-full border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
+              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("subject")}
             />
           </div>
@@ -135,8 +135,7 @@ export function ContactForm() {
           <div className="flex flex-col gap-2">
             <textarea
               id="message"
-              rows={5}
-              className="textarea rounded-lg border border-base-400 focus:outline focus:outline-2 focus:outline-offset-4 focus:outline-secondary-800"
+              className="h-40 w-full rounded-lg border border-base-400 px-4 pt-3 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("message", { required: true })}
             />
             {errors.message?.message && (
