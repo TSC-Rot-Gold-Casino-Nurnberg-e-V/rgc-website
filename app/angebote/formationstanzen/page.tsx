@@ -38,7 +38,7 @@ export default function FormationstanzenPage() {
             title="Mehr erfahren"
             href="/angebote/formationen/standard"
             image={formation}
-            priority={true}
+            loadImageWithPriority={true}
             className="order-2 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

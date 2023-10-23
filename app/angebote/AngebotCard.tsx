@@ -8,7 +8,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
   image: StaticImageData;
   href: string;
-  priority?: boolean;
+  loadImageWithPriority?: boolean;
   imageSizes?: string;
 }
 
@@ -16,7 +16,7 @@ export const AngebotCard = ({
   title,
   image,
   href,
-  priority = false,
+  loadImageWithPriority = false,
   imageSizes = "100vw",
   className,
   ...rest
@@ -32,7 +32,7 @@ export const AngebotCard = ({
         alt=""
         className="h-full w-full rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         placeholder="blur"
-        priority={priority}
+        priority={loadImageWithPriority}
         sizes={imageSizes}
       />
       <div className="absolute inset-0 top-auto flex h-40 items-end justify-center rounded-lg bg-gradient-to-b from-transparent to-base-900 pb-6">

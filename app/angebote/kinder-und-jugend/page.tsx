@@ -37,7 +37,7 @@ export default function KindertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/kindertanzen"
             image={kinder}
-            priority={true}
+            loadImageWithPriority={true}
             className="order-2 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
