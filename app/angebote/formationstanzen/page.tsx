@@ -1,8 +1,9 @@
 import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
-import { AngebotCard } from "../AngebotCard";
 import formation from "../../../public/formation.png";
 import { AdditionalAngebote } from "../AdditionalAngebote";
+import { LearnMore } from "../LearnMore";
+import Image from "next/image";
 
 export default function FormationstanzenPage() {
   return (
@@ -18,8 +19,8 @@ export default function FormationstanzenPage() {
       </div>
       <section className="container-lg space-y-8">
         <h2 className="heading-normal text-center text-accent">Tanzarten</h2>
-        <div className="grid gap-8 sm:grid-cols-2">
-          <section className="space-y-4 self-center sm:order-3 sm:-translate-y-4">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-y-12">
+          <section className="space-y-4 self-center sm:order-3">
             <h2 className="heading-small text-accent sm:text-center">
               Standard
             </h2>
@@ -33,16 +34,19 @@ export default function FormationstanzenPage() {
               magnam minima neque quae quaerat repudiandae similique veritatis
               vero voluptates voluptatibus.
             </p>
+            <LearnMore href="/angebote/formationen/standard" />
           </section>
-          <AngebotCard
-            title="Mehr erfahren"
-            href="/angebote/formationen/standard"
-            image={formation}
-            loadImageWithPriority
-            className="order-2 h-96"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
-          />
-          <section className="order-4 space-y-4 self-center sm:-translate-y-4">
+          <div className="relative order-2 h-96">
+            <Image
+              src={formation}
+              alt=""
+              fill
+              priority
+              className="rounded-lg object-cover object-top"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
+          <section className="order-4 space-y-4 self-center">
             <h2 className="heading-small text-accent sm:text-center">Latein</h2>
             <p className="paragraph">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
@@ -54,15 +58,18 @@ export default function FormationstanzenPage() {
               magnam minima neque quae quaerat repudiandae similique veritatis
               vero voluptates voluptatibus.
             </p>
+            <LearnMore href="/angebote/formationen/latein" />
           </section>
-          <AngebotCard
-            title="Mehr erfahren"
-            href="/angebote/formationen/latein"
-            image={formation}
-            loadImageWithPriority
-            className="order-5 h-96"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
-          />
+          <div className="relative order-5 h-96">
+            <Image
+              src={formation}
+              alt=""
+              fill
+              priority
+              className="rounded-lg object-cover object-top"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
       <AdditionalAngebote currentPage="formationstanzen" />

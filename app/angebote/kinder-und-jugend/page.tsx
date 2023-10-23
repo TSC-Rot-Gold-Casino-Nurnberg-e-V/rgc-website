@@ -1,8 +1,9 @@
 import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
-import { AngebotCard } from "../AngebotCard";
 import kinder from "../../../public/kindertanzen.png";
+import { LearnMore } from "../LearnMore";
+import Image from "next/image";
 
 export default function KindertanzenPage() {
   return (
@@ -18,9 +19,9 @@ export default function KindertanzenPage() {
       <section className="container-lg space-y-8">
         <h2 className="heading-normal text-center text-accent">Gruppen</h2>
         <div className="grid gap-8 sm:grid-cols-2">
-          <section className="space-y-4 self-center sm:order-3 sm:-translate-y-4">
+          <section className="space-y-4 self-center sm:order-3">
             <h2 className="heading-small text-accent sm:text-center">
-              Allgemein
+              Kindertanzen
             </h2>
             <p className="paragraph">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
@@ -32,16 +33,19 @@ export default function KindertanzenPage() {
               magnam minima neque quae quaerat repudiandae similique veritatis
               vero voluptates voluptatibus.
             </p>
+            <LearnMore href="/angebote/kindertanzen" />
           </section>
-          <AngebotCard
-            title="Mehr erfahren"
-            href="/angebote/kindertanzen"
-            image={kinder}
-            loadImageWithPriority
-            className="order-2 h-96"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
-          />
-          <section className="order-4 space-y-4 self-center sm:-translate-y-4">
+          <div className="relative order-2 h-96">
+            <Image
+              src={kinder}
+              alt=""
+              fill
+              priority
+              className="rounded-lg object-cover object-top"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
+          <section className="order-4 space-y-4 self-center">
             <h2 className="heading-small text-accent sm:text-center">Latein</h2>
             <p className="paragraph">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
@@ -53,16 +57,19 @@ export default function KindertanzenPage() {
               magnam minima neque quae quaerat repudiandae similique veritatis
               vero voluptates voluptatibus.
             </p>
+            <LearnMore href="/angebote/kinder-junioren-jugend-latein" />
           </section>
-          <AngebotCard
-            title="Mehr erfahren"
-            href="/angebote/kinder-junioren-jugend-latein"
-            image={kinder}
-            loadImageWithPriority
-            className="order-5 h-96"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
-          />
-          <section className="order-6 space-y-4 self-center sm:order-8 sm:-translate-y-4">
+          <div className="relative order-5 h-96">
+            <Image
+              src={kinder}
+              alt=""
+              fill
+              priority
+              className="rounded-lg object-cover object-top"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
+          <section className="order-6 space-y-4 self-center sm:order-8">
             <h2 className="heading-small text-accent sm:text-center">
               Standard
             </h2>
@@ -76,14 +83,17 @@ export default function KindertanzenPage() {
               magnam minima neque quae quaerat repudiandae similique veritatis
               vero voluptates voluptatibus.
             </p>
+            <LearnMore href="/angebote/kinder-junioren-jugend-standard" />
           </section>
-          <AngebotCard
-            title="Mehr erfahren"
-            href="/angebote/kinder-junioren-jugend-standard"
-            image={kinder}
-            className="order-7 h-96"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
-          />
+          <div className="relative order-7 h-96">
+            <Image
+              src={kinder}
+              alt=""
+              fill
+              className="rounded-lg object-cover object-top"
+              sizes="(max-width: 640px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
       <AdditionalAngebote currentPage="kindertanzen" />
