@@ -15,24 +15,28 @@ export default function AngebotePage() {
           title="Turniertanzen"
           image={standard}
           href="/angebote/turniertanzen"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
           priority={true}
           title="Formationstanzen"
           image={formation}
           href="/angebote/formationstanzen"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
           priority={true}
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
           priority={true}
           title="Freizeittanzen"
           image={formation}
           href="/angebote/freizeittanz"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
       </div>
     </Main>
