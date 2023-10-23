@@ -10,7 +10,7 @@ export default function TurniertanzenPage() {
   return (
     <Main>
       <PageHeading>Turniertanzen</PageHeading>
-      <div className="container-lg space-y-8">
+      <div className="container-lg space-y-8 sm:pb-0">
         <p className="paragraph">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes

@@ -9,7 +9,7 @@ export default function KindertanzenPage() {
   return (
     <Main>
       <PageHeading>Kinder & Jugend</PageHeading>
-      <div className="container-lg space-y-8">
+      <div className="container-lg space-y-8 sm:pb-0">
         <p className="paragraph">
           Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten
           Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen

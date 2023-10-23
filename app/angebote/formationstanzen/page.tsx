@@ -9,7 +9,7 @@ export default function FormationstanzenPage() {
   return (
     <Main>
       <PageHeading>Formationstanzen</PageHeading>
-      <div className="container-lg space-y-8">
+      <div className="container-lg space-y-8 sm:pb-0">
         <p className="paragraph">
           Formationstanzen ist nicht nur eine besondere Form des Tanzens,
           sondern auch eine tolle Möglichkeit, neue Leute kennenzulernen und
