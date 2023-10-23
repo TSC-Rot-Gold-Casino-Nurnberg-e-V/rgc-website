@@ -17,33 +17,29 @@ export const AngebotCard = ({
   image,
   href,
   priority = false,
-  imageSizes,
+  imageSizes = "100vw",
   className,
   ...rest
 }: Props) => (
   <Link
-    className={twMerge(
-      "group relative w-full cursor-pointer rounded-md",
-      className
-    )}
+    className={twMerge("group rounded-md", className)}
     {...rest}
     href={href}
   >
-    <div className="absolute inset-0">
+    <div className="relative h-full w-full">
       <Image
         src={image}
         alt=""
-        className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
-        fill
+        className="h-full w-full rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
         placeholder="blur"
         priority={priority}
         sizes={imageSizes}
       />
-    </div>
-    <div className="relative z-10 mx-auto flex h-full w-fit items-end pb-12">
-      <Button tabIndex={-1} className="w-fit">
-        {title}
-      </Button>
+      <div className="absolute inset-0 top-auto flex h-40 items-end justify-center rounded-lg bg-gradient-to-b from-transparent to-base-900 pb-6">
+        <h2 className="heading-small group-hover:text-gold group-focus:text-gold p-1 text-center text-base-200">
+          {title}
+        </h2>
+      </div>
     </div>
   </Link>
 );
