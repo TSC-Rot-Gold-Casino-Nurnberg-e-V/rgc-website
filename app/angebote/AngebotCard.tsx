@@ -2,7 +2,6 @@ import { AnchorHTMLAttributes } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
-import { Button } from "../../components/Button";
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   title: string;
