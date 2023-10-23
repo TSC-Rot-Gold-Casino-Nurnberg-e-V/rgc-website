@@ -58,6 +58,7 @@ export default function KindertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/kinder-junioren-jugend-latein"
             image={kinder}
+            loadImageWithPriority={true}
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

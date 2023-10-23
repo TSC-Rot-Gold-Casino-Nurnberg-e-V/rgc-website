@@ -59,6 +59,7 @@ export default function FormationstanzenPage() {
             title="Mehr erfahren"
             href="/angebote/formationen/latein"
             image={formation}
+            loadImageWithPriority={true}
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

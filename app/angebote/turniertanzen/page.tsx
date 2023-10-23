@@ -60,6 +60,7 @@ export default function TurniertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/turniertanz-latein"
             image={latein}
+            loadImageWithPriority={true}
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
