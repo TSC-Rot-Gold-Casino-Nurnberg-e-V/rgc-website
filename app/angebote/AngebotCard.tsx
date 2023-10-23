@@ -30,6 +30,7 @@ export const AngebotCard = ({
         src={image}
         alt=""
         className="h-full w-full rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
+        fill
         placeholder="blur"
         priority={loadImageWithPriority}
         sizes={imageSizes}
