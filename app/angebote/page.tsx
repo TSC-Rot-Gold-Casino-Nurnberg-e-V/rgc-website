@@ -9,7 +9,7 @@ export default function AngebotePage() {
   return (
     <Main>
       <PageHeading>Angebot</PageHeading>
-      <div className="container-lg grid auto-rows-[20rem] gap-4 sm:grid-cols-2">
+      <div className="container-lg grid auto-rows-[24rem] gap-4 sm:grid-cols-2">
         <AngebotCard
           priority={true}
           title="Turniertanzen"
