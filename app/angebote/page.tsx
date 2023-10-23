@@ -11,28 +11,28 @@ export default function AngebotePage() {
       <PageHeading>Angebot</PageHeading>
       <div className="container-lg grid auto-rows-[24rem] gap-4 sm:grid-cols-2">
         <AngebotCard
-          loadImageWithPriority={true}
+          loadImageWithPriority
           title="Turniertanzen"
           image={standard}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
-          loadImageWithPriority={true}
+          loadImageWithPriority
           title="Formationstanzen"
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
-          loadImageWithPriority={true}
+          loadImageWithPriority
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
           imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
-          loadImageWithPriority={true}
+          loadImageWithPriority
           title="Freizeittanzen"
           image={formation}
           href="/angebote/freizeittanz"

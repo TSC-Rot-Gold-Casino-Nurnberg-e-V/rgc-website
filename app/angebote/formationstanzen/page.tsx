@@ -38,7 +38,7 @@ export default function FormationstanzenPage() {
             title="Mehr erfahren"
             href="/angebote/formationen/standard"
             image={formation}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-2 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
@@ -59,7 +59,7 @@ export default function FormationstanzenPage() {
             title="Mehr erfahren"
             href="/angebote/formationen/latein"
             image={formation}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

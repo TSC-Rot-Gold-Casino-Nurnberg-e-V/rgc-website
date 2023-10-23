@@ -39,7 +39,7 @@ export default function TurniertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/turniertanz-standard"
             image={standard}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-2 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
@@ -60,7 +60,7 @@ export default function TurniertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/turniertanz-latein"
             image={latein}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

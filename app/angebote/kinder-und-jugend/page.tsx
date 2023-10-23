@@ -37,7 +37,7 @@ export default function KindertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/kindertanzen"
             image={kinder}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-2 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
@@ -58,7 +58,7 @@ export default function KindertanzenPage() {
             title="Mehr erfahren"
             href="/angebote/kinder-junioren-jugend-latein"
             image={kinder}
-            loadImageWithPriority={true}
+            loadImageWithPriority
             className="order-5 h-96"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

@@ -57,7 +57,7 @@ const HeroSection = () => (
         alt=""
         className="object-cover object-top"
         fill
-        priority={true}
+        priority
       />
     </div>
   </section>
