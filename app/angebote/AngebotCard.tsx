@@ -21,7 +21,10 @@ export const AngebotCard = ({
   ...rest
 }: Props) => (
   <Link
-    className={twMerge("group rounded-md", className)}
+    className={twMerge(
+      "group rounded-md transition-all hover:scale-105 hover:shadow-lg",
+      className
+    )}
     {...rest}
     href={href}
   >
