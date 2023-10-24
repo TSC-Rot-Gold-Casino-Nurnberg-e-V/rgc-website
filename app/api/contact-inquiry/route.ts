@@ -39,6 +39,11 @@ export async function POST(request: NextRequest) {
 
   console.info("Received contact inquiry: ", contactInquiry);
 
+  console.info(
+    "contactInquiryConfirmationEmailHTML: ",
+    contactInquiryConfirmationEmailHTML
+  );
+
   try {
     // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
     //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
