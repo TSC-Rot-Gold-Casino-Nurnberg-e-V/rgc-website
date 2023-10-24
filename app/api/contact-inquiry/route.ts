@@ -11,11 +11,9 @@ const transporter = createTransport({
   host: "smtp.strato.de",
   port: 465,
   secure: true,
-  // TODO: configure auth (user & pass OR accessToken)
   auth: {
-    user: "REPLACE",
-    pass: "REPLACE",
-    accessToken: "REPLACE",
+    user: process.env.SMTP_USERNAME,
+    pass: process.env.SMTP_PASSWORD,
   },
 });
 
