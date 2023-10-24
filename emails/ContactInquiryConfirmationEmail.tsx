@@ -80,7 +80,8 @@ export const ContactInquiryConfirmationEmail = () => (
       <Body className="bg-base-100 p-8 font-sans text-base-700">
         <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
           <Img
-            src={`${baseUrl}/static/notion-logo.png`}
+            // src={`${baseUrl}/static/notion-logo.png`}
+            src={`http://saalbuchung.rot-gold-casino.de/imgs-client/layout/logo.png`}
             width="56"
             height="56"
             alt="Notion's Logo"
@@ -103,34 +104,34 @@ export const ContactInquiryConfirmationEmail = () => (
             <Row>
               <Column>
                 <Link href="https://develop.rot-gold-casino.de">
-                  <Img
-                    src={`${baseUrl}/static/notion-logo.png`}
-                    width="32"
-                    height="32"
-                    alt="Notion's Logo"
-                  />
+                  {/*<Img*/}
+                  {/*  src={`${baseUrl}/static/notion-logo.png`}*/}
+                  {/*  width="32"*/}
+                  {/*  height="32"*/}
+                  {/*  alt="Notion's Logo"*/}
+                  {/*/>*/}
                 </Link>
               </Column>
               <Column className="w-20">
                 <Row>
                   <Column>
                     <Link href="https://www.instagram.com/rgc_nuernberg/">
-                      <Img
-                        src={`${baseUrl}/static/instagram.png`}
-                        width="32"
-                        height="32"
-                        alt="Instagram"
-                      />
+                      {/*<Img*/}
+                      {/*  src={`${baseUrl}/static/instagram.png`}*/}
+                      {/*  width="32"*/}
+                      {/*  height="32"*/}
+                      {/*  alt="Instagram"*/}
+                      {/*/>*/}
                     </Link>
                   </Column>
                   <Column>
                     <Link href="https://de-de.facebook.com/rgc.nuernberg/">
-                      <Img
-                        src={`${baseUrl}/static/facebook.png`}
-                        width="32"
-                        height="32"
-                        alt="Facebook"
-                      />
+                      {/*<Img*/}
+                      {/*  src={`${baseUrl}/static/facebook.png`}*/}
+                      {/*  width="32"*/}
+                      {/*  height="32"*/}
+                      {/*  alt="Facebook"*/}
+                      {/*/>*/}
                     </Link>
                   </Column>
                 </Row>
