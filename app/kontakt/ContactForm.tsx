@@ -42,6 +42,7 @@ export function ContactForm() {
         method: "POST",
         body: JSON.stringify({
           email: input.email,
+          subject: input.subject,
           message: input.message,
         }),
       });
