@@ -11,6 +11,7 @@ export const Sponsors = () => (
       <Link
         href="https://www.pictrs.com/hd-kroft-photography?l=de"
         target="_blank"
+        className="rounded-md"
       >
         <Image
           src={hdKroftLogo}
@@ -19,7 +20,11 @@ export const Sponsors = () => (
           className="h-auto rounded-md"
         />
       </Link>
-      <Link href="https://www.arag-partner.de/gunnar-zidella/" target="_blank">
+      <Link
+        href="https://www.arag-partner.de/gunnar-zidella/"
+        target="_blank"
+        className="rounded-md"
+      >
         <Image
           src={aragLogo}
           alt=""
@@ -27,12 +32,17 @@ export const Sponsors = () => (
           className="h-auto rounded-md"
         />
       </Link>
-      <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
+      <Link
+        href="https://www.sportbuendnis-bundesliga.de/"
+        target="_blank"
+        className="rounded-full"
+      >
         <Image src={sbbLogo} alt="" width={250} className="h-auto rounded-md" />
       </Link>
       <Link
         href="https://www.nuernberg.de/internet/team_nuernberg/"
         target="_blank"
+        className="rounded-md"
       >
         <Image
           src={teamNbgLogo}
