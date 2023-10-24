@@ -116,12 +116,13 @@ export const ContactInquiryConfirmationEmail = () => (
                 <Row>
                   <Column>
                     <Link href="https://www.instagram.com/rgc_nuernberg/">
-                      {/*<Img*/}
-                      {/*  src={`${baseUrl}/static/instagram.png`}*/}
-                      {/*  width="32"*/}
-                      {/*  height="32"*/}
-                      {/*  alt="Instagram"*/}
-                      {/*/>*/}
+                      <Img
+                        // src={`${baseUrl}/static/instagram.png`}
+                        src={`http://saalbuchung.rot-gold-casino.de/imgs/icons/locale/de-DE.png`}
+                        width="32"
+                        height="32"
+                        alt="Instagram"
+                      />
                     </Link>
                   </Column>
                   <Column>
