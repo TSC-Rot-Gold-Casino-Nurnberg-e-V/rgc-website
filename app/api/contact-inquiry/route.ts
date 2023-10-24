@@ -5,14 +5,14 @@ import { createTransport } from "nodemailer";
 import { render } from "@react-email/render";
 import sanitize from "sanitize-html";
 
-const RGC_EMAIL = process.env.RGC_EMAIL;
+const RGC_EMAIL = process.env.RGC_EMAIL ?? "";
 
 const transporter = createTransport({
   host: "smtp.strato.de",
   port: 465,
   secure: true,
   auth: {
-    user: process.env.SMTP_USERNAME,
+    user: process.env.RGC_EMAIL,
     pass: process.env.SMTP_PASSWORD,
   },
 });
@@ -50,7 +50,10 @@ export async function POST(request: NextRequest) {
     console.info("from RGC_EMAIL: ", RGC_EMAIL);
 
     await transporter.sendMail({
-      from: RGC_EMAIL,
+      from: {
+        name: "TSC Rot-Gold-Casino Nürnberg e.V.",
+        address: RGC_EMAIL,
+      },
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
       html: contactInquiryConfirmationEmailHTML,
@@ -64,7 +67,10 @@ export async function POST(request: NextRequest) {
     console.info("Sending contact inquiry email to: ", RGC_EMAIL);
 
     await transporter.sendMail({
-      from: RGC_EMAIL,
+      from: {
+        name: "TSC Rot-Gold-Casino Nürnberg e.V.",
+        address: RGC_EMAIL,
+      },
       to: RGC_EMAIL,
       subject: contactInquiry.subject ?? "Kontaktanfrage",
       text: contactInquiry.message,
