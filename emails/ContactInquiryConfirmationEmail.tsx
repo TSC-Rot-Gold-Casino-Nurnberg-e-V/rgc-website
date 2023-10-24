@@ -81,7 +81,7 @@ export const ContactInquiryConfirmationEmail = () => (
         <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
           <Img
             // src={`${baseUrl}/static/notion-logo.png`}
-            // src={`http://saalbuchung.rot-gold-casino.de/imgs-client/layout/logo.png`}
+            src={`http://saalbuchung.rot-gold-casino.de/imgs-client/layout/logo.png`}
             width="56"
             height="56"
             alt="Notion's Logo"
