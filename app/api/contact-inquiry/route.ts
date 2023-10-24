@@ -39,6 +39,8 @@ export async function POST(request: NextRequest) {
 
   console.info("Received contact inquiry: ", contactInquiry);
 
+  console.info("process.env.VERCEL_URL: ", process.env.VERCEL_URL);
+
   try {
     // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
     //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?

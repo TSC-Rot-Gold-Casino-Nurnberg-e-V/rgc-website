@@ -127,12 +127,12 @@ export const ContactInquiryConfirmationEmail = () => (
                   </Column>
                   <Column>
                     <Link href="https://de-de.facebook.com/rgc.nuernberg/">
-                      {/*<Img*/}
-                      {/*  src={`${baseUrl}/static/facebook.png`}*/}
-                      {/*  width="32"*/}
-                      {/*  height="32"*/}
-                      {/*  alt="Facebook"*/}
-                      {/*/>*/}
+                      <Img
+                        src={`${baseUrl}/static/facebook.png`}
+                        width="32"
+                        height="32"
+                        alt="Facebook"
+                      />
                     </Link>
                   </Column>
                 </Row>
