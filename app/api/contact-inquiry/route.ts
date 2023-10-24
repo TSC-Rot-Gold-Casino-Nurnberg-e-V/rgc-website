@@ -39,20 +39,11 @@ export async function POST(request: NextRequest) {
 
   console.info("Received contact inquiry: ", contactInquiry);
 
-  console.info(
-    "contactInquiryConfirmationEmailHTML: ",
-    contactInquiryConfirmationEmailHTML
-  );
-
   try {
     // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
     //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
 
-    console.info(
-      "Sending contact inquiry confirmation email to: ",
-      contactInquiry.email
-    );
-    console.info("from RGC_EMAIL: ", RGC_EMAIL);
+    console.info("only text");
 
     await transporter.sendMail({
       from: {
