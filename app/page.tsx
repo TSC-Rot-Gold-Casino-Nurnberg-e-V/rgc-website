@@ -1,17 +1,16 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Button } from "../components/Button";
-import einzeltanz from "../public/einzeltanz.png";
 import formation from "../public/formation.png";
-import kindertanzen from "../public/kindertanzen.png";
+import kinder from "../public/kindertanzen.png";
 import heroBanner from "../public/heroBanner.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
-import { AnchorHTMLAttributes } from "react";
 import { Neuigkeit } from "../model/Neuigkeit";
 import { Main } from "../components/Main";
-import { twMerge } from "tailwind-merge";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
+import standard from "../public/eventImage.png";
+import { AngebotCard } from "./angebote/AngebotCard";
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
@@ -57,7 +56,7 @@ const HeroSection = () => (
         alt=""
         className="object-cover object-top"
         fill
-        priority={true}
+        priority
       />
     </div>
   </section>
@@ -65,7 +64,11 @@ const HeroSection = () => (
 
 const AngebotSection = () => (
   <div className="bg-gradient-to-br from-base-500 to-base-800">
-    <section aria-label="Kursangebote" className="container-lg space-y-12">
+    <section
+      aria-label="Kursangebote"
+      className="container-lg space-y-12"
+      id="angebote"
+    >
       <div className="space-y-6 text-center">
         <h2 className="heading-small max-md:heading-normal md:heading-large text-base-50">
           Unser Angebot
@@ -79,73 +82,36 @@ const AngebotSection = () => (
           und Breakdance.
         </p>
       </div>
-      <div className="mx-auto grid w-full max-w-screen-lg gap-6 text-base-50 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid auto-rows-[24rem] gap-6 sm:grid-cols-2">
         <AngebotCard
-          title="Einzeltanz"
-          image={einzeltanz}
-          className="max-h-[28rem] "
-          href="/angebote#turniertanzen"
-          imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          loadImageWithPriority
+          title="Turniertanzen"
+          image={standard}
+          href="/angebote/turniertanzen"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
-          title="Formation"
+          loadImageWithPriority
+          title="Formationstanzen"
           image={formation}
-          className="max-h-[28rem]"
-          href="/angebote#formationstanzen"
-          imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          href="/angebote/formationstanzen"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
         <AngebotCard
-          title="Kindertanzen"
-          image={kindertanzen}
-          className="max-h-[28rem] sm:max-lg:col-span-2"
-          href="/angebote#kindertanzen"
-          imageSizes="(max-width: 1024px) 100vw, 33vw"
+          title="Kinder & Jugend"
+          image={kinder}
+          href="/angebote/kinder-und-jugend"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
+        />
+        <AngebotCard
+          title="Freizeittanzen"
+          image={formation}
+          href="/angebote/freizeittanz"
+          imageSizes="(max-width: 640px) 100vw, 50vw"
         />
       </div>
     </section>
   </div>
-);
-
-interface AngebotCardProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  title: string;
-  image: StaticImageData;
-  href: string;
-  imageSizes?: string;
-}
-
-const AngebotCard = ({
-  title,
-  image,
-  href,
-  imageSizes,
-  className,
-  ...rest
-}: AngebotCardProps) => (
-  <Link
-    className={twMerge(
-      "group relative rounded-md hover:cursor-pointer",
-      className
-    )}
-    {...rest}
-    href={href}
-  >
-    <div className="absolute inset-0 h-full">
-      <Image
-        src={image}
-        alt=""
-        className="rounded-lg object-cover object-top saturate-0 duration-700 group-hover:saturate-100 group-focus:saturate-100"
-        fill
-        sizes={imageSizes}
-        priority
-      />
-    </div>
-    <div className="relative z-10 mx-auto flex h-full w-fit flex-col items-center justify-center gap-4 py-48">
-      <div className="heading-extrasmall md:heading-small rounded-lg bg-transparent p-4 uppercase text-base-50 backdrop-blur-sm">
-        {title}
-      </div>
-      <Button tabIndex={-1}>Mehr erfahren</Button>
-    </div>
-  </Link>
 );
 
 const VereinsgeschichteSection = () => (

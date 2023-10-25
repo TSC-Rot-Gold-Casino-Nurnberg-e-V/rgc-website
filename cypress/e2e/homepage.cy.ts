@@ -43,27 +43,21 @@ describe("homepage", () => {
     });
 
     it('renders CTA "Einzeltanz"', () => {
-      cy.findByRole("link", { name: /Einzeltanz mehr erfahren/i }).should(
-        "have.attr",
-        "href",
-        "/angebote#turniertanzen"
-      );
+      cy.findByLabelText("Kursangebote")
+        .findByRole("link", { name: /Turniertanzen/i })
+        .should("have.attr", "href", "/angebote/turniertanzen");
     });
 
     it('renders CTA "Formationstanzen"', () => {
-      cy.findByRole("link", { name: /Formation mehr erfahren/i }).should(
-        "have.attr",
-        "href",
-        "/angebote#formationstanzen"
-      );
+      cy.findByLabelText("Kursangebote")
+        .findByRole("link", { name: /Formationstanzen/i })
+        .should("have.attr", "href", "/angebote/formationstanzen");
     });
 
     it('renders CTA "Kindertanzen"', () => {
-      cy.findByRole("link", { name: /Kindertanzen mehr erfahren/i }).should(
-        "have.attr",
-        "href",
-        "/angebote#kindertanzen"
-      );
+      cy.findByLabelText("Kursangebote")
+        .findByRole("link", { name: /Kinder & Jugend/i })
+        .should("have.attr", "href", "/angebote/kinder-und-jugend");
     });
   });
 
