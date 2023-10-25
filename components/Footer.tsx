@@ -49,13 +49,16 @@ export const Footer = () => (
       <div className="order-4 space-y-4 lg:order-3">
         <CategoryHeading text="Angebot" />
         <div className="space-y-1">
-          <FooterLink text="Turniertanzen" href="/angebote#turniertanzen" />
+          <FooterLink text="Turniertanzen" href="/angebote/turniertanzen" />
           <FooterLink
             text="Formationstanzen"
-            href="/angebote#formationstanzen"
+            href="/angebote/formationstanzen"
           />
-          <FooterLink text="Kindertanzen" href="/angebote#kindertanzen" />
-          <FooterLink text="Freizeittanzen" href="/angebote#freizeittanzen" />
+          <FooterLink
+            text="Kinder & Jugend"
+            href="/angebote/kinder-und-jugend"
+          />
+          <FooterLink text="Freizeittanzen" href="/angebote/freizeittanz" />
         </div>
       </div>
       <div className="order-2 space-y-4 lg:order-4">

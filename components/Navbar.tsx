@@ -30,7 +30,7 @@ export const Navbar = () => {
         <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="News" href="/neuigkeiten" />
-          <NavLink text="Angebot" href="/angebote" />
+          <NavLink text="Angebot" href="/#angebote" />
           <NavLink text="Veranstaltungen" href="/veranstaltungen" />
           <NavLink
             text="Turnierergebnisse"
