@@ -39,14 +39,9 @@ export async function POST(request: NextRequest) {
 
   console.info("Received contact inquiry: ", contactInquiry);
 
-  console.info("process.env.VERCEL_URL: ", process.env.VERCEL_URL);
-
   try {
     // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
     //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
-
-    console.info("template without links");
-
     await transporter.sendMail({
       from: {
         name: "TSC Rot-Gold-Casino Nürnberg e.V.",
@@ -55,7 +50,6 @@ export async function POST(request: NextRequest) {
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
       html: contactInquiryConfirmationEmailHTML,
-      // text: "Vielen Dank für deine Nachricht. Wir werden uns so schnell wie möglich bei dir melden.",
     });
 
     console.info(
@@ -75,10 +69,7 @@ export async function POST(request: NextRequest) {
       text: contactInquiry.message,
     });
 
-    console.info(
-      "Successfully sent contact inquiry confirmation email to: ",
-      contactInquiry.email
-    );
+    console.info("Successfully sent contact inquiry to: ", RGC_EMAIL);
 
     return NextResponse.json({
       message: "Inquiry successfully processed",
