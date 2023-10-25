@@ -30,6 +30,7 @@ const contactInquirySchema = z
   })
   .transform((data) => ({
     ...data,
+    name: sanitize(data.name),
     subject: data.subject ? sanitize(data.subject) : undefined,
     message: sanitize(data.message),
   }));
