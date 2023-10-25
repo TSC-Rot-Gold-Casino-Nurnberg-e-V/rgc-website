@@ -11,6 +11,7 @@ import { MailIcon } from "../../components/icons/MailIcon";
 import { HouseIcon } from "../../components/icons/HouseIcon";
 import { Dialog } from "../../components/Dialog";
 import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
+import Link from "next/link";
 
 const inputSchema = z.object({
   name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
@@ -20,6 +21,9 @@ const inputSchema = z.object({
     .email("Ungültiges E-Mail-Format"),
   subject: z.string().optional(),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
+  hasAgreedToPrivacyPolicy: z.boolean().refine((hasAgreed) => hasAgreed, {
+    message: "Bitte akzeptiere unsere Datenschutzerklärung",
+  }),
 });
 
 type Inputs = z.infer<typeof inputSchema>;
@@ -172,6 +176,29 @@ export function ContactForm() {
             )}
           </div>
         </div>
+        <div className="flex items-center gap-4">
+          <input
+            type="checkbox"
+            id="privacyPolicy"
+            {...register("hasAgreedToPrivacyPolicy")}
+            className="h-4 w-4 cursor-pointer accent-secondary-900"
+          />
+          <label htmlFor="privacyPolicy" className="space-x-1.5">
+            <Link
+              href="datenschutzerklaerung"
+              target="_blank"
+              className="text-accent"
+            >
+              Datenschutzerklärung
+            </Link>
+            <span>akzeptieren</span>
+          </label>
+        </div>
+        {errors.hasAgreedToPrivacyPolicy?.message && (
+          <span className="label-text-alt w-full text-secondary-800">
+            {errors.hasAgreedToPrivacyPolicy.message}
+          </span>
+        )}
         <Button
           disabled={isLoading}
           type="submit"
