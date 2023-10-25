@@ -18,9 +18,10 @@ import {
 import * as React from "react";
 import colors from "tailwindcss/colors";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
+const iconsUrl = "http://rot-gold-casino.de/icons";
+
+// TODO: replace with production URL
+const baseUrl = "https://develop.rot-gold-casino.de";
 
 export const ContactInquiryConfirmationEmail = () => (
   <Html lang="de">
@@ -80,11 +81,10 @@ export const ContactInquiryConfirmationEmail = () => (
       <Body className="bg-base-100 p-8 font-sans text-base-700">
         <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
           <Img
-            // src={`${baseUrl}/static/notion-logo.png`}
-            src={`http://saalbuchung.rot-gold-casino.de/imgs-client/layout/logo.png`}
+            src={`${iconsUrl}/rgc-logo.png`}
             width="56"
             height="56"
-            alt="Notion's Logo"
+            alt="RGC"
             className="mb-4"
           />
           <Heading
@@ -103,13 +103,13 @@ export const ContactInquiryConfirmationEmail = () => (
           <Section className="mb-4">
             <Row>
               <Column>
-                <Link href="https://develop.rot-gold-casino.de">
-                  {/*<Img*/}
-                  {/*  src={`${baseUrl}/static/notion-logo.png`}*/}
-                  {/*  width="32"*/}
-                  {/*  height="32"*/}
-                  {/*  alt="Notion's Logo"*/}
-                  {/*/>*/}
+                <Link href={baseUrl}>
+                  <Img
+                    src={`${iconsUrl}/rgc-logo.png`}
+                    width="32"
+                    height="32"
+                    alt="RGC"
+                  />
                 </Link>
               </Column>
               <Column className="w-20">
@@ -117,8 +117,7 @@ export const ContactInquiryConfirmationEmail = () => (
                   <Column>
                     <Link href="https://www.instagram.com/rgc_nuernberg/">
                       <Img
-                        // src={`${baseUrl}/static/instagram.png`}
-                        src={`http://saalbuchung.rot-gold-casino.de/imgs/icons/locale/de-DE.png`}
+                        src={`${iconsUrl}/instagram-logo.png`}
                         width="32"
                         height="32"
                         alt="Instagram"
@@ -128,7 +127,7 @@ export const ContactInquiryConfirmationEmail = () => (
                   <Column>
                     <Link href="https://de-de.facebook.com/rgc.nuernberg/">
                       <Img
-                        src={`${baseUrl}/static/facebook.png`}
+                        src={`${iconsUrl}/static/facebook-logo.png`}
                         width="32"
                         height="32"
                         alt="Facebook"
@@ -142,23 +141,20 @@ export const ContactInquiryConfirmationEmail = () => (
 
           <Text className="m-0">
             <Link
-              href="https://develop.rot-gold-casino.de/neuigkeiten"
+              href={`${baseUrl}/neuigkeiten`}
               className="text-secondary-900"
             >
               Neuigkeiten
             </Link>{" "}
             ・{" "}
             <Link
-              href="https://develop.rot-gold-casino.de/veranstaltungen"
+              href={`${baseUrl}/veranstaltungen`}
               className="text-secondary-900"
             >
               Veranstaltungen
             </Link>{" "}
             ・{" "}
-            <Link
-              href="https://develop.rot-gold-casino.de/angebote"
-              className="text-secondary-900"
-            >
+            <Link href={`${baseUrl}/angebote`} className="text-secondary-900">
               Angebote
             </Link>
           </Text>
