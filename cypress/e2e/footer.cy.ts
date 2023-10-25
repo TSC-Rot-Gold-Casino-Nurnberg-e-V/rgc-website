@@ -9,7 +9,7 @@ describe("footer", () => {
       .siblings()
       .should("contain", "Freizeittanzen")
       .should("contain", "Turniertanzen")
-      .should("contain", "Kindertanzen")
+      .should("contain", "Kinder & Jugend")
       .should("contain", "Formationstanzen");
   });
 
