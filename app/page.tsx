@@ -175,7 +175,7 @@ const Stats = () => (
 
 const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
   <section className="container-lg space-y-8">
-    <h2 className="heading-small max-md:heading-normal md:heading-large text-center text-accent">
+    <h2 className="heading-small max-md:heading-normal md:heading-large text-accent text-center">
       News
     </h2>
     <div className="group/container grid gap-6 sm:grid-cols-2">

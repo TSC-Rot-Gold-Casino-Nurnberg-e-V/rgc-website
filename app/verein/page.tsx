@@ -26,13 +26,13 @@ export default async function VereinsgeschichtePage() {
         </p>
         <Link
           href="/vereinsgeschichte"
-          className="paragraph block rounded font-semibold text-accent"
+          className="paragraph text-accent block rounded font-semibold"
         >
           Zur kompletten Geschichte unseres Vereins
         </Link>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-center text-accent">
+        <h2 className="heading-small sm:heading-normal text-accent text-center">
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-6 gap-10">
@@ -48,7 +48,7 @@ export default async function VereinsgeschichtePage() {
                 alt=""
                 className="mb-4 rounded-3xl"
               />
-              <h3 className="text-extralarge font-bold text-accent">
+              <h3 className="text-extralarge text-accent font-bold">
                 {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
               </h3>
               <p className="mb-4 text-base-700">{vorstandsmitglied.rolle}</p>
@@ -71,12 +71,12 @@ export default async function VereinsgeschichtePage() {
         </div>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-center text-accent">
+        <h2 className="heading-small sm:heading-normal text-accent text-center">
           Cheftrainer
         </h2>
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
-            <h3 className="heading-extrasmall sm:heading-small mb-5 text-accent max-sm:text-center">
+            <h3 className="heading-extrasmall sm:heading-small text-accent mb-5 max-sm:text-center">
               {cheftrainer.titel}
             </h3>
             <TrainerCard
@@ -100,7 +100,7 @@ interface ContactLinkProps {
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
   <div className="group flex cursor-pointer gap-2">
-    <div className="flex gap-4 group-hover:text-accent">
+    <div className="group-hover:text-accent flex gap-4">
       <a href={href} className="flex w-fit gap-2 rounded-md">
         <div className="grow">{icon}</div>
         <span>{text}</span>

@@ -26,7 +26,7 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
         </div>
       </div>
       <div className="w-full space-y-6 overflow-hidden p-6 max-sm:pt-4">
-        <h2 className="heading-extrasmall sm:heading-small line-clamp-3 transition-colors group-hover:text-accent group-focus:text-accent max-sm:hyphens-auto sm:line-clamp-2">
+        <h2 className="heading-extrasmall sm:heading-small group-hover:text-accent group-focus:text-accent line-clamp-3 transition-colors max-sm:hyphens-auto sm:line-clamp-2">
           {titel}
         </h2>
         <div className="text-normal sm:text-large flex justify-between gap-4 max-sm:flex-col">

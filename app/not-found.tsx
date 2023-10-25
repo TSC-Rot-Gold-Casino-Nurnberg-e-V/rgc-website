@@ -21,7 +21,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/kontakt"
-            className="text-normal flex items-center justify-center gap-2 rounded-md font-bold transition-colors hover:text-accent"
+            className="text-normal hover:text-accent flex items-center justify-center gap-2 rounded-md font-bold transition-colors"
           >
             <span>Kontaktiere uns</span>
             <ArrowRightIcon />

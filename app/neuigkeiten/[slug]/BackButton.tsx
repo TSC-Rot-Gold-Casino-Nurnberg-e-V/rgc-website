@@ -8,7 +8,7 @@ export const BackButton = () => {
   return (
     <button
       onClick={() => router.back()}
-      className="flex items-center gap-2 rounded-md border py-2 pl-3 pr-5 transition-all hover:border-secondary-900 hover:text-accent hover:shadow"
+      className="hover:text-accent flex items-center gap-2 rounded-md border py-2 pl-3 pr-5 transition-all hover:border-secondary-900 hover:shadow"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

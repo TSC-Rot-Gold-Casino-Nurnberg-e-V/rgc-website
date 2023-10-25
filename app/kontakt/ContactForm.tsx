@@ -28,6 +28,7 @@ const inputSchema = z.object({
 
 type Inputs = z.infer<typeof inputSchema>;
 
+// TODO: fix styling of inputs
 export function ContactForm() {
   const {
     register,
@@ -89,7 +90,7 @@ export function ContactForm() {
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
-            className="text-normal flex w-fit items-center gap-2 rounded-md transition-colors hover:text-accent"
+            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-md transition-colors"
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
@@ -97,7 +98,7 @@ export function ContactForm() {
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
-            className="text-normal flex w-fit items-center gap-2 rounded-md transition-colors hover:text-accent"
+            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-md transition-colors"
             href="mailto:info@rot-gold-casino.de"
           >
             <MailIcon />
@@ -112,56 +113,52 @@ export function ContactForm() {
         noValidate
       >
         <div>
-          <label className="label" htmlFor="name">
-            <span className="label-text">Name</span>
+          <label className="" htmlFor="name">
+            <span className="">Name</span>
           </label>
           <div className="flex flex-col gap-2">
             <input
               id="name"
-              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
+              className="w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("name")}
             />
             {errors.name?.message && (
-              <span className="label-text-alt text-secondary-800">
-                {errors.name.message}
-              </span>
+              <span className="text-secondary-800">{errors.name.message}</span>
             )}
           </div>
         </div>
         <div>
-          <label className="label" htmlFor="email">
-            <span className="label-text">E-Mail</span>
+          <label className="" htmlFor="email">
+            <span className="">E-Mail</span>
           </label>
           <div className="flex flex-col gap-2">
             <input
               id="email"
               type="email"
-              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
+              className=" w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("email")}
             />
             {errors.email?.message && (
-              <span className="label-text-alt text-secondary-800">
-                {errors.email.message}
-              </span>
+              <span className="text-secondary-800">{errors.email.message}</span>
             )}
           </div>
         </div>
         <div>
-          <label className="label" htmlFor="subject">
-            <span className="label-text">Betreff</span>
+          <label className="" htmlFor="subject">
+            <span className="">Betreff</span>
           </label>
           <div className="flex flex-col gap-2">
             <input
               id="subject"
               type="text"
-              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
+              className=" w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
               {...register("subject")}
             />
           </div>
         </div>
         <div>
-          <label className="label" htmlFor="message">
-            <span className="label-text">Nachricht</span>
+          <label className="" htmlFor="message">
+            <span className="">Nachricht</span>
           </label>
           <div className="flex flex-col gap-2">
             <textarea
@@ -170,7 +167,7 @@ export function ContactForm() {
               {...register("message", { required: true })}
             />
             {errors.message?.message && (
-              <span className="label-text-alt w-full text-secondary-800">
+              <span className=" w-full text-secondary-800">
                 {errors.message.message}
               </span>
             )}
@@ -195,7 +192,7 @@ export function ContactForm() {
           </label>
         </div>
         {errors.hasAgreedToPrivacyPolicy?.message && (
-          <span className="label-text-alt w-full text-secondary-800">
+          <span className=" w-full text-secondary-800">
             {errors.hasAgreedToPrivacyPolicy.message}
           </span>
         )}

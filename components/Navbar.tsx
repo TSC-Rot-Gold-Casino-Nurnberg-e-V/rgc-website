@@ -74,7 +74,7 @@ export const Navbar = () => {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Menu.Items className="text-normal menu rounded-box bg-base-800 py-2 text-base-50 shadow-sm shadow-base-900">
+                  <Menu.Items className="text-normal rounded-2xl bg-base-800 p-2 text-base-50 shadow-sm shadow-base-900">
                     <MenuLink text="Der Verein" href="/verein" />
                     <MenuLink text="News" href="/neuigkeiten" />
                     <MenuLink text="Angebot" href="/angebote" />
@@ -106,10 +106,15 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     const pathname = usePathname();
     const isActive = pathname?.startsWith(href);
     return (
-      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
+      <li
+        className={twJoin(
+          shouldHideOnSmallViewport && "max-lg:hidden",
+          "flex list-none"
+        )}
+      >
         <Link
           className={twMerge(
-            "whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
+            "grow whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
               : "text-base-200",
@@ -140,7 +145,7 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
       <NavLink
         text={text}
         href={href}
-        className={twJoin("rounded-2xl", active && "bg-base-700")}
+        className={twJoin("rounded-2xl px-3", active && "bg-base-700")}
       />
     )}
   </Menu.Item>

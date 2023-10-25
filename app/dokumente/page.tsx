@@ -17,7 +17,7 @@ export default async function DokumentePage() {
           <Link
             key={dokument.id}
             href={dokument.datei.url}
-            className="flex items-center gap-2 rounded-md border border-transparent p-2 transition-colors hover:border-primary-900 hover:text-accent"
+            className="hover:text-accent flex items-center gap-2 rounded-md border border-transparent p-2 transition-colors hover:border-primary-900"
             target="_blank"
           >
             <DocumentIcon />

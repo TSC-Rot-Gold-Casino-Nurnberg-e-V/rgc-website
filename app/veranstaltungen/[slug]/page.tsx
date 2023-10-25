@@ -61,7 +61,7 @@ export default async function VeranstaltungPage({ params }: Props) {
             <a
               href={veranstaltung.ort.maps}
               target="_blank"
-              className="flex w-fit gap-2 rounded-lg border border-base-700 px-3 py-2 transition-all hover:scale-[1.01] hover:border-secondary-900 hover:text-accent hover:shadow"
+              className="hover:text-accent flex w-fit gap-2 rounded-lg border border-base-700 px-3 py-2 transition-all hover:scale-[1.01] hover:border-secondary-900 hover:shadow"
             >
               <MapIcon />
               <span>Routenplanung</span>

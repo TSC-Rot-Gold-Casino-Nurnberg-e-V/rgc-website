@@ -119,7 +119,7 @@ export default async function AngebotPage({ params }: Props) {
               )
             )}
           </div>
-          <div className="text-small flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 text-accent max-sm:mx-auto max-sm:max-w-sm">
+          <div className="text-small text-accent flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -180,7 +180,7 @@ export default async function AngebotPage({ params }: Props) {
             <p>Du hast weitere Fragen?</p>
             <div className="flex gap-1">
               <p>Dann kontaktiere uns</p>
-              <Link href="/kontakt" className="font-semibold text-accent">
+              <Link href="/kontakt" className="text-accent font-semibold">
                 hier.
               </Link>
             </div>

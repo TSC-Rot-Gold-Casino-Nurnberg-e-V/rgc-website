@@ -52,7 +52,7 @@ export const Dialog = ({
               <div className="mt-4">
                 <button
                   type="button"
-                  className="text-normal rounded-md border border-transparent bg-secondary-100 px-4 py-2 font-medium text-accent transition-colors hover:bg-secondary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
+                  className="text-normal text-accent rounded-md border border-transparent bg-secondary-100 px-4 py-2 font-medium transition-colors hover:bg-secondary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
                   onClick={onClose}
                 >
                   {buttonText || "Alles klar"}
