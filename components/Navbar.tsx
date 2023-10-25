@@ -112,7 +112,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
             "whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
-              : "text-base-300",
+              : "text-base-200",
             className
           )}
           {...rest}
