@@ -13,6 +13,7 @@ import { Dialog } from "../../components/Dialog";
 import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
 
 const inputSchema = z.object({
+  name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
   email: z
     .string()
     .min(1, "Dieses Feld ist ein Pflichtfeld")
@@ -41,6 +42,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact-inquiry", {
         method: "POST",
         body: JSON.stringify({
+          name: input.name,
           email: input.email,
           subject: input.subject,
           message: input.message,
@@ -105,6 +107,23 @@ export function ContactForm() {
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
+        <div>
+          <label className="label" htmlFor="name">
+            <span className="label-text">Name</span>
+          </label>
+          <div className="flex flex-col gap-2">
+            <input
+              id="name"
+              className="input w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
+              {...register("name")}
+            />
+            {errors.name?.message && (
+              <span className="label-text-alt text-secondary-800">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+        </div>
         <div>
           <label className="label" htmlFor="email">
             <span className="label-text">E-Mail</span>

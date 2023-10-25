@@ -23,6 +23,7 @@ const contactInquiryConfirmationEmailHTML = render(
 
 const contactInquirySchema = z
   .object({
+    name: z.string(),
     email: z.string().email(),
     subject: z.string().optional(),
     message: z.string(),
@@ -61,7 +62,7 @@ export async function POST(request: NextRequest) {
 
     await transporter.sendMail({
       from: {
-        name: "TSC Rot-Gold-Casino Nürnberg e.V.",
+        name: contactInquiry.name,
         address: RGC_EMAIL,
       },
       to: RGC_EMAIL,
