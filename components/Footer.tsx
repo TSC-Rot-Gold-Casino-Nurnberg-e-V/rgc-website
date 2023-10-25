@@ -7,6 +7,7 @@ import { FacebookIcon } from "./icons/FacebookIcon";
 import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
+import { AtIcon } from "./icons/AtIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
@@ -72,7 +73,7 @@ export const Footer = () => (
           <ContactLink
             href="mailto:info@rot-gold-casino.de"
             text="info@rot-gold-casino.de"
-            icon={<MailIcon />}
+            icon={<AtIcon />}
           />
           <ContactLink
             href="https://de-de.facebook.com/rgc.nuernberg/"
@@ -84,6 +85,17 @@ export const Footer = () => (
             text="Instagram"
             icon={<InstagramIcon />}
           />
+          <div className="group flex gap-2">
+            <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
+              <Link
+                href="/kontakt"
+                className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
+              >
+                <MailIcon />
+                <span>Nachricht schreiben</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
