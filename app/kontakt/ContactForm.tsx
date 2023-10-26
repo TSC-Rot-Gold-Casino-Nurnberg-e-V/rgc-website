@@ -4,14 +4,15 @@ import { Button } from "../../components/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { twJoin } from "tailwind-merge";
-import { useState } from "react";
+import { twJoin, twMerge } from "tailwind-merge";
+import { ComponentPropsWithoutRef, forwardRef, useState } from "react";
 import { LocationIcon } from "../../components/icons/LocationIcon";
 import { MailIcon } from "../../components/icons/MailIcon";
 import { HouseIcon } from "../../components/icons/HouseIcon";
 import { Dialog } from "../../components/Dialog";
 import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
 import Link from "next/link";
+import { LoadingSpinnerIcon } from "../../components/icons/LoadingSpinnerIcon";
 
 const inputSchema = z.object({
   name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
@@ -66,7 +67,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="container-md flex gap-10 max-sm:max-w-md max-sm:flex-col">
+    <div className="container-md grid gap-10 max-sm:max-w-sm sm:grid-cols-2">
       <Dialog
         isOpen={showConfirmationDialog}
         onClose={() => setShowConfirmationDialog(false)}
@@ -77,14 +78,14 @@ export function ContactForm() {
         isOpen={showErrorDialog}
         onClose={() => setShowErrorDialog(false)}
       />
-      <section className="grow space-y-8">
+      <section className="space-y-6">
         <h2 className="heading-small text-accent">Kontaktiere uns</h2>
-        <div className="paragraph max-w-sm">
+        <div className="paragraph">
           Wir freuen uns über dein Interesse an unserem Verein. Hinterlasse
           deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <div className="text-normal flex items-center gap-2">
             <HouseIcon />
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
@@ -108,102 +109,103 @@ export function ContactForm() {
       </section>
 
       <form
-        className="flex w-full flex-col gap-4 sm:w-96"
+        className="flex flex-col gap-4"
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
-        <div>
-          <label className="" htmlFor="name">
-            <span className="">Name</span>
-          </label>
-          <div className="flex flex-col gap-2">
-            <input
-              id="name"
-              className="w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
-              {...register("name")}
-            />
-            {errors.name?.message && (
-              <span className="text-secondary-800">{errors.name.message}</span>
+        <Input
+          {...register("name")}
+          label="Name *"
+          error={errors.name?.message}
+        />
+        <Input
+          {...register("email")}
+          label="E-Mail *"
+          error={errors.email?.message}
+        />
+        <Input
+          {...register("subject")}
+          label="Betreff"
+          error={errors.subject?.message}
+        />
+        <div className="flex flex-col gap-2">
+          <label htmlFor="message">Nachricht *</label>
+          <textarea
+            id="message"
+            rows={5}
+            className={twJoin(
+              "rounded-md border-base-300 focus:border-secondary-900 focus:ring-secondary-900",
+              errors.message?.message &&
+                "border-red-500 focus:border-red-500 focus:ring-red-500"
             )}
-          </div>
-        </div>
-        <div>
-          <label className="" htmlFor="email">
-            <span className="">E-Mail</span>
-          </label>
-          <div className="flex flex-col gap-2">
-            <input
-              id="email"
-              type="email"
-              className=" w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
-              {...register("email")}
-            />
-            {errors.email?.message && (
-              <span className="text-secondary-800">{errors.email.message}</span>
-            )}
-          </div>
-        </div>
-        <div>
-          <label className="" htmlFor="subject">
-            <span className="">Betreff</span>
-          </label>
-          <div className="flex flex-col gap-2">
-            <input
-              id="subject"
-              type="text"
-              className=" w-full border border-base-400 focus:border-2 focus:border-secondary-800 focus:outline-none"
-              {...register("subject")}
-            />
-          </div>
-        </div>
-        <div>
-          <label className="" htmlFor="message">
-            <span className="">Nachricht</span>
-          </label>
-          <div className="flex flex-col gap-2">
-            <textarea
-              id="message"
-              className="h-40 w-full rounded-lg border border-base-400 px-4 pt-3 focus:border-2 focus:border-secondary-800 focus:outline-none"
-              {...register("message", { required: true })}
-            />
-            {errors.message?.message && (
-              <span className=" w-full text-secondary-800">
-                {errors.message.message}
-              </span>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <input
-            type="checkbox"
-            id="privacyPolicy"
-            {...register("hasAgreedToPrivacyPolicy")}
-            className="h-4 w-4 cursor-pointer accent-secondary-900"
+            {...register("message")}
           />
-          <label htmlFor="privacyPolicy" className="space-x-1.5">
-            <Link
-              href="datenschutzerklaerung"
-              target="_blank"
-              className="text-accent"
-            >
-              Datenschutzerklärung
-            </Link>
-            <span>akzeptieren</span>
-          </label>
+          {errors.message?.message && (
+            <span className="text-small text-red-500">
+              {errors.message.message}
+            </span>
+          )}
         </div>
-        {errors.hasAgreedToPrivacyPolicy?.message && (
-          <span className=" w-full text-secondary-800">
-            {errors.hasAgreedToPrivacyPolicy.message}
-          </span>
-        )}
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="privacyPolicy"
+              {...register("hasAgreedToPrivacyPolicy")}
+              className="h-5 w-5 cursor-pointer rounded-md text-secondary-900 focus:ring-secondary-900"
+            />
+            <label htmlFor="privacyPolicy" className="space-x-1.5">
+              <Link
+                href="datenschutzerklaerung"
+                target="_blank"
+                className="text-accent rounded-md"
+              >
+                Datenschutzerklärung
+              </Link>
+              <span>akzeptieren</span>
+            </label>
+          </div>
+          {errors.hasAgreedToPrivacyPolicy?.message && (
+            <span className="text-small text-red-500">
+              {errors.hasAgreedToPrivacyPolicy.message}
+            </span>
+          )}
+        </div>
         <Button
           disabled={isLoading}
           type="submit"
-          className={twJoin(isLoading && "loading", "self-end")}
+          className="flex items-center gap-4 self-end"
         >
-          Nachricht senden
+          {isLoading && <LoadingSpinnerIcon />}
+          <span>Nachricht senden</span>
         </Button>
       </form>
     </div>
   );
 }
+
+interface InputProps extends ComponentPropsWithoutRef<"input"> {
+  label: string;
+  error?: string;
+}
+
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ label, error, className, ...inputProps }, ref) => (
+    <div className="flex flex-col gap-2">
+      <label htmlFor={inputProps.name}>{label}</label>
+      <input
+        id={inputProps.name}
+        ref={ref}
+        className={twMerge(
+          "rounded-md border-base-300 focus:border-secondary-900 focus:ring-secondary-900",
+          error && "border-red-500 focus:border-red-500 focus:ring-red-500",
+          className
+        )}
+        {...inputProps}
+      />
+      {error && <span className="text-small text-red-500">{error}</span>}
+    </div>
+  )
+);
+
+Input.displayName = "Input";
