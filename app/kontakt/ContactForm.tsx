@@ -29,7 +29,6 @@ const inputSchema = z.object({
 
 type Inputs = z.infer<typeof inputSchema>;
 
-// TODO: fix styling of inputs
 export function ContactForm() {
   const {
     register,
