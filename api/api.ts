@@ -254,7 +254,6 @@ async function fetchData(path: string): Promise<{
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    cache: "no-store",
   });
   await handleError(res);
   return await res.json();
