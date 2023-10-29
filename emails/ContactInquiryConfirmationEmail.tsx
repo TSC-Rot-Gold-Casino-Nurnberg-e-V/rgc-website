@@ -25,18 +25,6 @@ const baseUrl = "https://develop.rot-gold-casino.de";
 
 export const ContactInquiryConfirmationEmail = () => (
   <Html lang="de">
-    <Head>
-      <Font
-        fontFamily="Manrope"
-        fallbackFontFamily="Helvetica"
-        webFont={{
-          url: "https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F87jxeN7B.ttf",
-          format: "truetype",
-        }}
-        fontWeight={400}
-        fontStyle="normal"
-      />
-    </Head>
     <Preview>
       Vielen Dank für deine Anfrage. Wir werden uns schnellstmöglich mit dir in
       Verbindung setzten.
