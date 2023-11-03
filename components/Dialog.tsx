@@ -1,5 +1,6 @@
 import { Dialog as HuiDialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { Button } from "./Button";
 
 interface Props {
   isOpen: boolean;
@@ -50,13 +51,14 @@ export const Dialog = ({
               </div>
 
               <div className="mt-4">
-                <button
+                <Button
                   type="button"
-                  className="text-normal text-accent rounded-md border border-transparent bg-secondary-100 px-4 py-2 font-medium transition-colors hover:bg-secondary-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
+                  className="text-base-700"
+                  variant="secondary"
                   onClick={onClose}
                 >
                   {buttonText || "Alles klar"}
-                </button>
+                </Button>
               </div>
             </HuiDialog.Panel>
           </Transition.Child>

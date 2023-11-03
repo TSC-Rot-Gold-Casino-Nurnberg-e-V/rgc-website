@@ -63,10 +63,9 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
           <Button
             onClick={getMoreNeuigkeiten}
             disabled={isLoading}
-            className="flex items-center gap-4"
+            startIcon={isLoading ? <LoadingSpinnerIcon /> : undefined}
           >
-            {isLoading && <LoadingSpinnerIcon />}
-            <span>Mehr anzeigen</span>
+            Mehr anzeigen
           </Button>
         </div>
       )}

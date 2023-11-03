@@ -173,10 +173,10 @@ export function ContactForm() {
         <Button
           disabled={isLoading}
           type="submit"
-          className="flex items-center gap-4 self-end"
+          className="self-end"
+          startIcon={isLoading ? <LoadingSpinnerIcon /> : undefined}
         >
-          {isLoading && <LoadingSpinnerIcon />}
-          <span>Nachricht senden</span>
+          Nachricht senden
         </Button>
       </form>
     </div>
