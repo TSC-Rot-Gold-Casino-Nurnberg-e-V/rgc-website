@@ -38,7 +38,14 @@ module.exports = {
           900: "#752727",
           950: "#3f1010",
         },
-        base: colors.stone,
+        background: {
+          default: "#C50000",
+          // default: colors.stone["900"],
+        },
+        base: {
+          ...colors.stone,
+          // 900: "#C50000",
+        },
       },
     },
   },

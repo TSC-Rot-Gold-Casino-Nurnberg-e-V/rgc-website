@@ -53,7 +53,7 @@ const HeroSection = () => (
 );
 
 const AngebotSection = () => (
-  <div className="bg-base-900">
+  <div className="bg-background-default">
     <section
       aria-label="Kursangebote"
       className="container-lg space-y-12"
@@ -139,7 +139,7 @@ const VereinsgeschichteSection = () => (
 
 const Stats = () => (
   <section
-    className="flex justify-center bg-base-900"
+    className="flex justify-center bg-background-default"
     aria-label="Vereinsstatistik"
   >
     <div className="container-lg grid w-full gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
