@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      blur: {
+        xs: "2px",
+      },
       colors: {
         primary: {
           50: "#fcf9f0",
