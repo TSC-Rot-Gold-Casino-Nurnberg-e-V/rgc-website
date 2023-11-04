@@ -24,13 +24,13 @@ export const Navbar = () => {
             src={logo}
             alt="Startseite"
             className="max-h-12 w-20 object-cover"
-            priority={true}
+            priority
           />
         </Link>
         <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="News" href="/neuigkeiten" />
-          <NavLink text="Angebot" href="/angebote" />
+          <NavLink text="Angebot" href="/#angebote" />
           <NavLink text="Veranstaltungen" href="/veranstaltungen" />
           <NavLink
             text="Turnierergebnisse"
@@ -112,7 +112,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
             "whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
-              : "text-base-300",
+              : "text-base-200",
             className
           )}
           {...rest}
