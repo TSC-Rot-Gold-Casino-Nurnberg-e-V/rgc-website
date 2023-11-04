@@ -1,22 +1,18 @@
 import { z } from "zod";
+import { personSchema } from "./Person";
 
 export const vorstandsmitgliedSchema = z
   .object({
     id: z.number(),
     attributes: z.object({
       rolle: z.string(),
-      name: z.string(),
       telefonnummer: z.string().nullable(),
       email: z.string(),
-      bild: z
+      person: z
         .object({
-          data: z.object({
-            attributes: z.object({
-              url: z.string(),
-            }),
-          }),
+          data: personSchema,
         })
-        .transform(({ data }) => ({ ...data.attributes })),
+        .transform(({ data }) => data),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));
