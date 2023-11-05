@@ -13,6 +13,7 @@ import { Dialog } from "../../components/Dialog";
 import { UnexpectedErrorDialog } from "../../components/UnexpectedErrorDialog";
 import Link from "next/link";
 import { LoadingSpinnerIcon } from "../../components/icons/LoadingSpinnerIcon";
+import { SendIcon } from "../../components/icons/SendIcon";
 
 const inputSchema = z.object({
   name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
@@ -174,7 +175,7 @@ export function ContactForm() {
           disabled={isLoading}
           type="submit"
           className="self-end"
-          startIcon={isLoading ? <LoadingSpinnerIcon /> : undefined}
+          startIcon={isLoading ? <LoadingSpinnerIcon /> : <SendIcon />}
         >
           Nachricht senden
         </Button>
