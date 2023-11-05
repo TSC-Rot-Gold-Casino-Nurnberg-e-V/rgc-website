@@ -84,7 +84,7 @@ export const Footer = () => (
             <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
               <Link
                 href="/kontakt"
-                className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
+                className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
               >
                 <MailIcon />
                 <span>Nachricht schreiben</span>
@@ -115,7 +115,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
     <Link
       href={href}
       className={twMerge(
-        "block w-fit rounded-md hover:text-base-50",
+        "block w-fit rounded-full hover:text-base-50",
         className
       )}
       {...rest}
@@ -140,7 +140,7 @@ const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
       <Link
         target="_blank"
         href={href}
-        className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
+        className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>

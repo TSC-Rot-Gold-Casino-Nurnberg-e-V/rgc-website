@@ -4,6 +4,7 @@ import { Main } from "../../../components/Main";
 import { LocationIcon } from "../../../components/icons/LocationIcon";
 import { CalendarIcon } from "../../../components/icons/CalendarIcon";
 import { MapIcon } from "../../../components/icons/MapIcon";
+import { Button } from "../../../components/Button";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
@@ -61,10 +62,11 @@ export default async function VeranstaltungPage({ params }: Props) {
             <a
               href={veranstaltung.ort.maps}
               target="_blank"
-              className="hover:text-accent flex w-fit gap-2 rounded-lg border border-base-700 px-3 py-2 transition-all hover:scale-[1.01] hover:border-secondary-900 hover:shadow"
+              className="block w-fit rounded-full"
             >
-              <MapIcon />
-              <span>Routenplanung</span>
+              <Button tabIndex={-1} variant="secondary" startIcon={<MapIcon />}>
+                Routenplanung
+              </Button>
             </a>
           </div>
         </div>

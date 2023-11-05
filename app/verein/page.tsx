@@ -6,6 +6,8 @@ import { MailIcon } from "../../components/icons/MailIcon";
 import { ReactElement } from "react";
 import { TrainerCard } from "../angebote/TrainerCard";
 import { Main } from "../../components/Main";
+import { Button } from "../../components/Button";
+import { ChevronRightIcon } from "../../components/icons/ChevronRightIcon";
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();
@@ -24,11 +26,14 @@ export default async function VereinsgeschichtePage() {
           Faktor des gesellschaftlichen Lebens. Mit etwa 600 Mitgliedern zählt
           er zu den größten Tanzsportclubs in Bayern und Deutschland.
         </p>
-        <Link
-          href="/vereinsgeschichte"
-          className="paragraph text-accent block rounded font-semibold"
-        >
-          Zur kompletten Geschichte unseres Vereins
+        <Link href="/vereinsgeschichte" className="block w-fit rounded-full">
+          <Button
+            tabIndex={-1}
+            variant="secondary"
+            endIcon={<ChevronRightIcon />}
+          >
+            Zur Vereinsgeschichte
+          </Button>
         </Link>
       </section>
       <section className="container-lg space-y-10">
@@ -101,7 +106,7 @@ interface ContactLinkProps {
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
   <div className="group flex cursor-pointer gap-2">
     <div className="group-hover:text-accent flex gap-4">
-      <a href={href} className="flex w-fit gap-2 rounded-md">
+      <a href={href} className="flex w-fit gap-2 rounded-full">
         <div className="grow">{icon}</div>
         <span>{text}</span>
       </a>

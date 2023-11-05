@@ -188,7 +188,7 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
       ))}
     </div>
     <div className="mx-auto w-fit">
-      <Link className="rounded-md" href="/neuigkeiten">
+      <Link className="block w-fit rounded-full" href="/neuigkeiten">
         <Button tabIndex={-1}>Weitere News</Button>
       </Link>
     </div>

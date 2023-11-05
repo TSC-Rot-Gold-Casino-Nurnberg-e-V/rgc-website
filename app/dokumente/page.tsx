@@ -2,26 +2,33 @@ import { PageHeading } from "../../components/PageHeading";
 import { getDokumente } from "../../api/api";
 import Link from "next/link";
 import { Main } from "../../components/Main";
+import { Button } from "../../components/Button";
 
 export default async function DokumentePage() {
   const dokumente = await getDokumente();
   return (
     <Main>
       <PageHeading>Dokumente</PageHeading>
-      <p className="container-sm paragraph pb-0">
+      <p className="container-sm paragraph max-w-md pb-0">
         Hier findest Du alle wichtigen Dokumente rund um deine Mitgliedschaft
         und den Verein.
       </p>
-      <div className="container-sm space-y-2">
+      <div className="container-sm flex max-w-md flex-col gap-2">
         {dokumente.map((dokument) => (
           <Link
             key={dokument.id}
             href={dokument.datei.url}
-            className="hover:text-accent flex items-center gap-2 rounded-md border border-transparent p-2 transition-colors hover:border-primary-900"
+            className="block rounded-full"
             target="_blank"
           >
-            <DocumentIcon />
-            <span className="text-large">{dokument.titel}</span>
+            <Button
+              tabIndex={-1}
+              variant="secondary"
+              startIcon={<DocumentIcon />}
+              className="!w-full"
+            >
+              {dokument.titel}
+            </Button>
           </Link>
         ))}
       </div>
@@ -36,7 +43,7 @@ const DocumentIcon = () => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-7 w-7"
+    className="h-5 w-5"
   >
     <path
       strokeLinecap="round"

@@ -97,6 +97,7 @@ export default async function AngebotPage({ params }: Props) {
                                 <a
                                   key={trainer.id}
                                   href={`#${trainer.person.vorname} ${trainer.person.nachname}`}
+                                  className="rounded-full"
                                 >
                                   <Image
                                     src={trainer.person.bild.url}
@@ -119,7 +120,7 @@ export default async function AngebotPage({ params }: Props) {
               )
             )}
           </div>
-          <div className="text-small text-accent flex w-fit items-center gap-4 rounded-xl border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
+          <div className="text-small text-accent flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -180,7 +181,10 @@ export default async function AngebotPage({ params }: Props) {
             <p>Du hast weitere Fragen?</p>
             <div className="flex gap-1">
               <p>Dann kontaktiere uns</p>
-              <Link href="/kontakt" className="text-accent font-semibold">
+              <Link
+                href="/kontakt"
+                className="text-accent rounded-full font-semibold"
+              >
                 hier.
               </Link>
             </div>
