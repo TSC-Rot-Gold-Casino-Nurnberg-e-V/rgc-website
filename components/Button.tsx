@@ -18,20 +18,21 @@ export const Button = ({
   <button
     className={twMerge(
       "w-fit",
-      "rounded-md",
+      "rounded-full",
       "px-6",
-      "py-4",
+      "py-3",
       "text-large",
       "transition-all",
-      "hover:text-accent",
       "flex",
       "items-center",
       "gap-2",
+      "font-bold",
       variant === "primary" &&
-        "gold-gradient px-6 py-4 font-bold text-secondary-950 hover:scale-105 hover:shadow",
-      variant === "secondary" && "border px-4 py-2 hover:border-secondary-900",
-      startIcon && "pr-5",
-      endIcon && "pl-5",
+        "bg-secondary-800 text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
+      variant === "secondary" &&
+        "border border-secondary-900 text-secondary-900 hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
+      startIcon && "pl-4",
+      endIcon && "pr-4",
       className
     )}
     {...rest}
