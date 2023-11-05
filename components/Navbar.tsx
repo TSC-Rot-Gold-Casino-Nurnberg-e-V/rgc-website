@@ -35,7 +35,7 @@ export const Navbar = () => {
           />
           <NavLink text="Kontakt" href="/kontakt" />
         </ul>
-        <div className="relative md:hidden" role="presentation">
+        <div className="relative md:hidden">
           <Menu>
             {({ open }) => (
               <>
@@ -52,7 +52,6 @@ export const Navbar = () => {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="h-6 w-6"
-                    role="presentation"
                   >
                     <path
                       strokeLinecap="round"
