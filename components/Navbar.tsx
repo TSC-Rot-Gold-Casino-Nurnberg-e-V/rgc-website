@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
-import Image from "next/image";
-import logo from "../public/RGC_Logo_white.svg";
 import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
+import { RgcIcon } from "./icons/RgcIcon";
 
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
@@ -19,14 +18,11 @@ export const Navbar = () => {
       )}
     >
       <div className="mx-auto flex h-20 max-w-screen-lg items-center justify-between">
-        <Link href="/" className="rounded-md">
-          <Image
-            src={logo}
-            alt="Startseite"
-            className="max-h-12 w-20 object-cover"
-            priority
-          />
-        </Link>
+        <div className="h-full w-fit py-4">
+          <Link href="/" className="block h-full w-fit rounded-full">
+            <RgcIcon />
+          </Link>
+        </div>
         <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="News" href="/neuigkeiten" />
