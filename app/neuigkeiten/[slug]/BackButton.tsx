@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "../../../components/Button";
-import { ChevronLeft } from "../../../components/icons/ChevronLeft";
+import { ChevronLeftIcon } from "../../../components/icons/ChevronLeftIcon";
 
 export const BackButton = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ export const BackButton = () => {
     <Button
       onClick={() => router.back()}
       variant="secondary"
-      startIcon={<ChevronLeft />}
+      startIcon={<ChevronLeftIcon />}
     >
       zurück
     </Button>
