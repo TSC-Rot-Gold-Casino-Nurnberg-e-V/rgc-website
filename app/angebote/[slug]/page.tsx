@@ -104,7 +104,7 @@ export default async function AngebotPage({ params }: Props) {
                                     width={56} // w-14
                                     height={56} // h-14
                                     alt=""
-                                    className="h-14 w-14 cursor-pointer rounded-full transition-all hover:scale-105 hover:shadow-md"
+                                    className="h-14 w-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:border-secondary-900 hover:shadow-md hover:outline hover:outline-2 hover:outline-secondary-900"
                                   />
                                 </a>
                               ))}
