@@ -1,24 +1,19 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ComponentProps, forwardRef, ReactElement } from "react";
-import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
 import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
 import { AtIcon } from "./icons/AtIcon";
+import { RgcIcon } from "./icons/RgcIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
     <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
       <div className="order-1 h-full space-y-3">
-        <Link href="/" className="w-fit rounded-md">
-          <Image
-            src={logo}
-            alt="Zur Startseite"
-            className="max-h-12 w-20 object-cover"
-          />
+        <Link href="/" className="block h-12 w-fit rounded-full">
+          <RgcIcon />
         </Link>
         <div className="space-y-1.5">
           <FooterLink
