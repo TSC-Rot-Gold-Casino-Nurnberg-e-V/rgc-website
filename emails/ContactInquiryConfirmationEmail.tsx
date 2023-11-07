@@ -1,19 +1,17 @@
 import {
   Body,
+  Column,
   Container,
-  Head,
   Heading,
+  Hr,
   Html,
   Img,
   Link,
   Preview,
-  Text,
-  Tailwind,
-  Hr,
-  Font,
-  Section,
   Row,
-  Column,
+  Section,
+  Tailwind,
+  Text,
 } from "@react-email/components";
 import * as React from "react";
 import colors from "tailwindcss/colors";
@@ -93,7 +91,7 @@ export const ContactInquiryConfirmationEmail = () => (
               <Column>
                 <Link href={baseUrl}>
                   <Img
-                    src={`${iconsUrl}/rgc-logo.png`}
+                    src={`${assetsUrl}/rgc.png`}
                     width="32"
                     height="32"
                     alt="RGC"
