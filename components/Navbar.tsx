@@ -19,7 +19,11 @@ export const Navbar = () => {
     >
       <div className="mx-auto flex h-20 max-w-screen-lg items-center justify-between">
         <div className="h-full w-fit py-4">
-          <Link href="/" className="block h-full w-fit rounded-full">
+          <Link
+            href="/"
+            aria-label="Startseite"
+            className="block h-full w-fit rounded-full"
+          >
             <RgcIcon />
           </Link>
         </div>
