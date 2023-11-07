@@ -30,7 +30,7 @@ describe("footer", () => {
 
   it("navigates to the homepage", () => {
     cy.findByRole("contentinfo")
-      .findByRole("link", { name: /Zur Startseite/i })
+      .findByRole("link", { name: /Startseite/i })
       .should("have.attr", "href", "/");
   });
 
