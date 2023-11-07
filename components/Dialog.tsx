@@ -42,24 +42,17 @@ export const Dialog = ({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <HuiDialog.Panel className="w-full max-w-xl overflow-hidden rounded-2xl bg-base-50 p-6 text-left align-middle shadow-xl transition-all">
+            <HuiDialog.Panel className="w-full max-w-xl space-y-4 overflow-hidden rounded-2xl bg-base-50 p-6 text-left align-middle shadow-xl transition-all">
               <HuiDialog.Title className="heading-small sm:heading-normal text-accent">
                 {title}
               </HuiDialog.Title>
-              <div className="mt-4 max-h-[min(calc(100vh-16rem),20rem)] space-y-4 overflow-y-scroll text-base-700">
+              <div className="max-h-[min(calc(100vh-16rem),20rem)] space-y-4 overflow-y-scroll text-base-700">
                 {content}
               </div>
 
-              <div className="mt-4">
-                <Button
-                  type="button"
-                  className="text-base-700"
-                  variant="secondary"
-                  onClick={onClose}
-                >
-                  {buttonText || "Alles klar"}
-                </Button>
-              </div>
+              <Button type="button" variant="secondary" onClick={onClose}>
+                {buttonText ?? "Alles klar"}
+              </Button>
             </HuiDialog.Panel>
           </Transition.Child>
         </div>
