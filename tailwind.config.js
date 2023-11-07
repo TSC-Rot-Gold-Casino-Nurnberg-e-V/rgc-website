@@ -12,6 +12,7 @@ module.exports = {
         xs: "2px",
       },
       colors: {
+        background: "#C50000",
         primary: {
           50: "#fcf9f0",
           100: "#f7f1dd",

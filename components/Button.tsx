@@ -29,9 +29,9 @@ export const Button = ({
       "gap-2",
       "font-bold",
       variant === "primary" &&
-        "bg-secondary-800 text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
+        "bg-background text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
       variant === "secondary" &&
-        "border border-secondary-900 text-secondary-900 hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
+        "border border-background text-background hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
       startIcon && "pl-4",
       endIcon && "pr-4",
       className

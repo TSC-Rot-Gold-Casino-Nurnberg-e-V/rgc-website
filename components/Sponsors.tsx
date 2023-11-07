@@ -5,7 +5,7 @@ import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
 import hdKroftLogo from "../public/hdKroftLogo.png";
 
 export const Sponsors = () => (
-  <section className="bg-base-900">
+  <section className="bg-background">
     <div className="container-lg grid items-center justify-center gap-8 align-middle sm:grid-cols-3">
       <Link
         href="https://www.pictrs.com/hd-kroft-photography?l=de"
