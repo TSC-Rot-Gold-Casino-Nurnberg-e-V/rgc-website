@@ -18,7 +18,7 @@ import {
 import * as React from "react";
 import colors from "tailwindcss/colors";
 
-const iconsUrl = "http://rot-gold-casino.de/icons";
+const assetsUrl = "http://assets.rot-gold-casino.de";
 
 // TODO: replace with production URL
 const baseUrl = "https://develop.rot-gold-casino.de";
@@ -69,7 +69,7 @@ export const ContactInquiryConfirmationEmail = () => (
       <Body className="bg-base-100 p-8 font-sans text-base-700">
         <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
           <Img
-            src={`${iconsUrl}/rgc-logo.png`}
+            src={`${assetsUrl}/rgc.png`}
             width="56"
             height="56"
             alt="RGC"
@@ -105,7 +105,7 @@ export const ContactInquiryConfirmationEmail = () => (
                   <Column>
                     <Link href="https://www.instagram.com/rgc_nuernberg/">
                       <Img
-                        src={`${iconsUrl}/instagram-logo.png`}
+                        src={`${assetsUrl}/instagram.png`}
                         width="32"
                         height="32"
                         alt="Instagram"
@@ -115,7 +115,7 @@ export const ContactInquiryConfirmationEmail = () => (
                   <Column>
                     <Link href="https://de-de.facebook.com/rgc.nuernberg/">
                       <Img
-                        src={`${iconsUrl}/static/facebook-logo.png`}
+                        src={`${assetsUrl}/static/facebook.png`}
                         width="32"
                         height="32"
                         alt="Facebook"
