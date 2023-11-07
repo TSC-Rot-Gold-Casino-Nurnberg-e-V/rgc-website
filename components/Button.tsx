@@ -25,6 +25,7 @@ export const Button = ({
       "transition-all",
       "flex",
       "items-center",
+      "justify-center",
       "gap-2",
       "font-bold",
       variant === "primary" &&
