@@ -6,27 +6,18 @@ describe("homepage", () => {
   describe("hero banner section", () => {
     it("renders a heading", () => {
       cy.findByRole("heading", {
-        name: /Herzlich Willkommen im Rot-Gold-Casino/i,
+        name: /Lebe, Liebe, Tanze!/i,
       }).should("exist");
     });
 
     it("renders a subheading", () => {
-      cy.findByRole("heading", {
-        name: /Dein Verein für Tanzsport in Nürnberg \/ Fürth/i,
-      }).should("exist");
+      cy.findByText(/Herzlich Willkommen/i).should("exist");
+      cy.findByText(/im TSC Rot-Gold-Casino Nürnberg e.V./i).should("exist");
     });
 
     it("renders a description", () => {
-      cy.findByText(
-        /Erlebe die faszinierende Welt des Tanzens! Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance. Werde Teil unserer Tanzfamilie und erlebe mit uns unvergessliche Momente auf der Tanzfläche./i
-      ).should("exist");
-    });
-
-    it("renders a CTA", () => {
-      cy.findByRole("link", { name: /Komm vorbei/i }).should(
-        "have.attr",
-        "href",
-        "/angebote"
+      cy.findByText(/Dein Verein für Tanzsport in Nürnberg \/ Fürth/i).should(
+        "exist"
       );
     });
   });

@@ -30,7 +30,7 @@ export default async function Turnierergebnisse() {
                     target="_blank"
                     key={turnierergebnis.id}
                     href={turnierergebnis.link}
-                    className="hover:text-accent"
+                    className="hover:text-accent block w-fit rounded-full"
                   >
                     {turnierergebnis.ende !== null ? (
                       <div>

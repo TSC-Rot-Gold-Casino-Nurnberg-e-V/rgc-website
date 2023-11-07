@@ -13,7 +13,7 @@ interface Props {
 
 export const AdditionalAngebote = ({ currentPage }: Props) => (
   <section className="container-lg space-y-8">
-    <h2 className="heading-small text-center text-accent">
+    <h2 className="heading-small text-accent text-center">
       Weitere Angebote unseres Vereins
     </h2>
     <div className="grid auto-rows-[20rem] gap-4 sm:grid-cols-3">

@@ -26,7 +26,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
             {lizenzen.map((lizenz) => (
               <div
                 key={lizenz.id}
-                className="badge-outline badge px-4 py-3 text-accent"
+                className="text-accent text-small rounded-full border border-secondary-900 px-4 py-1"
               >
                 {lizenz.name}
               </div>

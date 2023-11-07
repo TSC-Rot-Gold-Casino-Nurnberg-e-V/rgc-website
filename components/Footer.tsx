@@ -1,23 +1,19 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ComponentProps, forwardRef, ReactElement } from "react";
-import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
 import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
+import { AtIcon } from "./icons/AtIcon";
+import { RgcIcon } from "./icons/RgcIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
     <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
       <div className="order-1 h-full space-y-3">
-        <Link href="/" className="w-fit rounded-md">
-          <Image
-            src={logo}
-            alt="Zur Startseite"
-            className="max-h-12 w-20 object-cover"
-          />
+        <Link href="/" className="block h-12 w-fit rounded-full">
+          <RgcIcon />
         </Link>
         <div className="space-y-1.5">
           <FooterLink
@@ -72,7 +68,7 @@ export const Footer = () => (
           <ContactLink
             href="mailto:info@rot-gold-casino.de"
             text="info@rot-gold-casino.de"
-            icon={<MailIcon />}
+            icon={<AtIcon />}
           />
           <ContactLink
             href="https://de-de.facebook.com/rgc.nuernberg/"
@@ -84,6 +80,17 @@ export const Footer = () => (
             text="Instagram"
             icon={<InstagramIcon />}
           />
+          <div className="group flex gap-2">
+            <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
+              <Link
+                href="/kontakt"
+                className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
+              >
+                <MailIcon />
+                <span>Nachricht schreiben</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -108,7 +115,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
     <Link
       href={href}
       className={twMerge(
-        "block w-fit rounded-md hover:text-base-50",
+        "block w-fit rounded-full hover:text-base-50",
         className
       )}
       {...rest}
@@ -133,7 +140,7 @@ const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
       <Link
         target="_blank"
         href={href}
-        className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
+        className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>

@@ -1,32 +1,45 @@
 import { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
+interface Props {
+  variant?: "primary" | "secondary";
+  startIcon?: JSX.Element;
+  endIcon?: JSX.Element;
+}
+
 export const Button = ({
+  variant = "primary",
+  startIcon,
+  endIcon,
   children,
   className,
   ...rest
-}: PropsWithChildren<ComponentPropsWithoutRef<"button">>) => (
+}: PropsWithChildren<ComponentPropsWithoutRef<"button">> & Props) => (
   <button
     className={twMerge(
-      "gold-gradient",
-      "btn",
       "w-fit",
-      "rounded-md",
-      "border-none",
+      "rounded-full",
       "px-6",
-      "py-4",
-      "font-bold",
-      "text-secondary-950",
-      "shadow",
+      "py-3",
+      "text-large",
       "transition-all",
-      "hover:scale-105",
-      "hover:text-accent",
-      "hover:shadow-md",
-      "hover:shadow-secondary-900/10",
+      "flex",
+      "items-center",
+      "justify-center",
+      "gap-2",
+      "font-bold",
+      variant === "primary" &&
+        "bg-secondary-800 text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
+      variant === "secondary" &&
+        "border border-secondary-900 text-secondary-900 hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
+      startIcon && "pl-4",
+      endIcon && "pr-4",
       className
     )}
     {...rest}
   >
+    {startIcon}
     {children}
+    {endIcon}
   </button>
 );

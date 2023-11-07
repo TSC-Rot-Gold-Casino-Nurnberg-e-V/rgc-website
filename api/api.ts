@@ -246,16 +246,7 @@ async function fetchData(path: string): Promise<{
     pagination?: Pagination;
   };
 }> {
-  const isClientSide = typeof window !== "undefined";
-  const token = isClientSide
-    ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
-    : process.env.CMS_SERVER_TOKEN;
-  const res = await fetch(BASE_URL + path, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    cache: "no-store",
-  });
+  const res = await fetch(BASE_URL + path);
   await handleError(res);
   return await res.json();
 }

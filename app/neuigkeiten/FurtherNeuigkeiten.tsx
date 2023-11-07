@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "../../components/NeuigkeitCard";
+import { LoadingSpinnerIcon } from "../../components/icons/LoadingSpinnerIcon";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;
@@ -62,7 +63,7 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
           <Button
             onClick={getMoreNeuigkeiten}
             disabled={isLoading}
-            className={isLoading ? "loading" : undefined}
+            startIcon={isLoading ? <LoadingSpinnerIcon /> : undefined}
           >
             Mehr anzeigen
           </Button>
