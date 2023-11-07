@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Main } from "../components/Main";
 import { PageHeading } from "../components/PageHeading";
 import { Button } from "../components/Button";
-import { ArrowRightIcon } from "../components/icons/ArrowRightIcon";
+import { MailIcon } from "../components/icons/MailIcon";
+import { ChevronLeftIcon } from "../components/icons/ChevronLeftIcon";
 
 export default function NotFound() {
   return (
@@ -13,18 +14,25 @@ export default function NotFound() {
         <p className="paragraph">
           Leider konnten wir die von dir gesuchte Seite nicht finden.
         </p>
-        <div className="grid gap-8 sm:grid-cols-2">
-          <Link href="/" className="rounded-md">
-            <Button tabIndex={-1} className="w-full">
+        <div className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+          <Link href="/" className="rounded-full">
+            <Button
+              tabIndex={-1}
+              className="w-full"
+              startIcon={<ChevronLeftIcon />}
+            >
               Zur Startseite
             </Button>
           </Link>
-          <Link
-            href="/kontakt"
-            className="text-normal hover:text-accent flex items-center justify-center gap-2 rounded-md font-bold transition-colors"
-          >
-            <span>Kontaktiere uns</span>
-            <ArrowRightIcon />
+          <Link href="/kontakt" className="rounded-full">
+            <Button
+              tabIndex={-1}
+              variant="secondary"
+              startIcon={<MailIcon />}
+              className="w-full"
+            >
+              Kontaktiere uns
+            </Button>
           </Link>
         </div>
       </section>
