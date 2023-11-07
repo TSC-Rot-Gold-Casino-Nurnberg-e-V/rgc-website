@@ -62,13 +62,10 @@ export async function POST(request: NextRequest) {
     console.info("Sending contact inquiry email to: ", RGC_EMAIL);
 
     await transporter.sendMail({
-      from: {
-        name: contactInquiry.name,
-        address: RGC_EMAIL,
-      },
+      from: RGC_EMAIL,
       to: RGC_EMAIL,
-      subject: contactInquiry.subject ?? "Kontaktanfrage",
-      text: contactInquiry.message,
+      subject: "Kontaktanfrage: " + contactInquiry.subject,
+      text: `Name: ${contactInquiry.name}\nE-Mail: ${contactInquiry.email}\nBetreff:${contactInquiry.subject}\n\nNachricht:\n${contactInquiry.message}`,
     });
 
     console.info("Successfully sent contact inquiry to: ", RGC_EMAIL);
