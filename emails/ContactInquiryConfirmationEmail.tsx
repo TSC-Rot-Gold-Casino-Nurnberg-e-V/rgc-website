@@ -113,7 +113,7 @@ export const ContactInquiryConfirmationEmail = () => (
                   <Column>
                     <Link href="https://de-de.facebook.com/rgc.nuernberg/">
                       <Img
-                        src={`${assetsUrl}/static/facebook.png`}
+                        src={`${assetsUrl}/facebook.png`}
                         width="32"
                         height="32"
                         alt="Facebook"
