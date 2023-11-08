@@ -4,7 +4,7 @@
 
 @layer base {
   *:focus-visible {
-    @apply outline outline-2 outline-offset-4 outline-secondary-800;
+    @apply rounded-full outline outline-2 outline-offset-4 outline-secondary-800;
   }
 }
 
