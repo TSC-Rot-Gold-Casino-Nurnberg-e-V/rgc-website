@@ -66,13 +66,9 @@ export const ContactInquiryConfirmationEmail = () => (
     >
       <Body className="bg-base-100 p-8 font-sans text-base-700">
         <Container className="max-w-lg rounded-xl bg-white p-8 shadow">
-          <Img
-            src={`${assetsUrl}/rgc.png`}
-            width="56"
-            height="56"
-            alt="RGC"
-            className="mb-4"
-          />
+          <Link href={baseUrl}>
+            <Img src={`${assetsUrl}/rgc.png`} alt="RGC" className="mb-4 w-28" />
+          </Link>
           <Heading
             as="h1"
             className="text-[30px] font-bold leading-[36px] text-secondary-900"
@@ -92,9 +88,8 @@ export const ContactInquiryConfirmationEmail = () => (
                 <Link href={baseUrl}>
                   <Img
                     src={`${assetsUrl}/rgc.png`}
-                    width="32"
-                    height="32"
                     alt="RGC"
+                    className="w-16"
                   />
                 </Link>
               </Column>
