@@ -26,11 +26,11 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         "justify-center",
         "gap-2",
         "font-bold",
-          variant === "primary" &&
+        variant === "primary" &&
           "bg-background text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
-          variant === "secondary" &&
+        variant === "secondary" &&
           "border border-background text-background hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
-          startIcon && "pl-4",
+        startIcon && "pl-4",
         endIcon && "pr-4",
         className
       )}
