@@ -9,6 +9,7 @@ import { twJoin } from "tailwind-merge";
 import { TrophyIcon } from "../../../components/icons/TrophyIcon";
 import { MusicIcon } from "../../../components/icons/MusicIcon";
 import { Prose } from "../../../components/Prose";
+import { Button } from "../../../components/Button";
 
 interface Props {
   teams: Array<Team>;
@@ -18,20 +19,19 @@ export const FormationTabs = ({ teams }: Props) => (
   <div className="container-md">
     <h2 className="heading-normal text-accent mb-8">Unsere Formationsteams</h2>
     <Tab.Group>
-      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-2xl bg-base-900 p-1.5 sm:flex">
+      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-full bg-base-900 p-1.5 sm:flex">
         {teams.map((team) => (
           <Tab key={team.id} as={Fragment}>
             {({ selected }) => (
-              <button
+              <Button
                 className={twJoin(
-                  "text-extralarge grow rounded-xl py-2 font-bold text-base-300 outline-0 transition-all",
-                  selected
-                    ? "gold-gradient text-accent"
-                    : "hover:bg-base-700 hover:text-base-100"
+                  "w-full border-none text-base-100 outline-none",
+                  !selected && "hover:bg-base-700 hover:text-base-50"
                 )}
+                variant={selected ? "primary" : "secondary"}
               >
                 {team.titel}
-              </button>
+              </Button>
             )}
           </Tab>
         ))}
