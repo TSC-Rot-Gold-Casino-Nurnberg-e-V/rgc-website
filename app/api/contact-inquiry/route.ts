@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
       from: RGC_EMAIL,
       to: RGC_EMAIL,
       subject: "Kontaktanfrage: " + contactInquiry.subject,
-      text: `Name: ${contactInquiry.name}\nE-Mail: ${contactInquiry.email}\nBetreff:${contactInquiry.subject}\n\nNachricht:\n${contactInquiry.message}`,
+      text: `Name: ${contactInquiry.name}\nE-Mail: ${contactInquiry.email}\nBetreff: ${contactInquiry.subject}\n\nNachricht:\n${contactInquiry.message}`,
     });
 
     console.info("Successfully sent contact inquiry to: ", RGC_EMAIL);
