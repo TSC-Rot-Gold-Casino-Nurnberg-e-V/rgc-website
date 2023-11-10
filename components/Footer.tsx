@@ -21,7 +21,7 @@ export const Footer = () => (
             href="/"
             className="text-xl font-bold text-base-50"
           />
-          <p className="text-small" role="Vereinsinfo">
+          <p className="text-small">
             Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit
             etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und
             Deutschland.
