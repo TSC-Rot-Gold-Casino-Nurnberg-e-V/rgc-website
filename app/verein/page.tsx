@@ -50,7 +50,7 @@ export default async function VereinsgeschichtePage() {
                 src={vorstandsmitglied.person.bild.url}
                 width={300}
                 height={300}
-                alt=""
+                alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 className="mb-4 rounded-3xl"
               />
               <h3 className="text-extralarge text-accent font-bold">
