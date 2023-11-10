@@ -25,7 +25,7 @@ export default async function DokumentePage() {
               tabIndex={-1}
               variant="secondary"
               startIcon={<DocumentIcon />}
-              className="!w-full"
+              className="w-full justify-start"
             >
               {dokument.titel}
             </Button>
