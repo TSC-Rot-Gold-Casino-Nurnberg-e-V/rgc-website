@@ -103,7 +103,7 @@ export default async function AngebotPage({ params }: Props) {
                                     src={trainer.person.bild.url}
                                     width={56} // w-14
                                     height={56} // h-14
-                                    alt=""
+                                    alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
                                     className="h-14 w-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:border-secondary-900 hover:shadow-md hover:outline hover:outline-2 hover:outline-secondary-900"
                                   />
                                 </a>
