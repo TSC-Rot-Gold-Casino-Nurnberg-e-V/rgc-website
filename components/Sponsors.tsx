@@ -14,7 +14,7 @@ export const Sponsors = () => (
       >
         <Image
           src={hdKroftLogo}
-          alt=""
+          alt="HD-Kroft Photography"
           width={250}
           className="h-auto rounded-md"
         />
@@ -24,7 +24,12 @@ export const Sponsors = () => (
         target="_blank"
         className="mx-auto rounded-full"
       >
-        <Image src={sbbLogo} alt="" width={250} className="h-auto rounded-md" />
+        <Image
+          src={sbbLogo}
+          alt="Sportbündnis Bundesliga"
+          width={250}
+          className="h-auto rounded-md"
+        />
       </Link>
       <Link
         href="https://www.nuernberg.de/internet/team_nuernberg/"
@@ -33,7 +38,7 @@ export const Sponsors = () => (
       >
         <Image
           src={teamNbgLogo}
-          alt=""
+          alt="Team Nürnberg"
           width={250}
           className="h-auto rounded-md"
         />
