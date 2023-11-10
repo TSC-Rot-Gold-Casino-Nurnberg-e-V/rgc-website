@@ -41,7 +41,7 @@ export default async function VereinsgeschichtePage() {
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-6 gap-10">
-          {vorstandsmitglieder.map((vorstandsmitglied) => (
+          {vorstandsmitglieder.map((vorstandsmitglied, index) => (
             <div
               className="col-span-6 flex max-w-[300px] flex-col sm:col-span-3 lg:col-span-2"
               key={vorstandsmitglied.id}
@@ -52,6 +52,7 @@ export default async function VereinsgeschichtePage() {
                 height={300}
                 alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 className="mb-4 rounded-3xl"
+                priority={index < 3}
               />
               <h3 className="text-extralarge text-accent font-bold">
                 {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
