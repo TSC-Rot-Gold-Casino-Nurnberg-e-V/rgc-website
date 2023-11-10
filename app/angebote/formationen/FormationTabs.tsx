@@ -19,13 +19,13 @@ export const FormationTabs = ({ teams }: Props) => (
   <div className="container-md">
     <h2 className="heading-normal text-accent mb-8">Unsere Formationsteams</h2>
     <Tab.Group>
-      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-full bg-base-900 p-1.5 sm:flex">
+      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
         {teams.map((team) => (
           <Tab key={team.id} as={Fragment}>
             {({ selected }) => (
               <Button
                 className={twJoin(
-                  "w-full border-none text-base-100 outline-none",
+                  "w-full border-none text-base-100 outline-none max-md:rounded-lg",
                   !selected && "hover:bg-base-700 hover:text-base-50"
                 )}
                 variant={selected ? "primary" : "secondary"}
