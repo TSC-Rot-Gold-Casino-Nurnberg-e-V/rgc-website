@@ -10,9 +10,13 @@ import { RgcIcon } from "./icons/RgcIcon";
 
 export const Footer = () => (
   <footer className="bg-background">
-    <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
-      <div className="order-1 h-full space-y-3">
-        <Link href="/" className="block h-12 w-fit rounded-full">
+    <div className="container-lg grid gap-8 text-base-300 max-lg:max-w-xl max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
+      <section className="order-1 h-full space-y-3">
+        <Link
+          href="/"
+          className="block h-12 w-fit rounded-full"
+          aria-label="Startseite"
+        >
           <RgcIcon />
         </Link>
         <div className="space-y-1.5">
@@ -21,16 +25,16 @@ export const Footer = () => (
             href="/"
             className="text-xl font-bold text-base-50"
           />
-          <p className="text-small" role="Vereinsinfo">
+          <p className="text-small">
             Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit
             etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und
             Deutschland.
           </p>
         </div>
-      </div>
-      <div className="order-3 space-y-4 lg:order-2">
+      </section>
+      <section className="order-3 space-y-6 lg:order-2">
         <CategoryHeading text="Informationen" />
-        <div className="space-y-1">
+        <div>
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/verein" />
           <FooterLink text="News" href="/neuigkeiten" />
@@ -41,10 +45,10 @@ export const Footer = () => (
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
         </div>
-      </div>
-      <div className="order-4 space-y-4 lg:order-3">
+      </section>
+      <section className="order-4 space-y-6 lg:order-3">
         <CategoryHeading text="Angebot" />
-        <div className="space-y-1">
+        <div>
           <FooterLink text="Turniertanzen" href="/angebote/turniertanzen" />
           <FooterLink
             text="Formationstanzen"
@@ -56,10 +60,10 @@ export const Footer = () => (
           />
           <FooterLink text="Freizeittanzen" href="/angebote/freizeittanz" />
         </div>
-      </div>
-      <div className="order-2 space-y-4 lg:order-4">
+      </section>
+      <section className="order-2 space-y-3 lg:order-4">
         <CategoryHeading text="Kontakt" />
-        <div className="space-y-3">
+        <div>
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             icon={<LocationIcon />}
@@ -80,11 +84,11 @@ export const Footer = () => (
             text="Instagram"
             icon={<InstagramIcon />}
           />
-          <div className="group flex gap-2">
-            <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
+          <div className="group">
+            <div className="group-hover:cursor-pointer group-hover:text-base-50">
               <Link
                 href="/kontakt"
-                className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
+                className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
               >
                 <MailIcon />
                 <span>Nachricht schreiben</span>
@@ -92,7 +96,7 @@ export const Footer = () => (
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </footer>
 );
@@ -115,7 +119,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
     <Link
       href={href}
       className={twMerge(
-        "block w-fit rounded-full hover:text-base-50",
+        "-m-3 block rounded-full p-3 hover:text-base-50",
         className
       )}
       {...rest}
@@ -135,12 +139,12 @@ interface ContactLinkProps {
 }
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
-  <div className="group flex gap-2">
-    <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
+  <div className="group">
+    <div className="group-hover:cursor-pointer group-hover:text-base-50">
       <Link
         target="_blank"
         href={href}
-        className="flex w-fit gap-4 rounded-full group-hover:text-base-50"
+        className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>

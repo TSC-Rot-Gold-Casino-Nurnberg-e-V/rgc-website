@@ -103,7 +103,7 @@ export default async function AngebotPage({ params }: Props) {
                                     src={trainer.person.bild.url}
                                     width={56} // w-14
                                     height={56} // h-14
-                                    alt=""
+                                    alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
                                     className="h-14 w-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:border-secondary-900 hover:shadow-md hover:outline hover:outline-2 hover:outline-secondary-900"
                                   />
                                 </a>
@@ -163,34 +163,38 @@ export default async function AngebotPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <div className="container-lg">
-        <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
-          <h2 className="heading-small text-accent">Häufig gestellte Fragen</h2>
-          <div className="divide-y">
-            {angebot.faqs.map((faq) => (
-              <section
-                key={faq.id}
-                className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
-              >
-                <h3 className="text-extralarge md:col-span-2">{faq.frage}</h3>
-                <Prose className="md:col-span-3" content={faq.antwort} />
-              </section>
-            ))}
-          </div>
-          <div>
-            <p>Du hast weitere Fragen?</p>
-            <div className="flex gap-1">
-              <p>Dann kontaktiere uns</p>
-              <Link
-                href="/kontakt"
-                className="text-accent rounded-full font-semibold"
-              >
-                hier.
-              </Link>
+      {angebot.faqs.length > 0 && (
+        <div className="container-lg">
+          <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
+            <h2 className="heading-small text-accent">
+              Häufig gestellte Fragen
+            </h2>
+            <div className="divide-y">
+              {angebot.faqs.map((faq) => (
+                <section
+                  key={faq.id}
+                  className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
+                >
+                  <h3 className="text-extralarge md:col-span-2">{faq.frage}</h3>
+                  <Prose className="md:col-span-3" content={faq.antwort} />
+                </section>
+              ))}
             </div>
-          </div>
-        </section>
-      </div>
+            <div>
+              <p>Du hast weitere Fragen?</p>
+              <div className="flex gap-1">
+                <p>Dann kontaktiere uns</p>
+                <Link
+                  href="/kontakt"
+                  className="text-accent rounded-full font-semibold"
+                >
+                  hier.
+                </Link>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
     </Main>
   );
 }
