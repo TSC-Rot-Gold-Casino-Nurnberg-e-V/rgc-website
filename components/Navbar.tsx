@@ -76,7 +76,7 @@ export const Navbar = () => {
                   <Menu.Items className="text-normal rounded-2xl bg-base-800 p-2 text-base-50 shadow-sm shadow-base-900">
                     <MenuLink text="Der Verein" href="/verein" />
                     <MenuLink text="News" href="/neuigkeiten" />
-                    <MenuLink text="Angebot" href="/angebote" />
+                    <MenuLink text="Angebot" href="/#angebote" />
                     <MenuLink text="Veranstaltungen" href="/veranstaltungen" />
                     <MenuLink
                       text="Turnierergebnisse"
