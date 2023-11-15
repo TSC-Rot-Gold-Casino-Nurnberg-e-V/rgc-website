@@ -15,7 +15,7 @@ export default async function VereinsgeschichtePage() {
   return (
     <Main>
       <PageHeading>Der Verein</PageHeading>
-      <section className="container-md space-y-4">
+      <section className="container-lg space-y-4">
         <h2 className="heading-small sm:heading-normal text-accent">
           Über uns
         </h2>
