@@ -2,7 +2,7 @@ import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
 import formation from "../../../public/formation.png";
 import { AdditionalAngebote } from "../AdditionalAngebote";
-import { LearnMore } from "../LearnMore";
+import { LinkButton } from "../LinkButton";
 import Image from "next/image";
 
 export default function FormationstanzenPage() {
@@ -37,7 +37,10 @@ export default function FormationstanzenPage() {
               Zu den Standardtänzen gehören der Langsamen Walzer, Tango, Wiener
               Walzer, Slowfox und Quickstep.
             </p>
-            <LearnMore href="/angebote/formationen/standard" />
+            <LinkButton
+              href="/angebote/formationen/standard"
+              text="Zu den Standardformationen"
+            />
           </section>
           <div className="relative order-2 h-96">
             <Image
@@ -64,7 +67,10 @@ export default function FormationstanzenPage() {
               Zu den Lateinamerikanischen Tänzen gehören Samba, Cha-Cha-Cha,
               Rumba, Paso Doble und Jive.
             </p>
-            <LearnMore href="/angebote/formationen/latein" />
+            <LinkButton
+              href="/angebote/formationen/latein"
+              text="Zu den Lateinformationen"
+            />
           </section>
           <div className="relative order-5 h-96">
             <Image

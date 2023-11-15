@@ -4,12 +4,13 @@ import { ChevronRightIcon } from "../../components/icons/ChevronRightIcon";
 
 interface Props {
   href: string;
+  text: string;
 }
 
-export const LearnMore = ({ href }: Props) => (
+export const LinkButton = ({ href, text }: Props) => (
   <Link href={href} className="block w-fit rounded-full">
     <Button tabIndex={-1} variant="secondary" endIcon={<ChevronRightIcon />}>
-      Mehr erfahren
+      {text}
     </Button>
   </Link>
 );

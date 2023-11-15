@@ -2,7 +2,7 @@ import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import kinder from "../../../public/kindertanzen.png";
-import { LearnMore } from "../LearnMore";
+import { LinkButton } from "../LinkButton";
 import Image from "next/image";
 
 export default function KindertanzenPage() {
@@ -36,7 +36,10 @@ export default function KindertanzenPage() {
               neue Freunde zu finden und gleichzeitig ihre körperliche
               Entwicklung zu fördern.
             </p>
-            <LearnMore href="/angebote/kindertanzen" />
+            <LinkButton
+              href="/angebote/kindertanzen"
+              text="Zu den Gruppenstunden"
+            />
           </section>
           <div className="relative order-2 h-96">
             <Image
@@ -63,7 +66,10 @@ export default function KindertanzenPage() {
               Zu den Lateinamerikanischen Tänzen gehören Samba, Cha-Cha-Cha,
               Rumba, Paso Doble und Jive.
             </p>
-            <LearnMore href="/angebote/kinder-junioren-jugend-latein" />
+            <LinkButton
+              href="/angebote/kinder-junioren-jugend-latein"
+              text="Zu den Gruppenstunden"
+            />
           </section>
           <div className="relative order-5 h-96">
             <Image
@@ -92,7 +98,10 @@ export default function KindertanzenPage() {
               Zu den Standardtänzen gehören der Langsamen Walzer, Tango, Wiener
               Walzer, Slowfox und Quickstep.
             </p>
-            <LearnMore href="/angebote/kinder-junioren-jugend-standard" />
+            <LinkButton
+              href="/angebote/kinder-junioren-jugend-standard"
+              text="Zu den Gruppenstunden"
+            />
           </section>
           <div className="relative order-7 h-96">
             <Image
