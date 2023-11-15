@@ -56,7 +56,7 @@ const AngebotSection = () => (
   <div className="bg-base-900">
     <section
       aria-label="Kursangebote"
-      className="container-lg space-y-12"
+      className="container-lg space-y-8"
       id="angebote"
     >
       <div className="space-y-6 text-center text-base-50">
