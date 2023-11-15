@@ -18,7 +18,7 @@ export default function KindertanzenPage() {
       </div>
       <section className="container-lg space-y-8">
         <h2 className="heading-normal text-accent text-center">Gruppen</h2>
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid items-center gap-8 sm:grid-cols-2">
           <section className="space-y-4 self-center sm:order-3">
             <h2 className="heading-small text-accent sm:text-center">
               Kindertanzen
