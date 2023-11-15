@@ -26,14 +26,17 @@ export default function TurniertanzenPage() {
               Standard
             </h2>
             <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-              magnam minima neque quae quaerat repudiandae similique veritatis
-              vero voluptates voluptatibus.
+              Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
+              unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird
+              als Schreittanz betrachtet, während die anderen Tänze als
+              Schwungtänze bezeichnet werden. Ein weiteres charakteristisches
+              Merkmal der Standardtänze ist der durchgehende Körperkontakt
+              zwischen den Tanzpartnern, der ohne Unterbrechung aufrechterhalten
+              wird.
             </p>
             <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-              magnam minima neque quae quaerat repudiandae similique veritatis
-              vero voluptates voluptatibus.
+              Zu den Standardtänzen gehören der Langsamen Walzer, Tango, Wiener
+              Walzer, Slowfox und Quickstep.
             </p>
             <LearnMore href="/angebote/turniertanz-standard" />
           </section>
@@ -50,14 +53,17 @@ export default function TurniertanzenPage() {
           <section className="order-4 space-y-4 self-center">
             <h2 className="heading-small text-accent sm:text-center">Latein</h2>
             <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-              magnam minima neque quae quaerat repudiandae similique veritatis
-              vero voluptates voluptatibus.
+              Die lateinamerikanischen Tänze zeichnen sich durch die
+              Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf
+              vielfältige Weise die Beziehung zwischen den Paaren. Schnelle
+              Drehungen und der häufige Wechsel zwischen energiegeladenen und
+              ruhigen Bewegungsphasen, sowohl zeitlich als auch durch
+              verschiedene Körperteile, sind weitere charakteristische Merkmale
+              dieser Tänze.
             </p>
             <p className="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
-              magnam minima neque quae quaerat repudiandae similique veritatis
-              vero voluptates voluptatibus.
+              Zu den Lateinamerikanischen Tänzen gehören Samba, Cha-Cha-Cha,
+              Rumba, Paso Doble und Jive.
             </p>
             <LearnMore href="/angebote/turniertanz-latein" />
           </section>
