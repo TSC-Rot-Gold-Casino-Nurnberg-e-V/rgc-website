@@ -3,7 +3,7 @@ import { PageHeading } from "../../../components/PageHeading";
 import standard from "../../../public/eventImage.png";
 import latein from "../../../public/einzeltanz.png";
 import { AdditionalAngebote } from "../AdditionalAngebote";
-import { LinkButton } from "../LinkButton";
+import { LinkButton } from "../../../components/LinkButton";
 import Image from "next/image";
 
 export default function TurniertanzenPage() {

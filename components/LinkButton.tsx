@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Button } from "../../components/Button";
-import { ChevronRightIcon } from "../../components/icons/ChevronRightIcon";
+import { Button } from "./Button";
+import { ChevronRightIcon } from "./icons/ChevronRightIcon";
 
 interface Props {
   href: string;

@@ -2,7 +2,7 @@ import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import kinder from "../../../public/kindertanzen.png";
-import { LinkButton } from "../LinkButton";
+import { LinkButton } from "../../../components/LinkButton";
 import Image from "next/image";
 
 export default function KindertanzenPage() {
