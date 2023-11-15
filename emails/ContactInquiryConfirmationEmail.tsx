@@ -135,7 +135,7 @@ export const ContactInquiryConfirmationEmail = () => (
               Veranstaltungen
             </Link>{" "}
             ・{" "}
-            <Link href={`${baseUrl}/#angebote`} className="text-secondary-900">
+            <Link href={`${baseUrl}/angebote`} className="text-secondary-900">
               Angebote
             </Link>
           </Text>
