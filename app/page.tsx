@@ -27,10 +27,7 @@ export default async function HomePage() {
 
 const HeroSection = () => (
   <section className="relative bg-base-900">
-    <div
-      role="banner"
-      className="container-lg relative z-10 space-y-6 py-20 text-primary-50 sm:py-32"
-    >
+    <div className="container-lg relative z-10 space-y-6 py-20 text-primary-50 sm:py-32">
       <h1 className="heading-large sm:heading-extralarge text-gold mx-auto max-w-lg text-center font-extrabold uppercase">
         Lebe, Liebe, Tanze!
       </h1>
