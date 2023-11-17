@@ -9,6 +9,7 @@ import { twJoin } from "tailwind-merge";
 import { TrophyIcon } from "../../../components/icons/TrophyIcon";
 import { MusicIcon } from "../../../components/icons/MusicIcon";
 import { Prose } from "../../../components/Prose";
+import { Button } from "../../../components/Button";
 
 interface Props {
   teams: Array<Team>;
@@ -16,22 +17,21 @@ interface Props {
 
 export const FormationTabs = ({ teams }: Props) => (
   <div className="container-md">
-    <h2 className="heading-normal mb-8 text-accent">Unsere Formationsteams</h2>
+    <h2 className="heading-normal text-accent mb-8">Unsere Formationsteams</h2>
     <Tab.Group>
-      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-2xl bg-base-900 p-1.5 sm:flex">
+      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
         {teams.map((team) => (
           <Tab key={team.id} as={Fragment}>
             {({ selected }) => (
-              <button
+              <Button
                 className={twJoin(
-                  "text-extralarge grow rounded-xl py-2 font-bold text-base-300 outline-0 transition-all",
-                  selected
-                    ? "gold-gradient text-accent"
-                    : "hover:bg-base-700 hover:text-base-100"
+                  "w-full border-none text-base-100 outline-none max-md:rounded-lg",
+                  !selected && "hover:bg-base-700 hover:text-base-50"
                 )}
+                variant={selected ? "primary" : "secondary"}
               >
                 {team.titel}
-              </button>
+              </Button>
             )}
           </Tab>
         ))}
@@ -62,7 +62,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.trainers.length > 0 && (
               <section>
-                <h3 className="heading-small mb-4 mt-8 text-accent">Trainer</h3>
+                <h3 className="heading-small text-accent mb-4 mt-8">Trainer</h3>
                 {team.trainers.map((trainer) => (
                   <TrainerCard
                     key={trainer.id}
@@ -78,7 +78,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.kapitaene.length > 0 && (
               <section>
-                <h3 className="heading-small mb-4 mt-8 text-accent">
+                <h3 className="heading-small text-accent mb-4 mt-8">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
                 <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">

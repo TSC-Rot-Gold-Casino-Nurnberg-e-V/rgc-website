@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      blur: {
+        xs: "2px",
+      },
       colors: {
         primary: {
           50: "#fcf9f0",
@@ -39,9 +42,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
-  daisyui: {
-    logs: false,
-    themes: false,
-  },
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 };

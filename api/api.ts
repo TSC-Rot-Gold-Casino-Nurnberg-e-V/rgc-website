@@ -246,19 +246,18 @@ async function fetchData(path: string): Promise<{
     pagination?: Pagination;
   };
 }> {
-  const isClientSide = typeof window !== "undefined";
-  const token = isClientSide
-    ? process.env.NEXT_PUBLIC_CMS_CLIENT_TOKEN
-    : process.env.CMS_SERVER_TOKEN;
-  const res = await fetch(BASE_URL + path, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    cache: "no-store",
-  });
+  const res = await fetch(BASE_URL + path);
+  await handleError(res);
+  return await res.json();
+}
+
+async function handleError(res: Response) {
   if (!res.ok) {
+    console.error("An error occurred while fetching data from the CMS: ");
+    console.error("status: ", res.status);
+    console.error("statusText: ", res.statusText);
     const error = await res.json();
+    console.error("payload: ", error);
     throw new Error(JSON.stringify(error));
   }
-  return await res.json();
 }

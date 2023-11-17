@@ -1,23 +1,23 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ComponentProps, forwardRef, ReactElement } from "react";
-import logo from "../public/RGC_Logo_white.svg";
 import { MailIcon } from "./icons/MailIcon";
 import { FacebookIcon } from "./icons/FacebookIcon";
 import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
+import { AtIcon } from "./icons/AtIcon";
+import { RgcIcon } from "./icons/RgcIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
-    <div className="container-lg grid gap-10 text-base-300 max-lg:max-w-lg max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
-      <div className="order-1 h-full space-y-3">
-        <Link href="/" className="w-fit rounded-md">
-          <Image
-            src={logo}
-            alt="Zur Startseite"
-            className="max-h-12 w-20 object-cover"
-          />
+    <div className="container-lg grid gap-8 text-base-300 max-lg:max-w-xl max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
+      <section className="order-1 h-full space-y-3">
+        <Link
+          href="/"
+          className="block h-12 w-fit rounded-full"
+          aria-label="Startseite"
+        >
+          <RgcIcon />
         </Link>
         <div className="space-y-1.5">
           <FooterLink
@@ -25,16 +25,16 @@ export const Footer = () => (
             href="/"
             className="text-xl font-bold text-base-50"
           />
-          <p className="text-small" role="Vereinsinfo">
+          <p className="text-small">
             Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit
             etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und
             Deutschland.
           </p>
         </div>
-      </div>
-      <div className="order-3 space-y-4 lg:order-2">
+      </section>
+      <section className="order-3 space-y-6 lg:order-2">
         <CategoryHeading text="Informationen" />
-        <div className="space-y-1">
+        <div>
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/verein" />
           <FooterLink text="News" href="/neuigkeiten" />
@@ -45,22 +45,25 @@ export const Footer = () => (
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
         </div>
-      </div>
-      <div className="order-4 space-y-4 lg:order-3">
+      </section>
+      <section className="order-4 space-y-6 lg:order-3">
         <CategoryHeading text="Angebot" />
-        <div className="space-y-1">
-          <FooterLink text="Turniertanzen" href="/angebote#turniertanzen" />
+        <div>
+          <FooterLink text="Turniertanzen" href="/angebote/turniertanzen" />
           <FooterLink
             text="Formationstanzen"
-            href="/angebote#formationstanzen"
+            href="/angebote/formationstanzen"
           />
-          <FooterLink text="Kindertanzen" href="/angebote#kindertanzen" />
-          <FooterLink text="Freizeittanzen" href="/angebote#freizeittanzen" />
+          <FooterLink
+            text="Kinder & Jugend"
+            href="/angebote/kinder-und-jugend"
+          />
+          <FooterLink text="Freizeittanzen" href="/angebote/freizeittanz" />
         </div>
-      </div>
-      <div className="order-2 space-y-4 lg:order-4">
+      </section>
+      <section className="order-2 space-y-3 lg:order-4">
         <CategoryHeading text="Kontakt" />
-        <div className="space-y-3">
+        <div>
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             icon={<LocationIcon />}
@@ -69,7 +72,7 @@ export const Footer = () => (
           <ContactLink
             href="mailto:info@rot-gold-casino.de"
             text="info@rot-gold-casino.de"
-            icon={<MailIcon />}
+            icon={<AtIcon />}
           />
           <ContactLink
             href="https://de-de.facebook.com/rgc.nuernberg/"
@@ -81,8 +84,19 @@ export const Footer = () => (
             text="Instagram"
             icon={<InstagramIcon />}
           />
+          <div className="group">
+            <div className="group-hover:cursor-pointer group-hover:text-base-50">
+              <Link
+                href="/kontakt"
+                className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
+              >
+                <MailIcon />
+                <span>Nachricht schreiben</span>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   </footer>
 );
@@ -105,7 +119,7 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
     <Link
       href={href}
       className={twMerge(
-        "block w-fit rounded-md hover:text-base-50",
+        "-m-3 block rounded-full p-3 hover:text-base-50",
         className
       )}
       {...rest}
@@ -125,12 +139,12 @@ interface ContactLinkProps {
 }
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
-  <div className="group flex gap-2">
-    <div className="flex gap-4 group-hover:cursor-pointer group-hover:text-base-50">
+  <div className="group">
+    <div className="group-hover:cursor-pointer group-hover:text-base-50">
       <Link
         target="_blank"
         href={href}
-        className="flex w-fit gap-4 rounded-md group-hover:text-base-50"
+        className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
       >
         {icon}
         <span>{text}</span>

@@ -21,7 +21,7 @@ export default async function FormationPage({ params }: Props) {
   return (
     <Main>
       <PageHeading>{formation.titel}</PageHeading>
-      <Prose content={formation.beschreibung} className="container-md" />
+      <Prose content={formation.beschreibung} className="container-md pb-0" />
       <FormationTabs teams={formation.teams} />
     </Main>
   );

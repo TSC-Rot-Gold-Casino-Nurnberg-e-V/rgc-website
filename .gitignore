@@ -39,3 +39,6 @@ next-env.d.ts
 
 # intelliJ
 .idea
+
+# react email
+/.react-email/

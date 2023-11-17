@@ -6,6 +6,8 @@ import { MailIcon } from "../../components/icons/MailIcon";
 import { ReactElement } from "react";
 import { TrainerCard } from "../angebote/TrainerCard";
 import { Main } from "../../components/Main";
+import { Button } from "../../components/Button";
+import { ChevronRightIcon } from "../../components/icons/ChevronRightIcon";
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();
@@ -13,7 +15,7 @@ export default async function VereinsgeschichtePage() {
   return (
     <Main>
       <PageHeading>Der Verein</PageHeading>
-      <section className="container-md space-y-4">
+      <section className="container-lg space-y-4">
         <h2 className="heading-small sm:heading-normal text-accent">
           Über uns
         </h2>
@@ -24,19 +26,22 @@ export default async function VereinsgeschichtePage() {
           Faktor des gesellschaftlichen Lebens. Mit etwa 600 Mitgliedern zählt
           er zu den größten Tanzsportclubs in Bayern und Deutschland.
         </p>
-        <Link
-          href="/vereinsgeschichte"
-          className="paragraph block rounded font-semibold text-accent"
-        >
-          Zur kompletten Geschichte unseres Vereins
+        <Link href="/vereinsgeschichte" className="block w-fit rounded-full">
+          <Button
+            tabIndex={-1}
+            variant="secondary"
+            endIcon={<ChevronRightIcon />}
+          >
+            Zur Vereinsgeschichte
+          </Button>
         </Link>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-center text-accent">
+        <h2 className="heading-small sm:heading-normal text-accent text-center">
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-6 gap-10">
-          {vorstandsmitglieder.map((vorstandsmitglied) => (
+          {vorstandsmitglieder.map((vorstandsmitglied, index) => (
             <div
               className="col-span-6 flex max-w-[300px] flex-col sm:col-span-3 lg:col-span-2"
               key={vorstandsmitglied.id}
@@ -45,10 +50,11 @@ export default async function VereinsgeschichtePage() {
                 src={vorstandsmitglied.person.bild.url}
                 width={300}
                 height={300}
-                alt=""
+                alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 className="mb-4 rounded-3xl"
+                priority={index < 3}
               />
-              <h3 className="text-extralarge font-bold text-accent">
+              <h3 className="text-extralarge text-accent font-bold">
                 {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
               </h3>
               <p className="mb-4 text-base-700">{vorstandsmitglied.rolle}</p>
@@ -71,12 +77,12 @@ export default async function VereinsgeschichtePage() {
         </div>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-center text-accent">
+        <h2 className="heading-small sm:heading-normal text-accent text-center">
           Cheftrainer
         </h2>
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
-            <h3 className="heading-extrasmall sm:heading-small mb-5 text-accent max-sm:text-center">
+            <h3 className="heading-extrasmall sm:heading-small text-accent mb-5 max-sm:text-center">
               {cheftrainer.titel}
             </h3>
             <TrainerCard
@@ -100,8 +106,8 @@ interface ContactLinkProps {
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
   <div className="group flex cursor-pointer gap-2">
-    <div className="flex gap-4 group-hover:text-accent">
-      <a href={href} className="flex w-fit gap-2 rounded-md">
+    <div className="group-hover:text-accent flex gap-4">
+      <a href={href} className="flex w-fit gap-2 rounded-full">
         <div className="grow">{icon}</div>
         <span>{text}</span>
       </a>

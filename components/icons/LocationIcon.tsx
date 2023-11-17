@@ -6,7 +6,6 @@ export const LocationIcon = () => (
     strokeWidth="1.5"
     stroke="currentColor"
     className="h-6 w-6"
-    role="mapIcon"
   >
     <path
       strokeLinecap="round"

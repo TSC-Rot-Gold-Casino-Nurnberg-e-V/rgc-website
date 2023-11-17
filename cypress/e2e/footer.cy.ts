@@ -9,7 +9,7 @@ describe("footer", () => {
       .siblings()
       .should("contain", "Freizeittanzen")
       .should("contain", "Turniertanzen")
-      .should("contain", "Kindertanzen")
+      .should("contain", "Kinder & Jugend")
       .should("contain", "Formationstanzen");
   });
 
@@ -30,7 +30,7 @@ describe("footer", () => {
 
   it("navigates to the homepage", () => {
     cy.findByRole("contentinfo")
-      .findByRole("link", { name: /Zur Startseite/i })
+      .findAllByRole("link", { name: /Startseite/i })
       .should("have.attr", "href", "/");
   });
 
@@ -49,12 +49,9 @@ describe("footer", () => {
   });
 
   it("includes infos about the club history", () => {
-    cy.findByRole("contentinfo")
-      .findAllByRole("Vereinsinfo")
-      .should(
-        "have.text",
-        "Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und Deutschland."
-      );
+    cy.findByRole("contentinfo").contains(
+      "Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und Deutschland."
+    );
   });
 
   it("should link to the correct external contact links", () => {

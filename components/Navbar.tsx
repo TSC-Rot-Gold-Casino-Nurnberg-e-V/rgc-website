@@ -2,12 +2,11 @@
 
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
-import Image from "next/image";
-import logo from "../public/RGC_Logo_white.svg";
 import { useHideNavbar } from "../utils/useHideNavbar";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
+import { RgcIcon } from "./icons/RgcIcon";
 
 export const Navbar = () => {
   const hideNavbar = useHideNavbar();
@@ -19,14 +18,15 @@ export const Navbar = () => {
       )}
     >
       <div className="mx-auto flex h-20 max-w-screen-lg items-center justify-between">
-        <Link href="/" className="rounded-md">
-          <Image
-            src={logo}
-            alt="Startseite"
-            className="max-h-12 w-20 object-cover"
-            priority={true}
-          />
-        </Link>
+        <div className="h-full w-fit py-4">
+          <Link
+            href="/"
+            aria-label="Startseite"
+            className="block h-full w-fit rounded-full"
+          >
+            <RgcIcon />
+          </Link>
+        </div>
         <ul className="flex gap-1 max-md:hidden">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="News" href="/neuigkeiten" />
@@ -39,7 +39,7 @@ export const Navbar = () => {
           />
           <NavLink text="Kontakt" href="/kontakt" />
         </ul>
-        <div className="relative md:hidden" role="presentation">
+        <div className="relative md:hidden">
           <Menu>
             {({ open }) => (
               <>
@@ -56,7 +56,6 @@ export const Navbar = () => {
                     strokeWidth={1.5}
                     stroke="currentColor"
                     className="h-6 w-6"
-                    role="presentation"
                   >
                     <path
                       strokeLinecap="round"
@@ -74,7 +73,7 @@ export const Navbar = () => {
                   leaveFrom="transform scale-100 opacity-100"
                   leaveTo="transform scale-95 opacity-0"
                 >
-                  <Menu.Items className="text-normal menu rounded-box bg-base-800 py-2 text-base-50 shadow-sm shadow-base-900">
+                  <Menu.Items className="text-normal rounded-2xl bg-base-800 p-2 text-base-50 shadow-sm shadow-base-900">
                     <MenuLink text="Der Verein" href="/verein" />
                     <MenuLink text="News" href="/neuigkeiten" />
                     <MenuLink text="Angebot" href="/angebote" />
@@ -106,13 +105,18 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     const pathname = usePathname();
     const isActive = pathname?.startsWith(href);
     return (
-      <li className={shouldHideOnSmallViewport ? "max-lg:hidden" : ""}>
+      <li
+        className={twJoin(
+          shouldHideOnSmallViewport && "max-lg:hidden",
+          "flex list-none"
+        )}
+      >
         <Link
           className={twMerge(
-            "whitespace-nowrap rounded-md px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
+            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
-              : "text-base-300",
+              : "text-base-200",
             className
           )}
           {...rest}
@@ -140,7 +144,7 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
       <NavLink
         text={text}
         href={href}
-        className={twJoin("rounded-2xl", active && "bg-base-700")}
+        className={twJoin("rounded-2xl px-3", active && "bg-base-700")}
       />
     )}
   </Menu.Item>

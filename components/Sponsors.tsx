@@ -1,23 +1,60 @@
 import Link from "next/link";
 import Image from "next/image";
 import sbbLogo from "../public/sbbLogo.png";
-import aragLogo from "../public/aragLogo.jpg";
 import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
+import hdKroftLogo from "../public/hdKroftLogo.png";
+import heyduckMalerbetrieb from "../public/heyduckMalerbetrieb.png";
 
 export const Sponsors = () => (
   <section className="bg-base-900">
-    <div className="container-lg flex flex-wrap items-center justify-around gap-6 gap-y-12">
-      <Link href="https://www.sportbuendnis-bundesliga.de/" target="_blank">
-        <Image src={sbbLogo} alt="" width={208} />
+    <div className="container-lg grid items-center justify-center gap-8 align-middle sm:grid-cols-2 md:grid-cols-4">
+      <Link
+        href="https://www.pictrs.com/hd-kroft-photography?l=de"
+        target="_blank"
+        className="mx-auto rounded-md"
+      >
+        <Image
+          src={hdKroftLogo}
+          alt="HD-Kroft Photography"
+          width={250}
+          className="h-auto rounded-md"
+        />
       </Link>
-      <Link href="https://www.arag-partner.de/gunnar-zidella/" target="_blank">
-        <Image src={aragLogo} alt="" width={208} />
+      <Link
+        href="https://www.sportbuendnis-bundesliga.de/"
+        target="_blank"
+        className="mx-auto rounded-full"
+      >
+        <Image
+          src={sbbLogo}
+          alt="Sportbündnis Bundesliga"
+          width={250}
+          className="h-auto rounded-md"
+        />
       </Link>
       <Link
         href="https://www.nuernberg.de/internet/team_nuernberg/"
         target="_blank"
+        className="mx-auto rounded-md"
       >
-        <Image src={teamNbgLogo} alt="" width={208} />
+        <Image
+          src={teamNbgLogo}
+          alt="Team Nürnberg"
+          width={250}
+          className="h-auto rounded-md"
+        />
+      </Link>
+      <Link
+        href="https://www.heyduck-maler.de/"
+        target="_blank"
+        className="mx-auto rounded-md"
+      >
+        <Image
+          src={heyduckMalerbetrieb}
+          alt="Heyduck Maler und Lackierer"
+          width={250}
+          className="h-auto rounded-md"
+        />
       </Link>
     </div>
   </section>
