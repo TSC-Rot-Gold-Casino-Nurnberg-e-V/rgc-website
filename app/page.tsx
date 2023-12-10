@@ -1,8 +1,10 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "../components/Button";
 import formation from "../public/formation.png";
 import kinder from "../public/kindertanzen.png";
-import heroBanner from "../public/heroBanner.png";
+import rgcWebsiteHeader1 from "../public/RGC_Website_Header_1.png";
+import rgcWebsiteHeader2 from "../public/RGC_Website_Header_2.png";
+import rgcWebsiteHeader3 from "../public/RGC_Website_Header_3.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
@@ -11,6 +13,16 @@ import { Main } from "../components/Main";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
 import standard from "../public/eventImage.png";
 import { AngebotCard } from "./angebote/AngebotCard";
+
+const random = Math.random();
+let heroImage: StaticImageData;
+if (random < 0.33) {
+  heroImage = rgcWebsiteHeader1;
+} else if (random < 0.66) {
+  heroImage = rgcWebsiteHeader2;
+} else {
+  heroImage = rgcWebsiteHeader3;
+}
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
@@ -26,20 +38,20 @@ export default async function HomePage() {
 }
 
 const HeroSection = () => (
-  <section className="relative bg-base-900">
-    <div className="container-lg relative z-10 space-y-6 py-20 text-primary-50 sm:py-32">
+  <section className="relative h-[calc(100dvh-80px)] bg-base-900">
+    <div className="container-lg relative z-10 flex h-full flex-col justify-center space-y-6 py-20 text-primary-50 sm:py-32">
       <h1 className="heading-large sm:heading-extralarge text-gold mx-auto max-w-lg text-center font-extrabold uppercase">
         Lebe, Liebe, Tanze!
       </h1>
       <div className="heading-extrasmall mx-auto max-w-2xl space-y-1 text-center text-base-50">
         <p>Herzlich Willkommen</p>
         <p>im TSC Rot-Gold-Casino Nürnberg e.V.</p>
-        <p>Dein Verein für Tanzsport in Nürnberg / Fürth</p>
+        <p className="pt-4">Dein Verein für Tanzsport in Nürnberg / Fürth</p>
       </div>
     </div>
-    <div className="absolute inset-0 h-full blur-xs">
+    <div className="absolute inset-0 h-full opacity-50 blur-xs">
       <Image
-        src={heroBanner}
+        src={heroImage}
         alt=""
         className="object-cover object-top"
         fill
