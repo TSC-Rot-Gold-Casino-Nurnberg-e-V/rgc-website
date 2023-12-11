@@ -13,6 +13,7 @@ import { Main } from "../components/Main";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
 import standard from "../public/eventImage.png";
 import { AngebotCard } from "./angebote/AngebotCard";
+import { HeroSectionText } from "./HeroSectionText";
 
 const random = Math.random();
 let heroImage: StaticImageData;
@@ -39,16 +40,7 @@ export default async function HomePage() {
 
 const HeroSection = () => (
   <section className="relative h-[calc(100dvh-80px)] bg-base-900">
-    <div className="container-lg relative z-10 flex h-full flex-col justify-center space-y-6 py-20 text-primary-50 sm:py-32">
-      <h1 className="heading-large sm:heading-extralarge text-gold mx-auto max-w-lg text-center font-extrabold uppercase">
-        Lebe, Liebe, Tanze!
-      </h1>
-      <div className="heading-extrasmall mx-auto max-w-2xl space-y-1 text-center text-base-50">
-        <p>Herzlich Willkommen</p>
-        <p>im TSC Rot-Gold-Casino Nürnberg e.V.</p>
-        <p className="pt-4">Dein Verein für Tanzsport in Nürnberg / Fürth</p>
-      </div>
-    </div>
+    <HeroSectionText />
     <div className="absolute inset-0 h-full opacity-50 blur-xs">
       <Image
         src={heroImage}
