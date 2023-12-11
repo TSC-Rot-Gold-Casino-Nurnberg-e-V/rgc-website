@@ -13,7 +13,7 @@ import { Main } from "../components/Main";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
 import standard from "../public/eventImage.png";
 import { AngebotCard } from "./angebote/AngebotCard";
-import { HeroSectionText } from "./HeroSectionText";
+import { HeroSection } from "./HeroSection";
 
 const random = Math.random();
 let heroImage: StaticImageData;
@@ -29,7 +29,15 @@ export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
   return (
     <Main>
-      <HeroSection />
+      <HeroSection>
+        <Image
+          src={heroImage}
+          alt=""
+          className="object-cover object-top"
+          fill
+          priority
+        />
+      </HeroSection>
       <AngebotSection />
       <VereinsgeschichteSection />
       <Stats />
@@ -38,23 +46,8 @@ export default async function HomePage() {
   );
 }
 
-const HeroSection = () => (
-  <section className="relative h-[calc(100dvh-80px)] bg-base-900">
-    <HeroSectionText />
-    <div className="absolute inset-0 h-full opacity-50 blur-xs">
-      <Image
-        src={heroImage}
-        alt=""
-        className="object-cover object-top"
-        fill
-        priority
-      />
-    </div>
-  </section>
-);
-
 const AngebotSection = () => (
-  <div className="bg-base-900">
+  <div className="relative z-10 bg-base-900">
     <section
       aria-label="Kursangebote"
       className="container-lg space-y-8"
