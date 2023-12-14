@@ -36,7 +36,6 @@ export default async function HomePage() {
           className="object-cover object-top"
           fill
           priority
-          placeholder="blur"
         />
       </HeroSection>
       <AngebotSection />
