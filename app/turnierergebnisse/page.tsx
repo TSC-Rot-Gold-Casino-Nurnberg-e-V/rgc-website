@@ -10,6 +10,7 @@ export default async function Turnierergebnisse() {
     new Date(turnierergebnis.start).getFullYear()
   );
   const uniqueYears: Array<number> = [...new Set(allYears)];
+  uniqueYears.sort((a, b) => b - a);
 
   return (
     <Main>
