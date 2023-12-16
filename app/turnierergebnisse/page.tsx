@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { getTurnierergebnisse } from "../../api/api";
-import { formatDate } from "../../utils/formatDate";
 import { PageHeading } from "../../components/PageHeading";
 import { Main } from "../../components/Main";
 
@@ -33,20 +32,16 @@ export default async function Turnierergebnisse() {
                     href={turnierergebnis.link}
                     className="hover:text-accent block w-fit rounded-full"
                   >
-                    {turnierergebnis.ende !== null ? (
-                      <div>
-                        {formatDate(new Date(turnierergebnis.start))} bis{" "}
-                        {formatDate(new Date(turnierergebnis.ende))}
-                        {": "}
-                        {turnierergebnis.titel}
+                      <div className="grid grid-cols-[8rem_1fr] gap-2">
+                          {turnierergebnis.ende === null ? (
+                              <div>{formatDate(new Date(turnierergebnis.start))}</div>
+                          ):(
+                              <div>{formatDate(new Date(turnierergebnis.start))} - {
+                                    formatDate(new Date(turnierergebnis.ende))
+                              }</div>
+                          )}
+                          <div>{turnierergebnis.titel}</div>
                       </div>
-                    ) : (
-                      <div>
-                        {formatDate(new Date(turnierergebnis.start))}
-                        {": "}
-                        {turnierergebnis.titel}
-                      </div>
-                    )}
                   </Link>
                 ))}
             </div>
@@ -55,4 +50,11 @@ export default async function Turnierergebnisse() {
       </div>
     </Main>
   );
+}
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("de-DE", {
+    day: "2-digit",
+    month: "2-digit",
+  });
 }
