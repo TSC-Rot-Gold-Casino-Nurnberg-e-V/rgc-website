@@ -14,6 +14,7 @@ import { NeuigkeitCard } from "../components/NeuigkeitCard";
 import standard from "../public/eventImage.png";
 import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
+import { StatsSection } from "./StatsSection";
 
 const random = Math.random();
 let heroImage: StaticImageData;
@@ -40,7 +41,7 @@ export default async function HomePage() {
       </HeroSection>
       <AngebotSection />
       <VereinsgeschichteSection />
-      <Stats />
+      <StatsSection />
       <Neuigkeiten neuigkeiten={neuigkeiten} />
     </Main>
   );
@@ -127,38 +128,6 @@ const VereinsgeschichteSection = () => (
         className="h-full object-cover opacity-50"
         fill
       />
-    </div>
-  </section>
-);
-
-const Stats = () => (
-  <section
-    className="flex justify-center bg-base-900"
-    aria-label="Vereinsstatistik"
-  >
-    <div className="container-lg grid w-full gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
-      <div
-        className="text-gold max-sm:justify-self-start"
-        aria-label="Statistik"
-      >
-        <div className="heading-large">{"> "}600</div>
-        <div className="text-large font-bold text-opacity-75">Mitglieder</div>
-      </div>
-      <div className="text-gold max-sm:justify-self-end" aria-label="Statistik">
-        <div className="heading-large">8</div>
-        <div className="text-large font-bold text-opacity-75">
-          Formationsteams
-        </div>
-      </div>
-      <div
-        className="text-gold max-sm:justify-self-start"
-        aria-label="Statistik"
-      >
-        <div className="heading-large">25x</div>
-        <div className="text-large font-bold text-opacity-75">
-          Bayernpokalsieger
-        </div>
-      </div>
     </div>
   </section>
 );
