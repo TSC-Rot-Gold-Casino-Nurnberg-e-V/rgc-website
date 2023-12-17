@@ -67,32 +67,36 @@ const AngebotSection = () => (
           und Breakdance.
         </p>
       </div>
-      <div className="grid auto-rows-[24rem] gap-6 sm:grid-cols-2">
+      <div className="flex min-h-[21rem] auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           loadImageWithPriority
-          title="Turniertanzen"
+          title="Turniertanz"
           image={standard}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           loadImageWithPriority
-          title="Formationstanzen"
+          title="Formationstanz"
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
-          title="Freizeittanzen"
+          title="Freizeittanz"
           image={formation}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
       </div>
     </section>
