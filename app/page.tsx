@@ -1,10 +1,7 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Button } from "../components/Button";
 import formation from "../public/formation.png";
 import kinder from "../public/kindertanzen.png";
-import rgcWebsiteHeader1 from "../public/RGC_Website_Header_1.png";
-import rgcWebsiteHeader2 from "../public/RGC_Website_Header_2.png";
-import rgcWebsiteHeader3 from "../public/RGC_Website_Header_3.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
@@ -16,29 +13,11 @@ import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
 import { StatsSection } from "./StatsSection";
 
-const random = Math.random();
-let heroImage: StaticImageData;
-if (random < 0.33) {
-  heroImage = rgcWebsiteHeader1;
-} else if (random < 0.66) {
-  heroImage = rgcWebsiteHeader2;
-} else {
-  heroImage = rgcWebsiteHeader3;
-}
-
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
   return (
     <Main>
-      <HeroSection>
-        <Image
-          src={heroImage}
-          alt=""
-          className="object-cover object-top"
-          fill
-          priority
-        />
-      </HeroSection>
+      <HeroSection />
       <AngebotSection />
       <VereinsgeschichteSection />
       <StatsSection />
