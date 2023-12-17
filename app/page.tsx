@@ -46,7 +46,7 @@ const AngebotSection = () => (
           und Breakdance.
         </p>
       </div>
-      <div className="flex min-h-[21rem] auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
+      <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           loadImageWithPriority
           title="Turniertanz"
