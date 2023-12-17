@@ -22,7 +22,7 @@ export const AngebotCard = ({
 }: Props) => (
   <Link
     className={twMerge(
-      "group rounded-md transition-all hover:scale-105 hover:shadow-lg",
+      "group rounded-md transition-all hover:shadow-lg sm:hover:scale-105",
       className
     )}
     {...rest}
@@ -39,7 +39,7 @@ export const AngebotCard = ({
         sizes={imageSizes}
       />
       <div className="absolute inset-0 top-auto flex h-40 items-end justify-center rounded-lg bg-gradient-to-b from-transparent to-base-900 pb-6">
-        <h2 className="heading-small group-hover:text-gold group-focus:text-gold p-1 text-center text-base-200">
+        <h2 className="heading-small max-sm:text-gold group-hover:text-gold group-focus:text-gold p-1 text-center text-base-200">
           {title}
         </h2>
       </div>
