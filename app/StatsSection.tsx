@@ -41,7 +41,7 @@ export const StatsSection = () => {
           aria-label="Statistik"
         >
           <div className="heading-large">
-            <CountUp end={inView ? 25 : 0} />x
+            <CountUp end={inView ? 26 : 0} />x
           </div>
           <div className="text-large font-bold text-opacity-75">
             Bayernpokalsieger
