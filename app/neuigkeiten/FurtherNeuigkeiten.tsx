@@ -6,6 +6,7 @@ import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "../../components/NeuigkeitCard";
 import { LoadingSpinnerIcon } from "../../components/icons/LoadingSpinnerIcon";
+import { ca } from "date-fns/locale";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;
@@ -32,15 +33,22 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
 
   async function getMoreNeuigkeiten() {
     setIsLoading(true);
-    const nextPage = page + 1;
-    const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
-    setFurtherNeuigkeiten((prevNeuigkeiten) => {
-      const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
-      sessionStorage.setItem("neuigkeiten", JSON.stringify(updatedNeuigkeiten));
-      return updatedNeuigkeiten;
-    });
-    setPage(nextPage);
-    sessionStorage.setItem("page", nextPage.toString());
+    try {
+      const nextPage = page + 1;
+      const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
+      setFurtherNeuigkeiten((prevNeuigkeiten) => {
+        const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
+        sessionStorage.setItem(
+          "neuigkeiten",
+          JSON.stringify(updatedNeuigkeiten)
+        );
+        return updatedNeuigkeiten;
+      });
+      setPage(nextPage);
+      sessionStorage.setItem("page", nextPage.toString());
+    } catch (error) {
+      console.error(error);
+    }
     setIsLoading(false);
   }
 
