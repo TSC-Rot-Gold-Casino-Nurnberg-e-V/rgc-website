@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Button } from "../components/Button";
 import formation from "../public/formation.png";
 import kinder from "../public/kindertanzen.png";
-import heroBanner from "../public/heroBanner.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
 import Link from "next/link";
@@ -11,6 +10,8 @@ import { Main } from "../components/Main";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
 import standard from "../public/eventImage.png";
 import { AngebotCard } from "./angebote/AngebotCard";
+import { HeroSection } from "./HeroSection";
+import { StatsSection } from "./StatsSection";
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
@@ -19,38 +20,14 @@ export default async function HomePage() {
       <HeroSection />
       <AngebotSection />
       <VereinsgeschichteSection />
-      <Stats />
+      <StatsSection />
       <Neuigkeiten neuigkeiten={neuigkeiten} />
     </Main>
   );
 }
 
-const HeroSection = () => (
-  <section className="relative bg-base-900">
-    <div className="container-lg relative z-10 space-y-6 py-20 text-primary-50 sm:py-32">
-      <h1 className="heading-large sm:heading-extralarge text-gold mx-auto max-w-lg text-center font-extrabold uppercase">
-        Lebe, Liebe, Tanze!
-      </h1>
-      <div className="heading-extrasmall mx-auto max-w-2xl space-y-1 text-center text-base-50">
-        <p>Herzlich Willkommen</p>
-        <p>im TSC Rot-Gold-Casino Nürnberg e.V.</p>
-        <p>Dein Verein für Tanzsport in Nürnberg / Fürth</p>
-      </div>
-    </div>
-    <div className="absolute inset-0 h-full blur-xs">
-      <Image
-        src={heroBanner}
-        alt=""
-        className="object-cover object-top"
-        fill
-        priority
-      />
-    </div>
-  </section>
-);
-
 const AngebotSection = () => (
-  <div className="bg-base-900">
+  <div className="relative z-10 bg-base-900">
     <section
       aria-label="Kursangebote"
       className="container-lg space-y-8"
@@ -69,32 +46,36 @@ const AngebotSection = () => (
           und Breakdance.
         </p>
       </div>
-      <div className="grid auto-rows-[24rem] gap-6 sm:grid-cols-2">
+      <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           loadImageWithPriority
-          title="Turniertanzen"
+          title="Turniertanz"
           image={standard}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           loadImageWithPriority
-          title="Formationstanzen"
+          title="Formationstanz"
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
-          title="Freizeittanzen"
+          title="Freizeittanz"
           image={formation}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"
+          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
       </div>
     </section>
@@ -102,7 +83,7 @@ const AngebotSection = () => (
 );
 
 const VereinsgeschichteSection = () => (
-  <section className="relative" aria-label="Vereinsinformationen">
+  <section className="relative bg-base-900" aria-label="Vereinsinformationen">
     <div className="relative z-10 w-full bg-gradient-to-r from-base-900 from-30%">
       <div className="container-lg space-y-4 text-base-50">
         <h2 className="heading-normal md:heading-large">Über uns</h2>
@@ -127,41 +108,9 @@ const VereinsgeschichteSection = () => (
       <Image
         src={vereinsBild}
         alt=""
-        className="h-full object-cover saturate-0"
+        className="h-full object-cover opacity-50"
         fill
       />
-    </div>
-  </section>
-);
-
-const Stats = () => (
-  <section
-    className="flex justify-center bg-base-900"
-    aria-label="Vereinsstatistik"
-  >
-    <div className="container-lg grid w-full gap-6 py-12 text-center max-sm:max-w-sm max-sm:px-6 sm:grid-cols-3 md:justify-between">
-      <div
-        className="text-gold max-sm:justify-self-start"
-        aria-label="Statistik"
-      >
-        <div className="heading-large">{"> "}600</div>
-        <div className="text-large font-bold text-opacity-75">Mitglieder</div>
-      </div>
-      <div className="text-gold max-sm:justify-self-end" aria-label="Statistik">
-        <div className="heading-large">8</div>
-        <div className="text-large font-bold text-opacity-75">
-          Formationsteams
-        </div>
-      </div>
-      <div
-        className="text-gold max-sm:justify-self-start"
-        aria-label="Statistik"
-      >
-        <div className="heading-large">25x</div>
-        <div className="text-large font-bold text-opacity-75">
-          Bayernpokalsieger
-        </div>
-      </div>
     </div>
   </section>
 );

@@ -35,13 +35,13 @@ describe("homepage", () => {
 
     it('renders CTA "Einzeltanz"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Turniertanzen/i })
+        .findByRole("link", { name: /Turniertanz/i })
         .should("have.attr", "href", "/angebote/turniertanzen");
     });
 
     it('renders CTA "Formationstanzen"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Formationstanzen/i })
+        .findByRole("link", { name: /Formationstanz/i })
         .should("have.attr", "href", "/angebote/formationstanzen");
     });
 
@@ -81,19 +81,22 @@ describe("homepage", () => {
     it("should contain the stat regarding the member count", () => {
       cy.findByRole("main")
         .findByLabelText("Vereinsstatistik")
+        .scrollIntoView()
         .should("contain", "> 600")
         .should("contain", "Mitglieder");
     });
 
     it("should contain the stat regarding the formation team count", () => {
       cy.findByLabelText("Vereinsstatistik")
+        .scrollIntoView()
         .should("contain", "8")
         .should("contain", "Formationsteams");
     });
 
     it("should contain the stat regarding the trophy count", () => {
       cy.findByLabelText("Vereinsstatistik")
-        .should("contain", "25x")
+        .scrollIntoView()
+        .should("contain", "26x")
         .should("contain", "Bayernpokalsieger");
     });
   });
