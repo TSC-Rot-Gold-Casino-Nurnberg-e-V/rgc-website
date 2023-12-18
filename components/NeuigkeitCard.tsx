@@ -28,7 +28,7 @@ export const NeuigkeitCard = ({
   <Link
     href={`/neuigkeiten/${slug}`}
     className={twMerge(
-      "group rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl",
+      "group rounded-xl transition-all duration-300 sm:hover:scale-105 sm:hover:shadow-xl",
       className
     )}
     {...props}
@@ -45,7 +45,7 @@ export const NeuigkeitCard = ({
         />
       </div>
       <article className="relative z-10 h-full rounded-xl bg-gradient-to-b from-transparent to-base-900 p-6">
-        <div className="relative top-20 flex h-full flex-col justify-end gap-3 transition-all duration-300 group-hover:top-0">
+        <div className="relative top-20 flex h-full flex-col justify-end gap-3 transition-all duration-300 sm:group-hover:top-0">
           <time dateTime={datum} className="text-extrasmall text-base-300">
             {formatDate(new Date(datum))}
           </time>
@@ -53,7 +53,7 @@ export const NeuigkeitCard = ({
             {titel}
           </h2>
           {/* 72px = height of 3 lines */}
-          <p className="text-normal line-clamp-3 min-h-[72px] text-transparent transition-all duration-300 group-hover:text-base-300">
+          <p className="text-normal line-clamp-3 min-h-[72px] text-transparent transition-all duration-300 sm:group-hover:text-base-300">
             {vorschautext}
           </p>
         </div>

@@ -19,7 +19,7 @@ export default async function NeuigkeitenPage() {
             vorschautext={neuigkeit.vorschautext}
             datum={neuigkeit.datum}
             vorschaubild={neuigkeit.vorschaubild.url}
-            className="hover:!opacity-100 group-hover/container:opacity-50"
+            className="sm:hover:!opacity-100 sm:group-hover/container:opacity-50"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loadImageWithPriority
           />
