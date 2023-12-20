@@ -6,7 +6,6 @@ import { getNeuigkeiten } from "../../api/api";
 import { Button } from "../../components/Button";
 import { NeuigkeitCard } from "../../components/NeuigkeitCard";
 import { LoadingSpinnerIcon } from "../../components/icons/LoadingSpinnerIcon";
-import { ca } from "date-fns/locale";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;
