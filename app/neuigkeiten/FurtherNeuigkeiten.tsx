@@ -32,15 +32,22 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
 
   async function getMoreNeuigkeiten() {
     setIsLoading(true);
-    const nextPage = page + 1;
-    const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
-    setFurtherNeuigkeiten((prevNeuigkeiten) => {
-      const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
-      sessionStorage.setItem("neuigkeiten", JSON.stringify(updatedNeuigkeiten));
-      return updatedNeuigkeiten;
-    });
-    setPage(nextPage);
-    sessionStorage.setItem("page", nextPage.toString());
+    try {
+      const nextPage = page + 1;
+      const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
+      setFurtherNeuigkeiten((prevNeuigkeiten) => {
+        const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
+        sessionStorage.setItem(
+          "neuigkeiten",
+          JSON.stringify(updatedNeuigkeiten)
+        );
+        return updatedNeuigkeiten;
+      });
+      setPage(nextPage);
+      sessionStorage.setItem("page", nextPage.toString());
+    } catch (error) {
+      console.error(error);
+    }
     setIsLoading(false);
   }
 
@@ -54,7 +61,7 @@ export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
           vorschautext={neuigkeit.vorschautext}
           datum={neuigkeit.datum}
           vorschaubild={neuigkeit.vorschaubild.url}
-          className="hover:!opacity-100 group-hover/container:opacity-50"
+          className="sm:hover:!opacity-100 sm:group-hover/container:opacity-50"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       ))}

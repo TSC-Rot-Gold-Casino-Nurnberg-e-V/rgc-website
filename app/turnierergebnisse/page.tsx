@@ -5,6 +5,9 @@ import { Main } from "../../components/Main";
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
+  turnierergebnisse.sort((a, b) => {
+    return new Date(b.start).getTime() - new Date(a.start).getTime();
+  });
   const allYears: Array<number> = turnierergebnisse.map((turnierergebnis) =>
     new Date(turnierergebnis.start).getFullYear()
   );
@@ -32,16 +35,17 @@ export default async function Turnierergebnisse() {
                     href={turnierergebnis.link}
                     className="hover:text-accent block w-fit rounded-full"
                   >
-                      <div className="grid grid-cols-[8rem_1fr] gap-2">
-                          {turnierergebnis.ende === null ? (
-                              <div>{formatDate(new Date(turnierergebnis.start))}</div>
-                          ):(
-                              <div>{formatDate(new Date(turnierergebnis.start))} - {
-                                    formatDate(new Date(turnierergebnis.ende))
-                              }</div>
-                          )}
-                          <div>{turnierergebnis.titel}</div>
-                      </div>
+                    <div className="grid grid-cols-[8rem_1fr] gap-2">
+                      {turnierergebnis.ende === null ? (
+                        <div>{formatDate(new Date(turnierergebnis.start))}</div>
+                      ) : (
+                        <div>
+                          {formatDate(new Date(turnierergebnis.start))} -
+                          {formatDate(new Date(turnierergebnis.ende))}
+                        </div>
+                      )}
+                      <div>{turnierergebnis.titel}</div>
+                    </div>
                   </Link>
                 ))}
             </div>
