@@ -271,6 +271,7 @@ async function fetchData(path: string): Promise<{
 async function handleError(res: Response) {
   if (!res.ok) {
     console.error("An error occurred while fetching data from the CMS: ");
+    console.error("url: ", res.url);
     console.error("status: ", res.status);
     console.error("statusText: ", res.statusText);
     const error = await res.json();
