@@ -233,9 +233,26 @@ export async function getImpressum(): Promise<Impressum> {
 export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
   const query = stringify({
     populate: "*",
+    pagination: {
+      pageSize: 100,
+    },
   });
-  const { data } = await fetchData(`/turnierergebnisse?${query}`);
-  return turnierergebnisseSchema.parse(data);
+  const { data, meta } = await fetchData(`/turnierergebnisse?${query}`);
+  const { pageCount } = paginationSchema.parse(meta.pagination);
+  let allTurnierergebnisse = turnierergebnisseSchema.parse(data);
+  for (let page = 2; page <= pageCount; page++) {
+    const query = stringify({
+      populate: "*",
+      pagination: {
+        pageSize: 100,
+        page: page,
+      },
+    });
+    const { data } = await fetchData(`/turnierergebnisse?${query}`);
+    const turnierergebnisse = turnierergebnisseSchema.parse(data);
+    allTurnierergebnisse = allTurnierergebnisse.concat(turnierergebnisse);
+  }
+  return allTurnierergebnisse;
 }
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
