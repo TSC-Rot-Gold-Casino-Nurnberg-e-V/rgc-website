@@ -23,7 +23,7 @@ export default async function Turnierergebnisse() {
             <h2 className="heading-normal text-accent">
               Turniere {uniqueYear}
             </h2>
-            <div className="space-y-2">
+            <div>
               {turnierergebnisse
                 .filter((turnierergebnis) =>
                   turnierergebnis.start.includes(uniqueYear.toString())
@@ -33,7 +33,7 @@ export default async function Turnierergebnisse() {
                     target="_blank"
                     key={turnierergebnis.id}
                     href={turnierergebnis.link}
-                    className="hover:text-accent block w-fit rounded-full"
+                    className="hover:text-accent block w-full p-2"
                   >
                     <div className="grid grid-cols-[8rem_1fr] gap-2">
                       {turnierergebnis.ende === null ? (
