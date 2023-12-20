@@ -258,7 +258,7 @@ export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
 const BASE_URL = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 
 async function fetchData(path: string): Promise<{
-  data: unknown | Array<unknown>;
+  data: unknown;
   meta: {
     pagination?: Pagination;
   };
