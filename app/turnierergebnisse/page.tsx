@@ -8,10 +8,10 @@ export default async function Turnierergebnisse() {
   turnierergebnisse.sort((a, b) => {
     return new Date(b.start).getTime() - new Date(a.start).getTime();
   });
-  const allYears: Array<number> = turnierergebnisse.map((turnierergebnis) =>
-    new Date(turnierergebnis.start).getFullYear()
+  const allYears = turnierergebnisse.map(({ start }) =>
+    new Date(start).getFullYear()
   );
-  const uniqueYears: Array<number> = [...new Set(allYears)];
+  const uniqueYears = [...new Set(allYears)];
   uniqueYears.sort((a, b) => b - a);
 
   return (
@@ -25,26 +25,27 @@ export default async function Turnierergebnisse() {
             </h2>
             <div>
               {turnierergebnisse
-                .filter((turnierergebnis) =>
-                  turnierergebnis.start.includes(uniqueYear.toString())
-                )
-                .map((turnierergebnis) => (
+                .filter(({ start }) => start.includes(uniqueYear.toString()))
+                .map(({ ende, id, link, start, titel }) => (
                   <Link
                     target="_blank"
-                    key={turnierergebnis.id}
-                    href={turnierergebnis.link}
+                    key={id}
+                    href={link}
                     className="hover:text-accent block w-full p-2"
                   >
-                    <div className="grid grid-cols-[8rem_1fr] gap-2">
-                      {turnierergebnis.ende === null ? (
-                        <div>{formatDate(new Date(turnierergebnis.start))}</div>
+                    <div className="grid grid-cols-[1fr_8rem] gap-4">
+                      <div>{titel}</div>
+                      {ende === null ? (
+                        <div className="text-right">
+                          {formatDate(new Date(start))}
+                        </div>
                       ) : (
-                        <div>
-                          {formatDate(new Date(turnierergebnis.start))} -
-                          {formatDate(new Date(turnierergebnis.ende))}
+                        <div className="flex justify-end gap-1">
+                          <div>{formatDate(new Date(start))}</div>
+                          <div>-</div>
+                          <div>{formatDate(new Date(ende))}</div>
                         </div>
                       )}
-                      <div>{turnierergebnis.titel}</div>
                     </div>
                   </Link>
                 ))}
