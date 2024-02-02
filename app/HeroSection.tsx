@@ -7,9 +7,9 @@ import {
   ParallaxProvider,
 } from "react-scroll-parallax";
 import Image, { StaticImageData } from "next/image";
-import rgcWebsiteHeader1 from "../public/RGC_Website_Header_1.png";
-import rgcWebsiteHeader2 from "../public/RGC_Website_Header_2.png";
-import rgcWebsiteHeader3 from "../public/RGC_Website_Header_3.png";
+import rgcWebsiteHeader1 from "../public/hero/hero_1.png";
+import rgcWebsiteHeader2 from "../public/hero/hero_2.png";
+import rgcWebsiteHeader3 from "../public/hero/hero_3.png";
 
 const random = Math.random();
 let heroImage: StaticImageData;

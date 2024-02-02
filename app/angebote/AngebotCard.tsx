@@ -9,6 +9,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   loadImageWithPriority?: boolean;
   imageSizes?: string;
+  imageClassName?: string;
 }
 
 export const AngebotCard = ({
@@ -18,6 +19,7 @@ export const AngebotCard = ({
   loadImageWithPriority = false,
   imageSizes = "100vw",
   className,
+  imageClassName,
   ...rest
 }: Props) => (
   <Link
@@ -32,7 +34,10 @@ export const AngebotCard = ({
       <Image
         src={image}
         alt=""
-        className="rounded-lg object-cover object-top brightness-95 duration-700 group-hover:brightness-105 group-focus:brightness-105"
+        className={twMerge(
+          "rounded-lg object-cover object-top brightness-95 duration-700 group-hover:brightness-105 group-focus:brightness-105",
+          imageClassName
+        )}
         fill
         placeholder="blur"
         priority={loadImageWithPriority}

@@ -1,6 +1,7 @@
 import { Main } from "../../../components/Main";
 import { PageHeading } from "../../../components/PageHeading";
-import formation from "../../../public/formation.png";
+import formation_latein from "../../../public/formation_latein.png";
+import formation_standard from "../../../public/formation_standard.jpg";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "../../../components/LinkButton";
 import Image from "next/image";
@@ -44,11 +45,11 @@ export default function FormationstanzenPage() {
           </section>
           <div className="relative order-2 h-96">
             <Image
-              src={formation}
+              src={formation_standard}
               alt=""
               fill
               priority
-              className="rounded-lg object-cover object-top"
+              className="rounded-lg object-cover object-center"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>
@@ -74,7 +75,7 @@ export default function FormationstanzenPage() {
           </section>
           <div className="relative order-5 h-96">
             <Image
-              src={formation}
+              src={formation_latein}
               alt=""
               fill
               priority

@@ -1,9 +1,12 @@
 import { AngebotCard } from "./AngebotCard";
 import { Main } from "../../components/Main";
 import { PageHeading } from "../../components/PageHeading";
-import standard from "../../public/eventImage.png";
-import formation from "../../public/formation.png";
+import einzeltanz_latein from "../../public/einzeltanz_latein.png";
+import formation_latein from "../../public/formation_latein.png";
+import formation_standard from "../../public/formation_standard.jpg";
 import kinder from "../../public/kindertanzen.png";
+
+const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 
 export default function AngebotePage() {
   return (
@@ -19,7 +22,7 @@ export default function AngebotePage() {
           <AngebotCard
             loadImageWithPriority
             title="Turniertanzen"
-            image={standard}
+            image={einzeltanz_latein}
             href="/angebote/turniertanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import sbbLogo from "../public/sbbLogo.png";
-import teamNbgLogo from "../public/teamnuernbergLogo.jpg";
-import hdKroftLogo from "../public/hdKroftLogo.png";
-import heyduckMalerbetrieb from "../public/heyduckMalerbetrieb.png";
+import sbbLogo from "../public/sponsors/sbbLogo.png";
+import teamNbgLogo from "../public/sponsors/teamnuernbergLogo.jpg";
+import hdKroftLogo from "../public/sponsors/hdKroftLogo.png";
+import heyduckMalerbetrieb from "../public/sponsors/heyduckMalerbetrieb.png";
 
 export const Sponsors = () => (
   <section className="bg-base-900">

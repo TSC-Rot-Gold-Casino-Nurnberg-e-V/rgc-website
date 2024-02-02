@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "../components/Button";
-import formation from "../public/formation.png";
+import formation_latein from "../public/formation_latein.png";
+import formation_standard from "../public/formation_standard.jpg";
 import kinder from "../public/kindertanzen.png";
 import vereinsBild from "../public/vereinsbild.png";
 import { getNeuigkeiten } from "../api/api";
@@ -8,10 +9,12 @@ import Link from "next/link";
 import { Neuigkeit } from "../model/Neuigkeit";
 import { Main } from "../components/Main";
 import { NeuigkeitCard } from "../components/NeuigkeitCard";
-import standard from "../public/eventImage.png";
+import einzeltanz_latein from "../public/einzeltanz_latein.png";
 import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
 import { StatsSection } from "./StatsSection";
+
+const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
@@ -50,7 +53,7 @@ const AngebotSection = () => (
         <AngebotCard
           loadImageWithPriority
           title="Turniertanz"
-          image={standard}
+          image={einzeltanz_latein}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
@@ -62,6 +65,7 @@ const AngebotSection = () => (
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
+          imageClassName="object-center"
         />
         <AngebotCard
           title="Kinder & Jugend"
