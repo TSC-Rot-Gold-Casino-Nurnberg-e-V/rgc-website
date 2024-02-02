@@ -32,6 +32,7 @@ export default function AngebotePage() {
             image={formation}
             href="/angebote/formationstanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
+            imageClassName="object-center"
           />
           <AngebotCard
             title="Kinder & Jugend"
