@@ -48,8 +48,9 @@ export default async function AngebotPage({ params }: Props) {
             Unsere Trainingszeiten
           </h2>
           <div className="space-y-8">
-            {Array.from(trainingsGroupedByWochentag).map(
-              ([wochentagTitel, trainings]) => (
+            {Array.from(trainingsGroupedByWochentag)
+              .sort(([a], [b]) => toSequenceNumber(a) - toSequenceNumber(b))
+              .map(([wochentagTitel, trainings]) => (
                 <div key={wochentagTitel} className="space-y-4">
                   <h3 className="heading-extrasmall text-base-600 max-sm:text-center">
                     {wochentagTitel}
@@ -117,8 +118,7 @@ export default async function AngebotPage({ params }: Props) {
                       ))}
                   </div>
                 </div>
-              )
-            )}
+              ))}
           </div>
           <div className="text-small text-accent flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
             <svg
@@ -197,4 +197,25 @@ export default async function AngebotPage({ params }: Props) {
       )}
     </Main>
   );
+}
+
+function toSequenceNumber(wochentag: string): number {
+  switch (wochentag) {
+    case "Montag":
+      return 1;
+    case "Dienstag":
+      return 2;
+    case "Mittwoch":
+      return 3;
+    case "Donnerstag":
+      return 4;
+    case "Freitag":
+      return 5;
+    case "Samstag":
+      return 6;
+    case "Sonntag":
+      return 7;
+    default:
+      return 0;
+  }
 }
