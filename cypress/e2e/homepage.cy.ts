@@ -65,7 +65,7 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(
-        /Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur im Mittelpunkt unserer Arbeit./i,
+        /Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im Jahr 1961 steht die Freude am Tanzen und die Förderung der Tanzkultur im Mittelpunkt unserer Arbeit./i,
       ).should("exist");
     });
 
