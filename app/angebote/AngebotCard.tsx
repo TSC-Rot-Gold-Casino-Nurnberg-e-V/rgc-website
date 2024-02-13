@@ -25,7 +25,7 @@ export const AngebotCard = ({
   <Link
     className={twMerge(
       "group rounded-md transition-all hover:shadow-lg sm:hover:scale-105",
-      className
+      className,
     )}
     {...rest}
     href={href}
@@ -36,7 +36,7 @@ export const AngebotCard = ({
         alt=""
         className={twMerge(
           "rounded-lg object-cover object-top brightness-95 duration-700 group-hover:brightness-105 group-focus:brightness-105",
-          imageClassName
+          imageClassName,
         )}
         fill
         placeholder="blur"

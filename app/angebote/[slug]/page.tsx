@@ -68,7 +68,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                       .sort(
                         (a, b) =>
                           a.attributes.start.getTime() -
-                          b.attributes.start.getTime()
+                          b.attributes.start.getTime(),
                       )
                       .map(({ id, attributes }) => (
                         <section
@@ -105,7 +105,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                     width={56} // w-14
                                     height={56} // h-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
-                                    className="h-14 w-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:border-secondary-900 hover:shadow-md hover:outline hover:outline-2 hover:outline-secondary-900"
+                                    className="h-14 w-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:shadow-md"
                                   />
                                 </a>
                               ))}
