@@ -25,13 +25,13 @@ const contactInquirySchema = z
   .object({
     name: z.string(),
     email: z.string().email(),
-    subject: z.string().optional(),
+    subject: z.string(),
     message: z.string(),
   })
   .transform((data) => ({
     ...data,
     name: sanitize(data.name),
-    subject: data.subject ? sanitize(data.subject) : undefined,
+    subject: sanitize(data.subject),
     message: sanitize(data.message),
   }));
 

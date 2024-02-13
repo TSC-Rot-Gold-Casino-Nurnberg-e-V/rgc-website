@@ -21,7 +21,7 @@ const inputSchema = z.object({
     .string()
     .min(1, "Dieses Feld ist ein Pflichtfeld")
     .email("Ungültiges E-Mail-Format"),
-  subject: z.string().optional(),
+  subject: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
   message: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
   hasAgreedToPrivacyPolicy: z.boolean().refine((hasAgreed) => hasAgreed, {
     message: "Bitte akzeptiere unsere Datenschutzerklärung",
@@ -125,7 +125,7 @@ export function ContactForm() {
         />
         <Input
           {...register("subject")}
-          label="Betreff"
+          label="Betreff *"
           error={errors.subject?.message}
         />
         <div className="flex flex-col gap-2">
