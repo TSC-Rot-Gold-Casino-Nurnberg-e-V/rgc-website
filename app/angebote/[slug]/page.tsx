@@ -137,7 +137,7 @@ export default async function AngebotPage({ params }: Props) {
             </svg>
             <p>
               An Feiertagen sowie während der Schulferien finden für gewöhnlich
-              keine regulären Tanzangebote statt.
+              keine Gruppenstunden statt.
             </p>
           </div>
         </div>
