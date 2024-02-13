@@ -15,7 +15,7 @@ interface Props {
   };
 }
 
-export default async function NeuigkeitPage({ params }: Props) {
+export default async function NeuigkeitPage({ params }: Readonly<Props>) {
   const neuigkeit = await getNeuigkeit(params.slug);
 
   return (

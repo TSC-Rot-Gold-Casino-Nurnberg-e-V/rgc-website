@@ -17,7 +17,7 @@ interface Props {
   };
 }
 
-export default async function VeranstaltungPage({ params }: Props) {
+export default async function VeranstaltungPage({ params }: Readonly<Props>) {
   const veranstaltung = await getVeranstaltung(params.slug);
   return (
     <Main className="container-md space-y-4">

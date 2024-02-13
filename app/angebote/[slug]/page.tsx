@@ -20,7 +20,7 @@ interface Props {
   };
 }
 
-export default async function AngebotPage({ params }: Props) {
+export default async function AngebotPage({ params }: Readonly<Props>) {
   const angebot = await getAngebot(params.slug);
   const trainingsGroupedByWochentag = new Map<
     Wochentag["titel"], // type string

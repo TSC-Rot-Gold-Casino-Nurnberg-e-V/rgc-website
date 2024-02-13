@@ -15,7 +15,7 @@ interface Props {
   };
 }
 
-export default async function FormationPage({ params }: Props) {
+export default async function FormationPage({ params }: Readonly<Props>) {
   const formation = await getFormation(params.slug);
 
   return (

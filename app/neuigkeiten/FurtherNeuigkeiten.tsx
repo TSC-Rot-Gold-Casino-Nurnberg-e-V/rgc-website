@@ -12,7 +12,10 @@ interface Props {
   paginationTotal: number;
 }
 
-export function FurtherNeuigkeiten({ neuigkeiten, paginationTotal }: Props) {
+export function FurtherNeuigkeiten({
+  neuigkeiten,
+  paginationTotal,
+}: Readonly<Props>) {
   const [furtherNeuigkeiten, setFurtherNeuigkeiten] = useState<
     Array<Neuigkeit>
   >([]);

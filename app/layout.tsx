@@ -5,7 +5,7 @@ import { Footer } from "../components/Footer";
 import { Manrope } from "next/font/google";
 
 import "../styles/globals.css";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Willkommen auf der Website des TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="de" className="scroll-pt-20">
       <body className="flex min-h-screen flex-col">
