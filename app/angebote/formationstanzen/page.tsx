@@ -49,7 +49,7 @@ export default function FormationstanzenPage() {
               alt=""
               fill
               priority
-              className="rounded-lg object-cover object-center"
+              className="rounded-lg object-cover object-top"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
           </div>

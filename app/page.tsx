@@ -65,7 +65,6 @@ const AngebotSection = () => (
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
-          imageClassName="object-center"
         />
         <AngebotCard
           title="Kinder & Jugend"
