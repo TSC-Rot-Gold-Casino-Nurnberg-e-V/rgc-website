@@ -33,13 +33,13 @@
     "react-scroll-parallax": "^3.4.5",
     "sanitize-html": "^2.11.0",
     "sharp": "^0.33.1",
-    "tailwind-merge": "^1.14.0",
+    "tailwind-merge": "^2.2.1",
     "typescript": "4.9.4",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.6",
-    "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
     "@testing-library/cypress": "^9.0.0",
     "@types/nodemailer": "^6.4.13",
     "@types/qs": "^6.9.7",
@@ -47,10 +47,10 @@
     "autoprefixer": "^10.4.13",
     "cypress": "^12.9.0",
     "eslint-config-next": "^14.1.0",
-    "eslint-plugin-tailwindcss": "^3.12.0",
+    "eslint-plugin-tailwindcss": "^3.14.2",
     "postcss": "^8.4.20",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.4.1"
   }
 }
