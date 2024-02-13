@@ -16,7 +16,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
       alt=""
       height={320} // max-h-80
       width={384} // max-w-sm
-      className="h-full max-h-80 w-full rounded-2xl object-cover sm:h-80 sm:w-60"
+      className="size-full max-h-80 rounded-2xl object-cover sm:h-80 sm:w-60"
     />
     <section className="space-y-4 sm:space-y-6">
       <div className="space-y-2">

@@ -30,7 +30,7 @@ export const AngebotCard = ({
     {...rest}
     href={href}
   >
-    <div className="relative h-full w-full">
+    <div className="relative size-full">
       <Image
         src={image}
         alt=""

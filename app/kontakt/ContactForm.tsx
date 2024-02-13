@@ -152,7 +152,7 @@ export function ContactForm() {
               type="checkbox"
               id="privacyPolicy"
               {...register("hasAgreedToPrivacyPolicy")}
-              className="h-5 w-5 cursor-pointer rounded-md text-secondary-900 focus:ring-secondary-900"
+              className="size-5 cursor-pointer rounded-md text-secondary-900 focus:ring-secondary-900"
             />
             <label htmlFor="privacyPolicy" className="space-x-1.5">
               <Link
