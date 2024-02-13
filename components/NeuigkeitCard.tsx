@@ -29,7 +29,7 @@ export const NeuigkeitCard = ({
     href={`/neuigkeiten/${slug}`}
     className={twMerge(
       "group rounded-xl transition-all duration-300 sm:hover:scale-105 sm:hover:shadow-xl",
-      className
+      className,
     )}
     {...props}
   >

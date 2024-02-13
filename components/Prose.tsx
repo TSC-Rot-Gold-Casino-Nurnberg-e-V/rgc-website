@@ -26,7 +26,7 @@ export const Prose = ({
       "prose-img:object-cover",
       "prose-img:object-top",
       "sm:prose-img:max-h-[32rem]",
-      className
+      className,
     )}
     {...props}
     dangerouslySetInnerHTML={{ __html: sanitizeHTMLField(content) }}

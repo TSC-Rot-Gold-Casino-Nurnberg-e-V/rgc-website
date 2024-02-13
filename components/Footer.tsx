@@ -120,14 +120,14 @@ const FooterLink = forwardRef<HTMLAnchorElement, FooterLinkProps>(
       href={href}
       className={twMerge(
         "-m-3 block rounded-full p-3 hover:text-base-50",
-        className
+        className,
       )}
       {...rest}
       ref={ref}
     >
       {text}
     </Link>
-  )
+  ),
 );
 
 FooterLink.displayName = "FooterLink";

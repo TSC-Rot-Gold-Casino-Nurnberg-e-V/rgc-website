@@ -136,7 +136,7 @@ export function ContactForm() {
             className={twJoin(
               "rounded-md border-base-300 focus:border-secondary-900 focus:ring-secondary-900",
               errors.message?.message &&
-                "border-red-500 focus:border-red-500 focus:ring-red-500"
+                "border-red-500 focus:border-red-500 focus:ring-red-500",
             )}
             {...register("message")}
           />
@@ -199,13 +199,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         className={twMerge(
           "rounded-md border-base-300 focus:border-secondary-900 focus:ring-secondary-900",
           error && "border-red-500 focus:border-red-500 focus:ring-red-500",
-          className
+          className,
         )}
         {...inputProps}
       />
       {error && <span className="text-small text-red-500">{error}</span>}
     </div>
-  )
+  ),
 );
 
 Input.displayName = "Input";

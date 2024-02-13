@@ -50,7 +50,7 @@ describe("footer", () => {
 
   it("includes infos about the club history", () => {
     cy.findByRole("contentinfo").contains(
-      "Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und Deutschland."
+      "Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und zählt mit etwa 600 Mitgliedern zu den größten Tanzsportclubs in Bayern und Deutschland.",
     );
   });
 
@@ -60,7 +60,7 @@ describe("footer", () => {
       .should(
         "have.attr",
         "href",
-        "https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
+        "https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28",
       );
 
     cy.findByRole("contentinfo")

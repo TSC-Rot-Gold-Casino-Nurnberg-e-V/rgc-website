@@ -26,7 +26,7 @@ export const FormationTabs = ({ teams }: Props) => (
               <Button
                 className={twJoin(
                   "w-full border-none text-base-100 outline-none max-md:rounded-lg",
-                  !selected && "hover:bg-base-700 hover:text-base-50"
+                  !selected && "hover:bg-base-700 hover:text-base-50",
                 )}
                 variant={selected ? "primary" : "secondary"}
               >

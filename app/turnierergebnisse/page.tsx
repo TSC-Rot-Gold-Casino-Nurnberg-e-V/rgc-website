@@ -9,7 +9,7 @@ export default async function Turnierergebnisse() {
     return new Date(b.start).getTime() - new Date(a.start).getTime();
   });
   const allYears = turnierergebnisse.map(({ start }) =>
-    new Date(start).getFullYear()
+    new Date(start).getFullYear(),
   );
   const uniqueYears = [...new Set(allYears)];
   uniqueYears.sort((a, b) => b - a);

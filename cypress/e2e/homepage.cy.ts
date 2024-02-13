@@ -17,7 +17,7 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(/Dein Verein für Tanzsport in Nürnberg \/ Fürth/i).should(
-        "exist"
+        "exist",
       );
     });
   });
@@ -29,7 +29,7 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(
-        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance."
+        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.",
       ).should("exist");
     });
 
@@ -59,13 +59,13 @@ describe("homepage", () => {
 
     it("renders a subheading", () => {
       cy.findByRole("heading", { name: /Mit Herz und Rhythmus/i }).should(
-        "exist"
+        "exist",
       );
     });
 
     it("renders a description", () => {
       cy.findByText(
-        /Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur im Mittelpunkt unserer Arbeit./i
+        /Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im Jahr 1963 steht die Freude am Tanzen und die Förderung der Tanzkultur im Mittelpunkt unserer Arbeit./i,
       ).should("exist");
     });
 

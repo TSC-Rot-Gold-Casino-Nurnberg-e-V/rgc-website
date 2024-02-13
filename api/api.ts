@@ -36,7 +36,7 @@ import { formationSchema } from "../model/Formation";
 
 export async function getNeuigkeiten(
   pageSize: number,
-  page: number = 1
+  page: number = 1,
 ): Promise<{ neuigkeiten: Array<Neuigkeit>; pagination: Pagination }> {
   const sortProperty: keyof Neuigkeit = "datum";
   const query = stringify({
@@ -106,7 +106,7 @@ export async function getVeranstaltung(slug: string): Promise<Veranstaltung> {
     populate: "*",
   });
   const { data } = await fetchData(
-    `/slugify/slugs/veranstaltung/${slug}?${query}`
+    `/slugify/slugs/veranstaltung/${slug}?${query}`,
   );
   return veranstaltungSchema.parse(data);
 }

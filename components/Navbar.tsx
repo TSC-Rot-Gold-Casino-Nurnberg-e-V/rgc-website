@@ -97,7 +97,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
       <li
         className={twJoin(
           shouldHideOnSmallViewport && "max-lg:hidden",
-          "flex list-none"
+          "flex list-none",
         )}
       >
         <Link
@@ -106,7 +106,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
               : "text-base-200",
-            className
+            className,
           )}
           {...rest}
           href={href}
@@ -117,7 +117,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
         </Link>
       </li>
     );
-  }
+  },
 );
 
 NavLink.displayName = "NavLink";

@@ -10,7 +10,7 @@ interface Props extends ComponentProps<"button"> {
 export const Button = forwardRef<HTMLButtonElement, Props>(
   (
     { variant = "primary", startIcon, endIcon, children, className, ...rest },
-    ref
+    ref,
   ) => (
     <button
       ref={ref}
@@ -32,7 +32,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
           "border border-secondary-900 text-secondary-900 hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
         startIcon && "pl-4",
         endIcon && "pr-4",
-        className
+        className,
       )}
       {...rest}
     >
@@ -40,7 +40,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
       {children}
       {endIcon}
     </button>
-  )
+  ),
 );
 
 Button.displayName = "Button";

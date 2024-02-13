@@ -42,7 +42,7 @@ export function FurtherNeuigkeiten({
         const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
         sessionStorage.setItem(
           "neuigkeiten",
-          JSON.stringify(updatedNeuigkeiten)
+          JSON.stringify(updatedNeuigkeiten),
         );
         return updatedNeuigkeiten;
       });

@@ -18,7 +18,7 @@ const transporter = createTransport({
 });
 
 const contactInquiryConfirmationEmailHTML = render(
-  ContactInquiryConfirmationEmail()
+  ContactInquiryConfirmationEmail(),
 );
 
 const contactInquirySchema = z
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
     console.info(
       "Successfully sent contact inquiry confirmation email to: ",
-      contactInquiry.email
+      contactInquiry.email,
     );
 
     console.info("Sending contact inquiry email to: ", RGC_EMAIL);
