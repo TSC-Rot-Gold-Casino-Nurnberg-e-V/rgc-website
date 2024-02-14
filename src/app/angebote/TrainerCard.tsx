@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
-  <div className="flex gap-4 max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col sm:gap-10">
+  <div className="flex gap-4 max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col sm:gap-8">
     <Image
       src={bild}
       alt=""
@@ -18,7 +18,7 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
       width={384} // max-w-sm
       className="size-full max-h-80 rounded-2xl object-cover sm:h-80 sm:w-60"
     />
-    <section className="space-y-4 sm:space-y-6">
+    <section className="space-y-4">
       <div className="space-y-2">
         <h3 className="heading-extrasmall pt-2">{name}</h3>
         {lizenzen.length > 0 && (

@@ -63,17 +63,19 @@ export const FormationTabs = ({ teams }: Props) => (
             {team.trainers.length > 0 && (
               <section>
                 <h3 className="heading-small text-accent mb-4 mt-8">Trainer</h3>
-                {team.trainers.map((trainer) => (
-                  <TrainerCard
-                    key={trainer.id}
-                    name={
-                      trainer.person.vorname + " " + trainer.person.nachname
-                    }
-                    lizenzen={[]}
-                    beschreibung={trainer.beschreibung}
-                    bild={trainer.person.bild.url}
-                  />
-                ))}
+                <div className="space-y-8">
+                  {team.trainers.map((trainer) => (
+                    <TrainerCard
+                      key={trainer.id}
+                      name={
+                        trainer.person.vorname + " " + trainer.person.nachname
+                      }
+                      lizenzen={[]}
+                      beschreibung={trainer.beschreibung}
+                      bild={trainer.person.bild.url}
+                    />
+                  ))}
+                </div>
               </section>
             )}
             {team.kapitaene.length > 0 && (
