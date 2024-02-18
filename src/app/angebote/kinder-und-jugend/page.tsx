@@ -2,6 +2,8 @@ import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import kinder from "../../../../public/kindertanzen.png";
+import standard_jugend from "../../../../public/standard_jugend.png";
+import latein_jugend from "../../../../public/latein_jugend.jpeg";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
 
@@ -73,7 +75,7 @@ export default function KindertanzenPage() {
           </section>
           <div className="relative order-5 h-96">
             <Image
-              src={kinder}
+              src={latein_jugend}
               alt=""
               fill
               priority
@@ -105,7 +107,7 @@ export default function KindertanzenPage() {
           </section>
           <div className="relative order-7 h-96">
             <Image
-              src={kinder}
+              src={standard_jugend}
               alt=""
               fill
               className="rounded-lg object-cover object-top"

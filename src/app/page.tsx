@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Neuigkeit } from "@/model/Neuigkeit";
 import { Main } from "@/components/Main";
 import { NeuigkeitCard } from "@/components/NeuigkeitCard";
-import einzeltanz_latein from "../../public/einzeltanz_latein.png";
+import einzeltanz_latein from "../../public/einzeltanz_latein.jpg";
 import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
 import { StatsSection } from "./StatsSection";

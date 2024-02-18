@@ -1,6 +1,7 @@
 import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
-import einzeltanz_latein from "../../../../public/einzeltanz_latein.png";
+import einzeltanz_latein from "../../../../public/einzeltanz_latein.jpg";
+import einzeltanz_standard from "../../../../public/einzeltanz_standard.png";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
@@ -44,7 +45,7 @@ export default function TurniertanzenPage() {
           </section>
           <div className="relative order-2 h-96">
             <Image
-              src={einzeltanz_latein}
+              src={einzeltanz_standard}
               alt=""
               fill
               priority
