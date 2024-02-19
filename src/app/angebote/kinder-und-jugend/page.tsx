@@ -3,7 +3,7 @@ import { PageHeading } from "@/components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import kinder from "../../../../public/kindertanzen.png";
 import standard_jugend from "../../../../public/standard_jugend.png";
-import latein_jugend from "../../../../public/latein_jugend.jpeg";
+import latein_jugend from "../../../../public/latein_jugend.jpg";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
 
