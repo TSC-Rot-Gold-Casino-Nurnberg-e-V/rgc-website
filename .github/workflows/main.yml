@@ -18,5 +18,3 @@ jobs:
           start: npm run start
         env:
           NEXT_PUBLIC_CMS_URL: ${{secrets.NEXT_PUBLIC_CMS_URL}}
-          CMS_SERVER_TOKEN: ${{secrets.CMS_SERVER_TOKEN}}
-          NEXT_PUBLIC_CMS_CLIENT_TOKEN: ${{secrets.NEXT_PUBLIC_CMS_CLIENT_TOKEN}}
