@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import formation_latein from "../../public/formation_latein.png";
 import formation_standard from "../../public/formation_standard.jpg";
 import kinder from "../../public/kindertanzen.png";
-import vereinsBild from "../../public/vereinsbild.png";
+import vereinsBild from "../../public/vereinsbild.jpg";
 import { getNeuigkeiten } from "@/api/api";
 import Link from "next/link";
 import { Neuigkeit } from "@/model/Neuigkeit";
@@ -87,8 +87,8 @@ const AngebotSection = () => (
 
 const VereinsgeschichteSection = () => (
   <section className="relative bg-base-900" aria-label="Vereinsinformationen">
-    <div className="relative z-10 w-full bg-gradient-to-r from-base-900 from-30%">
-      <div className="container-lg space-y-4 text-base-50">
+    <div className="relative z-10 w-full bg-base-900/20">
+      <div className="container-lg space-y-4 py-24 text-base-50">
         <h2 className="heading-normal md:heading-large">Über uns</h2>
         <h3 className="heading-extrasmall uppercase opacity-90">
           Mit Herz und Rhythmus
@@ -111,7 +111,7 @@ const VereinsgeschichteSection = () => (
       <Image
         src={vereinsBild}
         alt=""
-        className="h-full object-cover opacity-50"
+        className="h-full object-cover object-top opacity-50"
         fill
       />
     </div>
