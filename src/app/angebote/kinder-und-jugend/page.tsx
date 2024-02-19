@@ -73,7 +73,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-5 h-96">
+          <div className="group relative order-5 h-96">
             <Image
               src={latein_jugend}
               alt=""
@@ -82,6 +82,9 @@ export default function KindertanzenPage() {
               className="rounded-lg object-cover object-top"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
+            <small className="absolute right-1 top-1 text-stone-300 opacity-10 transition-opacity group-hover:opacity-25">
+              © Sportfotografie-Gerner
+            </small>
           </div>
           <section className="order-6 space-y-4 self-center sm:order-8">
             <h2 className="heading-small text-accent sm:text-center">
