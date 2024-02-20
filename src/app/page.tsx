@@ -53,7 +53,7 @@ const AngebotSection = () => (
       <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           loadImageWithPriority
-          title="Turniertanz"
+          title="Turnier"
           image={einzeltanz_latein}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
@@ -61,7 +61,7 @@ const AngebotSection = () => (
         />
         <AngebotCard
           loadImageWithPriority
-          title="Formationstanz"
+          title="Formation"
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
@@ -75,7 +75,7 @@ const AngebotSection = () => (
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
-          title="Freizeittanz"
+          title="Freizeit"
           image={freizeittanz}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"

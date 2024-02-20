@@ -25,14 +25,14 @@ export default function AngebotePage() {
         <div className="grid auto-rows-[24rem] gap-6 sm:grid-cols-2">
           <AngebotCard
             loadImageWithPriority
-            title="Turniertanzen"
+            title="Turnier"
             image={einzeltanz}
             href="/angebote/turniertanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
           <AngebotCard
             loadImageWithPriority
-            title="Formationstanzen"
+            title="Formation"
             image={formation}
             href="/angebote/formationstanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
@@ -44,7 +44,7 @@ export default function AngebotePage() {
             imageSizes="(max-width: 640px) 100vw, 50vw"
           />
           <AngebotCard
-            title="Freizeittanzen"
+            title="Freizeit"
             image={freizeittanz}
             href="/angebote/freizeittanz"
             imageSizes="(max-width: 640px) 100vw, 50vw"

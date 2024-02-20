@@ -39,7 +39,7 @@ describe("homepage", () => {
 
     it('renders CTA "Formationstanzen"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Formationstanz/i })
+        .findByRole("link", { name: /Formation/i })
         .should("have.attr", "href", "/angebote/formationstanzen");
     });
 
