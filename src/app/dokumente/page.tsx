@@ -10,7 +10,7 @@ export default async function DokumentePage() {
     <Main>
       <PageHeading>Dokumente</PageHeading>
       <p className="container-sm paragraph max-w-md pb-0">
-        Hier findest Du alle wichtigen Dokumente rund um deine Mitgliedschaft
+        Hier findest du alle wichtigen Dokumente rund um deine Mitgliedschaft
         und den Verein.
       </p>
       <div className="container-sm flex max-w-md flex-col gap-2">
