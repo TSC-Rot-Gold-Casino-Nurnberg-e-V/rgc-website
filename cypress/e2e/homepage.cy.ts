@@ -16,9 +16,7 @@ describe("homepage", () => {
     });
 
     it("renders a description", () => {
-      cy.findByText(/Dein Verein für Tanzsport in Nürnberg \/ Fürth/i).should(
-        "exist",
-      );
+      cy.findByText(/Dein Verein für Tanzsport in Bayern/i).should("exist");
     });
   });
 
