@@ -4,6 +4,7 @@ import formation_latein from "../../../public/formation_latein.png";
 import formation_standard from "../../../public/formation_standard.jpg";
 import kinder from "../../../public/kindertanzen.png";
 import einzeltanz_standard from "../../../public/einzeltanz_standard.png";
+import freizeittanz from "../../../public/freizeittanz.jpg";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 const einzeltanz =
@@ -50,7 +51,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
       {currentPage !== "freizeittanzen" && (
         <AngebotCard
           title="Freizeit"
-          image={formation}
+          image={freizeittanz}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 33vw"
         />

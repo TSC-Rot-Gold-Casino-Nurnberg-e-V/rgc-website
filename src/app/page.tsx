@@ -4,6 +4,7 @@ import formation_latein from "../../public/formation_latein.png";
 import formation_standard from "../../public/formation_standard.jpg";
 import kinder from "../../public/kindertanzen.png";
 import vereinsBild from "../../public/vereinsbild.jpg";
+import freizeittanz from "../../public/freizeittanz.jpg";
 import { getNeuigkeiten } from "@/api/api";
 import Link from "next/link";
 import { Neuigkeit } from "@/model/Neuigkeit";
@@ -75,7 +76,7 @@ const AngebotSection = () => (
         />
         <AngebotCard
           title="Freizeittanz"
-          image={formation}
+          image={freizeittanz}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
