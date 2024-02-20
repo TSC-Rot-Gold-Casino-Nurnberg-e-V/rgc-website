@@ -14,8 +14,8 @@ export default function TurniertanzenPage() {
         <p className="paragraph">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes
-          Trainerteam begleitet dich auf dem Weg zum Turniertänzer und
-          unterstützt dich bei deinen Wettkämpfen.
+          Trainerteam begleitet Dich auf dem Weg zum Turniertänzer und
+          unterstützt Dich bei Deinen Wettkämpfen.
         </p>
       </div>
       <section className="container-lg space-y-8">

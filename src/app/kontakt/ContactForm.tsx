@@ -72,7 +72,7 @@ export function ContactForm() {
         isOpen={showConfirmationDialog}
         onClose={() => setShowConfirmationDialog(false)}
         title="Anfrage erhalten"
-        content="Vielen Dank für deine Anfrage. Unser Team wird sich schnellstmöglich mit dir in Verbindung setzten."
+        content="Vielen Dank für Deine Anfrage. Unser Team wird sich schnellstmöglich mit dir in Verbindung setzten."
       />
       <UnexpectedErrorDialog
         isOpen={showErrorDialog}
@@ -81,8 +81,8 @@ export function ContactForm() {
       <section className="space-y-6">
         <h2 className="heading-small text-accent">Kontaktiere uns</h2>
         <div className="paragraph">
-          Wir freuen uns über dein Interesse an unserem Verein. Hinterlasse
-          deine Nachricht an uns und wir melden uns so schnell wie möglich bei
+          Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
+          Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
         </div>
         <div className="space-y-4">

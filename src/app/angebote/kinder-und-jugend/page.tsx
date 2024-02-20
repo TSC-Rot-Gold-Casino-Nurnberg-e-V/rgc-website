@@ -34,7 +34,7 @@ export default function KindertanzenPage() {
               stets auf Spaß und spielerischem Lernen liegt.
             </p>
             <p className="paragraph">
-              Gebe deinen Kindern die Möglichkeit, sich kreativ auszudrücken,
+              Gib Deinen Kindern die Möglichkeit, sich kreativ auszudrücken,
               neue Freunde zu finden und gleichzeitig ihre körperliche
               Entwicklung zu fördern.
             </p>

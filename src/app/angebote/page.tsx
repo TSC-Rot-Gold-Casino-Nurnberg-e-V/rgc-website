@@ -18,7 +18,7 @@ export default function AngebotePage() {
       <PageHeading>Angebote</PageHeading>
       <div className="container-lg space-y-8 pt-0">
         <p className="text-normal md:text-large mx-auto max-w-screen-sm hyphens-auto text-base-50">
-          Bei uns findest du alles, was das Tänzerherz begehrt - von Latein-,
+          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
           Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
         </p>
