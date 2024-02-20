@@ -29,7 +29,7 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(
-        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.",
+        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-, Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.",
       ).should("exist");
     });
 

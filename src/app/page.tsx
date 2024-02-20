@@ -45,8 +45,8 @@ const AngebotSection = () => (
           className="text-normal md:text-large mx-auto max-w-screen-sm hyphens-auto"
           aria-label="Angebotsbeschreibung"
         >
-          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein,
-          Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen
+          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
+          Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
         </p>
       </div>
