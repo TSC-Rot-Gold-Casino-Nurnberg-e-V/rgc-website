@@ -20,7 +20,7 @@ export const StatsSection = () => {
           aria-label="Statistik"
         >
           <div className="heading-large">
-            {"> "}
+            {">"}
             <CountUp end={inView ? 600 : 0} />
           </div>
           <div className="text-large font-bold text-opacity-75">Mitglieder</div>
