@@ -43,7 +43,7 @@ export default function TurniertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-2 h-96">
+          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
             <Image
               src={einzeltanz_standard}
               alt=""
@@ -73,7 +73,7 @@ export default function TurniertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-5 h-96">
+          <div className="relative order-5 aspect-square sm:aspect-[4/5]">
             <Image
               src={einzeltanz_latein}
               alt=""
