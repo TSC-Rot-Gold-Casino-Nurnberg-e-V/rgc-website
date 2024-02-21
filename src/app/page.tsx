@@ -103,7 +103,7 @@ const VereinsgeschichteSection = () => (
           Jahr 1961 steht die Freude am Tanzen und die Förderung der Tanzkultur
           im Mittelpunkt unserer Arbeit.
         </p>
-        <Link href="/verein" className="block w-fit rounded-md">
+        <Link href="/verein" className="block w-fit rounded-full">
           <Button tabIndex={-1}>Mehr erfahren</Button>
         </Link>
       </div>
