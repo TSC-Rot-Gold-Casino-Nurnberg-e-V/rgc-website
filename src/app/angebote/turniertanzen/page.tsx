@@ -1,7 +1,7 @@
 import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import einzeltanz_latein from "../../../../public/einzeltanz_latein.jpg";
-import einzeltanz_standard from "../../../../public/einzeltanz_standard.png";
+import einzeltanz_standard from "../../../../public/einzeltanz_standard.jpg";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";

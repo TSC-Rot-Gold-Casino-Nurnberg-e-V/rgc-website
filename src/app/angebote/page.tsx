@@ -2,7 +2,7 @@ import { AngebotCard } from "./AngebotCard";
 import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import einzeltanz_latein from "../../../public/einzeltanz_latein.jpg";
-import einzeltanz_standard from "../../../public/einzeltanz_standard.png";
+import einzeltanz_standard from "../../../public/einzeltanz_standard.jpg";
 import formation_latein from "../../../public/formation_latein.png";
 import formation_standard from "../../../public/formation_standard.jpg";
 import kinder from "../../../public/kindertanzen.png";
