@@ -7,6 +7,10 @@ import sanitize from "sanitize-html";
 
 const RGC_EMAIL = process.env.RGC_EMAIL ?? "";
 
+if (!RGC_EMAIL) {
+  console.error("env variable RGC_EMAIL not set");
+}
+
 const transporter = createTransport({
   host: "smtp.strato.de",
   port: 465,
