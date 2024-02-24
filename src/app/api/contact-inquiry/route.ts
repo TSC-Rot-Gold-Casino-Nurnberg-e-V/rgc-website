@@ -42,8 +42,6 @@ export async function POST(request: NextRequest) {
   console.info("Received contact inquiry: ", contactInquiry);
 
   try {
-    // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
-    //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
     await transporter.sendMail({
       from: {
         name: "TSC Rot-Gold-Casino Nürnberg e.V.",
