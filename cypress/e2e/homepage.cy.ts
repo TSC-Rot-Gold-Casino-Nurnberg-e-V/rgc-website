@@ -33,7 +33,7 @@ describe("homepage", () => {
 
     it('renders CTA "Einzeltanz"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Turniertanz/i })
+        .findByRole("link", { name: /Turnier/i })
         .should("have.attr", "href", "/angebote/turniertanzen");
     });
 
@@ -80,7 +80,7 @@ describe("homepage", () => {
       cy.findByRole("main")
         .findByLabelText("Vereinsstatistik")
         .scrollIntoView()
-        .should("contain", "> 600")
+        .should("contain", ">600")
         .should("contain", "Mitglieder");
     });
 
