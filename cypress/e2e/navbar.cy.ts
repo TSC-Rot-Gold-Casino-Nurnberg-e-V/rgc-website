@@ -9,16 +9,17 @@ describe("navbar", () => {
     cy.findByRole("navigation").findByRole("link", { name: /Der Verein/i });
     cy.findByRole("navigation").findByRole("link", { name: /News/i });
     cy.findByRole("navigation").findByRole("link", { name: /Angebot/i });
-    cy.findByRole("navigation").findByRole("link", {
-      name: /Veranstaltungen/i,
+    cy.findByRole("button", { name: /Veranstaltungen/i }).click();
+    cy.findByRole("navigation").findByRole("menuitem", {
+      name: /Übersicht/i,
     });
-    cy.findByRole("navigation").findByRole("link", {
+    cy.findByRole("navigation").findByRole("menuitem", {
       name: /Turnierergebnisse/i,
     });
     cy.findByRole("navigation").findByRole("link", { name: /Kontakt/i });
     cy.findByRole("navigation")
       .findAllByRole("link")
-      .should("have.lengthOf", 7);
+      .should("have.lengthOf", 5);
   });
 
   it("navigates to the homepage", () => {
