@@ -22,12 +22,10 @@ export const Prose = ({
       "prose-p:hyphens-auto",
       "prose-p:text-base-600",
       "prose-a:text-accent",
-      "prose-img:max-h-[24rem]",
-      "prose-img:w-full",
       "prose-img:rounded-xl",
       "prose-img:object-cover",
       "prose-img:object-top",
-      "sm:prose-img:max-h-[32rem]",
+      "prose-img:m-0",
       className,
     )}
     {...props}
@@ -36,6 +34,13 @@ export const Prose = ({
       rehypePlugins={[rehypeRaw]}
       components={{
         a: ({ node, ...props }) => <a {...props} target="_blank" />,
+        p: ({ node, ...props }) => {
+          const firstChild = node?.children[0];
+          if (firstChild?.type === "element" && firstChild?.tagName === "img") {
+            return <div {...props} />;
+          }
+          return <p {...props} />;
+        },
         img: ({ src = "", alt = "", height, width }) => {
           const DEFAULT_ASPECT_RATIO = 4 / 3;
           const parsedHeight = Number(height);
@@ -49,14 +54,19 @@ export const Prose = ({
               : parsedWidth / parsedHeight;
 
           return (
-            <div className="relative" style={{ aspectRatio }}>
-              <Image
-                src={src}
-                alt={alt}
-                priority
-                fill
-                sizes="(max-width: 640px) 100vw, 800px"
-              />
+            <div className="w-full">
+              <div
+                className="relative mx-auto max-h-[24rem] sm:max-h-[32rem]"
+                style={{ aspectRatio }}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  priority
+                  fill
+                  sizes="(max-width: 640px) 100vw, 800px"
+                />
+              </div>
             </div>
           );
         },
