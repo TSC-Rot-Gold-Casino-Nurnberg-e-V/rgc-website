@@ -94,7 +94,7 @@ export const FormationTabs = ({ teams }: Props) => (
                         alt=""
                         height={128}
                         width={128}
-                        className="rounded-full"
+                        className="aspect-square rounded-full object-cover object-top"
                       />
                       <p className="text-extralarge text-center font-bold">
                         {kapitaen.vorname} {kapitaen.nachname}

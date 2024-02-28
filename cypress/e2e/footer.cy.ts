@@ -7,10 +7,10 @@ describe("footer", () => {
     cy.findByRole("contentinfo")
       .findByRole("heading", { name: /Angebot/i })
       .siblings()
-      .should("contain", "Freizeittanzen")
-      .should("contain", "Turniertanzen")
+      .should("contain", "Freizeit")
+      .should("contain", "Turnier")
       .should("contain", "Kinder & Jugend")
-      .should("contain", "Formationstanzen");
+      .should("contain", "Formation");
   });
 
   it("renders the correct informational links", () => {

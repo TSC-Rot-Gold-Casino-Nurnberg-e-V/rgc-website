@@ -19,7 +19,7 @@ export default function FormationstanzenPage() {
         </p>
       </div>
       <section className="container-lg space-y-8">
-        <h2 className="heading-normal text-accent text-center">Tanzarten</h2>
+        <h2 className="heading-normal text-accent sm:text-center">Tanzarten</h2>
         <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-y-12">
           <section className="space-y-4 self-center sm:order-3">
             <h2 className="heading-small text-accent sm:text-center">
@@ -43,7 +43,7 @@ export default function FormationstanzenPage() {
               text="Zu den Standardformationen"
             />
           </section>
-          <div className="relative order-2 h-96">
+          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
             <Image
               src={formation_standard}
               alt=""
@@ -73,7 +73,7 @@ export default function FormationstanzenPage() {
               text="Zu den Lateinformationen"
             />
           </section>
-          <div className="relative order-5 h-96">
+          <div className="relative order-5 aspect-square sm:aspect-[4/5]">
             <Image
               src={formation_latein}
               alt=""

@@ -1,7 +1,7 @@
 import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import einzeltanz_latein from "../../../../public/einzeltanz_latein.jpg";
-import einzeltanz_standard from "../../../../public/einzeltanz_standard.png";
+import einzeltanz_standard from "../../../../public/einzeltanz_standard.jpg";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
@@ -14,12 +14,12 @@ export default function TurniertanzenPage() {
         <p className="paragraph">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes
-          Trainerteam begleitet dich auf dem Weg zum Turniertänzer und
-          unterstützt dich bei deinen Wettkämpfen.
+          Trainerteam begleitet Dich auf dem Weg zum Turniertänzer und
+          unterstützt Dich bei Deinen Wettkämpfen.
         </p>
       </div>
       <section className="container-lg space-y-8">
-        <h2 className="heading-normal text-accent text-center">Tanzarten</h2>
+        <h2 className="heading-normal text-accent sm:text-center">Tanzarten</h2>
         <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-y-12">
           <section className="space-y-4 self-center sm:order-3">
             <h2 className="heading-small text-accent sm:text-center">
@@ -43,7 +43,7 @@ export default function TurniertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-2 h-96">
+          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
             <Image
               src={einzeltanz_standard}
               alt=""
@@ -73,7 +73,7 @@ export default function TurniertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-5 h-96">
+          <div className="relative order-5 aspect-square sm:aspect-[4/5]">
             <Image
               src={einzeltanz_latein}
               alt=""

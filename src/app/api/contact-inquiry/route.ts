@@ -7,6 +7,10 @@ import sanitize from "sanitize-html";
 
 const RGC_EMAIL = process.env.RGC_EMAIL ?? "";
 
+if (!RGC_EMAIL) {
+  console.error("env variable RGC_EMAIL not set");
+}
+
 const transporter = createTransport({
   host: "smtp.strato.de",
   port: 465,
@@ -42,8 +46,6 @@ export async function POST(request: NextRequest) {
   console.info("Received contact inquiry: ", contactInquiry);
 
   try {
-    // TODO: macht es überhaupt Sinn, eine separate Confirmation-Email zu verschicken?
-    //  Sollte vielleicht einfach der Absender in CC genommen werden bei der Mail an info@rgc?
     await transporter.sendMail({
       from: {
         name: "TSC Rot-Gold-Casino Nürnberg e.V.",

@@ -24,7 +24,7 @@ const baseUrl = "https://develop.rot-gold-casino.de";
 export const ContactInquiryConfirmationEmail = () => (
   <Html lang="de">
     <Preview>
-      Vielen Dank für deine Anfrage. Wir werden uns schnellstmöglich mit dir in
+      Vielen Dank für Deine Anfrage. Wir werden uns schnellstmöglich mit dir in
       Verbindung setzten.
     </Preview>
     <Tailwind
@@ -76,7 +76,7 @@ export const ContactInquiryConfirmationEmail = () => (
             Bestätigung der Anfrage
           </Heading>
           <Text className="break-words text-[16px] leading-[24px]">
-            Vielen Dank für deine Anfrage. Wir werden uns schnellstmöglich mit
+            Vielen Dank für Deine Anfrage. Wir werden uns schnellstmöglich mit
             dir in Verbindung setzten.
           </Text>
           <Text className="text-[16px] leading-[24px]">Dein RGC Team</Text>

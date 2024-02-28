@@ -16,9 +16,7 @@ describe("homepage", () => {
     });
 
     it("renders a description", () => {
-      cy.findByText(/Dein Verein für Tanzsport in Nürnberg \/ Fürth/i).should(
-        "exist",
-      );
+      cy.findByText(/Dein Verein für Tanzsport in Bayern/i).should("exist");
     });
   });
 
@@ -29,19 +27,19 @@ describe("homepage", () => {
 
     it("renders a description", () => {
       cy.findByText(
-        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein, Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.",
+        "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-, Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen und Breakdance.",
       ).should("exist");
     });
 
     it('renders CTA "Einzeltanz"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Turniertanz/i })
+        .findByRole("link", { name: /Turnier/i })
         .should("have.attr", "href", "/angebote/turniertanzen");
     });
 
     it('renders CTA "Formationstanzen"', () => {
       cy.findByLabelText("Kursangebote")
-        .findByRole("link", { name: /Formationstanz/i })
+        .findByRole("link", { name: /Formation/i })
         .should("have.attr", "href", "/angebote/formationstanzen");
     });
 
@@ -82,7 +80,7 @@ describe("homepage", () => {
       cy.findByRole("main")
         .findByLabelText("Vereinsstatistik")
         .scrollIntoView()
-        .should("contain", "> 600")
+        .should("contain", ">600")
         .should("contain", "Mitglieder");
     });
 

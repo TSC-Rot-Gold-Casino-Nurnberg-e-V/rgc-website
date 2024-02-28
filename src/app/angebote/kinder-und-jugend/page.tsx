@@ -2,7 +2,7 @@ import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import kinder from "../../../../public/kindertanzen.png";
-import standard_jugend from "../../../../public/standard_jugend.png";
+import standard_jugend from "../../../../public/standard_jugend.jpg";
 import latein_jugend from "../../../../public/latein_jugend.jpg";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
@@ -34,7 +34,7 @@ export default function KindertanzenPage() {
               stets auf Spaß und spielerischem Lernen liegt.
             </p>
             <p className="paragraph">
-              Gebe deinen Kindern die Möglichkeit, sich kreativ auszudrücken,
+              Gib Deinen Kindern die Möglichkeit, sich kreativ auszudrücken,
               neue Freunde zu finden und gleichzeitig ihre körperliche
               Entwicklung zu fördern.
             </p>
@@ -43,7 +43,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-2 h-96">
+          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
             <Image
               src={kinder}
               alt=""
@@ -73,7 +73,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="group relative order-5 h-96">
+          <div className="group relative order-5 aspect-square sm:aspect-[4/5]">
             <Image
               src={latein_jugend}
               alt=""
@@ -108,7 +108,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-7 h-96">
+          <div className="relative order-7 aspect-square sm:aspect-[4/5]">
             <Image
               src={standard_jugend}
               alt=""

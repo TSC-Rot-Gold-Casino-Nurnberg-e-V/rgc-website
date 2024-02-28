@@ -49,9 +49,7 @@ export const HeroSection = () => (
             <div className="heading-extrasmall mx-auto max-w-2xl space-y-1 text-center text-base-50">
               <p>Herzlich Willkommen</p>
               <p>im TSC Rot-Gold-Casino Nürnberg e.V.</p>
-              <p className="pt-4">
-                Dein Verein für Tanzsport in Nürnberg / Fürth
-              </p>
+              <p className="pt-4">Dein Verein für Tanzsport in Bayern</p>
             </div>
           </Transition>
         </ParallaxBannerLayer>

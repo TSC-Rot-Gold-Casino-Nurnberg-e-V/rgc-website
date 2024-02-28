@@ -4,6 +4,7 @@ import formation_latein from "../../public/formation_latein.png";
 import formation_standard from "../../public/formation_standard.jpg";
 import kinder from "../../public/kindertanzen.png";
 import vereinsBild from "../../public/vereinsbild.jpg";
+import freizeittanz from "../../public/freizeittanz.jpg";
 import { getNeuigkeiten } from "@/api/api";
 import Link from "next/link";
 import { Neuigkeit } from "@/model/Neuigkeit";
@@ -44,15 +45,15 @@ const AngebotSection = () => (
           className="text-normal md:text-large mx-auto max-w-screen-sm hyphens-auto"
           aria-label="Angebotsbeschreibung"
         >
-          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein,
-          Standard und Formationstanzen bis hin zu Breitensport, Kindertanzen
+          Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
+          Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
         </p>
       </div>
       <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           loadImageWithPriority
-          title="Turniertanz"
+          title="Turnier"
           image={einzeltanz_latein}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
@@ -60,7 +61,7 @@ const AngebotSection = () => (
         />
         <AngebotCard
           loadImageWithPriority
-          title="Formationstanz"
+          title="Formation"
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
@@ -74,8 +75,8 @@ const AngebotSection = () => (
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
-          title="Freizeittanz"
-          image={formation}
+          title="Freizeit"
+          image={freizeittanz}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
@@ -102,7 +103,7 @@ const VereinsgeschichteSection = () => (
           Jahr 1961 steht die Freude am Tanzen und die Förderung der Tanzkultur
           im Mittelpunkt unserer Arbeit.
         </p>
-        <Link href="/verein" className="block w-fit rounded-md">
+        <Link href="/verein" className="block w-fit rounded-full">
           <Button tabIndex={-1}>Mehr erfahren</Button>
         </Link>
       </div>

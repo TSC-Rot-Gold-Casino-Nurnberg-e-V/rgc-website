@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
-import React, { AnchorHTMLAttributes, forwardRef } from "react";
+import React, { AnchorHTMLAttributes, forwardRef, Fragment } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
 import { RgcIcon } from "./icons/RgcIcon";
@@ -19,19 +19,47 @@ export const Navbar = () => (
           <RgcIcon />
         </Link>
       </div>
-      <ul className="flex gap-1 max-md:hidden">
+      <ul className="flex gap-1 max-sm:hidden">
         <NavLink text="Der Verein" href="/verein" />
         <NavLink text="News" href="/neuigkeiten" />
         <NavLink text="Angebot" href="/angebote" />
-        <NavLink text="Veranstaltungen" href="/veranstaltungen" />
-        <NavLink
-          text="Turnierergebnisse"
-          href="/turnierergebnisse"
-          shouldHideOnSmallViewport
-        />
+        <Menu>
+          {({ open }) => (
+            <div className="relative">
+              <Menu.Button
+                className={twJoin(
+                  "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
+                  open && "bg-base-800",
+                )}
+              >
+                Veranstaltungen
+              </Menu.Button>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items
+                  static
+                  className="text-normal absolute mt-1 rounded-2xl bg-base-800 p-2 text-base-50 shadow-sm shadow-base-900"
+                >
+                  <MenuLink text="Übersicht" href="/veranstaltungen" />
+                  <MenuLink
+                    text="Turnierergebnisse"
+                    href="/turnierergebnisse"
+                  />
+                </Menu.Items>
+              </Transition>
+            </div>
+          )}
+        </Menu>
         <NavLink text="Kontakt" href="/kontakt" />
       </ul>
-      <div className="relative md:hidden">
+      <div className="relative sm:hidden">
         <Menu>
           {({ open }) => (
             <>
@@ -86,23 +114,17 @@ export const Navbar = () => (
 interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   text: string;
   href: string;
-  shouldHideOnSmallViewport?: boolean;
 }
 
-export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ text, href, className, shouldHideOnSmallViewport, ...rest }, ref) => {
+const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
+  ({ text, href, className, ...rest }, ref) => {
     const pathname = usePathname();
     const isActive = pathname?.startsWith(href);
     return (
-      <li
-        className={twJoin(
-          shouldHideOnSmallViewport && "max-lg:hidden",
-          "flex list-none",
-        )}
-      >
+      <li className="flex list-none">
         <Link
           className={twMerge(
-            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 md:px-3 lg:px-4",
+            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 sm:px-3 lg:px-4",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
               : "text-base-200",
