@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Sponsors } from "@/components/Sponsors";
 import { Footer } from "@/components/Footer";
 import { Manrope } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "../styles/globals.css";
 import { PropsWithChildren } from "react";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         </div>
         <Sponsors />
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
