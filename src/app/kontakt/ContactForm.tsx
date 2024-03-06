@@ -14,6 +14,14 @@ import { UnexpectedErrorDialog } from "@/components/UnexpectedErrorDialog";
 import Link from "next/link";
 import { LoadingSpinnerIcon } from "@/components/icons/LoadingSpinnerIcon";
 import { SendIcon } from "@/components/icons/SendIcon";
+import { Prose } from "@/components/Prose";
+import { ContactInquiry } from "@/app/api/contact-inquiry/route";
+
+const RECATCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
+
+if (RECATCHA_SITE_KEY === "") {
+  console.error("RECAPTCHA_SITE_KEY is not set");
+}
 
 const inputSchema = z.object({
   name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
@@ -45,6 +53,9 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (input) => {
     setIsLoading(true);
     try {
+      const recaptchaToken = await grecaptcha.execute(RECATCHA_SITE_KEY, {
+        action: "submit",
+      });
       const response = await fetch("/api/contact-inquiry", {
         method: "POST",
         body: JSON.stringify({
@@ -52,7 +63,8 @@ export function ContactForm() {
           email: input.email,
           subject: input.subject,
           message: input.message,
-        }),
+          recaptchaToken,
+        } satisfies ContactInquiry),
       });
       if (response.ok) {
         setShowConfirmationDialog(true);
@@ -61,6 +73,7 @@ export function ContactForm() {
         setShowErrorDialog(true);
       }
     } catch (error) {
+      console.error(error);
       setShowErrorDialog(true);
     }
     setIsLoading(false);
@@ -171,6 +184,17 @@ export function ContactForm() {
             </span>
           )}
         </div>
+        <Prose className="!prose-sm">
+          Diese Website ist durch reCAPTCHA geschützt und es gelten die{" "}
+          <a href="https://policies.google.com/privacy" target="_blank">
+            Datenschutzbestimmungen
+          </a>{" "}
+          und{" "}
+          <a href="https://policies.google.com/terms" target="_blank">
+            Nutzungsbedingungen
+          </a>{" "}
+          von Google.
+        </Prose>
         <Button
           disabled={isLoading}
           type="submit"

@@ -8,6 +8,13 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "../styles/globals.css";
 import { PropsWithChildren } from "react";
+import Script from "next/script";
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+if (RECAPTCHA_SITE_KEY === "") {
+  console.error("RECAPTCHA_SITE_KEY is not set");
+}
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -32,6 +39,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         <SpeedInsights />
         <Analytics />
       </body>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+      />
     </html>
   );
 }

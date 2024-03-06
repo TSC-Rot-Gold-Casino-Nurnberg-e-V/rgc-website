@@ -69,3 +69,7 @@
     @apply text-normal sm:text-large;
   }
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
