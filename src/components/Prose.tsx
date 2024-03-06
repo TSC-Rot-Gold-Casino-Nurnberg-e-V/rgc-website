@@ -5,14 +5,15 @@ import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 
 interface Props {
-  content: string;
+  content?: string;
 }
 
 export const Prose = ({
   content,
   className,
+  children,
   ...props
-}: Props & Omit<ComponentPropsWithoutRef<"div">, "children">) => (
+}: Props & ComponentPropsWithoutRef<"div">) => (
   <div
     className={twMerge(
       "prose",
@@ -74,5 +75,6 @@ export const Prose = ({
     >
       {content}
     </Markdown>
+    {children}
   </div>
 );
