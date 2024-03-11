@@ -29,7 +29,7 @@ export const HeroSection = () => (
           <Image
             src={heroImage}
             alt=""
-            className="object-cover object-top opacity-50 blur-xs"
+            className="object-cover object-top opacity-80 blur-xs"
             fill
             priority
           />
