@@ -58,7 +58,7 @@
 
 @layer utilities {
   .text-accent {
-    @apply text-secondary-900;
+    @apply text-secondary-950;
   }
   .text-gold {
     @apply gold-gradient bg-clip-text text-transparent;
