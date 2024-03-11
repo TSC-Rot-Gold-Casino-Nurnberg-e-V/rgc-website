@@ -116,6 +116,8 @@ const VereinsgeschichteSection = () => (
         fill
       />
     </div>
+    <div className="absolute inset-0 bg-gradient-to-b from-base-900 to-5%" />
+    <div className="absolute inset-0 bg-gradient-to-t from-base-900 to-5%" />
   </section>
 );
 
