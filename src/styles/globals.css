@@ -20,19 +20,19 @@
   }
 
   .heading-extralarge {
-    @apply text-[60px] font-bold leading-[60px];
+    @apply text-[60px] font-extrabold leading-[60px];
   }
   .heading-large {
-    @apply text-[48px] font-bold leading-[48px];
+    @apply text-[48px] font-extrabold leading-[48px];
   }
   .heading-normal {
-    @apply text-[36px] font-bold leading-[40px];
+    @apply text-[36px] font-extrabold leading-[40px];
   }
   .heading-small {
-    @apply text-[30px] font-bold leading-[36px];
+    @apply text-[30px] font-extrabold leading-[36px];
   }
   .heading-extrasmall {
-    @apply text-[24px] font-bold leading-[32px];
+    @apply text-[24px] font-extrabold leading-[32px];
   }
 
   .text-extralarge {
