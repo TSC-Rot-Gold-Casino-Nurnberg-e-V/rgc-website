@@ -27,9 +27,9 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         "gap-2",
         "font-bold",
         variant === "primary" &&
-          "bg-secondary-800 text-base-50 shadow hover:bg-secondary-700 hover:shadow-md",
+          "bg-secondary-700 text-base-50 shadow hover:bg-secondary-800 hover:shadow-md",
         variant === "secondary" &&
-          "border border-secondary-900 text-secondary-900 hover:border-secondary-700 hover:text-secondary-700 hover:shadow",
+          "border border-secondary-700 text-secondary-700 hover:border-secondary-800 hover:text-secondary-800 hover:shadow",
         startIcon && "pl-4",
         endIcon && "pr-4",
         className,
