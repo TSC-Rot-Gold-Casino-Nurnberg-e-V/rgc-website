@@ -34,7 +34,7 @@ export const HeroSection = () => (
             priority
           />
         </ParallaxBannerLayer>
-        <ParallaxBannerLayer>
+        <ParallaxBannerLayer className="bg-gradient-to-b from-transparent from-80% to-base-900">
           <Transition
             show
             appear
