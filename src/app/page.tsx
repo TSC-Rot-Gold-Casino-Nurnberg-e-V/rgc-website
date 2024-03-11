@@ -88,7 +88,7 @@ const AngebotSection = () => (
 
 const VereinsgeschichteSection = () => (
   <section className="relative bg-base-900" aria-label="Vereinsinformationen">
-    <div className="relative z-10 w-full bg-base-900/20">
+    <div className="relative z-10 w-full">
       <div className="container-lg space-y-4 py-24 text-base-50">
         <h2 className="heading-normal md:heading-large">Über uns</h2>
         <h3 className="heading-extrasmall uppercase opacity-90">
@@ -112,7 +112,7 @@ const VereinsgeschichteSection = () => (
       <Image
         src={vereinsBild}
         alt=""
-        className="h-full object-cover object-top opacity-50"
+        className="h-full object-cover object-top opacity-60"
         fill
       />
     </div>
