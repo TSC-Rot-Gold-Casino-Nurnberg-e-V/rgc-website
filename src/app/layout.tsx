@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Sponsors } from "@/components/Sponsors";
 import { Footer } from "@/components/Footer";
-import { Manrope } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -16,7 +16,7 @@ if (RECAPTCHA_SITE_KEY === "") {
   console.error("RECAPTCHA_SITE_KEY is not set");
 }
 
-const manrope = Manrope({ subsets: ["latin"] });
+const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TSC Rot-Gold-Casino Nürnberg e.V.",
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <body className="flex min-h-screen flex-col">
         <Navbar />
         <div
-          className={`flex grow flex-col bg-base-50 text-base-700 ${manrope.className}`}
+          className={`flex grow flex-col bg-base-50 text-base-700 ${openSans.className}`}
         >
           {children}
         </div>
