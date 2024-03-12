@@ -91,12 +91,10 @@ const VereinsgeschichteSection = () => (
     <div className="relative z-10 w-full">
       <div className="container-lg space-y-4 py-24 text-base-50">
         <h2 className="heading-normal md:heading-large">Über uns</h2>
-        <h3 className="heading-extrasmall uppercase opacity-90">
-          Mit Herz und Rhythmus
-        </h3>
+        <h3 className="heading-extrasmall uppercase">Mit Herz und Rhythmus</h3>
         <p
           aria-label="Vereinsgeschichte"
-          className="text-normal md:text-large max-w-sm opacity-90"
+          className="text-normal md:text-large max-w-sm"
         >
           Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den
           Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im
