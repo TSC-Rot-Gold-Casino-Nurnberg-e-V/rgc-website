@@ -93,7 +93,7 @@ export function ContactForm() {
       />
       <section className="space-y-6">
         <h2 className="text-2xl sm:text-3xl">Kontaktiere uns</h2>
-        <div className="paragraph">
+        <div className="text-base sm:text-lg">
           Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
           Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
