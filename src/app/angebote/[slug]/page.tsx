@@ -44,7 +44,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
       <Prose className="container-lg" content={angebot.beschreibung} />
       <section className="bg-base-100">
         <div className="container-lg space-y-8">
-          <h2 className="text-accent text-3xl max-sm:text-center sm:text-4xl">
+          <h2 className="text-3xl max-sm:text-center sm:text-4xl">
             Unsere Trainingszeiten
           </h2>
           <div className="space-y-8">
@@ -75,7 +75,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                           key={id}
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
-                          <h4 className="text-accent text-2xl sm:text-3xl">
+                          <h4 className="text-2xl sm:text-3xl">
                             {attributes.titel}
                           </h4>
                           <div className="flex gap-1 text-base font-semibold text-base-700 sm:text-lg">
@@ -120,7 +120,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                 </div>
               ))}
           </div>
-          <div className="text-accent flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 text-xs max-sm:mx-auto max-sm:max-w-sm sm:text-sm">
+          <div className="flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 text-xs max-sm:mx-auto max-sm:max-w-sm sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,7 +143,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
         </div>
       </section>
       <section className="container-lg">
-        <h2 className="text-accent text-3xl max-sm:text-center sm:text-4xl">
+        <h2 className="text-3xl max-sm:text-center sm:text-4xl">
           Unsere Trainer
         </h2>
         <div className="divide-y">
@@ -166,9 +166,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
       {angebot.faqs.length > 0 && (
         <div className="container-lg">
           <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
-            <h2 className="text-accent text-2xl sm:text-3xl">
-              Häufig gestellte Fragen
-            </h2>
+            <h2 className="text-2xl sm:text-3xl">Häufig gestellte Fragen</h2>
             <div className="divide-y">
               {angebot.faqs.map((faq) => (
                 <section
@@ -186,10 +184,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
               <p>Du hast weitere Fragen?</p>
               <div className="flex gap-1">
                 <p>Dann kontaktiere uns</p>
-                <Link
-                  href="/kontakt"
-                  className="text-accent rounded-full font-semibold"
-                >
+                <Link href="/kontakt" className="rounded-full font-semibold">
                   hier.
                 </Link>
               </div>

@@ -19,12 +19,10 @@ export default function KindertanzenPage() {
         </p>
       </div>
       <section className="container-lg space-y-8">
-        <h2 className="text-accent text-center text-3xl sm:text-4xl">
-          Gruppen
-        </h2>
+        <h2 className="text-center text-3xl sm:text-4xl">Gruppen</h2>
         <div className="grid items-center gap-8 sm:grid-cols-2">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="text-accent text-2xl sm:text-center sm:text-3xl">
+            <h2 className="text-2xl sm:text-center sm:text-3xl">
               Kindertanzen
             </h2>
             <p className="paragraph">
@@ -56,9 +54,7 @@ export default function KindertanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="text-accent text-2xl sm:text-center sm:text-3xl">
-              Latein
-            </h2>
+            <h2 className="text-2xl sm:text-center sm:text-3xl">Latein</h2>
             <p className="paragraph">
               Die lateinamerikanischen Tänze zeichnen sich durch die
               Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf
@@ -91,9 +87,7 @@ export default function KindertanzenPage() {
             </small>
           </div>
           <section className="order-6 space-y-4 self-center sm:order-8">
-            <h2 className="text-accent text-2xl sm:text-center sm:text-3xl">
-              Standard
-            </h2>
+            <h2 className="text-2xl sm:text-center sm:text-3xl">Standard</h2>
             <p className="paragraph">
               Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
               unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird

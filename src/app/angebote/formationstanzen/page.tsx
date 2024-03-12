@@ -19,14 +19,10 @@ export default function FormationstanzenPage() {
         </p>
       </div>
       <section className="container-lg space-y-8">
-        <h2 className="text-accent text-3xl sm:text-center sm:text-4xl">
-          Tanzarten
-        </h2>
+        <h2 className="text-3xl sm:text-center sm:text-4xl">Tanzarten</h2>
         <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-y-12">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="text-accent text-2xl sm:text-center sm:text-3xl">
-              Standard
-            </h2>
+            <h2 className="text-2xl sm:text-center sm:text-3xl">Standard</h2>
             <p className="paragraph">
               Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
               unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird
@@ -56,9 +52,7 @@ export default function FormationstanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="text-accent text-2xl sm:text-center sm:text-3xl">
-              Latein
-            </h2>
+            <h2 className="text-2xl sm:text-center sm:text-3xl">Latein</h2>
             <p className="paragraph">
               Die lateinamerikanischen Tänze zeichnen sich durch die
               Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf

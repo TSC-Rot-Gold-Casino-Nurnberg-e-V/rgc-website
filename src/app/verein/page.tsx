@@ -17,7 +17,7 @@ export default async function VereinsgeschichtePage() {
     <Main>
       <PageHeading>Der Verein</PageHeading>
       <section className="container-lg space-y-4">
-        <h2 className="text-accent text-3xl sm:text-4xl">Über uns</h2>
+        <h2 className="text-3xl sm:text-4xl">Über uns</h2>
         <p className="text-base sm:text-lg">
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
@@ -36,7 +36,7 @@ export default async function VereinsgeschichtePage() {
         </Link>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="text-accent text-center text-3xl sm:text-4xl">
+        <h2 className="text-center text-3xl sm:text-4xl">
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -54,7 +54,7 @@ export default async function VereinsgeschichtePage() {
                   className="mx-auto mb-4 rounded-full"
                   priority={index < 3}
                 />
-                <h3 className="text-accent text-lg font-bold sm:text-xl">
+                <h3 className="text-lg font-bold sm:text-xl">
                   {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 </h3>
                 <p className="text-base-700">{vorstandsmitglied.rolle}</p>
@@ -78,12 +78,10 @@ export default async function VereinsgeschichtePage() {
         </div>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="text-accent text-center text-3xl sm:text-4xl">
-          Cheftrainer
-        </h2>
+        <h2 className="text-center text-3xl sm:text-4xl">Cheftrainer</h2>
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
-            <h3 className="text-accent mb-5 text-2xl max-sm:text-center sm:text-3xl">
+            <h3 className="mb-5 text-2xl max-sm:text-center sm:text-3xl">
               {cheftrainer.titel}
             </h3>
             <TrainerCard
@@ -107,7 +105,7 @@ interface ContactLinkProps {
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
   <div className="group flex cursor-pointer gap-2">
-    <div className="group-hover:text-accent flex gap-4">
+    <div className="gap-4 group-hover:flex">
       <a href={href} className="flex w-fit gap-2 rounded-full">
         <div className="grow">{icon}</div>
         <span>{text}</span>

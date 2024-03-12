@@ -92,7 +92,7 @@ export function ContactForm() {
         onClose={() => setShowErrorDialog(false)}
       />
       <section className="space-y-6">
-        <h2 className="text-accent text-2xl sm:text-3xl">Kontaktiere uns</h2>
+        <h2 className="text-2xl sm:text-3xl">Kontaktiere uns</h2>
         <div className="paragraph">
           Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
           Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
@@ -104,7 +104,7 @@ export function ContactForm() {
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
-            className="hover:text-accent flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
+            className="w-fit items-center gap-2 rounded-full text-sm transition-colors hover:flex sm:text-base"
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
@@ -112,7 +112,7 @@ export function ContactForm() {
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
-            className="hover:text-accent flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
+            className="w-fit items-center gap-2 rounded-full text-sm transition-colors hover:flex sm:text-base"
             href="mailto:info@rot-gold-casino.de"
           >
             <MailIcon />
@@ -171,7 +171,7 @@ export function ContactForm() {
               <Link
                 href="datenschutzerklaerung"
                 target="_blank"
-                className="text-accent rounded-md"
+                className="rounded-md"
               >
                 Datenschutzerklärung
               </Link>

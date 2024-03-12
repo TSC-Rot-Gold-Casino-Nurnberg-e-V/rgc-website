@@ -20,9 +20,7 @@ export default async function Turnierergebnisse() {
       <div className="container-md space-y-8">
         {uniqueYears.map((uniqueYear) => (
           <section key={uniqueYear} className="space-y-2">
-            <h2 className="text-accent text-3xl sm:text-4xl">
-              Turniere {uniqueYear}
-            </h2>
+            <h2 className="text-3xl sm:text-4xl">Turniere {uniqueYear}</h2>
             <div>
               {turnierergebnisse
                 .filter(({ start }) => start.includes(uniqueYear.toString()))
@@ -31,7 +29,7 @@ export default async function Turnierergebnisse() {
                     target="_blank"
                     key={id}
                     href={link}
-                    className="hover:text-accent block w-full p-2"
+                    className="w-full p-2 hover:block"
                   >
                     <div className="grid grid-cols-[1fr_8rem] gap-4">
                       <div>{titel}</div>
