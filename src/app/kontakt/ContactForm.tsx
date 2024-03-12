@@ -104,7 +104,7 @@ export function ContactForm() {
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
-            className="w-fit items-center gap-2 rounded-full text-sm transition-colors hover:flex sm:text-base"
+            className="flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
@@ -112,7 +112,7 @@ export function ContactForm() {
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
-            className="w-fit items-center gap-2 rounded-full text-sm transition-colors hover:flex sm:text-base"
+            className="flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="mailto:info@rot-gold-casino.de"
           >
             <MailIcon />
