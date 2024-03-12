@@ -19,20 +19,22 @@ export const StatsSection = () => {
           className="text-gold w-40 max-sm:justify-self-start"
           aria-label="Statistik"
         >
-          <div className="heading-large">
+          <div className="text-5xl">
             {">"}
             <CountUp end={inView ? 600 : 0} />
           </div>
-          <div className="text-large font-bold text-opacity-75">Mitglieder</div>
+          <div className="text-base font-bold text-opacity-75 sm:text-lg">
+            Mitglieder
+          </div>
         </div>
         <div
           className="text-gold max-sm:justify-self-end"
           aria-label="Statistik"
         >
-          <div className="heading-large">
+          <div className="text-5xl">
             <CountUp end={inView ? 8 : 0} />
           </div>
-          <div className="text-large font-bold text-opacity-75">
+          <div className="text-base font-bold text-opacity-75 sm:text-lg">
             Formationsteams
           </div>
         </div>
@@ -40,10 +42,10 @@ export const StatsSection = () => {
           className="text-gold max-sm:justify-self-start"
           aria-label="Statistik"
         >
-          <div className="heading-large">
+          <div className="text-5xl">
             <CountUp end={inView ? 26 : 0} />x
           </div>
-          <div className="text-large font-bold text-opacity-75">
+          <div className="text-base font-bold text-opacity-75 sm:text-lg">
             Bayernpokalsieger
           </div>
         </div>

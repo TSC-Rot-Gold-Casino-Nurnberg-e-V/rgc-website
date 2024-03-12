@@ -19,38 +19,6 @@
     @apply mx-auto max-w-screen-sm px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
   }
 
-  .heading-extralarge {
-    @apply text-[60px] font-bold leading-[60px];
-  }
-  .heading-large {
-    @apply text-[48px] font-bold leading-[48px];
-  }
-  .heading-normal {
-    @apply text-[36px] font-bold leading-[40px];
-  }
-  .heading-small {
-    @apply text-[30px] font-bold leading-[36px];
-  }
-  .heading-extrasmall {
-    @apply text-[24px] font-bold leading-[32px];
-  }
-
-  .text-extralarge {
-    @apply text-[20px] leading-[28px];
-  }
-  .text-large {
-    @apply text-[18px] leading-[28px];
-  }
-  .text-normal {
-    @apply text-[16px] leading-[24px];
-  }
-  .text-small {
-    @apply text-[14px] leading-[20px];
-  }
-  .text-extrasmall {
-    @apply text-[12px] leading-[16px];
-  }
-
   .gold-gradient {
     @apply bg-gradient-to-br from-primary-300 from-10% via-primary-100 via-40% to-primary-300 to-90%;
   }
@@ -66,7 +34,7 @@
     clip-path: inset(1px);
   }
   .paragraph {
-    @apply text-normal sm:text-large;
+    @apply text-base sm:text-lg;
   }
 }
 

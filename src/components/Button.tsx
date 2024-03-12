@@ -19,7 +19,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         "rounded-full",
         "px-6",
         "py-3",
-        "text-large",
+        "text-lg",
         "transition-all",
         "flex",
         "items-center",

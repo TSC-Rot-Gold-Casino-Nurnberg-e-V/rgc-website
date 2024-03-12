@@ -17,10 +17,8 @@ export default async function VereinsgeschichtePage() {
     <Main>
       <PageHeading>Der Verein</PageHeading>
       <section className="container-lg space-y-4">
-        <h2 className="heading-small sm:heading-normal text-accent">
-          Über uns
-        </h2>
-        <p className="paragraph">
+        <h2 className="text-accent text-3xl sm:text-4xl">Über uns</h2>
+        <p className="text-base sm:text-lg">
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
           sportliche Erfolge gemacht, als auch in der Region als wesentlicher
@@ -38,7 +36,7 @@ export default async function VereinsgeschichtePage() {
         </Link>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-accent text-center">
+        <h2 className="text-accent text-center text-3xl sm:text-4xl">
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -56,7 +54,7 @@ export default async function VereinsgeschichtePage() {
                   className="mx-auto mb-4 rounded-full"
                   priority={index < 3}
                 />
-                <h3 className="text-extralarge text-accent font-bold">
+                <h3 className="text-accent text-lg font-bold sm:text-xl">
                   {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 </h3>
                 <p className="text-base-700">{vorstandsmitglied.rolle}</p>
@@ -80,12 +78,12 @@ export default async function VereinsgeschichtePage() {
         </div>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-accent text-center">
+        <h2 className="text-accent text-center text-3xl sm:text-4xl">
           Cheftrainer
         </h2>
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
-            <h3 className="heading-extrasmall sm:heading-small text-accent mb-5 max-sm:text-center">
+            <h3 className="text-accent mb-5 text-2xl max-sm:text-center sm:text-3xl">
               {cheftrainer.titel}
             </h3>
             <TrainerCard

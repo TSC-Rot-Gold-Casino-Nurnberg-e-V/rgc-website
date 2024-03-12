@@ -10,7 +10,9 @@ export default function NotFound() {
     <Main className="flex flex-col">
       <PageHeading>Hoppla...</PageHeading>
       <section className="container-sm grow space-y-4">
-        <h2 className="heading-normal text-accent">Seite nicht gefunden</h2>
+        <h2 className="text-accent text-3xl sm:text-4xl">
+          Seite nicht gefunden
+        </h2>
         <p className="paragraph">
           Leider konnten wir die von dir gesuchte Seite nicht finden.
         </p>

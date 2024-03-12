@@ -20,7 +20,7 @@ export default async function Turnierergebnisse() {
       <div className="container-md space-y-8">
         {uniqueYears.map((uniqueYear) => (
           <section key={uniqueYear} className="space-y-2">
-            <h2 className="heading-normal text-accent">
+            <h2 className="text-accent text-3xl sm:text-4xl">
               Turniere {uniqueYear}
             </h2>
             <div>

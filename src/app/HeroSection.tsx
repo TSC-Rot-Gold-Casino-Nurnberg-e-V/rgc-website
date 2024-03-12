@@ -43,10 +43,10 @@ export const HeroSection = () => (
             enterTo="scale-100 opacity-100"
             className="container-lg relative flex h-full flex-col justify-center space-y-6 text-primary-50"
           >
-            <h1 className="heading-large sm:heading-extralarge text-gold mx-auto max-w-lg text-center font-extrabold uppercase">
+            <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-extrabold uppercase sm:text-6xl">
               Lebe, Liebe, Tanze!
             </h1>
-            <div className="heading-extrasmall mx-auto max-w-2xl space-y-1 text-center text-base-50">
+            <div className="mx-auto max-w-2xl space-y-1 text-center text-2xl text-base-50 sm:text-3xl">
               <p>Herzlich Willkommen</p>
               <p>im TSC Rot-Gold-Casino Nürnberg e.V.</p>
               <p className="pt-4">Dein Verein für Tanzsport in Bayern</p>

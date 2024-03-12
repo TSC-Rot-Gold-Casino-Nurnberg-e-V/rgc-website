@@ -44,7 +44,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
       <Prose className="container-lg" content={angebot.beschreibung} />
       <section className="bg-base-100">
         <div className="container-lg space-y-8">
-          <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
+          <h2 className="text-accent text-3xl max-sm:text-center sm:text-4xl">
             Unsere Trainingszeiten
           </h2>
           <div className="space-y-8">
@@ -52,7 +52,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
               .sort(([a], [b]) => toSequenceNumber(a) - toSequenceNumber(b))
               .map(([wochentagTitel, trainings]) => (
                 <div key={wochentagTitel} className="space-y-4">
-                  <h3 className="heading-extrasmall text-base-600 max-sm:text-center">
+                  <h3 className="text-2xl text-base-600 max-sm:text-center sm:text-3xl">
                     {wochentagTitel}
                   </h3>
                   <div className="flex flex-wrap gap-4 max-sm:justify-center">
@@ -75,10 +75,10 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                           key={id}
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
-                          <h4 className="heading-extrasmall text-accent">
+                          <h4 className="text-accent text-2xl sm:text-3xl">
                             {attributes.titel}
                           </h4>
-                          <div className="text-large flex gap-1 font-semibold text-base-700">
+                          <div className="flex gap-1 text-base font-semibold text-base-700 sm:text-lg">
                             <time
                               dateTime={attributes.start.toLocaleTimeString()}
                             >
@@ -110,7 +110,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                 </a>
                               ))}
                             </div>
-                            <p className="text-normal self-end text-base-500">
+                            <p className="self-end text-sm text-base-500 sm:text-base">
                               {attributes.saal}
                             </p>
                           </div>
@@ -120,7 +120,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                 </div>
               ))}
           </div>
-          <div className="text-small text-accent flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 max-sm:mx-auto max-sm:max-w-sm">
+          <div className="text-accent flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 text-xs max-sm:mx-auto max-sm:max-w-sm sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -143,7 +143,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
         </div>
       </section>
       <section className="container-lg">
-        <h2 className="heading-small sm:heading-normal text-accent max-sm:text-center">
+        <h2 className="text-accent text-3xl max-sm:text-center sm:text-4xl">
           Unsere Trainer
         </h2>
         <div className="divide-y">
@@ -166,7 +166,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
       {angebot.faqs.length > 0 && (
         <div className="container-lg">
           <section className="space-y-4 max-sm:mx-auto max-sm:max-w-sm">
-            <h2 className="heading-small text-accent">
+            <h2 className="text-accent text-2xl sm:text-3xl">
               Häufig gestellte Fragen
             </h2>
             <div className="divide-y">
@@ -175,7 +175,9 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                   key={faq.id}
                   className="grid gap-x-8 gap-y-2 py-5 md:grid-cols-5"
                 >
-                  <h3 className="text-extralarge md:col-span-2">{faq.frage}</h3>
+                  <h3 className="text-lg sm:text-xl md:col-span-2">
+                    {faq.frage}
+                  </h3>
                   <Prose className="md:col-span-3" content={faq.antwort} />
                 </section>
               ))}

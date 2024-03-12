@@ -92,19 +92,19 @@ export function ContactForm() {
         onClose={() => setShowErrorDialog(false)}
       />
       <section className="space-y-6">
-        <h2 className="heading-small text-accent">Kontaktiere uns</h2>
+        <h2 className="text-accent text-2xl sm:text-3xl">Kontaktiere uns</h2>
         <div className="paragraph">
           Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
           Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
         </div>
         <div className="space-y-4">
-          <div className="text-normal flex items-center gap-2">
+          <div className="flex items-center gap-2 text-sm sm:text-base">
             <HouseIcon />
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
-            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-full transition-colors"
+            className="hover:text-accent flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
@@ -112,7 +112,7 @@ export function ContactForm() {
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
-            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-full transition-colors"
+            className="hover:text-accent flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="mailto:info@rot-gold-casino.de"
           >
             <MailIcon />
@@ -154,7 +154,7 @@ export function ContactForm() {
             {...register("message")}
           />
           {errors.message?.message && (
-            <span className="text-small text-red-500">
+            <span className="text-xs text-red-500 sm:text-sm">
               {errors.message.message}
             </span>
           )}
@@ -179,7 +179,7 @@ export function ContactForm() {
             </label>
           </div>
           {errors.hasAgreedToPrivacyPolicy?.message && (
-            <span className="text-small text-red-500">
+            <span className="text-xs text-red-500 sm:text-sm">
               {errors.hasAgreedToPrivacyPolicy.message}
             </span>
           )}
@@ -227,7 +227,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         {...inputProps}
       />
-      {error && <span className="text-small text-red-500">{error}</span>}
+      {error && (
+        <span className="text-xs text-red-500 sm:text-sm">{error}</span>
+      )}
     </div>
   ),
 );

@@ -38,11 +38,9 @@ const AngebotSection = () => (
       id="angebote"
     >
       <div className="space-y-6 text-center text-base-50">
-        <h2 className="heading-small max-md:heading-normal md:heading-large ">
-          Unser Angebot
-        </h2>
+        <h2 className="text-4xl md:text-5xl ">Unser Angebot</h2>
         <p
-          className="text-normal md:text-large mx-auto max-w-screen-sm hyphens-auto"
+          className="mx-auto max-w-screen-sm hyphens-auto text-base md:text-lg"
           aria-label="Angebotsbeschreibung"
         >
           Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
@@ -90,11 +88,13 @@ const VereinsgeschichteSection = () => (
   <section className="relative bg-base-900" aria-label="Vereinsinformationen">
     <div className="relative z-10 w-full">
       <div className="container-lg space-y-4 py-24 text-base-50">
-        <h2 className="heading-normal md:heading-large">Über uns</h2>
-        <h3 className="heading-extrasmall uppercase">Mit Herz und Rhythmus</h3>
+        <h2 className="text-4xl md:text-5xl">Über uns</h2>
+        <h3 className="text-2xl uppercase sm:text-3xl">
+          Mit Herz und Rhythmus
+        </h3>
         <p
           aria-label="Vereinsgeschichte"
-          className="text-normal md:text-large max-w-sm"
+          className="max-w-sm text-base md:text-lg"
         >
           Wir sind der RGC Nürnberg - ein Verein, der die Leidenschaft für den
           Tanzsport in all seinen Facetten vereint. Seit unserer Gründung im
@@ -121,9 +121,7 @@ const VereinsgeschichteSection = () => (
 
 const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
   <section className="container-lg space-y-8">
-    <h2 className="heading-small max-md:heading-normal md:heading-large text-accent text-center">
-      News
-    </h2>
+    <h2 className="text-accent text-center text-4xl md:text-5xl">News</h2>
     <div className="group/container grid gap-6 sm:grid-cols-2">
       {neuigkeiten.map((neuigkeit) => (
         <NeuigkeitCard

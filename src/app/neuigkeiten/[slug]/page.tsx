@@ -20,7 +20,7 @@ export default async function NeuigkeitPage({ params }: Readonly<Props>) {
 
   return (
     <Main className="container-md space-y-4">
-      <time className="text-normal text-base-500">
+      <time className="text-sm: text-base-500 sm:text-base">
         {formatDate(new Date(neuigkeit.datum))}
       </time>
       <Prose content={neuigkeit.beschreibung} />
