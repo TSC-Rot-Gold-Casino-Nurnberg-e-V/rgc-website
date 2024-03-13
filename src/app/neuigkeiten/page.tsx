@@ -7,6 +7,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Neuigkeiten",
+  description:
+    "Aktuelle Neuigkeiten und Informationen rund um den TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default async function NeuigkeitenPage() {
