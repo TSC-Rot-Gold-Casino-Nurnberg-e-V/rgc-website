@@ -19,7 +19,10 @@ if (RECAPTCHA_SITE_KEY === "") {
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TSC Rot-Gold-Casino Nürnberg e.V.",
+  title: {
+    template: "%s | TSC Rot-Gold-Casino Nürnberg e.V.",
+    default: "TSC Rot-Gold-Casino Nürnberg e.V.",
+  },
   description:
     "Willkommen auf der Website des TSC Rot-Gold-Casino Nürnberg e.V.",
 };

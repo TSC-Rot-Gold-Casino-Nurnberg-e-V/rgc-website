@@ -2,6 +2,11 @@ import { getVeranstaltungen } from "@/api/api";
 import { VeranstaltungCard } from "./VeranstaltungCard";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Veranstaltungen",
+};
 
 export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();

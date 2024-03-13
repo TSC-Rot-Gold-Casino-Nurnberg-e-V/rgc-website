@@ -6,6 +6,11 @@ import standard_jugend from "../../../../public/standard_jugend.jpg";
 import latein_jugend from "../../../../public/latein_jugend.jpg";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kinder & Jugend",
+};
 
 export default function KindertanzenPage() {
   return (

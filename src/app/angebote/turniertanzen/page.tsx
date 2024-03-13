@@ -5,6 +5,11 @@ import einzeltanz_standard from "../../../../public/einzeltanz_standard.jpg";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Turniertanzen",
+};
 
 export default function TurniertanzenPage() {
   return (

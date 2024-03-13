@@ -3,10 +3,20 @@ import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import { Prose } from "@/components/Prose";
 import { FormationTabs } from "../FormationTabs";
+import { Metadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("formationen");
   return slugs.map((slug) => ({ slug: slug }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const formation = await getFormation(params.slug);
+  return {
+    title: formation.titel,
+  };
 };
 
 interface Props {

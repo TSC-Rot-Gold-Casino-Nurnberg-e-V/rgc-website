@@ -3,6 +3,11 @@ import { getDokumente } from "@/api/api";
 import Link from "next/link";
 import { Main } from "@/components/Main";
 import { Button } from "@/components/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dokumente",
+};
 
 export default async function DokumentePage() {
   const dokumente = await getDokumente();

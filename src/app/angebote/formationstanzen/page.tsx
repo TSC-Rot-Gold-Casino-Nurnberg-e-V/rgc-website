@@ -5,6 +5,11 @@ import formation_standard from "../../../../public/formation_standard.jpg";
 import { AdditionalAngebote } from "../AdditionalAngebote";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Formationstanzen",
+};
 
 export default function FormationstanzenPage() {
   return (

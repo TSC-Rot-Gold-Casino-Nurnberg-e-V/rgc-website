@@ -3,10 +3,20 @@ import { formatDate } from "@/utils/formatDate";
 import { Prose } from "@/components/Prose";
 import { Main } from "@/components/Main";
 import { BackButton } from "./BackButton";
+import { Metadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("neuigkeiten");
   return slugs.map((slug) => ({ slug: slug }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const neuigkeit = await getNeuigkeit(params.slug);
+  return {
+    title: neuigkeit.titel,
+  };
 };
 
 interface Props {

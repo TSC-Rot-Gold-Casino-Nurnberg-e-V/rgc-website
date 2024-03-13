@@ -9,6 +9,11 @@ import { Main } from "@/components/Main";
 import { Button } from "@/components/Button";
 import { ChevronRightIcon } from "@/components/icons/ChevronRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Der Verein",
+};
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();

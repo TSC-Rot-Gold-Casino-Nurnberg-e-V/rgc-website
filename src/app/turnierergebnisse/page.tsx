@@ -2,6 +2,11 @@ import Link from "next/link";
 import { getTurnierergebnisse } from "@/api/api";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Turnierergebnisse",
+};
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();

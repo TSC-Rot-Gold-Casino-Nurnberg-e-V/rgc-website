@@ -8,10 +8,20 @@ import { formatTime } from "@/utils/formatTime";
 import { Prose } from "@/components/Prose";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
   return slugs.map((slug) => ({ slug: slug }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const angebot = await getAngebot(params.slug);
+  return {
+    title: angebot.titel,
+  };
 };
 
 interface Props {
