@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: "TSC Rot-Gold-Casino Nürnberg e.V.",
   },
   description:
-    "Willkommen auf der Website des TSC Rot-Gold-Casino Nürnberg e.V.",
+    "Der TSC Rot-Gold-Casino Nürnberg e.V. ist ein Tanzsportverein in Nürnberg mit einem breiten Angebot für Kinder, Jugendliche und Erwachsene. Wir bieten Tanzkurse, Workshops und Tanzveranstaltungen in den Bereichen Standard, Latein, Formation und Freizeittanz an.",
 };
 
 export const viewport: Viewport = {
