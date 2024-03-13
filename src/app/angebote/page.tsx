@@ -6,7 +6,7 @@ import einzeltanz_standard from "../../../public/einzeltanz_standard.jpg";
 import formation_latein from "../../../public/formation_latein.png";
 import formation_standard from "../../../public/formation_standard.jpg";
 import kinder from "../../../public/kindertanzen.png";
-import freizeittanz from "../../../public/freizeittanz.jpg";
+import freizeittanz from "../../../public/freizeittanz.png";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 const einzeltanz =

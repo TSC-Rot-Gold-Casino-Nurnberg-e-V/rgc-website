@@ -4,7 +4,7 @@ import formation_latein from "../../public/formation_latein.png";
 import formation_standard from "../../public/formation_standard.jpg";
 import kinder from "../../public/kindertanzen.png";
 import vereinsBild from "../../public/vereinsbild.jpg";
-import freizeittanz from "../../public/freizeittanz.jpg";
+import freizeittanz from "../../public/freizeittanz.png";
 import { getNeuigkeiten } from "@/api/api";
 import Link from "next/link";
 import { Neuigkeit } from "@/model/Neuigkeit";
