@@ -17,11 +17,10 @@ export const Prose = ({
   <div
     className={twMerge(
       "prose",
+      "prose-stone",
       "sm:prose-lg",
       "prose-headings:hyphens-auto",
-      "prose-headings:text-base-700",
       "prose-p:hyphens-auto",
-      "prose-p:text-base-700",
       "prose-img:rounded-xl",
       "prose-img:object-cover",
       "prose-img:object-top",
