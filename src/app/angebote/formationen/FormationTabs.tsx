@@ -49,7 +49,7 @@ export const FormationTabs = ({ teams }: Props) => (
               height={600}
               priority
             />
-            <div className="flex justify-between gap-4 text-lg max-sm:flex-col sm:text-xl">
+            <div className="flex justify-between gap-4 text-base max-sm:flex-col sm:text-lg">
               <div className="flex items-center gap-2">
                 <MusicIcon className="sm:size-6" />
                 <p>{team.choreo.name}</p>

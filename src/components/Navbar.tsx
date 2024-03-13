@@ -91,7 +91,7 @@ export const Navbar = () => (
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Menu.Items className="rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base">
+                <Menu.Items className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-sm shadow-base-900">
                   <MenuLink text="Der Verein" href="/verein" />
                   <MenuLink text="News" href="/neuigkeiten" />
                   <MenuLink text="Angebot" href="/angebote" />
