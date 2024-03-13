@@ -51,11 +51,11 @@ export const FormationTabs = ({ teams }: Props) => (
             />
             <div className="flex justify-between gap-4 text-lg max-sm:flex-col sm:text-xl">
               <div className="flex items-center gap-2">
-                <MusicIcon />
+                <MusicIcon className="sm:size-6" />
                 <p>{team.choreo.name}</p>
               </div>
               <div className="flex items-center gap-2">
-                <TrophyIcon />
+                <TrophyIcon className="sm:size-6" />
                 <p>{team.liga.name}</p>
               </div>
             </div>

@@ -1,11 +1,16 @@
-export const PhoneIcon = () => (
+import { ComponentProps } from "react";
+import { twMerge } from "tailwind-merge";
+
+export const PhoneIcon = ({
+  className,
+}: Omit<ComponentProps<"svg">, "children">) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="size-6"
+    className={twMerge("size-5", className)}
   >
     <path
       strokeLinecap="round"

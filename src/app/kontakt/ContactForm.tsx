@@ -100,7 +100,7 @@ export function ContactForm() {
         </div>
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-sm sm:text-base">
-            <HouseIcon />
+            <HouseIcon className="sm:size-6" />
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
@@ -108,14 +108,14 @@ export function ContactForm() {
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
-            <LocationIcon />
+            <LocationIcon className="sm:size-6" />
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
             className="flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="mailto:info@rot-gold-casino.de"
           >
-            <MailIcon />
+            <MailIcon className="sm:size-6" />
             <span>info@rot-gold-casino.de</span>
           </a>
         </div>

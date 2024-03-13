@@ -11,7 +11,7 @@ export const BackButton = () => {
     <Button
       onClick={() => router.back()}
       variant="secondary"
-      startIcon={<ChevronLeftIcon />}
+      startIcon={<ChevronLeftIcon className="size-4" />}
     >
       zurück
     </Button>

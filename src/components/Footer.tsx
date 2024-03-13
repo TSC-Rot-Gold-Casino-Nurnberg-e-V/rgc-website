@@ -66,13 +66,13 @@ export const Footer = () => (
         <div>
           <ContactLink
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
-            icon={<LocationIcon />}
+            icon={<LocationIcon className="size-6" />}
             text="Venusweg 7, 90763 Fürth"
           />
           <ContactLink
             href="mailto:info@rot-gold-casino.de"
             text="info@rot-gold-casino.de"
-            icon={<AtIcon />}
+            icon={<AtIcon className="size-6" />}
           />
           <ContactLink
             href="https://de-de.facebook.com/rgc.nuernberg/"
@@ -90,7 +90,7 @@ export const Footer = () => (
                 href="/kontakt"
                 className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
               >
-                <MailIcon />
+                <MailIcon className="size-6" />
                 <span>Nachricht schreiben</span>
               </Link>
             </div>
