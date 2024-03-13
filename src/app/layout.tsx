@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Sponsors } from "@/components/Sponsors";
 import { Footer } from "@/components/Footer";
@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   },
   description:
     "Willkommen auf der Website des TSC Rot-Gold-Casino Nürnberg e.V.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1c1917",
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
