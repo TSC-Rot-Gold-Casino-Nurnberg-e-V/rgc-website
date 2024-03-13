@@ -37,7 +37,7 @@ export default function FormationstanzenPage() {
               wird.
             </p>
             <p className="text-base sm:text-lg">
-              Zu den Standardtänzen gehören der Langsamen Walzer, Tango, Wiener
+              Zu den Standardtänzen gehören der Langsame Walzer, Tango, Wiener
               Walzer, Slowfox und Quickstep.
             </p>
             <LinkButton
