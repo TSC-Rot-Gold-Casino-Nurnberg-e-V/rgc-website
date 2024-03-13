@@ -17,6 +17,20 @@ export const generateMetadata = async ({
   return {
     title: neuigkeit.titel,
     description: neuigkeit.vorschautext,
+    openGraph: {
+      title: neuigkeit.titel,
+      description: neuigkeit.vorschautext,
+      type: "article",
+      publishedTime: neuigkeit.datum,
+      images: [
+        {
+          url: neuigkeit.vorschaubild.url,
+          height: neuigkeit.vorschaubild.height,
+          width: neuigkeit.vorschaubild.width,
+          alt: neuigkeit.titel,
+        },
+      ],
+    },
   };
 };
 
