@@ -146,12 +146,11 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
         <h2 className="mb-4 text-3xl font-bold max-sm:text-center sm:text-4xl">
           Unsere Trainer
         </h2>
-        <div className="divide-y">
+        <div className="space-y-8">
           {angebot.trainers.map((trainer) => (
             <div
               key={trainer.id}
               id={`${trainer.person.vorname} ${trainer.person.nachname}`}
-              className="py-12"
             >
               <TrainerCard
                 beschreibung={trainer.beschreibung}
