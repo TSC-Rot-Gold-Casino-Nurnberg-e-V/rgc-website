@@ -31,6 +31,19 @@ export const generateMetadata = async ({
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: neuigkeit.titel,
+      description: neuigkeit.vorschautext,
+      images: [
+        {
+          url: neuigkeit.vorschaubild.url,
+          height: neuigkeit.vorschaubild.height,
+          width: neuigkeit.vorschaubild.width,
+          alt: neuigkeit.titel,
+        },
+      ],
+    },
   };
 };
 
