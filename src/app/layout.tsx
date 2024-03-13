@@ -70,6 +70,15 @@ export const metadata: Metadata = {
       "Der TSC Rot-Gold-Casino Nürnberg e.V. ist ein Tanzsportverein in Nürnberg mit einem breiten Angebot für Kinder, Jugendliche und Erwachsene. Wir bieten Tanzkurse, Workshops und Tanzveranstaltungen in den Bereichen Standard, Latein, Formation und Freizeittanz an.",
     url: "https://rot-gold-casino.de",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "TSC Rot-Gold-Casino Nürnberg e.V.",
+    description:
+      "Der TSC Rot-Gold-Casino Nürnberg e.V. ist ein Tanzsportverein in Nürnberg mit einem breiten Angebot für Kinder, Jugendliche und Erwachsene. Wir bieten Tanzkurse, Workshops und Tanzveranstaltungen in den Bereichen Standard, Latein, Formation und Freizeittanz an.",
+    site: "@rgc_nuernberg",
+    creator: "@rgc_nuernberg",
+    creatorId: "1041307004558499843",
+  },
 };
 
 export const viewport: Viewport = {
