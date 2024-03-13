@@ -54,7 +54,7 @@ export default async function VereinsgeschichtePage() {
                   className="mx-auto mb-4 rounded-full"
                   priority={index < 3}
                 />
-                <h3 className="text-lg font-bold sm:text-xl">
+                <h3 className="text-xl font-semibold sm:text-2xl">
                   {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 </h3>
                 <p className="text-base-700">{vorstandsmitglied.rolle}</p>
