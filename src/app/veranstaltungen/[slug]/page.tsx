@@ -18,6 +18,7 @@ export const generateMetadata = async ({
   const veranstaltung = await getVeranstaltung(params.slug);
   return {
     title: veranstaltung.titel,
+    description: veranstaltung.beschreibung,
   };
 };
 

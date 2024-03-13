@@ -6,6 +6,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Veranstaltungen",
+  description:
+    "Alle zukünftigen Veranstaltungen des TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default async function VeranstaltungenPage() {
