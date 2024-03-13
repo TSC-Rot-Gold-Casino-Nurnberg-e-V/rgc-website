@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
+  description: "Datenschutzerklärung des TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default async function DatenschutzerklaerungPage() {

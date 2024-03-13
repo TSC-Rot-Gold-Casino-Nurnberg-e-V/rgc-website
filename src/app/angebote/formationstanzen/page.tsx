@@ -9,6 +9,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Formationstanzen",
+  description:
+    "Formationstanzen ist nicht nur eine besondere Form des Tanzens, sondern auch eine tolle Möglichkeit, neue Leute kennenzulernen und gemeinsam etwas zu erschaffen. Bei uns findest Du die perfekte Mischung aus anspruchsvoller Choreografie und gemeinsamem Teamspirit.",
 };
 
 export default function FormationstanzenPage() {

@@ -9,6 +9,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Turniertanzen",
+  description:
+    "Entdecke das besondere Feeling des Turniertanzes und erlebe unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes Trainerteam begleitet Dich auf dem Weg zum Turniertänzer und unterstützt Dich bei Deinen Wettkämpfen.",
 };
 
 export default function TurniertanzenPage() {

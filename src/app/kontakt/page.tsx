@@ -5,6 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Kontakt",
+  description:
+    "Kontaktformular und andere Kontaktmöglichkeiten zum TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default function KontaktPage() {

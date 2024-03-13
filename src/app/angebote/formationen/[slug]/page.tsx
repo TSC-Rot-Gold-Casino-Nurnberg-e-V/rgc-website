@@ -16,6 +16,7 @@ export const generateMetadata = async ({
   const formation = await getFormation(params.slug);
   return {
     title: formation.titel,
+    description: formation.beschreibung,
   };
 };
 

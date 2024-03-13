@@ -10,6 +10,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Kinder & Jugend",
+  description:
+    "Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen Tanzrichtungen ein Programm, das Spaß und Freude am Tanzen vermittelt.",
 };
 
 export default function KindertanzenPage() {

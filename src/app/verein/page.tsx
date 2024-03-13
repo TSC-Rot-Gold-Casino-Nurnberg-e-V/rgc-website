@@ -13,6 +13,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Der Verein",
+  description:
+    "Vorstandsmitglieder, Cheftrainer und allgemeine Informationen zum TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default async function VereinsgeschichtePage() {

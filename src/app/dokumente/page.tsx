@@ -7,6 +7,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dokumente",
+  description:
+    "Alle wichtigen Dokumente rund um Deine Mitgliedschaft und den Verein: Satzung, Beitragsordnung, Aufnahmeantrag und mehr.",
 };
 
 export default async function DokumentePage() {

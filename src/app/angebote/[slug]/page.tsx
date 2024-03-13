@@ -21,6 +21,7 @@ export const generateMetadata = async ({
   const angebot = await getAngebot(params.slug);
   return {
     title: angebot.titel,
+    description: angebot.beschreibung,
   };
 };
 

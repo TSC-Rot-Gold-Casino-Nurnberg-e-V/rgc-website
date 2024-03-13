@@ -15,6 +15,8 @@ const einzeltanz =
 
 export const metadata: Metadata = {
   title: "Angebote",
+  description:
+    "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-, Standard- und Formationstanzen bis hin zu Breitensport und Kindertanzen",
 };
 
 export default function AngebotePage() {

@@ -6,6 +6,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Vereinsgeschichte",
+  description:
+    "Die Geschichte des 1961 gegründeten TSC Rot-Gold-Casino Nürnberg e.V.",
 };
 
 export default async function VereinsgeschichtePage() {
