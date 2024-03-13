@@ -16,6 +16,7 @@ export const generateMetadata = async ({
   const neuigkeit = await getNeuigkeit(params.slug);
   return {
     title: neuigkeit.titel,
+    description: neuigkeit.vorschautext,
   };
 };
 
