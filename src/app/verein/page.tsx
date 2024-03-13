@@ -51,7 +51,7 @@ export default async function VereinsgeschichtePage() {
                   width={150}
                   height={150}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
-                  className="mx-auto mb-4 rounded-full"
+                  className="mx-auto mb-4 aspect-square rounded-full object-cover object-top"
                   priority={index < 3}
                 />
                 <h3 className="text-xl font-semibold sm:text-2xl">
