@@ -105,13 +105,9 @@ interface ContactLinkProps {
   icon: ReactElement;
 }
 
-const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
-  <div className="group flex cursor-pointer gap-2">
-    <div className="gap-4 group-hover:flex">
-      <a href={href} className="flex w-fit gap-2 rounded-full">
-        <div className="grow">{icon}</div>
-        <span>{text}</span>
-      </a>
-    </div>
-  </div>
+const ContactLink = ({ text, icon, href }: ContactLinkProps) => (
+  <a href={href} className="flex w-fit gap-2 rounded-full">
+    <div>{icon}</div>
+    <span className="text-sm">{text}</span>
+  </a>
 );
