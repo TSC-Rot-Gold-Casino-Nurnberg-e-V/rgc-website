@@ -49,11 +49,11 @@ export const NeuigkeitCard = ({
           <time dateTime={datum} className="text-xs text-base-300">
             {formatDate(new Date(datum))}
           </time>
-          <h2 className="line-clamp-3 max-w-xs text-base font-semibold text-base-200 sm:text-lg">
+          <h2 className="line-clamp-3 max-w-xs text-base font-bold text-base-100 sm:text-lg">
             {titel}
           </h2>
           {/* 70px = height of 3 lines */}
-          <p className="line-clamp-3 min-h-[70px] text-sm text-transparent transition-all duration-300 sm:text-base sm:group-hover:text-base-300">
+          <p className="line-clamp-3 min-h-[70px] text-sm text-transparent transition-all duration-300 sm:text-base sm:group-hover:text-base-100">
             {vorschautext}
           </p>
         </div>

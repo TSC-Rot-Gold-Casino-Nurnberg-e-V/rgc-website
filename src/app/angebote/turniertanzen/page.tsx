@@ -10,7 +10,7 @@ export default function TurniertanzenPage() {
   return (
     <Main>
       <PageHeading>Turniertanzen</PageHeading>
-      <div className="container-lg space-y-8 sm:pb-0">
+      <div className="container-lg sm:pb-0">
         <p className="text-base sm:text-lg">
           Entdecke das besondere Feeling des Turniertanzes und erlebe
           unvergessliche Momente auf der Tanzfläche. Unser qualifiziertes
@@ -18,11 +18,15 @@ export default function TurniertanzenPage() {
           unterstützt Dich bei Deinen Wettkämpfen.
         </p>
       </div>
-      <section className="container-lg space-y-8">
-        <h2 className="text-3xl sm:text-center sm:text-4xl">Tanzarten</h2>
+      <section className="container-lg space-y-4 sm:space-y-8">
+        <h2 className="text-3xl font-bold sm:text-center sm:text-4xl">
+          Tanzarten
+        </h2>
         <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-y-12">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="text-2xl sm:text-center sm:text-3xl">Standard</h2>
+            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+              Standard
+            </h2>
             <p className="text-base sm:text-lg">
               Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
               unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird
@@ -52,7 +56,9 @@ export default function TurniertanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="text-2xl sm:text-center sm:text-3xl">Latein</h2>
+            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+              Latein
+            </h2>
             <p className="text-base sm:text-lg">
               Die lateinamerikanischen Tänze zeichnen sich durch die
               Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf

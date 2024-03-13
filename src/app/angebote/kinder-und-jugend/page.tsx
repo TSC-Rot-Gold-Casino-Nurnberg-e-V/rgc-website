@@ -11,18 +11,18 @@ export default function KindertanzenPage() {
   return (
     <Main>
       <PageHeading>Kinder & Jugend</PageHeading>
-      <div className="container-lg space-y-8 sm:pb-0">
+      <div className="container-lg sm:pb-0">
         <p className="text-base sm:text-lg">
           Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten
           Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen
           Tanzrichtungen ein Programm, das Spaß und Freude am Tanzen vermittelt.
         </p>
       </div>
-      <section className="container-lg space-y-8">
-        <h2 className="text-center text-3xl sm:text-4xl">Gruppen</h2>
+      <section className="container-lg space-y-4 sm:space-y-8">
+        <h2 className="text-center text-3xl font-bold sm:text-4xl">Gruppen</h2>
         <div className="grid items-center gap-8 sm:grid-cols-2">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="text-2xl sm:text-center sm:text-3xl">
+            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
               Kindertanzen
             </h2>
             <p className="text-base sm:text-lg">
@@ -54,7 +54,9 @@ export default function KindertanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="text-2xl sm:text-center sm:text-3xl">Latein</h2>
+            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+              Latein
+            </h2>
             <p className="text-base sm:text-lg">
               Die lateinamerikanischen Tänze zeichnen sich durch die
               Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf
@@ -87,7 +89,9 @@ export default function KindertanzenPage() {
             </small>
           </div>
           <section className="order-6 space-y-4 self-center sm:order-8">
-            <h2 className="text-2xl sm:text-center sm:text-3xl">Standard</h2>
+            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+              Standard
+            </h2>
             <p className="text-base sm:text-lg">
               Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
               unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird

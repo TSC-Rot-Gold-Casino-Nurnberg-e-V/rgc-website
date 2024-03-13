@@ -20,7 +20,9 @@ export default async function Turnierergebnisse() {
       <div className="container-md space-y-8">
         {uniqueYears.map((uniqueYear) => (
           <section key={uniqueYear} className="space-y-2">
-            <h2 className="text-3xl sm:text-4xl">Turniere {uniqueYear}</h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Turniere {uniqueYear}
+            </h2>
             <div>
               {turnierergebnisse
                 .filter(({ start }) => start.includes(uniqueYear.toString()))

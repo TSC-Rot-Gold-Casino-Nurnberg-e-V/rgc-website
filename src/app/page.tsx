@@ -38,7 +38,7 @@ const AngebotSection = () => (
       id="angebote"
     >
       <div className="space-y-6 text-center text-base-50">
-        <h2 className="text-4xl md:text-5xl ">Unser Angebot</h2>
+        <h2 className="text-4xl font-bold md:text-5xl">Unser Angebot</h2>
         <p
           className="mx-auto max-w-screen-sm hyphens-auto text-base md:text-lg"
           aria-label="Angebotsbeschreibung"
@@ -88,8 +88,8 @@ const VereinsgeschichteSection = () => (
   <section className="relative bg-base-900" aria-label="Vereinsinformationen">
     <div className="relative z-10 w-full">
       <div className="container-lg space-y-4 py-24 text-base-50">
-        <h2 className="text-4xl md:text-5xl">Über uns</h2>
-        <h3 className="text-2xl uppercase sm:text-3xl">
+        <h2 className="text-4xl font-bold md:text-5xl">Über uns</h2>
+        <h3 className="text-2xl font-semibold uppercase sm:text-3xl">
           Mit Herz und Rhythmus
         </h3>
         <p
@@ -121,7 +121,7 @@ const VereinsgeschichteSection = () => (
 
 const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
   <section className="container-lg space-y-8">
-    <h2 className="text-center text-4xl md:text-5xl">News</h2>
+    <h2 className="text-center text-4xl font-bold md:text-5xl">News</h2>
     <div className="group/container grid gap-6 sm:grid-cols-2">
       {neuigkeiten.map((neuigkeit) => (
         <NeuigkeitCard

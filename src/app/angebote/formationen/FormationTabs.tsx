@@ -16,8 +16,10 @@ interface Props {
 }
 
 export const FormationTabs = ({ teams }: Props) => (
-  <div className="container-md">
-    <h2 className="mb-8 text-3xl sm:text-4xl">Unsere Formationsteams</h2>
+  <div className="container-lg">
+    <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+      Unsere Formationsteams
+    </h2>
     <Tab.Group>
       <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
         {teams.map((team) => (
@@ -62,7 +64,9 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.trainers.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl sm:text-3xl">Trainer</h3>
+                <h3 className="mb-4 mt-8 text-2xl font-bold sm:text-3xl">
+                  Trainer
+                </h3>
                 <div className="space-y-8">
                   {team.trainers.map((trainer) => (
                     <TrainerCard
@@ -80,7 +84,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.kapitaene.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl sm:text-3xl">
+                <h3 className="mb-4 mt-8 text-2xl font-bold sm:text-3xl">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
                 <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">
@@ -96,7 +100,7 @@ export const FormationTabs = ({ teams }: Props) => (
                         width={128}
                         className="aspect-square rounded-full object-cover object-top"
                       />
-                      <p className="text-center text-lg font-bold sm:text-xl">
+                      <p className="text-center text-lg font-semibold sm:text-xl">
                         {kapitaen.vorname} {kapitaen.nachname}
                       </p>
                     </div>
