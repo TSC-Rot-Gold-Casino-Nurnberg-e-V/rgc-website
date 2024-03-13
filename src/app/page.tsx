@@ -11,11 +11,14 @@ import { Neuigkeit } from "@/model/Neuigkeit";
 import { Main } from "@/components/Main";
 import { NeuigkeitCard } from "@/components/NeuigkeitCard";
 import einzeltanz_latein from "../../public/einzeltanz_latein.jpg";
+import einzeltanz_standard from "../../public/einzeltanz_standard.jpg";
 import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
 import { StatsSection } from "./StatsSection";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
+const einzeltanz =
+  Math.random() > 0.5 ? einzeltanz_latein : einzeltanz_standard;
 
 export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
@@ -52,7 +55,7 @@ const AngebotSection = () => (
         <AngebotCard
           loadImageWithPriority
           title="Turnier"
-          image={einzeltanz_latein}
+          image={einzeltanz}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
           className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
