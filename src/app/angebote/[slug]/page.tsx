@@ -120,7 +120,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                 </div>
               ))}
           </div>
-          <div className="flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 text-xs max-sm:mx-auto max-sm:max-w-sm sm:text-sm">
+          <div className="flex w-fit items-center gap-4 rounded-full border border-secondary-900 px-4 py-2 text-xs text-secondary-900 max-sm:mx-auto max-sm:max-w-sm sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
