@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Turnierergebnisse",
+  description: "Alle Ergebnisse unserer Turniere von 2012 bis heute.",
 };
 
 export default async function Turnierergebnisse() {
