@@ -74,7 +74,7 @@ export const FormationTabs = ({ teams }: Props) => (
                       name={
                         trainer.person.vorname + " " + trainer.person.nachname
                       }
-                      lizenzen={[]}
+                      lizenzen={trainer.lizenzen}
                       beschreibung={trainer.beschreibung}
                       bild={trainer.person.bild.url}
                     />
