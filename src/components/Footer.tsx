@@ -6,7 +6,8 @@ import { LocationIcon } from "./icons/LocationIcon";
 import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
 import { AtIcon } from "./icons/AtIcon";
-import { RgcIcon } from "./icons/RgcIcon";
+import Image from "next/image";
+import logo_gold from "../../public/logo_gold.png";
 
 export const Footer = () => (
   <footer className="bg-base-900">
@@ -17,7 +18,12 @@ export const Footer = () => (
           className="block h-12 w-fit rounded-full"
           aria-label="Startseite"
         >
-          <RgcIcon />
+          <Image
+            src={logo_gold}
+            alt=""
+            className="h-full w-fit object-scale-down"
+            priority
+          />
         </Link>
         <div className="space-y-1.5">
           <FooterLink

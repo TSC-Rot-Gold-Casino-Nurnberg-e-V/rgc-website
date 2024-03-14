@@ -5,7 +5,8 @@ import { Menu, Transition } from "@headlessui/react";
 import React, { AnchorHTMLAttributes, forwardRef, Fragment } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
-import { RgcIcon } from "./icons/RgcIcon";
+import logo_gold from "../../public/logo_gold.png";
+import Image from "next/image";
 
 export const Navbar = () => (
   <nav className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
@@ -16,7 +17,12 @@ export const Navbar = () => (
           aria-label="Startseite"
           className="block h-full w-fit rounded-full"
         >
-          <RgcIcon />
+          <Image
+            src={logo_gold}
+            alt=""
+            className="h-full w-fit object-scale-down"
+            priority
+          />
         </Link>
       </div>
       <ul className="flex gap-1 max-sm:hidden">
