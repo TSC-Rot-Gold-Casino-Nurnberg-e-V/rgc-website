@@ -116,7 +116,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                     width={56} // size-14
                                     height={56} // size-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
-                                    className="size-14 cursor-pointer rounded-full outline-offset-2 transition-all hover:scale-105 hover:shadow-md"
+                                    className="size-14 cursor-pointer rounded-full object-cover object-top outline-offset-2 transition-all hover:scale-105 hover:shadow-md"
                                   />
                                 </a>
                               ))}
