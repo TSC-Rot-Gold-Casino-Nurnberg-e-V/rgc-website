@@ -43,7 +43,7 @@ export const HeroSection = () => (
             enterTo="scale-100 opacity-100"
             className="container-lg relative flex h-full flex-col justify-center space-y-6 text-primary-50"
           >
-            <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-extrabold uppercase sm:text-6xl">
+            <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-bold uppercase sm:text-6xl">
               Lebe, Liebe, Tanze!
             </h1>
             <div className="mx-auto max-w-2xl space-y-1 text-center text-2xl text-base-50 sm:text-3xl">
