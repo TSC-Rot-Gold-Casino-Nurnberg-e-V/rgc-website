@@ -20,7 +20,7 @@ interface Props {
 
 export const AdditionalAngebote = ({ currentPage }: Props) => (
   <section className="container-lg space-y-8">
-    <h2 className="text-center text-2xl font-bold sm:text-3xl">
+    <h2 className="text-center text-2xl font-bold text-base-900 sm:text-3xl">
       Weitere Angebote unseres Vereins
     </h2>
     <div className="grid auto-rows-[20rem] gap-4 sm:grid-cols-3">

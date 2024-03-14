@@ -124,7 +124,9 @@ const VereinsgeschichteSection = () => (
 
 const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
   <section className="container-lg space-y-8">
-    <h2 className="text-center text-4xl font-bold md:text-5xl">News</h2>
+    <h2 className="text-center text-4xl font-bold text-base-900 md:text-5xl">
+      News
+    </h2>
     <div className="group/container grid gap-6 sm:grid-cols-2">
       {neuigkeiten.map((neuigkeit) => (
         <NeuigkeitCard

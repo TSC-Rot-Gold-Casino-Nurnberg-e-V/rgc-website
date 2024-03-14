@@ -55,7 +55,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
       <Prose className="container-lg" content={angebot.beschreibung} />
       <section className="bg-base-100">
         <div className="container-lg space-y-8">
-          <h2 className="text-3xl font-bold max-sm:text-center sm:text-4xl">
+          <h2 className="text-3xl font-bold text-base-900 max-sm:text-center sm:text-4xl">
             Unsere Trainingszeiten
           </h2>
           <div className="space-y-8">
@@ -86,7 +86,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                           key={id}
                           className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
                         >
-                          <h4 className="text-2xl font-bold">
+                          <h4 className="text-2xl font-bold text-base-900">
                             {attributes.titel}
                           </h4>
                           <div className="flex gap-1 text-base font-semibold text-base-700 sm:text-lg">
@@ -154,7 +154,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
         </div>
       </section>
       <section className="container-lg">
-        <h2 className="mb-4 text-3xl font-bold max-sm:text-center sm:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold text-base-900 max-sm:text-center sm:text-4xl">
           Unsere Trainer
         </h2>
         <div className="space-y-8">

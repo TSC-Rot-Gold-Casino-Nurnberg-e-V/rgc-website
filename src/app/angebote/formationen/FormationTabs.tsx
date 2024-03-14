@@ -17,7 +17,7 @@ interface Props {
 
 export const FormationTabs = ({ teams }: Props) => (
   <div className="container-lg">
-    <h2 className="mb-8 text-3xl font-bold sm:text-4xl">
+    <h2 className="mb-8 text-3xl font-bold text-base-900 sm:text-4xl">
       Unsere Formationsteams
     </h2>
     <Tab.Group>
@@ -64,7 +64,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.trainers.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl font-bold sm:text-3xl">
+                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
                   Trainer
                 </h3>
                 <div className="space-y-8">
@@ -84,7 +84,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.kapitaene.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl font-bold sm:text-3xl">
+                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
                 <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">

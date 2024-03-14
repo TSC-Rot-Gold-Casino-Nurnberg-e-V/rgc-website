@@ -26,12 +26,12 @@ export default function FormationstanzenPage() {
         </p>
       </div>
       <section className="container-lg space-y-4 sm:space-y-8">
-        <h2 className="text-3xl font-bold sm:text-center sm:text-4xl">
+        <h2 className="text-3xl font-bold text-base-900 sm:text-center sm:text-4xl">
           Tanzarten
         </h2>
         <div className="grid items-center gap-8 sm:grid-cols-2 sm:gap-y-12">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-base-900 sm:text-center sm:text-3xl">
               Standard
             </h2>
             <p className="text-base sm:text-lg">
@@ -63,7 +63,7 @@ export default function FormationstanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="text-2xl font-semibold sm:text-center sm:text-3xl">
+            <h2 className="text-2xl font-semibold text-base-900 sm:text-center sm:text-3xl">
               Latein
             </h2>
             <p className="text-base sm:text-lg">
