@@ -54,19 +54,21 @@ export default async function VereinsgeschichtePage() {
               className="flex max-w-[300px] flex-col justify-between gap-6 rounded-xl bg-white p-8 shadow"
               key={vorstandsmitglied.id}
             >
-              <div className="text-center">
+              <div className="flex flex-col items-center gap-2 text-center">
                 <Image
                   src={vorstandsmitglied.person.bild.url}
                   width={150}
                   height={150}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
-                  className="mx-auto mb-4 aspect-square rounded-full object-cover object-top"
+                  className="mx-auto aspect-square rounded-full object-cover object-top"
                   priority={index < 3}
                 />
-                <h3 className="text-xl font-semibold text-base-900 sm:text-2xl">
+                <h3 className="text-xl font-semibold text-secondary-950 sm:text-2xl">
                   {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 </h3>
-                <p className="text-base-700">{vorstandsmitglied.rolle}</p>
+                <p className="w-fit rounded-full bg-secondary-50 px-4 py-1 text-xs text-secondary-900 sm:text-sm">
+                  {vorstandsmitglied.rolle}
+                </p>
               </div>
               <div className="space-y-2">
                 {vorstandsmitglied.telefonnummer && (
