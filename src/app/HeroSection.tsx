@@ -24,8 +24,8 @@ if (random < 0.33) {
 export const HeroSection = () => (
   <section className="bg-base-900">
     <ParallaxProvider>
-      <ParallaxBanner className="h-[70svh]">
-        <ParallaxBannerLayer className="h-[120svh]" translateY={[0, 50]}>
+      <ParallaxBanner className="h-[30rem] xl:h-[70vh]">
+        <ParallaxBannerLayer translateY={[0, 50]}>
           <Image
             src={heroImage}
             alt=""
