@@ -25,7 +25,7 @@ export const HeroSection = () => (
   <section className="bg-base-900">
     <ParallaxProvider>
       <ParallaxBanner className="h-[30rem] sm:h-[70vh]">
-        <ParallaxBannerLayer className="h-svh" translateY={[0, 50]}>
+        <ParallaxBannerLayer speed={-15} className="h-svh w-full">
           <Image
             src={heroImage}
             alt=""
