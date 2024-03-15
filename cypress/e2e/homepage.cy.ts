@@ -85,17 +85,19 @@ describe("homepage", () => {
     });
 
     it("should contain the stat regarding the formation team count", () => {
-      cy.findByLabelText("Vereinsstatistik")
+      cy.findByRole("main")
+        .findByLabelText("Vereinsstatistik")
         .scrollIntoView()
         .should("contain", "8")
-        .should("contain", "Formationsteams");
+        .should("contain", "Formations­teams");
     });
 
     it("should contain the stat regarding the trophy count", () => {
-      cy.findByLabelText("Vereinsstatistik")
+      cy.findByRole("main")
+        .findByLabelText("Vereinsstatistik")
         .scrollIntoView()
         .should("contain", "26x")
-        .should("contain", "Bayernpokalsieger");
+        .should("contain.text", "Bayernpokal­sieger");
     });
   });
 
