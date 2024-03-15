@@ -3,24 +3,28 @@ import { formatDate } from "@/utils/formatDate";
 import { Prose } from "@/components/Prose";
 import { Main } from "@/components/Main";
 import { BackButton } from "./BackButton";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("neuigkeiten");
   return slugs.map((slug) => ({ slug: slug }));
 };
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
+export const generateMetadata = async (
+  { params }: Props,
+  resolvingMetadata: ResolvingMetadata,
+): Promise<Metadata> => {
   const neuigkeit = await getNeuigkeit(params.slug);
+  const resolvedMetadata = await resolvingMetadata;
   return {
     title: neuigkeit.titel,
     description: neuigkeit.vorschautext,
     openGraph: {
+      type: "article",
+      locale: resolvedMetadata.openGraph?.locale,
+      siteName: resolvedMetadata.openGraph?.siteName,
       title: neuigkeit.titel,
       description: neuigkeit.vorschautext,
-      type: "article",
       publishedTime: neuigkeit.datum,
       images: [
         {
@@ -35,6 +39,9 @@ export const generateMetadata = async ({
       card: "summary_large_image",
       title: neuigkeit.titel,
       description: neuigkeit.vorschautext,
+      site: resolvedMetadata.twitter?.site ?? undefined,
+      creator: resolvedMetadata.twitter?.creator ?? undefined,
+      creatorId: resolvedMetadata.twitter?.creatorId ?? undefined,
       images: [
         {
           url: neuigkeit.vorschaubild.url,
