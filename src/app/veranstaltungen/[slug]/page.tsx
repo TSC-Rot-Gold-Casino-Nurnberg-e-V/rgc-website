@@ -27,6 +27,7 @@ export const generateMetadata = async (
       siteName: resolvedMetadata.openGraph?.siteName,
       title: veranstaltung.titel,
       url: `https://rot-gold-casino.de/veranstaltungen/${params.slug}`,
+      images: resolvedMetadata.openGraph?.images,
     },
     twitter: {
       card: "summary",
@@ -34,6 +35,7 @@ export const generateMetadata = async (
       site: resolvedMetadata.twitter?.site ?? undefined,
       creator: resolvedMetadata.twitter?.creator ?? undefined,
       creatorId: resolvedMetadata.twitter?.creatorId ?? undefined,
+      images: resolvedMetadata.twitter?.images,
     },
   };
 };
