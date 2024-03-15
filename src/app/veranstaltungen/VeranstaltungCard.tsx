@@ -30,34 +30,36 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
           {titel}
         </h2>
         <div className="flex justify-between gap-2 text-sm max-sm:flex-col sm:text-base">
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
             <div className="min-w-fit">
               <LocationIcon />
             </div>
             <span>{ort.name}</span>
           </div>
-          {ende && (
-            <div className="flex gap-2">
-              <div className="min-w-fit">
-                <CalendarIcon />
-              </div>
-              <div className="flex gap-1">
-                <span>
-                  {start.toLocaleDateString("de-DE", {
-                    day: "2-digit",
-                    month: "2-digit",
-                  })}
-                </span>
-                <span>-</span>
-                <span>
-                  {ende.toLocaleDateString("de-DE", {
-                    day: "2-digit",
-                    month: "2-digit",
-                  })}
-                </span>
-              </div>
+          <div className="flex items-center gap-2">
+            <div className="min-w-fit">
+              <CalendarIcon />
             </div>
-          )}
+            <div className="flex gap-1">
+              <span>
+                {start.toLocaleDateString("de-DE", {
+                  day: "2-digit",
+                  month: "2-digit",
+                })}
+              </span>
+              {ende && (
+                <>
+                  <span>-</span>
+                  <span>
+                    {ende.toLocaleDateString("de-DE", {
+                      day: "2-digit",
+                      month: "2-digit",
+                    })}
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
