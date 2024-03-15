@@ -14,10 +14,10 @@ export const generateStaticParams = async () => {
 
 export const generateMetadata = async (
   { params }: Props,
-  resolvedMetadataPromise: ResolvingMetadata,
+  resolvingMetadata: ResolvingMetadata,
 ): Promise<Metadata> => {
   const veranstaltung = await getVeranstaltung(params.slug);
-  const resolvedMetadata = await resolvedMetadataPromise;
+  const resolvedMetadata = await resolvingMetadata;
   return {
     title: veranstaltung.titel,
     description: null,
