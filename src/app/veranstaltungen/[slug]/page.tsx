@@ -31,7 +31,7 @@ interface Props {
 export default async function VeranstaltungPage({ params }: Readonly<Props>) {
   const veranstaltung = await getVeranstaltung(params.slug);
   return (
-    <Main className="container-md space-y-4">
+    <Main className="container-md space-y-16">
       <Prose content={veranstaltung.beschreibung} />
 
       <div className="flex justify-between gap-4 max-sm:flex-col">
