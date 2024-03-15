@@ -24,7 +24,7 @@ export const HeroSection = () => {
     function handleScroll() {
       if (imageRef.current) {
         const scroll = window.scrollY;
-        imageRef.current.style.transform = `translateY(${scroll * 0.5}px)`;
+        imageRef.current.style.transform = `translateY(${scroll * 0.45}px)`;
       }
     }
     document.addEventListener("scroll", handleScroll);
@@ -35,7 +35,7 @@ export const HeroSection = () => {
 
   return (
     <section className="h-[30rem] bg-base-900 lg:h-[70dvh]">
-      <div className="absolute left-0 right-0 top-0 translate-y-16 max-lg:h-[60rem] lg:bottom-0">
+      <div className="absolute inset-x-0 top-0 translate-y-16 max-lg:h-[50rem] lg:bottom-0">
         <Image
           ref={imageRef}
           src={heroImage}
