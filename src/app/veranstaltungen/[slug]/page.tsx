@@ -5,26 +5,35 @@ import { LocationIcon } from "@/components/icons/LocationIcon";
 import { CalendarIcon } from "@/components/icons/CalendarIcon";
 import { MapIcon } from "@/components/icons/MapIcon";
 import { Button } from "@/components/Button";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
   return slugs.map((slug) => ({ slug: slug }));
 };
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
+export const generateMetadata = async (
+  { params }: Props,
+  resolvedMetadataPromise: ResolvingMetadata,
+): Promise<Metadata> => {
   const veranstaltung = await getVeranstaltung(params.slug);
+  const resolvedMetadata = await resolvedMetadataPromise;
   return {
     title: veranstaltung.titel,
+    description: null,
     openGraph: {
-      title: veranstaltung.titel,
       type: "article",
+      locale: resolvedMetadata.openGraph?.locale,
+      siteName: resolvedMetadata.openGraph?.siteName,
+      title: veranstaltung.titel,
+      url: `https://rot-gold-casino.de/veranstaltungen/${params.slug}`,
     },
     twitter: {
       card: "summary",
       title: veranstaltung.titel,
+      site: resolvedMetadata.twitter?.site ?? undefined,
+      creator: resolvedMetadata.twitter?.creator ?? undefined,
+      creatorId: resolvedMetadata.twitter?.creatorId ?? undefined,
     },
   };
 };
