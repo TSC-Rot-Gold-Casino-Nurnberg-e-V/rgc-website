@@ -187,7 +187,7 @@ export function ContactForm() {
           )}
         </div>
         <Prose className="!prose-sm">
-          Diese Website ist durch reCAPTCHA geschützt und es gelten die{" "}
+          Diese Webseite ist durch reCAPTCHA geschützt und es gelten die{" "}
           <a href="https://policies.google.com/privacy" target="_blank">
             Datenschutzbestimmungen
           </a>{" "}
