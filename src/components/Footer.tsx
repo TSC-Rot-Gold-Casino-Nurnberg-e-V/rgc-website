@@ -50,6 +50,11 @@ export const Footer = () => (
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
+          <FooterLink
+            text="Mitglieder Online"
+            target="_blank"
+            href="https://m.netxp-verein.de/Login/5863"
+          />
         </div>
       </section>
       <section className="order-4 space-y-6 lg:order-3">
