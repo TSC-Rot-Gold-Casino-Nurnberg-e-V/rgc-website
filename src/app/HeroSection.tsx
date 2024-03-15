@@ -34,8 +34,8 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="h-[70dvh] bg-base-900">
-      <div className="absolute inset-0 translate-y-10">
+    <section className="h-[30rem] bg-base-900 lg:h-[70dvh]">
+      <div className="absolute left-0 right-0 top-0 translate-y-16 max-lg:h-[60rem] lg:bottom-0">
         <Image
           ref={imageRef}
           src={heroImage}
