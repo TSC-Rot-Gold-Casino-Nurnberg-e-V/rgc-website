@@ -19,6 +19,16 @@ export const generateMetadata = async ({
   return {
     title: veranstaltung.titel,
     description: veranstaltung.beschreibung,
+    openGraph: {
+      title: veranstaltung.titel,
+      description: veranstaltung.beschreibung,
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: veranstaltung.titel,
+      description: veranstaltung.beschreibung,
+    },
   };
 };
 
