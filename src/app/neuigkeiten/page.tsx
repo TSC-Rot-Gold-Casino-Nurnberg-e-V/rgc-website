@@ -3,6 +3,13 @@ import { FurtherNeuigkeiten } from "./FurtherNeuigkeiten";
 import { NeuigkeitCard } from "@/components/NeuigkeitCard";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Neuigkeiten",
+  description:
+    "Aktuelle Neuigkeiten und Informationen rund um den TSC Rot-Gold-Casino Nürnberg e.V.",
+};
 
 export default async function NeuigkeitenPage() {
   const { neuigkeiten, pagination } = await getNeuigkeiten(6);

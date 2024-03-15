@@ -3,13 +3,20 @@ import { getDokumente } from "@/api/api";
 import Link from "next/link";
 import { Main } from "@/components/Main";
 import { Button } from "@/components/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dokumente",
+  description:
+    "Alle wichtigen Dokumente rund um Deine Mitgliedschaft und den Verein: Satzung, Beitragsordnung, Aufnahmeantrag und mehr.",
+};
 
 export default async function DokumentePage() {
   const dokumente = await getDokumente();
   return (
     <Main>
       <PageHeading>Dokumente</PageHeading>
-      <p className="container-sm paragraph max-w-md pb-0">
+      <p className="container-sm max-w-md pb-0 text-base sm:text-lg">
         Hier findest Du alle wichtigen Dokumente rund um Deine Mitgliedschaft
         und den Verein.
       </p>

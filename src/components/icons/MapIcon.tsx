@@ -1,11 +1,18 @@
-export const MapIcon = () => (
+import { ComponentProps } from "react";
+import { twMerge } from "tailwind-merge";
+
+export const MapIcon = ({
+  className,
+  ...props
+}: Omit<ComponentProps<"svg">, "children">) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="size-5"
+    className={twMerge("size-5", className)}
+    {...props}
   >
     <path
       strokeLinecap="round"

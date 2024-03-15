@@ -14,6 +14,14 @@ import { UnexpectedErrorDialog } from "@/components/UnexpectedErrorDialog";
 import Link from "next/link";
 import { LoadingSpinnerIcon } from "@/components/icons/LoadingSpinnerIcon";
 import { SendIcon } from "@/components/icons/SendIcon";
+import { Prose } from "@/components/Prose";
+import { ContactInquiry } from "@/app/api/contact-inquiry/route";
+
+const RECATCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
+
+if (RECATCHA_SITE_KEY === "") {
+  console.error("RECAPTCHA_SITE_KEY is not set");
+}
 
 const inputSchema = z.object({
   name: z.string().min(1, "Dieses Feld ist ein Pflichtfeld"),
@@ -45,6 +53,9 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (input) => {
     setIsLoading(true);
     try {
+      const recaptchaToken = await grecaptcha.execute(RECATCHA_SITE_KEY, {
+        action: "submit",
+      });
       const response = await fetch("/api/contact-inquiry", {
         method: "POST",
         body: JSON.stringify({
@@ -52,7 +63,8 @@ export function ContactForm() {
           email: input.email,
           subject: input.subject,
           message: input.message,
-        }),
+          recaptchaToken,
+        } satisfies ContactInquiry),
       });
       if (response.ok) {
         setShowConfirmationDialog(true);
@@ -61,6 +73,7 @@ export function ContactForm() {
         setShowErrorDialog(true);
       }
     } catch (error) {
+      console.error(error);
       setShowErrorDialog(true);
     }
     setIsLoading(false);
@@ -79,30 +92,32 @@ export function ContactForm() {
         onClose={() => setShowErrorDialog(false)}
       />
       <section className="space-y-6">
-        <h2 className="heading-small text-accent">Kontaktiere uns</h2>
-        <div className="paragraph">
+        <h2 className="text-2xl font-bold text-base-900 sm:text-3xl">
+          Kontaktiere uns
+        </h2>
+        <div className="text-base sm:text-lg">
           Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
           Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
           dir.
         </div>
         <div className="space-y-4">
-          <div className="text-normal flex items-center gap-2">
-            <HouseIcon />
+          <div className="flex items-center gap-2 text-sm sm:text-base">
+            <HouseIcon className="sm:size-6" />
             <span>TSC Rot-Gold-Casino Nürnberg e.V.</span>
           </div>
           <a
-            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-full transition-colors"
+            className="flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28"
             target="_blank"
           >
-            <LocationIcon />
+            <LocationIcon className="sm:size-6" />
             <span>Venusweg 7, 90763 Fürth</span>
           </a>
           <a
-            className="text-normal hover:text-accent flex w-fit items-center gap-2 rounded-full transition-colors"
+            className="flex w-fit items-center gap-2 rounded-full text-sm transition-colors sm:text-base"
             href="mailto:info@rot-gold-casino.de"
           >
-            <MailIcon />
+            <MailIcon className="sm:size-6" />
             <span>info@rot-gold-casino.de</span>
           </a>
         </div>
@@ -141,7 +156,7 @@ export function ContactForm() {
             {...register("message")}
           />
           {errors.message?.message && (
-            <span className="text-small text-red-500">
+            <span className="text-xs text-red-500 sm:text-sm">
               {errors.message.message}
             </span>
           )}
@@ -158,7 +173,7 @@ export function ContactForm() {
               <Link
                 href="datenschutzerklaerung"
                 target="_blank"
-                className="text-accent rounded-md"
+                className="rounded-md"
               >
                 Datenschutzerklärung
               </Link>
@@ -166,11 +181,22 @@ export function ContactForm() {
             </label>
           </div>
           {errors.hasAgreedToPrivacyPolicy?.message && (
-            <span className="text-small text-red-500">
+            <span className="text-xs text-red-500 sm:text-sm">
               {errors.hasAgreedToPrivacyPolicy.message}
             </span>
           )}
         </div>
+        <Prose className="!prose-sm">
+          Diese Webseite ist durch reCAPTCHA geschützt und es gelten die{" "}
+          <a href="https://policies.google.com/privacy" target="_blank">
+            Datenschutzbestimmungen
+          </a>{" "}
+          und{" "}
+          <a href="https://policies.google.com/terms" target="_blank">
+            Nutzungsbedingungen
+          </a>{" "}
+          von Google.
+        </Prose>
         <Button
           disabled={isLoading}
           type="submit"
@@ -203,7 +229,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         )}
         {...inputProps}
       />
-      {error && <span className="text-small text-red-500">{error}</span>}
+      {error && (
+        <span className="text-xs text-red-500 sm:text-sm">{error}</span>
+      )}
     </div>
   ),
 );

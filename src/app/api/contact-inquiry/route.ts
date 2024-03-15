@@ -4,6 +4,7 @@ import ContactInquiryConfirmationEmail from "../../../emails/ContactInquiryConfi
 import { createTransport } from "nodemailer";
 import { render } from "@react-email/render";
 import sanitize from "sanitize-html";
+import { validateRecaptchaToken } from "./validateRecaptchaToken";
 
 const RGC_EMAIL = process.env.RGC_EMAIL ?? "";
 
@@ -31,21 +32,35 @@ const contactInquirySchema = z
     email: z.string().email(),
     subject: z.string(),
     message: z.string(),
+    recaptchaToken: z.string(),
   })
   .transform((data) => ({
-    ...data,
+    email: sanitize(data.email),
     name: sanitize(data.name),
     subject: sanitize(data.subject),
     message: sanitize(data.message),
+    recaptchaToken: data.recaptchaToken,
   }));
+
+export type ContactInquiry = z.infer<typeof contactInquirySchema>;
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const contactInquiry = contactInquirySchema.parse(body);
+  const { recaptchaToken, ...contactInquiry } =
+    contactInquirySchema.parse(body);
 
   console.info("Received contact inquiry: ", contactInquiry);
 
   try {
+    const isHuman = await validateRecaptchaToken(recaptchaToken);
+
+    if (!isHuman) {
+      return NextResponse.json(
+        { error: "Recaptcha validation failed" },
+        { status: 403 },
+      );
+    }
+
     await transporter.sendMail({
       from: {
         name: "TSC Rot-Gold-Casino Nürnberg e.V.",

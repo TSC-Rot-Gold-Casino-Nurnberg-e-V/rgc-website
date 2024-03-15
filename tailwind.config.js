@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
 const colors = require("tailwindcss/colors");
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -26,17 +27,17 @@ module.exports = {
           950: "#382112",
         },
         secondary: {
-          50: "#fdf3f3",
-          100: "#fbe5e5",
-          200: "#f9cfcf",
-          300: "#f3aeae",
-          400: "#ea7f7f",
-          500: "#de5555",
-          600: "#ca3838",
-          700: "#aa2c2c",
-          800: "#8c2828",
-          900: "#752727",
-          950: "#3f1010",
+          50: "#fff1f1",
+          100: "#ffe4e5",
+          200: "#fecdd1",
+          300: "#fea3aa",
+          400: "#fc707d",
+          500: "#f63d54",
+          600: "#e41e40",
+          700: "#c01033",
+          800: "#a01131",
+          900: "#891231",
+          950: "#4d0416",
         },
         base: colors.stone,
       },

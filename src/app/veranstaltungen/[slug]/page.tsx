@@ -5,10 +5,21 @@ import { LocationIcon } from "@/components/icons/LocationIcon";
 import { CalendarIcon } from "@/components/icons/CalendarIcon";
 import { MapIcon } from "@/components/icons/MapIcon";
 import { Button } from "@/components/Button";
+import { Metadata } from "next";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
   return slugs.map((slug) => ({ slug: slug }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const veranstaltung = await getVeranstaltung(params.slug);
+  return {
+    title: veranstaltung.titel,
+    description: veranstaltung.beschreibung,
+  };
 };
 
 interface Props {

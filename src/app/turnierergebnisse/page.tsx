@@ -2,6 +2,12 @@ import Link from "next/link";
 import { getTurnierergebnisse } from "@/api/api";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Turnierergebnisse",
+  description: "Alle Ergebnisse unserer Turniere von 2012 bis heute.",
+};
 
 export default async function Turnierergebnisse() {
   const turnierergebnisse = await getTurnierergebnisse();
@@ -20,7 +26,7 @@ export default async function Turnierergebnisse() {
       <div className="container-md space-y-8">
         {uniqueYears.map((uniqueYear) => (
           <section key={uniqueYear} className="space-y-2">
-            <h2 className="heading-normal text-accent">
+            <h2 className="text-3xl font-bold text-base-900 sm:text-4xl">
               Turniere {uniqueYear}
             </h2>
             <div>
@@ -31,7 +37,7 @@ export default async function Turnierergebnisse() {
                     target="_blank"
                     key={id}
                     href={link}
-                    className="hover:text-accent block w-full p-2"
+                    className="block w-full p-2 hover:text-secondary-900"
                   >
                     <div className="grid grid-cols-[1fr_8rem] gap-4">
                       <div>{titel}</div>

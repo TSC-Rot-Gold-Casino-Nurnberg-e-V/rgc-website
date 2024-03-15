@@ -1,9 +1,16 @@
-export const LoadingSpinnerIcon = () => (
+import { ComponentProps } from "react";
+import { twMerge } from "tailwind-merge";
+
+export const LoadingSpinnerIcon = ({
+  className,
+  ...props
+}: Omit<ComponentProps<"svg">, "children">) => (
   <svg
-    className="size-5 animate-spin"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
+    className={twMerge("size-5 animate-spin", className)}
+    {...props}
   >
     <circle
       className="opacity-25"

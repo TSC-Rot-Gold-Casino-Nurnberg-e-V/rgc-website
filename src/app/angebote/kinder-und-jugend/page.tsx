@@ -6,26 +6,35 @@ import standard_jugend from "../../../../public/standard_jugend.jpg";
 import latein_jugend from "../../../../public/latein_jugend.jpg";
 import { LinkButton } from "@/components/LinkButton";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kinder & Jugend",
+  description:
+    "Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen Tanzrichtungen ein Programm, das Spaß und Freude am Tanzen vermittelt.",
+};
 
 export default function KindertanzenPage() {
   return (
     <Main>
       <PageHeading>Kinder & Jugend</PageHeading>
-      <div className="container-lg space-y-8 sm:pb-0">
-        <p className="paragraph">
+      <div className="container-lg sm:pb-0">
+        <p className="text-base sm:text-lg">
           Spielerisch tanzen lernen – bei uns ist das möglich! Wir bieten
           Kindern und Jugendlichen unterschiedlichen Alters mit verschiedenen
           Tanzrichtungen ein Programm, das Spaß und Freude am Tanzen vermittelt.
         </p>
       </div>
-      <section className="container-lg space-y-8">
-        <h2 className="heading-normal text-accent text-center">Gruppen</h2>
+      <section className="container-lg space-y-4 sm:space-y-8">
+        <h2 className="text-center text-3xl font-bold text-base-900 sm:text-4xl">
+          Gruppen
+        </h2>
         <div className="grid items-center gap-8 sm:grid-cols-2">
           <section className="space-y-4 self-center sm:order-3">
-            <h2 className="heading-small text-accent sm:text-center">
+            <h2 className="text-2xl font-semibold text-base-900 sm:text-center sm:text-3xl">
               Kindertanzen
             </h2>
-            <p className="paragraph">
+            <p className="text-base sm:text-lg">
               In unseren fröhlichen Stunden lernen die Kleinen nicht nur
               grundlegende Tanzschritte, sondern entwickeln auch ihre
               motorischen Fähigkeiten, Kreativität und sozialen Kompetenzen.
@@ -33,7 +42,7 @@ export default function KindertanzenPage() {
               aufregende Reise durch verschiedene Tanzstile, wobei der Fokus
               stets auf Spaß und spielerischem Lernen liegt.
             </p>
-            <p className="paragraph">
+            <p className="text-base sm:text-lg">
               Gib Deinen Kindern die Möglichkeit, sich kreativ auszudrücken,
               neue Freunde zu finden und gleichzeitig ihre körperliche
               Entwicklung zu fördern.
@@ -54,8 +63,10 @@ export default function KindertanzenPage() {
             />
           </div>
           <section className="order-4 space-y-4 self-center">
-            <h2 className="heading-small text-accent sm:text-center">Latein</h2>
-            <p className="paragraph">
+            <h2 className="text-2xl font-semibold text-base-900 sm:text-center sm:text-3xl">
+              Latein
+            </h2>
+            <p className="text-base sm:text-lg">
               Die lateinamerikanischen Tänze zeichnen sich durch die
               Kommunikation zwischen den Tanzpartnern aus. Sie thematisieren auf
               vielfältige Weise die Beziehung zwischen den Paaren. Schnelle
@@ -64,7 +75,7 @@ export default function KindertanzenPage() {
               verschiedene Körperteile, sind weitere charakteristische Merkmale
               dieser Tänze.
             </p>
-            <p className="paragraph">
+            <p className="text-base sm:text-lg">
               Zu den Lateinamerikanischen Tänzen gehören Samba, Cha-Cha-Cha,
               Rumba, Paso Doble und Jive.
             </p>
@@ -87,10 +98,10 @@ export default function KindertanzenPage() {
             </small>
           </div>
           <section className="order-6 space-y-4 self-center sm:order-8">
-            <h2 className="heading-small text-accent sm:text-center">
+            <h2 className="text-2xl font-semibold text-base-900 sm:text-center sm:text-3xl">
               Standard
             </h2>
-            <p className="paragraph">
+            <p className="text-base sm:text-lg">
               Standardtänze sind Bewegungstänze, bei denen die Tänzer sich in
               unterschiedlichem Tempo raumgreifend fortbewegen. Der Tango wird
               als Schreittanz betrachtet, während die anderen Tänze als
@@ -99,8 +110,8 @@ export default function KindertanzenPage() {
               zwischen den Tanzpartnern, der ohne Unterbrechung aufrechterhalten
               wird.
             </p>
-            <p className="paragraph">
-              Zu den Standardtänzen gehören der Langsamen Walzer, Tango, Wiener
+            <p className="text-base sm:text-lg">
+              Zu den Standardtänzen gehören der Langsame Walzer, Tango, Wiener
               Walzer, Slowfox und Quickstep.
             </p>
             <LinkButton

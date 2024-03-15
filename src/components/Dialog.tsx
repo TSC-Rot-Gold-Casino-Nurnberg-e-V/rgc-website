@@ -43,7 +43,7 @@ export const Dialog = ({
             leaveTo="opacity-0 scale-95"
           >
             <HuiDialog.Panel className="w-full max-w-xl space-y-4 overflow-hidden rounded-2xl bg-base-50 p-6 text-left align-middle shadow-xl transition-all">
-              <HuiDialog.Title className="heading-small sm:heading-normal text-accent">
+              <HuiDialog.Title className="text-3xl sm:text-4xl">
                 {title}
               </HuiDialog.Title>
               <div className="max-h-[min(calc(100vh-16rem),20rem)] space-y-4 overflow-y-scroll text-base-700">

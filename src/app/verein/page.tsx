@@ -9,6 +9,13 @@ import { Main } from "@/components/Main";
 import { Button } from "@/components/Button";
 import { ChevronRightIcon } from "@/components/icons/ChevronRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Der Verein",
+  description:
+    "Vorstandsmitglieder, Cheftrainer und allgemeine Informationen zum TSC Rot-Gold-Casino Nürnberg e.V.",
+};
 
 export default async function VereinsgeschichtePage() {
   const vorstandsmitglieder = await getVorstandsmitglieder();
@@ -17,10 +24,10 @@ export default async function VereinsgeschichtePage() {
     <Main>
       <PageHeading>Der Verein</PageHeading>
       <section className="container-lg space-y-4">
-        <h2 className="heading-small sm:heading-normal text-accent">
+        <h2 className="text-3xl font-bold text-base-900 sm:text-4xl">
           Über uns
         </h2>
-        <p className="paragraph">
+        <p className="text-base sm:text-lg">
           Der Tanzsportclub Rot-Gold-Casino besteht seit 1961 und hat sich
           seitdem einen Namen sowohl in der deutschen Tanzsportszene durch
           sportliche Erfolge gemacht, als auch in der Region als wesentlicher
@@ -38,7 +45,7 @@ export default async function VereinsgeschichtePage() {
         </Link>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-accent text-center">
+        <h2 className="text-center text-3xl font-bold text-base-900 sm:text-4xl">
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -47,19 +54,21 @@ export default async function VereinsgeschichtePage() {
               className="flex max-w-[300px] flex-col justify-between gap-6 rounded-xl bg-white p-8 shadow"
               key={vorstandsmitglied.id}
             >
-              <div className="text-center">
+              <div className="flex flex-col items-center gap-2 text-center">
                 <Image
                   src={vorstandsmitglied.person.bild.url}
                   width={150}
                   height={150}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
-                  className="mx-auto mb-4 rounded-full"
+                  className="mx-auto aspect-square rounded-full object-cover object-top"
                   priority={index < 3}
                 />
-                <h3 className="text-extralarge text-accent font-bold">
+                <h3 className="text-xl font-semibold text-secondary-950 sm:text-2xl">
                   {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                 </h3>
-                <p className="text-base-700">{vorstandsmitglied.rolle}</p>
+                <p className="w-fit rounded-full bg-secondary-50 px-4 py-1 text-xs text-secondary-900 sm:text-sm">
+                  {vorstandsmitglied.rolle}
+                </p>
               </div>
               <div className="space-y-2">
                 {vorstandsmitglied.telefonnummer && (
@@ -80,17 +89,17 @@ export default async function VereinsgeschichtePage() {
         </div>
       </section>
       <section className="container-lg space-y-10">
-        <h2 className="heading-small sm:heading-normal text-accent text-center">
+        <h2 className="text-center text-3xl font-bold text-base-900 sm:text-4xl">
           Cheftrainer
         </h2>
         {cheftrainers.map((cheftrainer) => (
           <section key={cheftrainer.id}>
-            <h3 className="heading-extrasmall sm:heading-small text-accent mb-5 max-sm:text-center">
+            <h3 className="mb-5 text-2xl font-semibold max-sm:text-center sm:text-3xl">
               {cheftrainer.titel}
             </h3>
             <TrainerCard
               name={`${cheftrainer.trainer.person.vorname} ${cheftrainer.trainer.person.nachname}`}
-              lizenzen={[]}
+              lizenzen={cheftrainer.trainer.lizenzen}
               beschreibung={cheftrainer.trainer.beschreibung}
               bild={cheftrainer.trainer.person.bild.url}
             />
@@ -107,13 +116,9 @@ interface ContactLinkProps {
   icon: ReactElement;
 }
 
-const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
-  <div className="group flex cursor-pointer gap-2">
-    <div className="group-hover:text-accent flex gap-4">
-      <a href={href} className="flex w-fit gap-2 rounded-full">
-        <div className="grow">{icon}</div>
-        <span>{text}</span>
-      </a>
-    </div>
-  </div>
+const ContactLink = ({ text, icon, href }: ContactLinkProps) => (
+  <a href={href} className="flex w-fit gap-2 rounded-full">
+    <div>{icon}</div>
+    <span className="text-sm">{text}</span>
+  </a>
 );

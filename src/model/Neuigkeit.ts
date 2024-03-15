@@ -15,6 +15,8 @@ export const neuigkeitSchema = z
           data: z.object({
             attributes: z.object({
               url: z.string(),
+              height: z.number().optional(),
+              width: z.number().optional(),
             }),
           }),
         })

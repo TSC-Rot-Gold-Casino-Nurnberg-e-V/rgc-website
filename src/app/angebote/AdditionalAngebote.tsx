@@ -4,7 +4,7 @@ import formation_latein from "../../../public/formation_latein.png";
 import formation_standard from "../../../public/formation_standard.jpg";
 import kinder from "../../../public/kindertanzen.png";
 import einzeltanz_standard from "../../../public/einzeltanz_standard.jpg";
-import freizeittanz from "../../../public/freizeittanz.jpg";
+import freizeittanz from "../../../public/freizeittanz.png";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 const einzeltanz =
@@ -20,7 +20,7 @@ interface Props {
 
 export const AdditionalAngebote = ({ currentPage }: Props) => (
   <section className="container-lg space-y-8">
-    <h2 className="heading-small text-accent text-center">
+    <h2 className="text-center text-2xl font-bold text-base-900 sm:text-3xl">
       Weitere Angebote unseres Vereins
     </h2>
     <div className="grid auto-rows-[20rem] gap-4 sm:grid-cols-3">

@@ -6,18 +6,25 @@ import einzeltanz_standard from "../../../public/einzeltanz_standard.jpg";
 import formation_latein from "../../../public/formation_latein.png";
 import formation_standard from "../../../public/formation_standard.jpg";
 import kinder from "../../../public/kindertanzen.png";
-import freizeittanz from "../../../public/freizeittanz.jpg";
+import freizeittanz from "../../../public/freizeittanz.png";
+import { Metadata } from "next";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 const einzeltanz =
   Math.random() > 0.5 ? einzeltanz_latein : einzeltanz_standard;
+
+export const metadata: Metadata = {
+  title: "Angebote",
+  description:
+    "Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-, Standard- und Formationstanzen bis hin zu Breitensport und Kindertanzen",
+};
 
 export default function AngebotePage() {
   return (
     <Main className="bg-base-900">
       <PageHeading>Angebote</PageHeading>
       <div className="container-lg space-y-8 pt-0">
-        <p className="text-normal md:text-large mx-auto max-w-screen-sm hyphens-auto text-base-50">
+        <p className="mx-auto max-w-screen-sm hyphens-auto text-center text-base text-base-50 md:text-lg">
           Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
           Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.

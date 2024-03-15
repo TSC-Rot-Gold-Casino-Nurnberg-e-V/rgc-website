@@ -2,6 +2,13 @@ import { getVeranstaltungen } from "@/api/api";
 import { VeranstaltungCard } from "./VeranstaltungCard";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Veranstaltungen",
+  description:
+    "Alle zukünftigen Veranstaltungen des TSC Rot-Gold-Casino Nürnberg e.V.",
+};
 
 export default async function VeranstaltungenPage() {
   const veranstaltungen = await getVeranstaltungen();

@@ -16,8 +16,10 @@ interface Props {
 }
 
 export const FormationTabs = ({ teams }: Props) => (
-  <div className="container-md">
-    <h2 className="heading-normal text-accent mb-8">Unsere Formationsteams</h2>
+  <div className="container-lg">
+    <h2 className="mb-8 text-3xl font-bold text-base-900 sm:text-4xl">
+      Unsere Formationsteams
+    </h2>
     <Tab.Group>
       <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
         {teams.map((team) => (
@@ -47,13 +49,13 @@ export const FormationTabs = ({ teams }: Props) => (
               height={600}
               priority
             />
-            <div className="text-extralarge flex justify-between gap-4 max-sm:flex-col">
+            <div className="flex justify-between gap-4 text-base max-sm:flex-col sm:text-lg">
               <div className="flex items-center gap-2">
-                <MusicIcon />
+                <MusicIcon className="sm:size-6" />
                 <p>{team.choreo.name}</p>
               </div>
               <div className="flex items-center gap-2">
-                <TrophyIcon />
+                <TrophyIcon className="sm:size-6" />
                 <p>{team.liga.name}</p>
               </div>
             </div>
@@ -62,7 +64,9 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.trainers.length > 0 && (
               <section>
-                <h3 className="heading-small text-accent mb-4 mt-8">Trainer</h3>
+                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
+                  Trainer
+                </h3>
                 <div className="space-y-8">
                   {team.trainers.map((trainer) => (
                     <TrainerCard
@@ -70,7 +74,7 @@ export const FormationTabs = ({ teams }: Props) => (
                       name={
                         trainer.person.vorname + " " + trainer.person.nachname
                       }
-                      lizenzen={[]}
+                      lizenzen={trainer.lizenzen}
                       beschreibung={trainer.beschreibung}
                       bild={trainer.person.bild.url}
                     />
@@ -80,7 +84,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.kapitaene.length > 0 && (
               <section>
-                <h3 className="heading-small text-accent mb-4 mt-8">
+                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
                 <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">
@@ -96,7 +100,7 @@ export const FormationTabs = ({ teams }: Props) => (
                         width={128}
                         className="aspect-square rounded-full object-cover object-top"
                       />
-                      <p className="text-extralarge text-center font-bold">
+                      <p className="text-center text-lg font-semibold sm:text-xl">
                         {kapitaen.vorname} {kapitaen.nachname}
                       </p>
                     </div>
