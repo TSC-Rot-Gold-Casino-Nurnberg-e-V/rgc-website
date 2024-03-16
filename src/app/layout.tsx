@@ -11,6 +11,7 @@ import { PropsWithChildren } from "react";
 import Script from "next/script";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const VERCEL_ENV = process.env.VERCEL_ENV;
 
 if (RECAPTCHA_SITE_KEY === "") {
   console.error("RECAPTCHA_SITE_KEY is not set");
@@ -98,7 +99,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         <Sponsors />
         <Footer />
         <SpeedInsights />
-        <Analytics />
+        {VERCEL_ENV === "production" && <Analytics />}
       </body>
       <Script
         src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
