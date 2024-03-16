@@ -32,6 +32,10 @@
   }
 }
 
+:root {
+  color-scheme: only light;
+}
+
 .grecaptcha-badge {
   visibility: hidden;
 }
