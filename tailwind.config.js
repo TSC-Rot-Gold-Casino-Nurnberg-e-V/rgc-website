@@ -39,7 +39,7 @@ module.exports = {
           900: "#891231",
           950: "#4d0416",
         },
-        base: colors.stone,
+        base: colors.neutral,
       },
     },
   },
