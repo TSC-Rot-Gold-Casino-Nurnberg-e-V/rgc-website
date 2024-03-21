@@ -139,7 +139,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5 min-h-[20px] min-w-[20px]"
+              className="size-5 min-h-5 min-w-5"
             >
               <path
                 strokeLinecap="round"
