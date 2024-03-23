@@ -21,6 +21,8 @@ export const Footer = () => (
           <Image
             src={logo_gold}
             alt=""
+            height={48}
+            width={86}
             className="h-full w-fit object-scale-down"
             priority
           />
