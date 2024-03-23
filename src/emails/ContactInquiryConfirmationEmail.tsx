@@ -68,17 +68,14 @@ export const ContactInquiryConfirmationEmail = () => (
           <Link href={baseUrl}>
             <Img src={`${assetsUrl}/rgc.png`} alt="RGC" className="mb-4 w-28" />
           </Link>
-          <Heading
-            as="h1"
-            className="text-[30px] font-bold leading-[36px] text-secondary-900"
-          >
+          <Heading as="h1" className="text-3xl font-bold text-base-900">
             Bestätigung der Anfrage
           </Heading>
-          <Text className="break-words text-[16px] leading-[24px]">
+          <Text className="break-words text-base">
             Vielen Dank für Deine Anfrage. Wir werden uns schnellstmöglich mit
             dir in Verbindung setzten.
           </Text>
-          <Text className="text-[16px] leading-[24px]">Dein RGC Team</Text>
+          <Text className="text-base">Dein RGC Team</Text>
           <Hr className="mb-4" />
 
           <Section className="mb-4">
