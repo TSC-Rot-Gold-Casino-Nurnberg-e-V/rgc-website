@@ -18,8 +18,7 @@ import colors from "tailwindcss/colors";
 
 const assetsUrl = "http://assets.rot-gold-casino.de";
 
-// TODO: replace with production URL
-const baseUrl = "https://develop.rot-gold-casino.de";
+const baseUrl = "https://rot-gold-casino.de";
 
 export const ContactInquiryConfirmationEmail = () => (
   <Html lang="de">
