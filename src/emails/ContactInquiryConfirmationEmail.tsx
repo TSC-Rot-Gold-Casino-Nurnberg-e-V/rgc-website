@@ -119,19 +119,22 @@ export const ContactInquiryConfirmationEmail = () => (
           <Text className="m-0">
             <Link
               href={`${baseUrl}/neuigkeiten`}
-              className="text-secondary-900"
+              className="text-secondary-700 underline"
             >
               Neuigkeiten
             </Link>{" "}
             ・{" "}
             <Link
               href={`${baseUrl}/veranstaltungen`}
-              className="text-secondary-900"
+              className="text-secondary-700 underline"
             >
               Veranstaltungen
             </Link>{" "}
             ・{" "}
-            <Link href={`${baseUrl}/angebote`} className="text-secondary-900">
+            <Link
+              href={`${baseUrl}/angebote`}
+              className="text-secondary-700 underline"
+            >
               Angebote
             </Link>
           </Text>
