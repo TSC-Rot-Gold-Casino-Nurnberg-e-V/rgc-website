@@ -12,7 +12,7 @@ describe("homepage", () => {
 
     it("renders a subheading", () => {
       cy.findByText(/Herzlich Willkommen/i).should("exist");
-      cy.findByText(/im TSC Rot-Gold-Casino Nürnberg e.V./i).should("exist");
+      cy.findByText(/im RGC Nürnberg/i).should("exist");
     });
 
     it("renders a description", () => {
