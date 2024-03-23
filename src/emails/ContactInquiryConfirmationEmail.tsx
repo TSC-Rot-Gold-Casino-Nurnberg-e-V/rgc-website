@@ -18,8 +18,7 @@ import colors from "tailwindcss/colors";
 
 const assetsUrl = "http://assets.rot-gold-casino.de";
 
-// TODO: replace with production URL
-const baseUrl = "https://develop.rot-gold-casino.de";
+const baseUrl = "https://rot-gold-casino.de";
 
 export const ContactInquiryConfirmationEmail = () => (
   <Html lang="de">
@@ -46,19 +45,19 @@ export const ContactInquiryConfirmationEmail = () => (
                 950: "#382112",
               },
               secondary: {
-                50: "#fdf3f3",
-                100: "#fbe5e5",
-                200: "#f9cfcf",
-                300: "#f3aeae",
-                400: "#ea7f7f",
-                500: "#de5555",
-                600: "#ca3838",
-                700: "#aa2c2c",
-                800: "#8c2828",
-                900: "#752727",
-                950: "#3f1010",
+                50: "#fff1f1",
+                100: "#ffe4e5",
+                200: "#fecdd1",
+                300: "#fea3aa",
+                400: "#fc707d",
+                500: "#f63d54",
+                600: "#e41e40",
+                700: "#c01033",
+                800: "#a01131",
+                900: "#891231",
+                950: "#4d0416",
               },
-              base: colors.stone,
+              base: colors.neutral,
             },
           },
         },
@@ -69,17 +68,14 @@ export const ContactInquiryConfirmationEmail = () => (
           <Link href={baseUrl}>
             <Img src={`${assetsUrl}/rgc.png`} alt="RGC" className="mb-4 w-28" />
           </Link>
-          <Heading
-            as="h1"
-            className="text-[30px] font-bold leading-[36px] text-secondary-900"
-          >
+          <Heading as="h1" className="text-3xl font-bold text-base-900">
             Bestätigung der Anfrage
           </Heading>
-          <Text className="break-words text-[16px] leading-[24px]">
+          <Text className="break-words text-base">
             Vielen Dank für Deine Anfrage. Wir werden uns schnellstmöglich mit
             dir in Verbindung setzten.
           </Text>
-          <Text className="text-[16px] leading-[24px]">Dein RGC Team</Text>
+          <Text className="text-base">Dein RGC Team</Text>
           <Hr className="mb-4" />
 
           <Section className="mb-4">
@@ -123,19 +119,22 @@ export const ContactInquiryConfirmationEmail = () => (
           <Text className="m-0">
             <Link
               href={`${baseUrl}/neuigkeiten`}
-              className="text-secondary-900"
+              className="text-secondary-700 underline"
             >
               Neuigkeiten
             </Link>{" "}
             ・{" "}
             <Link
               href={`${baseUrl}/veranstaltungen`}
-              className="text-secondary-900"
+              className="text-secondary-700 underline"
             >
               Veranstaltungen
             </Link>{" "}
             ・{" "}
-            <Link href={`${baseUrl}/angebote`} className="text-secondary-900">
+            <Link
+              href={`${baseUrl}/angebote`}
+              className="text-secondary-700 underline"
+            >
               Angebote
             </Link>
           </Text>

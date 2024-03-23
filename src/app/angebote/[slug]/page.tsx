@@ -63,7 +63,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
               .sort(([a], [b]) => toSequenceNumber(a) - toSequenceNumber(b))
               .map(([wochentagTitel, trainings]) => (
                 <div key={wochentagTitel} className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-base-600 max-sm:text-center sm:text-3xl">
+                  <h3 className="text-2xl font-semibold text-base-700 max-sm:text-center sm:text-3xl">
                     {wochentagTitel}
                   </h3>
                   <div className="flex flex-wrap gap-4 max-sm:justify-center">
@@ -84,12 +84,13 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                       .map(({ id, attributes }) => (
                         <section
                           key={id}
-                          className="flex w-96 flex-col gap-1 rounded-lg bg-white p-6 shadow"
+                          className="relative flex w-96 flex-col gap-1 overflow-hidden rounded-lg bg-secondary-50 p-6 shadow"
                         >
-                          <h4 className="text-2xl font-bold text-base-900">
+                          <div className="absolute inset-0 w-1.5 bg-secondary-600" />
+                          <h4 className="text-2xl font-bold text-secondary-950">
                             {attributes.titel}
                           </h4>
-                          <div className="flex gap-1 text-base font-semibold text-base-700 sm:text-lg">
+                          <div className="flex gap-1 text-base font-semibold text-secondary-900 sm:text-lg">
                             <time
                               dateTime={attributes.start.toLocaleTimeString()}
                             >
@@ -104,7 +105,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                             <div>Uhr</div>
                           </div>
                           <div className="flex grow justify-between pt-4">
-                            <div className="flex gap-2 self-end">
+                            <div className="flex -space-x-2 self-end">
                               {attributes.trainers.map((trainer) => (
                                 <a
                                   key={trainer.id}
@@ -116,12 +117,12 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                     width={56} // size-14
                                     height={56} // size-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
-                                    className="size-14 cursor-pointer rounded-full object-cover object-top outline-offset-2 transition-all hover:scale-105 hover:shadow-md"
+                                    className="size-14 cursor-pointer rounded-full bg-white object-cover object-top outline-offset-2 ring-[3px] ring-white transition-all hover:scale-105 hover:shadow-md"
                                   />
                                 </a>
                               ))}
                             </div>
-                            <p className="self-end text-sm text-base-500 sm:text-base">
+                            <p className="self-end text-sm text-base-600 sm:text-base">
                               {attributes.saal}
                             </p>
                           </div>
@@ -138,7 +139,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5 min-h-[20px] min-w-[20px]"
+              className="size-5 min-h-5 min-w-5"
             >
               <path
                 strokeLinecap="round"

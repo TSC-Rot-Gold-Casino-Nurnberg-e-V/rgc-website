@@ -51,38 +51,41 @@ export default async function VereinsgeschichtePage() {
         <div className="mx-auto grid max-w-fit grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {vorstandsmitglieder.map((vorstandsmitglied, index) => (
             <div
-              className="flex max-w-[300px] flex-col justify-between gap-6 rounded-xl bg-white p-8 shadow"
+              className="flex flex-col rounded-xl bg-white shadow-md"
               key={vorstandsmitglied.id}
             >
-              <div className="flex flex-col items-center gap-2 text-center">
+              <div className="relative aspect-square">
                 <Image
                   src={vorstandsmitglied.person.bild.url}
-                  width={150}
-                  height={150}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
-                  className="mx-auto aspect-square rounded-full object-cover object-top"
+                  className="rounded-xl object-cover object-top"
                   priority={index < 3}
+                  fill
                 />
-                <h3 className="text-xl font-semibold text-secondary-950 sm:text-2xl">
-                  {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
-                </h3>
-                <p className="w-fit rounded-full bg-secondary-50 px-4 py-1 text-xs text-secondary-900 sm:text-sm">
-                  {vorstandsmitglied.rolle}
-                </p>
               </div>
-              <div className="space-y-2">
-                {vorstandsmitglied.telefonnummer && (
+              <div className="flex grow flex-col justify-between p-5">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-secondary-950 sm:text-2xl">
+                    {`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
+                  </h3>
+                  <p className="w-fit rounded-full bg-secondary-50 px-4 py-1 text-xs text-secondary-900 sm:text-sm">
+                    {vorstandsmitglied.rolle}
+                  </p>
+                </div>
+                <div className="space-y-2 pt-4">
+                  {vorstandsmitglied.telefonnummer && (
+                    <ContactLink
+                      href={`tel:${vorstandsmitglied.telefonnummer}`}
+                      text={vorstandsmitglied.telefonnummer}
+                      icon={<PhoneIcon />}
+                    />
+                  )}
                   <ContactLink
-                    href={`tel:${vorstandsmitglied.telefonnummer}`}
-                    text={vorstandsmitglied.telefonnummer}
-                    icon={<PhoneIcon />}
+                    href={`mailto:${vorstandsmitglied.email}`}
+                    text={vorstandsmitglied.email}
+                    icon={<MailIcon />}
                   />
-                )}
-                <ContactLink
-                  href={`mailto:${vorstandsmitglied.email}`}
-                  text={vorstandsmitglied.email}
-                  icon={<MailIcon />}
-                />
+                </div>
               </div>
             </div>
           ))}
@@ -117,7 +120,10 @@ interface ContactLinkProps {
 }
 
 const ContactLink = ({ text, icon, href }: ContactLinkProps) => (
-  <a href={href} className="flex w-fit gap-2 rounded-full">
+  <a
+    href={href}
+    className="group flex w-fit gap-2 rounded-full hover:text-secondary-700"
+  >
     <div>{icon}</div>
     <span className="text-sm">{text}</span>
   </a>

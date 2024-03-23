@@ -34,7 +34,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="h-[30rem] bg-base-900 lg:h-[70dvh]">
+    <section className="relative h-[30rem] bg-base-900 lg:h-[70dvh]">
       <div className="absolute inset-x-0 top-0 translate-y-16 max-lg:h-[50rem] lg:bottom-0">
         <Image
           ref={imageRef}
@@ -45,6 +45,7 @@ export const HeroSection = () => {
           priority
         />
       </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-90% to-base-900" />
       <Transition
         show
         appear

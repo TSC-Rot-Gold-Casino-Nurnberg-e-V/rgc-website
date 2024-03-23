@@ -1,4 +1,4 @@
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -39,7 +39,7 @@ module.exports = {
           900: "#891231",
           950: "#4d0416",
         },
-        base: colors.stone,
+        base: colors.neutral,
       },
     },
   },
