@@ -84,7 +84,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                       .map(({ id, attributes }) => (
                         <section
                           key={id}
-                          className="relative flex w-96 flex-col gap-1 overflow-hidden rounded-lg bg-secondary-50 p-6 shadow"
+                          className="relative flex w-96 flex-col gap-1 overflow-hidden rounded-lg bg-white p-6 shadow"
                         >
                           <div className="absolute inset-0 w-1.5 bg-secondary-600" />
                           <h4 className="text-2xl font-bold text-secondary-950">
@@ -122,7 +122,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                 </a>
                               ))}
                             </div>
-                            <p className="self-end text-sm text-base-600 sm:text-base">
+                            <p className="self-end text-sm text-base-500 sm:text-base">
                               {attributes.saal}
                             </p>
                           </div>
