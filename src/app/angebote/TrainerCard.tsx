@@ -14,9 +14,9 @@ export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
     <Image
       src={bild}
       alt=""
-      height={320} // max-h-80
-      width={384} // max-w-sm
-      className="size-full max-h-80 rounded-xl object-cover object-top sm:h-80 sm:w-60"
+      height={384}
+      width={384} // max-h-96
+      className="aspect-[5/4] max-h-96 rounded-xl object-cover object-top sm:aspect-[4/5]"
     />
     <section className="p-5 sm:p-6">
       <h3 className="text-2xl font-semibold text-base-900 sm:text-3xl">
