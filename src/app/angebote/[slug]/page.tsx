@@ -158,7 +158,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
         <h2 className="mb-4 text-3xl font-bold text-base-900 max-sm:text-center sm:text-4xl">
           Unsere Trainer
         </h2>
-        <div className="space-y-8">
+        <div className="space-y-4">
           {angebot.trainers.map((trainer) => (
             <div
               key={trainer.id}
