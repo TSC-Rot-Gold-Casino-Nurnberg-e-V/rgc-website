@@ -67,7 +67,7 @@ export const FormationTabs = ({ teams }: Props) => (
                 <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
                   Trainer
                 </h3>
-                <div className="space-y-8">
+                <div className="space-y-4">
                   {team.trainers.map((trainer) => (
                     <TrainerCard
                       key={trainer.id}

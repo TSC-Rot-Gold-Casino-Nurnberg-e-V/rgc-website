@@ -93,7 +93,7 @@ export default function KindertanzenPage() {
               className="rounded-lg object-cover object-top"
               sizes="(max-width: 640px) 100vw, 50vw"
             />
-            <small className="absolute right-1 top-1 text-stone-300 opacity-10 transition-opacity group-hover:opacity-25">
+            <small className="absolute right-1 top-1 text-base-300 opacity-10 transition-opacity group-hover:opacity-25">
               © Sportfotografie-Gerner
             </small>
           </div>
