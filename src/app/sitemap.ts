@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://rot-gold-casino.de" as const;
+const BASE_URL = "https://www.rot-gold-casino.de" as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
