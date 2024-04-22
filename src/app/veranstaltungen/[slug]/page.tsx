@@ -6,6 +6,7 @@ import { CalendarIcon } from "@/components/icons/CalendarIcon";
 import { MapIcon } from "@/components/icons/MapIcon";
 import { Button } from "@/components/Button";
 import { Metadata, ResolvingMetadata } from "next";
+import { InfoIcon } from "@/components/icons/InfoIcon";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("veranstaltungen");
@@ -97,6 +98,21 @@ export default async function VeranstaltungPage({ params }: Readonly<Props>) {
                 Routenplanung
               </Button>
             </a>
+            {veranstaltung.ort.parken !== null && (
+              <a
+                href={veranstaltung.ort.parken}
+                target="_blank"
+                className="block w-fit rounded-full"
+              >
+                <Button
+                  tabIndex={-1}
+                  variant="secondary"
+                  startIcon={<InfoIcon />}
+                >
+                  Parkplätze
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>

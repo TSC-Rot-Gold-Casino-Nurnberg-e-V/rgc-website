@@ -11,7 +11,7 @@ import Image from "next/image";
 export const Navbar = () => (
   <nav className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
     <div className="mx-auto flex h-16 max-w-screen-lg items-center justify-between sm:h-20">
-      <div className="h-full w-fit py-4">
+      <div className="h-full w-fit py-3 sm:py-4">
         <Link
           href="/"
           aria-label="Startseite"

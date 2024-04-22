@@ -10,6 +10,7 @@ export const ortSchema = z
       postleitzahl: z.string(),
       stadt: z.string(),
       maps: z.string(),
+      parken: z.string().nullable(),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));
