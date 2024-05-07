@@ -27,7 +27,7 @@ export const Navbar = () => (
           />
         </Link>
       </div>
-      <ul className="flex gap-1 max-sm:hidden">
+      <ul className="flex gap-1 max-md:hidden">
         <NavLink text="Der Verein" href="/verein" />
         <NavLink text="Partner" href="/partner" />
         <NavLink text="News" href="/neuigkeiten" />
@@ -68,7 +68,7 @@ export const Navbar = () => (
         </Menu>
         <NavLink text="Kontakt" href="/kontakt" />
       </ul>
-      <div className="relative sm:hidden">
+      <div className="relative md:hidden">
         <Menu>
           {({ open }) => (
             <>
