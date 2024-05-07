@@ -29,6 +29,7 @@ export const Navbar = () => (
       </div>
       <ul className="flex gap-1 max-sm:hidden">
         <NavLink text="Der Verein" href="/verein" />
+        <NavLink text="Partner" href="/partner" />
         <NavLink text="News" href="/neuigkeiten" />
         <NavLink text="Angebot" href="/angebote" />
         <Menu>
@@ -101,6 +102,7 @@ export const Navbar = () => (
               >
                 <Menu.Items className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-sm shadow-base-900">
                   <MenuLink text="Der Verein" href="/verein" />
+                  <MenuLink text="Partner" href="/partner" />
                   <MenuLink text="News" href="/neuigkeiten" />
                   <MenuLink text="Angebot" href="/angebote" />
                   <MenuLink text="Veranstaltungen" href="/veranstaltungen" />
