@@ -43,7 +43,7 @@ export const Footer = () => (
       <section className="order-3 space-y-6 lg:order-2">
         <CategoryHeading text="Informationen" />
         <div>
-          <FooterLink text="Sponsoren" href="/sponsoren" />
+          <FooterLink text="Partner" href="/partner" />
           <FooterLink text="Startseite" href="/" />
           <FooterLink text="Der Verein" href="/verein" />
           <FooterLink text="News" href="/neuigkeiten" />

@@ -5,7 +5,7 @@ import teamNbgLogo from "../../public/sponsors/teamnuernbergLogo.jpg";
 import hdKroftLogo from "../../public/sponsors/hdKroftLogo.png";
 import heyduckMalerbetrieb from "../../public/sponsors/heyduckMalerbetrieb.png";
 
-export const Sponsors = () => (
+export const Partners = () => (
   <section className="bg-base-900">
     <div className="container-lg grid items-center justify-center gap-8 align-middle sm:grid-cols-2 md:grid-cols-4">
       <Link

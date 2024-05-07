@@ -1,6 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { Navbar } from "@/components/Navbar";
-import { Sponsors } from "@/components/Sponsors";
+import { Partners } from "@/components/Partners";
 import { Footer } from "@/components/Footer";
 import { Open_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -98,7 +98,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         >
           {children}
         </div>
-        <Sponsors />
+        <Partners />
         <Footer />
         <SpeedInsights />
         {VERCEL_ENV === "production" && <Analytics />}

@@ -5,7 +5,7 @@ import { Prose } from "@/components/Prose";
 export default async function SponsorenPage() {
   return (
     <Main>
-      <PageHeading>Sponsoren</PageHeading>
+      <PageHeading>Partner</PageHeading>
       <Prose className="container-md">
         <h2>Sponsor A</h2>
         <p>
