@@ -1,33 +1,19 @@
 import { Main } from "@/components/Main";
 import { PageHeading } from "@/components/PageHeading";
 import { Prose } from "@/components/Prose";
+import { getPartner } from "@/api/api";
+
+export const metadata = {
+  title: "Partner",
+  description: "Unsere Partner und Sponsoren",
+};
 
 export default async function SponsorenPage() {
+  const partner = await getPartner();
   return (
     <Main>
       <PageHeading>Partner</PageHeading>
-      <Prose className="container-md">
-        <h2>Sponsor A</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          nihil tempore ullam? Adipisci cum deserunt dolorum, esse eveniet illum
-          iusto laborum quas similique sit, velit?
-        </p>
-        <h2>Sponsor B</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-          nihil tempore ullam? Adipisci cum deserunt dolorum, esse eveniet illum
-          iusto laborum quas similique sit, velit?
-        </p>
-        <section>
-          <h2>Sponsor C</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-            nihil tempore ullam? Adipisci cum deserunt dolorum, esse eveniet
-            illum iusto laborum quas similique sit, velit?
-          </p>
-        </section>
-      </Prose>
+      <Prose className="container-md" content={partner.inhalt} />
     </Main>
   );
 }

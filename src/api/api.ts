@@ -33,6 +33,7 @@ import { Cheftrainer, cheftrainersSchema } from "@/model/Cheftrainer";
 
 import { stringify } from "qs";
 import { formationSchema } from "@/model/Formation";
+import { Partner, partnersSchema } from "@/model/Partner";
 
 export async function getNeuigkeiten(
   pageSize: number,
@@ -228,6 +229,14 @@ export async function getImpressum(): Promise<Impressum> {
   });
   const { data } = await fetchData(`/impressum?${query}`);
   return impressumSchema.parse(data);
+}
+
+export async function getPartner(): Promise<Partner> {
+  const query = stringify({
+    populate: "*",
+  });
+  const { data } = await fetchData(`/partner?${query}`);
+  return partnersSchema.parse(data);
 }
 
 export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
