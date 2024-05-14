@@ -18,7 +18,7 @@ export const Partners = () => (
 const PartnerList = (props: ComponentProps<"div">) => (
   <div
     {...props}
-    className="animate-infinite-scroll flex items-center space-x-8 pr-8"
+    className="flex animate-infinite-scroll items-center space-x-8 pr-8"
   >
     <Link
       href="https://www.pictrs.com/hd-kroft-photography?l=de"
