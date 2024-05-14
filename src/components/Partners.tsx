@@ -4,6 +4,7 @@ import sbbLogo from "../../public/sponsors/sbbLogo.png";
 import teamNbgLogo from "../../public/sponsors/teamnuernbergLogo.jpg";
 import hdKroftLogo from "../../public/sponsors/hdKroftLogo.png";
 import heyduckMalerbetrieb from "../../public/sponsors/heyduckMalerbetrieb.png";
+import aragLogo from "../../public/sponsors/aragLogo.jpg";
 import bravoDance from "../../public/sponsors/bravoDance.jpeg";
 import { ComponentProps } from "react";
 
@@ -63,6 +64,18 @@ const PartnerList = (props: ComponentProps<"div">) => (
       <Image
         src={heyduckMalerbetrieb}
         alt="Heyduck Maler und Lackierer"
+        width={250}
+        className="h-auto min-w-[250px] rounded-md"
+      />
+    </Link>
+    <Link
+      href="https://www.arag-partner.de/gunnar-zidella/"
+      target="_blank"
+      className="mx-auto rounded-md"
+    >
+      <Image
+        src={aragLogo}
+        alt="ARAG Vertriebspartner Gunnar Zidella"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
       />
