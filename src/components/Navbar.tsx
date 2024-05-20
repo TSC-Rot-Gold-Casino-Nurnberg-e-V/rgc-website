@@ -71,7 +71,7 @@ export const Navbar = () => (
           <NavLink text="Kontakt" href="/kontakt" />
         </ul>
         <Link href="/mitgliedschaft" className="block rounded-full">
-          <Button className="px-4 py-2">Mitglied werden</Button>
+          <Button className="px-4 py-2 text-base">Mitglied werden</Button>
         </Link>
       </div>
       <div className="relative lg:hidden">
@@ -125,7 +125,7 @@ export const Navbar = () => (
                       >
                         <Button
                           className={twJoin(
-                            "text-nowrap px-4 py-2",
+                            "text-nowrap px-4 py-2 text-base",
                             active && "bg-secondary-900",
                           )}
                         >
