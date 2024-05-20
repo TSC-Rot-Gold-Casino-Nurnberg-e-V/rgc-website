@@ -97,8 +97,7 @@ export function ContactForm() {
         </h2>
         <div className="text-base sm:text-lg">
           Wir freuen uns über Dein Interesse an unserem Verein. Hinterlasse
-          Deine Nachricht an uns und wir melden uns so schnell wie möglich bei
-          dir.
+          Deine Nachricht und wir melden uns so schnell wie möglich bei dir.
         </div>
         <div className="space-y-4">
           <div className="flex items-center gap-2 text-sm sm:text-base">
