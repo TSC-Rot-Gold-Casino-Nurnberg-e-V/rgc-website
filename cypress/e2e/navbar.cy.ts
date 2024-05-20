@@ -18,9 +18,12 @@ describe("navbar", () => {
       name: /Turnierergebnisse/i,
     });
     cy.findByRole("navigation").findByRole("link", { name: /Kontakt/i });
+    cy.findByRole("navigation").findByRole("link", {
+      name: /Mitglied werden/i,
+    });
     cy.findByRole("navigation")
       .findAllByRole("link")
-      .should("have.lengthOf", 6);
+      .should("have.lengthOf", 7);
   });
 
   it("navigates to the homepage", () => {
@@ -43,7 +46,7 @@ describe("navbar", () => {
     cy.findByRole("navigation")
       .findByLabelText("Navigationsmenü öffnen")
       .click();
-    cy.findByRole("menu").findAllByRole("menuitem").should("have.lengthOf", 7);
+    cy.findByRole("menu").findAllByRole("menuitem").should("have.lengthOf", 8);
     cy.findByRole("menu").findByRole("menuitem", { name: /Der Verein/i });
     cy.findByRole("menu").findByRole("menuitem", { name: /Partner/i });
     cy.findByRole("menu").findByRole("menuitem", { name: /News/i });
@@ -55,6 +58,7 @@ describe("navbar", () => {
       name: /Turnierergebnisse/i,
     });
     cy.findByRole("menu").findByRole("menuitem", { name: /Kontakt/i });
+    cy.findByRole("menu").findByRole("menuitem", { name: /Mitglied werden/i });
 
     cy.findByRole("navigation")
       .findByLabelText("Navigationsmenü schließen")

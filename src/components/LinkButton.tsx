@@ -5,10 +5,11 @@ import { ChevronRightIcon } from "./icons/ChevronRightIcon";
 interface Props {
   href: string;
   text: string;
+  target?: string;
 }
 
-export const LinkButton = ({ href, text }: Props) => (
-  <Link href={href} className="block w-fit rounded-full">
+export const LinkButton = ({ href, text, target }: Props) => (
+  <Link href={href} target={target} className="block w-fit rounded-full">
     <Button
       tabIndex={-1}
       variant="secondary"

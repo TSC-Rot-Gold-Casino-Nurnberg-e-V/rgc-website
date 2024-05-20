@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
 import logo_gold from "../../public/logo_gold.png";
 import Image from "next/image";
+import { Button } from "@/components/Button";
 
 export const Navbar = () => (
   <nav className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
@@ -27,48 +28,53 @@ export const Navbar = () => (
           />
         </Link>
       </div>
-      <ul className="flex gap-1 max-md:hidden">
-        <NavLink text="Der Verein" href="/verein" />
-        <NavLink text="Partner" href="/partner" />
-        <NavLink text="News" href="/neuigkeiten" />
-        <NavLink text="Angebot" href="/angebote" />
-        <Menu>
-          {({ open }) => (
-            <div className="relative">
-              <Menu.Button
-                className={twJoin(
-                  "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
-                  open && "bg-base-800",
-                )}
-              >
-                Veranstaltungen
-              </Menu.Button>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items
-                  static
-                  className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
+      <div className="flex gap-4 max-lg:hidden">
+        <ul className="flex gap-1">
+          <NavLink text="Der Verein" href="/verein" />
+          <NavLink text="Partner" href="/partner" />
+          <NavLink text="News" href="/neuigkeiten" />
+          <NavLink text="Angebot" href="/angebote" />
+          <Menu>
+            {({ open }) => (
+              <div className="relative">
+                <Menu.Button
+                  className={twJoin(
+                    "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
+                    open && "bg-base-800",
+                  )}
                 >
-                  <MenuLink text="Übersicht" href="/veranstaltungen" />
-                  <MenuLink
-                    text="Turnierergebnisse"
-                    href="/turnierergebnisse"
-                  />
-                </Menu.Items>
-              </Transition>
-            </div>
-          )}
-        </Menu>
-        <NavLink text="Kontakt" href="/kontakt" />
-      </ul>
-      <div className="relative md:hidden">
+                  Veranstaltungen
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items
+                    static
+                    className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
+                  >
+                    <MenuLink text="Übersicht" href="/veranstaltungen" />
+                    <MenuLink
+                      text="Turnierergebnisse"
+                      href="/turnierergebnisse"
+                    />
+                  </Menu.Items>
+                </Transition>
+              </div>
+            )}
+          </Menu>
+          <NavLink text="Kontakt" href="/kontakt" />
+        </ul>
+        <Link href="/mitgliedschaft" className="block rounded-full">
+          <Button className="px-4 py-2 text-base">Mitglied werden</Button>
+        </Link>
+      </div>
+      <div className="relative lg:hidden">
         <Menu>
           {({ open }) => (
             <>
@@ -111,6 +117,23 @@ export const Navbar = () => (
                     href="/turnierergebnisse"
                   />
                   <MenuLink text="Kontakt" href="/kontakt" />
+                  <Menu.Item>
+                    {({ active }) => (
+                      <Link
+                        href="/mitgliedschaft"
+                        className="block rounded-full"
+                      >
+                        <Button
+                          className={twJoin(
+                            "text-nowrap px-4 py-2 text-base",
+                            active && "bg-secondary-900",
+                          )}
+                        >
+                          Mitglied werden
+                        </Button>
+                      </Link>
+                    )}
+                  </Menu.Item>
                 </Menu.Items>
               </Transition>
             </>
