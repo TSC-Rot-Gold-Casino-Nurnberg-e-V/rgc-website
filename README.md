@@ -12,25 +12,25 @@ Dies ist das Softwareprojekt für die modernisierte Webseite des Tanzsportclubs 
 
 1. Git-Repository klonen:
 
-   ```
+   ```shell
    git clone https://github.com/TSC-Rot-Gold-Casino-Nurnberg-e-V/rgc-website.git
    ```
 
 2. Ins Projektverzeichnis wechseln:
 
-   ```
+   ```shell
    cd rgc-website
    ```
 
 3. Erforderliche Pakete installieren:
 
-   ```
+   ```shell
    npm install
    ```
 
 4. Umgebungskonfiguration erstellen:
 
-   ```
+   ```shell
    cp .env.example .env.local
    ```
 
@@ -38,8 +38,6 @@ Dies ist das Softwareprojekt für die modernisierte Webseite des Tanzsportclubs 
 
 5. Entwicklungsserver starten:
 
-   (setzt voraus, dass lokal das [RGC CMS](https://github.com/TSC-Rot-Gold-Casino-Nurnberg-e-V/rgc-cms) läuft)
-
-   ```
+   ```shell
    npm run dev
    ```

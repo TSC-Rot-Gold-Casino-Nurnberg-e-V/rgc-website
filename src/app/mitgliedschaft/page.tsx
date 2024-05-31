@@ -18,13 +18,13 @@ export default function Mitgliedschaft() {
           werden.
         </p>
         <section className="space-y-4">
-          <h2 className="text-3xl">Schritt 1: Finde deine perfekte Gruppe</h2>
+          <h2 className="text-3xl">Schritt 1: Finde Deine perfekte Gruppe</h2>
           <p className="text-base sm:text-lg">
             Jeder Tänzer hat einen eigenen Stil und ein eigenes Tempo. Wir
             bieten eine Vielzahl von Gruppen an, um auf die Bedürfnisse jedes
-            Einzelnen einzugehen. Egal, ob du ein Anfänger bist, der die
+            Einzelnen einzugehen. Egal, ob Du ein Anfänger bist, der die
             Grundlagen erlernen möchte, oder ein erfahrener Tänzer, der eine
-            Herausforderung sucht. Wir haben eine passende Gruppe für dich.
+            Herausforderung sucht. Wir haben eine passende Gruppe für Dich.
           </p>
           <LinkButton href="/angebote" text="Entdecke unsere Angebote" />
         </section>
@@ -33,8 +33,8 @@ export default function Mitgliedschaft() {
             Schritt 2: An Schnuppertrainings teilnehmen
           </h2>
           <p className="text-base sm:text-lg">
-            Du bist dir nicht sicher, welche Gruppe zu dir passt? Das ist kein
-            Problem! Wir laden dich ein, an bis zu
+            Du bist Dir nicht sicher, welche Gruppe zu Dir passt? Das ist kein
+            Problem! Wir laden Dich ein, an bis zu
             <span className="font-bold"> drei kostenlosen Probetrainings </span>
             teilzunehmen. Das ist eine gute Gelegenheit, unsere Trainer
             kennenzulernen, sich mit anderen Tänzern auszutauschen und ein
@@ -45,9 +45,9 @@ export default function Mitgliedschaft() {
         <section className="space-y-4">
           <h2 className="text-3xl">Schritt 3: Mitglied werden</h2>
           <p className="text-base sm:text-lg">
-            Das Probetraining hat dir gefallen und du bist bereit, bei uns
+            Das Probetraining hat Dir gefallen und Du bist bereit, bei uns
             mitzumachen? Fantastisch! Der letzte Schritt ist die Anmeldung über
-            unser separates Anmeldeportal. Wir freuen uns darauf, dich in
+            unser separates Anmeldeportal. Wir freuen uns darauf, Dich in
             unserem Tanzsportclub begrüßen zu dürfen!
           </p>
           <LinkButton
@@ -59,7 +59,7 @@ export default function Mitgliedschaft() {
         <section className="space-y-4">
           <h2 className="text-2xl">Weitere Fragen?</h2>
           <p className="text-base sm:text-lg">
-            Wenn du Fragen hast oder Hilfe bei der Anmeldung benötigst, zögere
+            Wenn Du Fragen hast oder Hilfe bei der Anmeldung benötigst, zögere
             bitte nicht, uns zu kontaktieren.
           </p>
           <LinkButton href="/kontakt" text="Kontaktformular" />
