@@ -21,7 +21,9 @@ export const generateMetadata = async (
   const resolvedMetadata = await resolvingMetadata;
   return {
     title: veranstaltung.titel,
-    description: null,
+    description: veranstaltung.beschreibung
+      .replace(/<[^>]*>/g, " ") // remove HTML tags
+      .replace(/\s+/g, " "), // replace multiple spaces with a single space
     openGraph: {
       type: "article",
       locale: resolvedMetadata.openGraph?.locale,
