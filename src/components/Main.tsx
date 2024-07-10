@@ -6,7 +6,7 @@ export const Main = ({
   className,
   ...rest
 }: ComponentPropsWithoutRef<"main">) => (
-  <main className={twMerge("grow", className)} {...rest}>
+  <main className={twMerge("max-w-full grow", className)} {...rest}>
     {children}
   </main>
 );
