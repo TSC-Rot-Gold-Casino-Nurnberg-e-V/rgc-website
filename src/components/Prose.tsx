@@ -25,6 +25,8 @@ export const Prose = ({
       "prose-img:object-cover",
       "prose-img:object-top",
       "prose-img:m-0",
+      "prose-table:block",
+      "prose-table:overflow-x-auto",
       className,
     )}
     {...props}
