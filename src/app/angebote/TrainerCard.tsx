@@ -11,13 +11,15 @@ interface Props {
 
 export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
   <div className="flex rounded-xl bg-white shadow max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col">
-    <Image
-      src={bild}
-      alt=""
-      height={384}
-      width={384} // h-96
-      className="aspect-square rounded-xl object-cover object-top sm:aspect-[4/5] sm:h-96"
-    />
+    <div className="aspect-square sm:aspect-[4/5] sm:h-96">
+      <Image
+        src={bild}
+        alt=""
+        height={384} // h-96
+        width={384}
+        className="h-full rounded-xl object-cover object-top"
+      />
+    </div>
     <section className="p-5 sm:p-6">
       <h3 className="text-2xl font-semibold text-secondary-950 sm:text-3xl">
         {name}
