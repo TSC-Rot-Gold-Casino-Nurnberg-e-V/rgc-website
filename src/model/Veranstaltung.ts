@@ -15,6 +15,7 @@ export const veranstaltungSchema = z
           data: ortSchema,
         })
         .transform(({ data }) => data),
+      helfertool: z.string().nullish(),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));

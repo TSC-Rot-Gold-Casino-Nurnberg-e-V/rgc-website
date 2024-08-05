@@ -115,6 +115,21 @@ export default async function VeranstaltungPage({ params }: Readonly<Props>) {
                 </Button>
               </a>
             )}
+            {veranstaltung.helfertool && (
+              <a
+                href={veranstaltung.helfertool}
+                target="_blank"
+                className="block w-fit rounded-full"
+              >
+                <Button
+                  tabIndex={-1}
+                  variant="secondary"
+                  startIcon={<InfoIcon />}
+                >
+                  Helfer
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       </div>
