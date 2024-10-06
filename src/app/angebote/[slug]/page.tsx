@@ -104,6 +104,9 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                             </time>
                             <div>Uhr</div>
                           </div>
+                          {attributes.anmerkung && (
+                            <p className="text-base">{attributes.anmerkung}</p>
+                          )}
                           <div className="flex grow justify-between pt-4">
                             <div className="flex -space-x-2 self-end">
                               {attributes.trainers.map((trainer) => (

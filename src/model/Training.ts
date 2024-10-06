@@ -20,6 +20,7 @@ export const trainingSchema = z
           data: wochentagSchema,
         })
         .transform(({ data }) => data),
+      anmerkung: z.string().nullable(),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));
