@@ -50,6 +50,7 @@ export const Footer = () => (
           <FooterLink text="Veranstaltungen" href="/veranstaltungen" />
           <FooterLink text="Turnierergebnisse" href="/turnierergebnisse" />
           <FooterLink text="Kontaktanfrage" href="/kontakt" />
+          <FooterLink text="Showanfrage" href="/showanfrage" />
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
