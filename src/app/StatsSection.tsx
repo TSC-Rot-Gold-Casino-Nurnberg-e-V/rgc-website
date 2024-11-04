@@ -39,7 +39,7 @@ export const StatsSection = () => {
           aria-label="Statistik"
         >
           <div className="text-5xl">
-            <CountUp end={inView ? 26 : 0} />x
+            <CountUp end={inView ? 27 : 0} />x
           </div>
           <div className="text-xl sm:text-2xl">Bayernpokal&shy;sieger</div>
         </div>
