@@ -8,13 +8,15 @@ export const personSchema = z
       nachname: z.string().nullable(),
       bild: z
         .object({
-          data: z.object({
-            attributes: z.object({
-              url: z.string(),
-            }),
-          }),
+          data: z
+            .object({
+              attributes: z.object({
+                url: z.string(),
+              }),
+            })
+            .nullable(),
         })
-        .transform(({ data }) => ({ ...data.attributes })),
+        .transform(({ data }) => (data ? { ...data.attributes } : null)),
     }),
   })
   .transform(({ id, attributes }) => ({ id, ...attributes }));

@@ -9,6 +9,7 @@ import { Prose } from "@/components/Prose";
 import { PageHeading } from "@/components/PageHeading";
 import { Main } from "@/components/Main";
 import { Metadata } from "next";
+import personPlaceholder from "../../../../public/placeholder/person-placeholder.png";
 
 export const generateStaticParams = async () => {
   const slugs = await getSlugs("angebote");
@@ -116,7 +117,10 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                   className="rounded-full"
                                 >
                                   <Image
-                                    src={trainer.person.bild.url}
+                                    src={
+                                      trainer.person.bild?.url ??
+                                      personPlaceholder
+                                    }
                                     width={56} // size-14
                                     height={56} // size-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
@@ -171,7 +175,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                 beschreibung={trainer.beschreibung}
                 name={`${trainer.person.vorname} ${trainer.person.nachname}`}
                 lizenzen={trainer.lizenzen}
-                bild={trainer.person.bild.url}
+                bild={trainer.person.bild?.url}
               />
             </div>
           ))}

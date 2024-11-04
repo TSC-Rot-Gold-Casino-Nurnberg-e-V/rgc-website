@@ -12,15 +12,17 @@ export const neuigkeitSchema = z
       datum: z.string(),
       vorschaubild: z
         .object({
-          data: z.object({
-            attributes: z.object({
-              url: z.string(),
-              height: z.number().optional(),
-              width: z.number().optional(),
-            }),
-          }),
+          data: z
+            .object({
+              attributes: z.object({
+                url: z.string(),
+                height: z.number().optional(),
+                width: z.number().optional(),
+              }),
+            })
+            .nullable(),
         })
-        .transform(({ data }) => ({ ...data.attributes })),
+        .transform(({ data }) => (data ? { ...data.attributes } : null)),
     }),
   })
   .transform(({ id, attributes }) => ({

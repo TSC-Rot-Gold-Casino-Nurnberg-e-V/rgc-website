@@ -135,7 +135,7 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
           datum={neuigkeit.datum}
           titel={neuigkeit.titel}
           vorschautext={neuigkeit.vorschautext}
-          vorschaubild={neuigkeit.vorschaubild.url}
+          vorschaubild={neuigkeit.vorschaubild?.url}
           sizes="(max-width: 640px) 100vw, 50vw"
         />
       ))}
