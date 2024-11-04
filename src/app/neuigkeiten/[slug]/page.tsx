@@ -26,14 +26,16 @@ export const generateMetadata = async (
       title: neuigkeit.titel,
       description: neuigkeit.vorschautext,
       publishedTime: neuigkeit.datum,
-      images: [
-        {
-          url: neuigkeit.vorschaubild.url,
-          height: neuigkeit.vorschaubild.height,
-          width: neuigkeit.vorschaubild.width,
-          alt: neuigkeit.titel,
-        },
-      ],
+      images: neuigkeit.vorschaubild
+        ? [
+            {
+              url: neuigkeit.vorschaubild.url,
+              height: neuigkeit.vorschaubild.height,
+              width: neuigkeit.vorschaubild.width,
+              alt: neuigkeit.titel,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
@@ -42,14 +44,16 @@ export const generateMetadata = async (
       site: resolvedMetadata.twitter?.site ?? undefined,
       creator: resolvedMetadata.twitter?.creator ?? undefined,
       creatorId: resolvedMetadata.twitter?.creatorId ?? undefined,
-      images: [
-        {
-          url: neuigkeit.vorschaubild.url,
-          height: neuigkeit.vorschaubild.height,
-          width: neuigkeit.vorschaubild.width,
-          alt: neuigkeit.titel,
-        },
-      ],
+      images: neuigkeit.vorschaubild
+        ? [
+            {
+              url: neuigkeit.vorschaubild.url,
+              height: neuigkeit.vorschaubild.height,
+              width: neuigkeit.vorschaubild.width,
+              alt: neuigkeit.titel,
+            },
+          ]
+        : undefined,
     },
   };
 };

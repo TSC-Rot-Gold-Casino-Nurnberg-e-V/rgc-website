@@ -10,6 +10,7 @@ import { Button } from "@/components/Button";
 import { ChevronRightIcon } from "@/components/icons/ChevronRightIcon";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 import { Metadata } from "next";
+import personPlaceholder from "../../../public/placeholder/person-placeholder.png";
 
 export const metadata: Metadata = {
   title: "Der Verein",
@@ -56,7 +57,7 @@ export default async function VereinsgeschichtePage() {
             >
               <div className="relative aspect-square">
                 <Image
-                  src={vorstandsmitglied.person.bild.url}
+                  src={vorstandsmitglied.person.bild?.url ?? personPlaceholder}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                   className="rounded-xl object-cover object-top"
                   priority={index < 3}
@@ -104,7 +105,7 @@ export default async function VereinsgeschichtePage() {
               name={`${cheftrainer.trainer.person.vorname} ${cheftrainer.trainer.person.nachname}`}
               lizenzen={cheftrainer.trainer.lizenzen}
               beschreibung={cheftrainer.trainer.beschreibung}
-              bild={cheftrainer.trainer.person.bild.url}
+              bild={cheftrainer.trainer.person.bild?.url}
             />
           </section>
         ))}
