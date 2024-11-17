@@ -128,6 +128,9 @@ export default async function ShowanfragePage() {
           </section>
         </div>
       </div>
+      <div className="bg-base-50 text-base-900">
+        <ContactForm />
+      </div>
     </Main>
   );
 }
