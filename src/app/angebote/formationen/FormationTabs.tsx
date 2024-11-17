@@ -10,6 +10,7 @@ import { TrophyIcon } from "@/components/icons/TrophyIcon";
 import { MusicIcon } from "@/components/icons/MusicIcon";
 import { Prose } from "@/components/Prose";
 import { Button } from "@/components/Button";
+import personPlaceholder from "../../../../public/placeholder/person-placeholder.png";
 
 interface Props {
   teams: Array<Team>;
@@ -76,7 +77,7 @@ export const FormationTabs = ({ teams }: Props) => (
                       }
                       lizenzen={trainer.lizenzen}
                       beschreibung={trainer.beschreibung}
-                      bild={trainer.person.bild.url}
+                      bild={trainer.person.bild?.url}
                     />
                   ))}
                 </div>
@@ -94,7 +95,7 @@ export const FormationTabs = ({ teams }: Props) => (
                       className="flex flex-col items-center space-y-6 rounded-xl p-4"
                     >
                       <Image
-                        src={kapitaen.bild.url}
+                        src={kapitaen.bild?.url ?? personPlaceholder}
                         alt=""
                         height={128}
                         width={128}

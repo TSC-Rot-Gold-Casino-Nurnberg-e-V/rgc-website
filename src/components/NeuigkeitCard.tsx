@@ -3,12 +3,13 @@ import Image from "next/image";
 import { formatDate } from "@/utils/formatDate";
 import { twMerge } from "tailwind-merge";
 import { ComponentPropsWithoutRef } from "react";
+import newsPlaceholder from "../../public/placeholder/news-placeholder.png";
 
 interface Props extends ComponentPropsWithoutRef<"a"> {
   titel: string;
   vorschautext: string;
   datum: string;
-  vorschaubild: string;
+  vorschaubild?: string;
   slug: string;
   sizes: string;
   loadImageWithPriority?: boolean;
@@ -36,7 +37,7 @@ export const NeuigkeitCard = ({
     <div className="relative h-[24rem] w-full overflow-hidden rounded-xl transition-all">
       <div className="absolute inset-0 h-full shrink-0">
         <Image
-          src={vorschaubild}
+          src={vorschaubild ?? newsPlaceholder}
           alt=""
           fill
           className="rounded-xl object-cover object-top transition-all duration-300"

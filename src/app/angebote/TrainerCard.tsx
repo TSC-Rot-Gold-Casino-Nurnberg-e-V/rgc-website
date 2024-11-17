@@ -1,19 +1,20 @@
 import Image from "next/image";
 import { Lizenz } from "@/model/Lizenz";
 import { Prose } from "@/components/Prose";
+import personPlaceholder from "../../../public/placeholder/person-placeholder.png";
 
 interface Props {
   name: string;
   lizenzen: Array<Lizenz>;
   beschreibung: string;
-  bild: string;
+  bild?: string;
 }
 
 export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
   <div className="flex rounded-xl bg-white shadow max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col">
     <div className="aspect-square sm:aspect-[4/5] sm:h-96">
       <Image
-        src={bild}
+        src={bild ?? personPlaceholder}
         alt=""
         height={384} // h-96
         width={384}
