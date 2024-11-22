@@ -90,7 +90,7 @@ export default async function ShowanfragePage() {
                 float: "left",
                 shapeOutside: `url(${einzel_standard.src})`,
                 shapeMargin: "8px",
-                maxWidth: "50%",
+                maxWidth: "75%",
                 minWidth: "250px",
                 marginLeft: "-1rem",
               }}
@@ -115,7 +115,7 @@ export default async function ShowanfragePage() {
                 float: "right",
                 shapeOutside: `url(${einzel_latein.src})`,
                 shapeMargin: "8px",
-                maxWidth: "50%",
+                maxWidth: "75%",
                 minWidth: "250px",
                 marginRight: "-1rem",
               }}
