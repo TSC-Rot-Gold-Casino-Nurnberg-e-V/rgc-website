@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Main } from "@/components/Main";
 import { ContactForm } from "@/app/kontakt/ContactForm";
 
+import background_standard from "../../../public/showanfrage/formation_standard_1.png";
+import background_latein from "../../../public/showanfrage/formation_latein_2.png";
+
 import einzel_standard from "../../../public/showanfrage/einzel_standard_1.webp";
 import einzel_latein from "../../../public/showanfrage/einzel_latein_1.webp";
 import formation_latein from "../../../public/showanfrage/formation_latein_1.webp";
@@ -14,27 +17,46 @@ export const metadata = {
 
 export default async function ShowanfragePage() {
   return (
-    <Main className="mx-auto w-full hyphens-auto bg-base-900 text-base-100 md:text-lg">
-      <div className="mx-auto max-w-screen-lg pb-20">
-        <section className="mx-auto max-w-screen-sm p-4 text-center">
-          <h1 className="text-base-50">
-            <span className="text-7xl font-bold">Tanz&shy;highlights</span>
-            <br />
-            <span className="block pt-4 text-5xl font-bold uppercase">
-              für ihr Event!
-            </span>
-          </h1>
-          <p className="pt-8">
-            Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit
-            atemberaubenden Tanzdarbietungen in Standard oder Latein!
-          </p>
-          <p className="pt-4">
-            Lassen Sie Ihr Publikum durch unsere Formationsteams aus der ersten
-            Bundesliga oder durch unsere hochklassigen Einzelpaare mit Eleganz,
-            Leidenschaft und Perfektion verzaubern.
-          </p>
-        </section>
-        <div className="mx-auto mt-8 grid gap-4 max-md:max-w-md md:grid-cols-2 md:gap-6 md:p-4">
+    <Main className="relative mx-auto w-full bg-base-900 text-base-100 md:text-lg">
+      <div className="mb-20">
+        <div className="relative max-w-full overflow-hidden">
+          <Image
+            src={background_standard}
+            alt=""
+            width={500}
+            height={500}
+            className="absolute -right-40 bottom-0 max-w-[80vw] blur-xs sm:right-0 sm:max-w-[45vw]"
+          />
+          <Image
+            src={background_latein}
+            alt=""
+            width={500}
+            height={500}
+            className="absolute -left-40 bottom-0 max-w-[80vw] blur-xs sm:left-0 sm:max-w-[45vw]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-base-900 to-10%" />
+          <section className="relative mx-auto max-w-screen-sm p-4 text-center sm:py-12 md:py-20">
+            <h1 className="text-base-50">
+              <span className="text-6xl font-bold sm:text-7xl">
+                Tanz&shy;highlights
+              </span>
+              <br />
+              <span className="block pt-4 text-4xl font-bold uppercase sm:text-5xl">
+                für ihr Event!
+              </span>
+            </h1>
+            <p className="pt-8 text-lg font-semibold sm:text-xl">
+              Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit
+              atemberaubenden Tanzdarbietungen in Standard oder Latein!
+            </p>
+            <p className="pt-4 text-lg font-semibold sm:text-xl">
+              Lassen Sie Ihr Publikum durch unsere Formationsteams aus der
+              ersten Bundesliga oder durch unsere hochklassigen Einzelpaare mit
+              Eleganz, Leidenschaft und Perfektion verzaubern.
+            </p>
+          </section>
+        </div>
+        <div className="mx-auto mt-8 grid max-w-screen-lg gap-4 hyphens-auto max-md:max-w-md md:grid-cols-2 md:gap-6 md:p-4">
           <section className="overflow-hidden rounded-xl bg-base-800 md:order-1 md:rounded-tl-[4rem] md:text-right">
             <div className="p-6 !pb-2 md:p-8">
               <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
