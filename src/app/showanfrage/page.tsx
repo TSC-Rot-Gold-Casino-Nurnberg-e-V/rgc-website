@@ -5,6 +5,7 @@ import { ContactForm } from "@/app/kontakt/ContactForm";
 import einzel_standard from "../../../public/showanfrage/einzel_standard_1.webp";
 import einzel_latein from "../../../public/showanfrage/einzel_latein_1.webp";
 import formation_latein from "../../../public/showanfrage/formation_latein_1.webp";
+import formation_standard from "../../../public/showanfrage/formation_standard_2.webp";
 
 export const metadata = {
   title: "Showanfrage",
@@ -52,7 +53,7 @@ export default async function ShowanfragePage() {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-b from-base-800 to-10%" />
-              <Image src={formation_latein} alt="" width={500} height={500} />
+              <Image src={formation_standard} alt="" width={500} height={500} />
             </div>
           </section>
           <section className="overflow-hidden rounded-xl bg-base-800 md:order-4 md:rounded-br-[4rem]">
