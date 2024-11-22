@@ -66,7 +66,7 @@ export default async function ShowanfragePage() {
                 begeistert in der ersten Bundesliga.
               </p>
               <p className="mt-4">
-                Mit einer Vielfalt an Musikstucken und dynamischen Choreografien
+                Mit einer Vielfalt an Musikstücken und dynamischen Choreografien
                 sorgen das A-Team sowie unsere ambitionierten Nachwuchsteams in
                 der 2. Bundesliga und Regionalliga für unvergessliche
                 Showeinlagen voller Energie und Leidenschaft.
