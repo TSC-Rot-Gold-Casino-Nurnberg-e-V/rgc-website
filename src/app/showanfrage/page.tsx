@@ -100,7 +100,7 @@ export default async function ShowanfragePage() {
             </div>
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-3 md:rounded-bl-[4rem] md:p-8">
-            <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
+            <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-right md:text-3xl">
               Einzel Standard
             </h2>
             <Image
