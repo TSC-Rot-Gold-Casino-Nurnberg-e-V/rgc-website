@@ -17,7 +17,7 @@ export const metadata = {
 
 export default async function ShowanfragePage() {
   return (
-    <Main className="relative mx-auto w-full bg-base-900 text-base-100 md:text-lg">
+    <Main className="relative mx-auto w-full text-pretty bg-base-900 text-base-100 md:text-lg">
       <div className="mb-20">
         <div className="relative max-w-full overflow-hidden">
           <Image
