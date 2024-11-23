@@ -11,12 +11,12 @@ import formation_latein from "../../../public/showanfrage/formation_latein_1.web
 import formation_standard from "../../../public/showanfrage/formation_standard_2.webp";
 
 export const metadata = {
-  title: "Showanfrage",
+  title: "Shows",
   description:
     "Tanzhighlights für Ihr Event! Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit atemberaubenden Showtanz-Darbietungen in Standard oder Latein! Buchen Sie uns für Ihre Veranstaltung!",
 };
 
-export default async function ShowanfragePage() {
+export default async function ShowsPage() {
   return (
     <Main className="relative mx-auto w-full text-pretty bg-base-900 text-base-100 md:text-lg">
       <div className="mb-20">

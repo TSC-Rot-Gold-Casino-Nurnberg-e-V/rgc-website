@@ -51,7 +51,7 @@ export const Footer = () => (
           <FooterLink text="Veranstaltungen" href="/veranstaltungen" />
           <FooterLink text="Turnierergebnisse" href="/turnierergebnisse" />
           <FooterLink text="Kontaktanfrage" href="/kontakt" />
-          <FooterLink text="Showanfrage" href="/showanfrage" />
+          <FooterLink text="Shows" href="/shows" />
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
@@ -114,7 +114,7 @@ export const Footer = () => (
           <div className="group">
             <div className="group-hover:cursor-pointer group-hover:text-base-50">
               <Link
-                href="/showanfrage"
+                href="/shows"
                 className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
               >
                 <SparklesIcon className="size-6" />
