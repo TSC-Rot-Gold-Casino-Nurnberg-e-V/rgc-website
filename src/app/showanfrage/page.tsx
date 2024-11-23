@@ -45,11 +45,11 @@ export default async function ShowanfragePage() {
                 für ihr Event!
               </span>
             </h1>
-            <p className="pt-8 text-lg font-semibold sm:text-xl">
+            <p className="mx-auto max-w-md pt-8 text-lg font-semibold sm:text-xl">
               Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit
               atemberaubenden Tanzdarbietungen in Standard oder Latein!
             </p>
-            <p className="pt-4 text-lg font-semibold sm:text-xl">
+            <p className="mx-auto max-w-md pt-4 text-lg font-semibold sm:text-xl">
               Lassen Sie Ihr Publikum durch unsere Formationsteams aus der
               ersten Bundesliga oder durch unsere hochklassigen Einzelpaare mit
               Eleganz, Leidenschaft und Perfektion verzaubern.
