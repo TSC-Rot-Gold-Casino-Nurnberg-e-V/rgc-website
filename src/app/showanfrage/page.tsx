@@ -12,7 +12,8 @@ import formation_standard from "../../../public/showanfrage/formation_standard_2
 
 export const metadata = {
   title: "Showanfrage",
-  description: "Buchen Sie uns für Ihre Veranstaltung",
+  description:
+    "Tanzhighlights für Ihr Event! Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit atemberaubenden Showtanz-Darbietungen in Standard oder Latein! Buchen Sie uns für Ihre Veranstaltung!",
 };
 
 export default async function ShowanfragePage() {
