@@ -99,7 +99,7 @@ export default async function ShowanfragePage() {
               <Image src={formation_latein} alt="" width={500} height={500} />
             </div>
           </section>
-          <section className="rounded-xl bg-secondary-600 p-6 md:order-3 md:rounded-bl-[4rem] md:p-8 md:text-right">
+          <section className="rounded-xl bg-secondary-600 p-6 md:order-3 md:rounded-bl-[4rem] md:p-8">
             <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
               Einzel Standard
             </h2>
@@ -117,11 +117,13 @@ export default async function ShowanfragePage() {
                 marginLeft: "-1rem",
               }}
             />
-            <p className="text-base-950">
+            <p className="text-right text-base-950">
               Mit Anmut und Präzision bringen unsere exzellenten Einzelpaare die
               klassischen Standardtänze - Langsamer Walzer, Tango, Wiener
-              Walzer, Slowfox und Quickstep - auf Ihr Event. Erleben Sie Eleganz
-              und Perfektion in Bewegung.
+              Walzer, Slowfox und Quickstep - auf Ihr Event.
+            </p>
+            <p className="mt-4 text-right text-base-950">
+              Erleben Sie Eleganz und Perfektion in Bewegung.
             </p>
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-2 md:rounded-tr-[4rem] md:p-8">
