@@ -25,14 +25,14 @@ export default async function ShowanfragePage() {
             alt=""
             width={500}
             height={500}
-            className="absolute -right-40 bottom-0 max-w-[80vw] blur-xs sm:right-0 sm:max-w-[45vw]"
+            className="absolute -right-40 bottom-0 max-w-[80vw] opacity-80 blur-xs sm:right-0 sm:max-w-[45vw]"
           />
           <Image
             src={background_latein}
             alt=""
             width={500}
             height={500}
-            className="absolute -left-40 bottom-0 max-w-[80vw] blur-xs sm:left-0 sm:max-w-[45vw]"
+            className="absolute -left-40 bottom-0 max-w-[80vw] opacity-80 blur-xs sm:left-0 sm:max-w-[45vw]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-base-900 to-10%" />
           <section className="relative mx-auto max-w-screen-sm p-4 text-center sm:py-12 md:py-20">
