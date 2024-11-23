@@ -8,6 +8,7 @@ import { twMerge } from "tailwind-merge";
 import { AtIcon } from "./icons/AtIcon";
 import Image from "next/image";
 import logo_gold from "../../public/logo_gold.png";
+import { SparklesIcon } from "@/components/icons/SparklesIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
@@ -50,6 +51,7 @@ export const Footer = () => (
           <FooterLink text="Veranstaltungen" href="/veranstaltungen" />
           <FooterLink text="Turnierergebnisse" href="/turnierergebnisse" />
           <FooterLink text="Kontaktanfrage" href="/kontakt" />
+          <FooterLink text="Shows" href="/shows" />
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
@@ -106,6 +108,17 @@ export const Footer = () => (
               >
                 <MailIcon className="size-6" />
                 <span>Nachricht schreiben</span>
+              </Link>
+            </div>
+          </div>
+          <div className="group">
+            <div className="group-hover:cursor-pointer group-hover:text-base-50">
+              <Link
+                href="/shows"
+                className="-mx-3 flex w-fit gap-4 rounded-full p-3 group-hover:text-base-50"
+              >
+                <SparklesIcon className="size-6" />
+                <span>Showanfrage</span>
               </Link>
             </div>
           </div>
