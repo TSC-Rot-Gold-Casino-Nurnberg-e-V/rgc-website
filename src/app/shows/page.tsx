@@ -5,8 +5,8 @@ import { ContactForm } from "@/app/kontakt/ContactForm";
 import background_standard from "../../../public/showanfrage/formation_standard_1.png";
 import background_latein from "../../../public/showanfrage/formation_latein_2.png";
 
-import einzel_standard from "../../../public/showanfrage/einzel_standard_1.webp";
-import einzel_latein from "../../../public/showanfrage/einzel_latein_1.webp";
+import paartanz_standard from "../../../public/showanfrage/paartanz_standard_1.webp";
+import paartanz_latein from "../../../public/showanfrage/paartanz_latein_1.webp";
 import formation_latein from "../../../public/showanfrage/formation_latein_1.webp";
 import formation_standard from "../../../public/showanfrage/formation_standard_2.webp";
 
@@ -48,11 +48,11 @@ export default async function ShowsPage() {
             </h1>
             <p className="mx-auto max-w-md pt-8 text-lg font-semibold sm:text-xl">
               Verleihen Sie Ihrer Veranstaltung das gewisse Etwas mit
-              atemberaubenden Tanzdarbietungen in Standard oder Latein!
+              atemberaubenden Tanzdarbietungen!
             </p>
             <p className="mx-auto max-w-md pt-4 text-lg font-semibold sm:text-xl">
               Lassen Sie Ihr Publikum durch unsere Formationsteams aus der
-              ersten Bundesliga oder durch unsere hochklassigen Einzelpaare mit
+              ersten Bundesliga oder durch unsere hochklassigen Tanzpaare mit
               Eleganz, Leidenschaft und Perfektion verzaubern.
             </p>
           </section>
@@ -102,16 +102,16 @@ export default async function ShowsPage() {
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-3 md:rounded-bl-[4rem] md:p-8">
             <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-right md:text-3xl">
-              Einzel Standard
+              Paartanz Standard
             </h2>
             <Image
-              src={einzel_standard}
+              src={paartanz_standard}
               alt=""
               width={500}
               height={500}
               style={{
                 float: "left",
-                shapeOutside: `url(${einzel_standard.src})`,
+                shapeOutside: `url(${paartanz_standard.src})`,
                 shapeMargin: "8px",
                 maxWidth: "75%",
                 minWidth: "250px",
@@ -119,7 +119,7 @@ export default async function ShowsPage() {
               }}
             />
             <p className="text-right text-base-950">
-              Mit Anmut und Präzision bringen unsere exzellenten Einzelpaare die
+              Mit Anmut und Präzision bringen unsere exzellenten Tanzpaare die
               klassischen Standardtänze - Langsamer Walzer, Tango, Wiener
               Walzer, Slowfox und Quickstep - auf Ihr Event.
             </p>
@@ -129,16 +129,16 @@ export default async function ShowsPage() {
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-2 md:rounded-tr-[4rem] md:p-8">
             <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
-              Einzel Latein
+              Paartanz Latein
             </h2>
             <Image
-              src={einzel_latein}
+              src={paartanz_latein}
               alt=""
               width={500}
               height={500}
               style={{
                 float: "right",
-                shapeOutside: `url(${einzel_latein.src})`,
+                shapeOutside: `url(${paartanz_latein.src})`,
                 shapeMargin: "8px",
                 maxWidth: "75%",
                 minWidth: "250px",
@@ -146,7 +146,7 @@ export default async function ShowsPage() {
               }}
             />
             <p className="text-base-950">
-              Unsere hochklassigen Einzelpaare entfachen mit leidenschaftlichen
+              Unsere hochklassigen Tanzpaare entfachen mit leidenschaftlichen
               lateinamerikanischen Tänzen wie Samba, Cha-Cha-Cha, Rumba, Paso
               Doble und Jive das Feuer auf Ihrer Veranstaltung und ziehen das
               Publikum in ihren Bann.
