@@ -60,7 +60,7 @@ export default async function ProbemonatPage() {
           <h2>💃 Tanzen lernen war noch nie so einfach! 🕺</h2>
           <p>
             Unser Geschenk an alle tanzbegeisterten Kinder: Im Januar 2024
-            können Kinder und Jugendliche an unseren vielseitigen Gruppenstunden{" "}
+            können Kinder an unseren vielseitigen Gruppenstunden{" "}
             <strong>kostenlos</strong> teilnehmen. Egal ob Standard, Latein oder
             Kindertanz – für jeden Geschmack ist etwas dabei!
           </p>
