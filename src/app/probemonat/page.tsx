@@ -9,7 +9,7 @@ import Link from "next/link";
 import { PhoneIcon } from "@/components/icons/PhoneIcon";
 
 export const metadata = {
-  title: "Kostenfreier Probemonat",
+  title: "Kostenfreier Probemonat für Kinder",
   description:
     "Kostenfreier Probemonat im Januar - Unser Weihnachtsgeschenk an Ihr Kind!",
 };
@@ -17,7 +17,7 @@ export const metadata = {
 export default async function ProbemonatPage() {
   return (
     <Main className="bg-base-900">
-      <PageHeading>Kostenfreier Probemonat</PageHeading>
+      <PageHeading>Kostenfreier Probemonat für Kinder</PageHeading>
       <div className="prose prose-invert mx-auto max-w-screen-md px-4">
         <section>
           <h2>🎁 Weihnachtsgeschenk für kleine Tänzer 🎁</h2>
@@ -85,7 +85,7 @@ export default async function ProbemonatPage() {
             <span>+49 151 72017789</span>
           </p>
           <h3>2. Vorbeikommen</h3>
-          <p>Kommt im Januar zu unseren Gruppenstunden</p>
+          <p>Kommt im Januar zu unseren Gruppenstunden vorbei</p>
           <h3>3. Spaß haben</h3>
           <p>Erlebe die Freude am Tanzen – kostenlos und unverbindlich!</p>
         </section>

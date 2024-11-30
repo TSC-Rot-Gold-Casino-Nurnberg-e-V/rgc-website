@@ -36,9 +36,9 @@ export default async function HomePage() {
               width={80}
               height={80}
             />
-            <p className="text-gold w-fit text-center text-3xl font-bold sm:text-4xl">
-              Kostenfreier Probemonat
-            </p>
+            <h2 className="text-gold w-fit text-center text-3xl font-bold sm:text-4xl">
+              Kostenfreier Probemonat <br /> für Kinder
+            </h2>
             <Image
               src={christmas_bells}
               alt=""
