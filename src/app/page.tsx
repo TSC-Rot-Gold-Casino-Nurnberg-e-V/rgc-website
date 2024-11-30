@@ -15,6 +15,8 @@ import einzeltanz_standard from "../../public/einzeltanz_standard.jpg";
 import { AngebotCard } from "./angebote/AngebotCard";
 import { HeroSection } from "./HeroSection";
 import { StatsSection } from "./StatsSection";
+import christmas_bells from "../../public/probemonat/christmas_bells.png";
+import React from "react";
 
 const formation = Math.random() > 0.5 ? formation_standard : formation_latein;
 const einzeltanz =
@@ -24,6 +26,37 @@ export default async function HomePage() {
   const { neuigkeiten } = await getNeuigkeiten(4);
   return (
     <Main>
+      <div className="relative bg-base-900 p-4 text-base-50">
+        <div className="mx-auto max-w-screen-md">
+          <div className="flex items-center justify-center gap-2">
+            <Image
+              src={christmas_bells}
+              alt=""
+              priority
+              width={80}
+              height={80}
+            />
+            <h2 className="text-gold w-fit text-center text-3xl font-bold sm:text-4xl">
+              Kostenfreier Probemonat <br /> für Kinder
+            </h2>
+            <Image
+              src={christmas_bells}
+              alt=""
+              priority
+              width={80}
+              height={80}
+            />
+          </div>
+          <Link
+            href="/probemonat"
+            className="mx-auto mt-4 block w-fit rounded-full"
+          >
+            <Button className="px-6 py-3 text-lg" tabIndex={-1}>
+              Mehr erfahren
+            </Button>
+          </Link>
+        </div>
+      </div>
       <HeroSection />
       <AngebotSection />
       <VereinsgeschichteSection />

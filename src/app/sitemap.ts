@@ -142,5 +142,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 1,
     },
+    {
+      url: `${BASE_URL}/probemonat`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 1,
+    },
   ];
 }
