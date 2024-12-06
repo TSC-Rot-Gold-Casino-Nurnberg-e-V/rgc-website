@@ -41,3 +41,11 @@ Dies ist das Softwareprojekt für die modernisierte Webseite des Tanzsportclubs 
    ```shell
    npm run dev
    ```
+
+## Fehler bei Zugriffsrechten von Turnierergebnissen beheben
+
+1. ZIP-Datei entpacken
+2. Mit dem Terminal in den Ordner wechseln
+3. Befehl `chmod -R 777 ./*` ausführen
+4. ZIP-Datei wieder erstellen
+5. ZIP-Datei hochladen
