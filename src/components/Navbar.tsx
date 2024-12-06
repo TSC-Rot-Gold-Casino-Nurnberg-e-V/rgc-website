@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
-import React, { AnchorHTMLAttributes, forwardRef, Fragment } from "react";
+import React, {
+  AnchorHTMLAttributes,
+  forwardRef,
+  Fragment,
+  PropsWithChildren,
+} from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
 import logo_gold from "../../public/logo_gold.png";
@@ -34,41 +39,14 @@ export const Navbar = () => (
           <NavLink text="Partner" href="/partner" />
           <NavLink text="News" href="/neuigkeiten" />
           <NavLink text="Angebot" href="/angebote" />
-          <Menu>
-            {({ open }) => (
-              <div className="relative">
-                <Menu.Button
-                  className={twJoin(
-                    "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
-                    open && "bg-base-800",
-                  )}
-                >
-                  Veranstaltungen
-                </Menu.Button>
-                <Transition
-                  as={Fragment}
-                  enter="transition ease-out duration-100"
-                  enterFrom="transform opacity-0 scale-95"
-                  enterTo="transform opacity-100 scale-100"
-                  leave="transition ease-in duration-75"
-                  leaveFrom="transform opacity-100 scale-100"
-                  leaveTo="transform opacity-0 scale-95"
-                >
-                  <Menu.Items
-                    static
-                    className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
-                  >
-                    <MenuLink text="Übersicht" href="/veranstaltungen" />
-                    <MenuLink
-                      text="Turnierergebnisse"
-                      href="/turnierergebnisse"
-                    />
-                  </Menu.Items>
-                </Transition>
-              </div>
-            )}
-          </Menu>
-          <NavLink text="Kontakt" href="/kontakt" />
+          <DropdownMenu title="Veranstaltungen">
+            <MenuLink text="Übersicht" href="/veranstaltungen" />
+            <MenuLink text="Turnierergebnisse" href="/turnierergebnisse" />
+          </DropdownMenu>
+          <DropdownMenu title="Kontakt">
+            <MenuLink text="Allgemeine Anfrage" href="/kontakt" />
+            <MenuLink text="Showanfrage" href="/shows" />
+          </DropdownMenu>
         </ul>
         <Link href="/mitgliedschaft" className="block rounded-full">
           <Button className="px-4 py-2 text-base" tabIndex={-1}>
@@ -119,6 +97,7 @@ export const Navbar = () => (
                     href="/turnierergebnisse"
                   />
                   <MenuLink text="Kontakt" href="/kontakt" />
+                  <MenuLink text="Showanfrage" href="/shows" />
                   <Menu.Item>
                     {({ active }) => (
                       <Link
@@ -195,4 +174,44 @@ const MenuLink = ({ text, href }: MenuLinkProps) => (
       />
     )}
   </Menu.Item>
+);
+
+interface DropdownMenuProps {
+  title: string;
+}
+
+const DropdownMenu = ({
+  title,
+  children,
+}: PropsWithChildren<DropdownMenuProps>) => (
+  <Menu>
+    {({ open }) => (
+      <div className="relative">
+        <Menu.Button
+          className={twJoin(
+            "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
+            open && "bg-base-800",
+          )}
+        >
+          {title}
+        </Menu.Button>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items
+            static
+            className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
+          >
+            {children}
+          </Menu.Items>
+        </Transition>
+      </div>
+    )}
+  </Menu>
 );
