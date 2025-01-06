@@ -36,6 +36,7 @@ export default function AngebotePage() {
             image={einzeltanz}
             href="/angebote/turniertanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
+            suppressHydrationWarning
           />
           <AngebotCard
             loadImageWithPriority
@@ -43,6 +44,7 @@ export default function AngebotePage() {
             image={formation}
             href="/angebote/formationstanzen"
             imageSizes="(max-width: 640px) 100vw, 50vw"
+            suppressHydrationWarning
           />
           <AngebotCard
             title="Kinder & Jugend"

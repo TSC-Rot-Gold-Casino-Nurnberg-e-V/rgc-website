@@ -34,7 +34,7 @@ export const NeuigkeitCard = ({
     )}
     {...props}
   >
-    <div className="relative h-[24rem] w-full overflow-hidden rounded-xl transition-all">
+    <div className="relative h-96 w-full overflow-hidden rounded-xl transition-all">
       <div className="absolute inset-0 h-full shrink-0">
         <Image
           src={vorschaubild ?? newsPlaceholder}

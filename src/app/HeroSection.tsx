@@ -43,6 +43,7 @@ export const HeroSection = () => {
           className="object-cover object-top opacity-80 blur-xs will-change-transform"
           fill
           priority
+          suppressHydrationWarning
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent from-90% to-base-900" />
@@ -52,17 +53,18 @@ export const HeroSection = () => {
         enter="duration-1000 ease-in-out"
         enterFrom="scale-95 opacity-0"
         enterTo="scale-100 opacity-100"
-        className="container-lg relative flex h-full flex-col justify-center space-y-6 text-primary-50"
       >
-        <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-bold uppercase sm:text-6xl">
-          Lebe, Liebe, Tanze!
-        </h1>
-        <div className="mx-auto max-w-2xl space-y-1 text-center text-2xl text-base-50 sm:text-3xl">
-          <p className="font-bold">Herzlich Willkommen</p>
-          <p className="font-bold">im RGC Nürnberg</p>
-          <p className="pt-4 font-semibold">
-            Dein Verein für Tanzsport in Bayern
-          </p>
+        <div className="container-lg relative flex h-full flex-col justify-center space-y-6 text-primary-50">
+          <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-bold uppercase sm:text-6xl">
+            Lebe, Liebe, Tanze!
+          </h1>
+          <div className="mx-auto max-w-2xl space-y-1 text-center text-2xl text-base-50 sm:text-3xl">
+            <p className="font-bold">Herzlich Willkommen</p>
+            <p className="font-bold">im RGC Nürnberg</p>
+            <p className="pt-4 font-semibold">
+              Dein Verein für Tanzsport in Bayern
+            </p>
+          </div>
         </div>
       </Transition>
     </section>

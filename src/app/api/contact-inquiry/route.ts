@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       },
       to: contactInquiry.email,
       subject: "Kontaktanfrage TSC Rot-Gold-Casino Nürnberg e.V.",
-      html: contactInquiryConfirmationEmailHTML,
+      html: await contactInquiryConfirmationEmailHTML,
     });
 
     console.info(

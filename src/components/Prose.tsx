@@ -57,7 +57,7 @@ export const Prose = ({
           return (
             <div className="w-full">
               <div
-                className="relative mx-auto max-h-[24rem] sm:max-h-[32rem]"
+                className="relative mx-auto max-h-96 sm:max-h-[32rem]"
                 style={{ aspectRatio }}
               >
                 <Image

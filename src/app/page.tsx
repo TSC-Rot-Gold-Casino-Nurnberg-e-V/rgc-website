@@ -58,7 +58,8 @@ const AngebotSection = () => (
           image={einzeltanz}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
-          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
+          className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
+          suppressHydrationWarning
         />
         <AngebotCard
           loadImageWithPriority
@@ -66,21 +67,22 @@ const AngebotSection = () => (
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 50vw"
-          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
+          className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
+          suppressHydrationWarning
         />
         <AngebotCard
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
           imageSizes="(max-width: 640px) 100vw, 50vw"
-          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
+          className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           title="Freizeit"
           image={freizeittanz}
           href="/angebote/freizeittanz"
           imageSizes="(max-width: 640px) 100vw, 50vw"
-          className="max-sm:h-[20rem] max-sm:min-w-[250px] max-sm:snap-center"
+          className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
         />
       </div>
     </section>
