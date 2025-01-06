@@ -60,7 +60,6 @@ export const Footer = () => (
             target="_blank"
             href="https://m.netxp-verein.de/Login/5863"
           />
-          <FooterLink text="Kostenfreier Probemonat" href="/probemonat" />
         </div>
       </section>
       <section className="order-4 space-y-6 lg:order-3">
