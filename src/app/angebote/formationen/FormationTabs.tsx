@@ -1,10 +1,9 @@
 "use client";
 
-import { Tab } from "@headlessui/react";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Team } from "@/model/Team";
 import { TrainerCard } from "../TrainerCard";
 import Image from "next/image";
-import { Fragment } from "react";
 import { twJoin } from "tailwind-merge";
 import { TrophyIcon } from "@/components/icons/TrophyIcon";
 import { MusicIcon } from "@/components/icons/MusicIcon";
@@ -21,10 +20,10 @@ export const FormationTabs = ({ teams }: Props) => (
     <h2 className="mb-8 text-3xl font-bold text-base-900 sm:text-4xl">
       Unsere Formationsteams
     </h2>
-    <Tab.Group>
-      <Tab.List className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
+    <TabGroup>
+      <TabList className="mb-4 grid grid-cols-2 gap-1 rounded-xl bg-base-900 p-1.5 md:flex md:rounded-full">
         {teams.map((team) => (
-          <Tab key={team.id} as={Fragment}>
+          <Tab key={team.id}>
             {({ selected }) => (
               <Button
                 className={twJoin(
@@ -38,10 +37,10 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
           </Tab>
         ))}
-      </Tab.List>
-      <Tab.Panels>
+      </TabList>
+      <TabPanels>
         {teams.map((team) => (
-          <Tab.Panel key={team.id} tabIndex={-1}>
+          <TabPanel key={team.id} tabIndex={-1}>
             <Image
               src={team.bild.url}
               alt=""
@@ -109,9 +108,9 @@ export const FormationTabs = ({ teams }: Props) => (
                 </div>
               </section>
             )}
-          </Tab.Panel>
+          </TabPanel>
         ))}
-      </Tab.Panels>
-    </Tab.Group>
+      </TabPanels>
+    </TabGroup>
   </div>
 );

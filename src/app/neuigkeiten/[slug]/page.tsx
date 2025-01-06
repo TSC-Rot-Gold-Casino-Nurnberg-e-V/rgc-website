@@ -14,7 +14,8 @@ export const generateMetadata = async (
   { params }: Props,
   resolvingMetadata: ResolvingMetadata,
 ): Promise<Metadata> => {
-  const neuigkeit = await getNeuigkeit(params.slug);
+  const slug = (await params).slug;
+  const neuigkeit = await getNeuigkeit(slug);
   const resolvedMetadata = await resolvingMetadata;
   return {
     title: neuigkeit.titel,
@@ -59,13 +60,14 @@ export const generateMetadata = async (
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function NeuigkeitPage({ params }: Readonly<Props>) {
-  const neuigkeit = await getNeuigkeit(params.slug);
+  const slug = (await params).slug;
+  const neuigkeit = await getNeuigkeit(slug);
 
   return (
     <Main className="container-md space-y-4">

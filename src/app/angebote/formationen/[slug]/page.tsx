@@ -13,7 +13,8 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const formation = await getFormation(params.slug);
+  const slug = (await params).slug;
+  const formation = await getFormation(slug);
   return {
     title: formation.titel,
     description: formation.beschreibung,
@@ -21,13 +22,14 @@ export const generateMetadata = async ({
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function FormationPage({ params }: Readonly<Props>) {
-  const formation = await getFormation(params.slug);
+  const slug = (await params).slug;
+  const formation = await getFormation(slug);
 
   return (
     <Main>

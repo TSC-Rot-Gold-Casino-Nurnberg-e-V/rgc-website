@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Transition } from "@headlessui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from "@headlessui/react";
 import React, {
   AnchorHTMLAttributes,
   forwardRef,
-  Fragment,
   PropsWithChildren,
 } from "react";
 import { usePathname } from "next/navigation";
@@ -55,8 +60,8 @@ export const Navbar = () => (
       <div className="relative lg:hidden">
         <Menu>
           {({ open }) => (
-            <>
-              <Menu.Button
+            <div>
+              <MenuButton
                 className="rounded-md p-2"
                 aria-label={`Navigationsmenü ${open ? "schließen" : "öffnen"}`}
               >
@@ -74,9 +79,8 @@ export const Navbar = () => (
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
-              </Menu.Button>
+              </MenuButton>
               <Transition
-                className="absolute -right-4 z-10"
                 enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
                 enterTo="transform scale-100 opacity-100"
@@ -84,38 +88,40 @@ export const Navbar = () => (
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Menu.Items className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-sm shadow-base-900">
-                  <MenuLink text="Der Verein" href="/verein" />
-                  <MenuLink text="Partner" href="/partner" />
-                  <MenuLink text="News" href="/neuigkeiten" />
-                  <MenuLink text="Angebot" href="/angebote" />
-                  <MenuLink text="Veranstaltungen" href="/veranstaltungen" />
-                  <MenuLink
-                    text="Turnierergebnisse"
-                    href="/turnierergebnisse"
-                  />
-                  <MenuLink text="Kontakt" href="/kontakt" />
-                  <MenuLink text="Showanfrage" href="/shows" />
-                  <Menu.Item>
-                    {({ active }) => (
-                      <Link
-                        href="/mitgliedschaft"
-                        className="block rounded-full"
-                      >
-                        <Button
-                          className={twJoin(
-                            "text-nowrap px-4 py-2 text-base",
-                            active && "bg-secondary-900",
-                          )}
+                <div className="absolute -right-4 z-10">
+                  <MenuItems className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-sm shadow-base-900">
+                    <MenuLink text="Der Verein" href="/verein" />
+                    <MenuLink text="Partner" href="/partner" />
+                    <MenuLink text="News" href="/neuigkeiten" />
+                    <MenuLink text="Angebot" href="/angebote" />
+                    <MenuLink text="Veranstaltungen" href="/veranstaltungen" />
+                    <MenuLink
+                      text="Turnierergebnisse"
+                      href="/turnierergebnisse"
+                    />
+                    <MenuLink text="Kontakt" href="/kontakt" />
+                    <MenuLink text="Showanfrage" href="/shows" />
+                    <MenuItem>
+                      {({ focus }) => (
+                        <Link
+                          href="/mitgliedschaft"
+                          className="block rounded-full"
                         >
-                          Mitglied werden
-                        </Button>
-                      </Link>
-                    )}
-                  </Menu.Item>
-                </Menu.Items>
+                          <Button
+                            className={twJoin(
+                              "text-nowrap px-4 py-2 text-base",
+                              focus && "bg-secondary-900",
+                            )}
+                          >
+                            Mitglied werden
+                          </Button>
+                        </Link>
+                      )}
+                    </MenuItem>
+                  </MenuItems>
+                </div>
               </Transition>
-            </>
+            </div>
           )}
         </Menu>
       </div>
@@ -162,15 +168,15 @@ interface MenuLinkProps {
 }
 
 const MenuLink = ({ text, href }: MenuLinkProps) => (
-  <Menu.Item>
-    {({ active }) => (
+  <MenuItem>
+    {({ focus }) => (
       <NavLink
         text={text}
         href={href}
-        className={twJoin("rounded-2xl px-3", active && "bg-base-700")}
+        className={twJoin("rounded-2xl px-3", focus && "bg-base-700")}
       />
     )}
-  </Menu.Item>
+  </MenuItem>
 );
 
 interface DropdownMenuProps {
@@ -184,16 +190,15 @@ const DropdownMenu = ({
   <Menu>
     {({ open }) => (
       <div className="relative">
-        <Menu.Button
+        <MenuButton
           className={twJoin(
             "rounded-full px-3 py-2 text-base-200 hover:text-base-50",
             open && "bg-base-800",
           )}
         >
           {title}
-        </Menu.Button>
+        </MenuButton>
         <Transition
-          as={Fragment}
           enter="transition ease-out duration-100"
           enterFrom="transform opacity-0 scale-95"
           enterTo="transform opacity-100 scale-100"
@@ -201,12 +206,12 @@ const DropdownMenu = ({
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items
+          <MenuItems
             static
             className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
           >
             {children}
-          </Menu.Items>
+          </MenuItems>
         </Transition>
       </div>
     )}

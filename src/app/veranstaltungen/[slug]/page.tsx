@@ -17,7 +17,8 @@ export const generateMetadata = async (
   { params }: Props,
   resolvingMetadata: ResolvingMetadata,
 ): Promise<Metadata> => {
-  const veranstaltung = await getVeranstaltung(params.slug);
+  const slug = (await params).slug;
+  const veranstaltung = await getVeranstaltung(slug);
   const resolvedMetadata = await resolvingMetadata;
   return {
     title: veranstaltung.titel,
@@ -29,7 +30,7 @@ export const generateMetadata = async (
       locale: resolvedMetadata.openGraph?.locale,
       siteName: resolvedMetadata.openGraph?.siteName,
       title: veranstaltung.titel,
-      url: `https://rot-gold-casino.de/veranstaltungen/${params.slug}`,
+      url: `https://rot-gold-casino.de/veranstaltungen/${slug}`,
       images: resolvedMetadata.openGraph?.images,
     },
     twitter: {
@@ -44,13 +45,14 @@ export const generateMetadata = async (
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function VeranstaltungPage({ params }: Readonly<Props>) {
-  const veranstaltung = await getVeranstaltung(params.slug);
+  const slug = (await params).slug;
+  const veranstaltung = await getVeranstaltung(slug);
   return (
     <Main className="container-md space-y-16">
       <Prose content={veranstaltung.beschreibung} />

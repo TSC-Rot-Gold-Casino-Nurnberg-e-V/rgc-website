@@ -30,6 +30,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           image={einzeltanz}
           href="/angebote/turniertanzen"
           imageSizes="(max-width: 640px) 100vw, 33vw"
+          suppressHydrationWarning
         />
       )}
       {currentPage !== "formationstanzen" && (
@@ -38,6 +39,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           image={formation}
           href="/angebote/formationstanzen"
           imageSizes="(max-width: 640px) 100vw, 33vw"
+          suppressHydrationWarning
         />
       )}
       {currentPage !== "kindertanzen" && (

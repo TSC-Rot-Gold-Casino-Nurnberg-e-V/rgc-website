@@ -19,7 +19,8 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const angebot = await getAngebot(params.slug);
+  const slug = (await params).slug;
+  const angebot = await getAngebot(slug);
   return {
     title: angebot.titel,
     description: angebot.beschreibung,
@@ -27,13 +28,14 @@ export const generateMetadata = async ({
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function AngebotPage({ params }: Readonly<Props>) {
-  const angebot = await getAngebot(params.slug);
+  const slug = (await params).slug;
+  const angebot = await getAngebot(slug);
   const trainingsGroupedByWochentag = new Map<
     Wochentag["titel"], // type string
     Array<Training>
@@ -124,7 +126,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                     width={56} // size-14
                                     height={56} // size-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
-                                    className="size-14 cursor-pointer rounded-full bg-white object-cover object-top outline-offset-2 ring-[3px] ring-white transition-all hover:scale-105 hover:shadow-md"
+                                    className="size-14 cursor-pointer rounded-full bg-white object-cover object-top outline-offset-2 ring ring-white transition-all hover:scale-105 hover:shadow-md"
                                   />
                                 </a>
                               ))}
