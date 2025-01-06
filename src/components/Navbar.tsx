@@ -49,9 +49,7 @@ export const Navbar = () => (
           </DropdownMenu>
         </ul>
         <Link href="/mitgliedschaft" className="block rounded-full">
-          <Button className="px-4 py-2 text-base" tabIndex={-1}>
-            Mitglied werden
-          </Button>
+          <Button className="px-4 py-2 text-base">Mitglied werden</Button>
         </Link>
       </div>
       <div className="relative lg:hidden">
@@ -109,7 +107,6 @@ export const Navbar = () => (
                             "text-nowrap px-4 py-2 text-base",
                             active && "bg-secondary-900",
                           )}
-                          tabIndex={-1}
                         >
                           Mitglied werden
                         </Button>

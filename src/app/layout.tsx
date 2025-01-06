@@ -9,7 +9,6 @@ import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
 import { PropsWithChildren } from "react";
 import Script from "next/script";
-import { Snowfall } from "@/components/Snowfall";
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const VERCEL_ENV = process.env.VERCEL_ENV;
@@ -92,10 +91,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="de" className="scroll-pt-20">
-      <body className="relative flex min-h-screen flex-col">
-        <div className="z-50">
-          <Snowfall />
-        </div>
+      <body className="flex min-h-screen flex-col">
         <Navbar />
         <div
           className={`flex grow flex-col bg-base-50 text-base-700 ${openSans.className}`}
