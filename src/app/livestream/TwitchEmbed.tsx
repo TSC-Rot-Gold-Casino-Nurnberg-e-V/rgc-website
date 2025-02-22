@@ -1,11 +1,20 @@
-const origin = process.env.VERCEL_URL ?? "localhost";
+"use client";
+
+import { useEffect, useState } from "react";
 
 export const TwitchEmbed = () => {
+  const [hostName, setHostName] = useState("localhost");
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    setHostName(window.location.hostname);
+  }, []);
+
   const url = new URL("https://player.twitch.tv");
   url.searchParams.append("channel", "monstercat");
-  url.searchParams.append("parent", origin);
-
-  console.log("origin: ", origin);
+  url.searchParams.append("parent", hostName);
 
   return (
     <div className="bg-base-900">
