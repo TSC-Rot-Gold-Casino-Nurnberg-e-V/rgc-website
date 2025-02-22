@@ -5,6 +5,8 @@ export const TwitchEmbed = () => {
   url.searchParams.append("channel", "monstercat");
   url.searchParams.append("parent", origin);
 
+  console.log("origin: ", origin);
+
   return (
     <div className="bg-base-900">
       <div className="mx-auto aspect-video max-w-screen-lg">
