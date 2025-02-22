@@ -39,7 +39,7 @@ export const Header = () => (
           />
         </Link>
       </div>
-      <div className="flex gap-4 max-lg:hidden">
+      <div className="z-10 flex gap-4 max-lg:hidden">
         <ul className="flex gap-1">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="Partner" href="/partner" />
