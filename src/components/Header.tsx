@@ -18,10 +18,11 @@ import { twJoin, twMerge } from "tailwind-merge";
 import logo_gold from "../../public/logo_gold.png";
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import { LiveStreamChip } from "@/components/LivestreamChip";
 
-export const Navbar = () => (
-  <nav className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
-    <div className="mx-auto flex h-16 max-w-screen-lg items-center justify-between sm:h-20">
+export const Header = () => (
+  <header className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
+    <nav className="mx-auto flex h-16 max-w-screen-lg items-center justify-between sm:h-20">
       <div className="h-full w-fit py-3 sm:py-4">
         <Link
           href="/"
@@ -125,8 +126,9 @@ export const Navbar = () => (
           )}
         </Menu>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <LiveStreamChip />
+  </header>
 );
 
 interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

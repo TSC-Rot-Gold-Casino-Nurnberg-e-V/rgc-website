@@ -1,5 +1,5 @@
 import { Metadata, Viewport } from "next";
-import { Navbar } from "@/components/Navbar";
+import { Header } from "@/components/Header";
 import { Partners } from "@/components/Partners";
 import { Footer } from "@/components/Footer";
 import { Open_Sans } from "next/font/google";
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="de" className="scroll-pt-20">
       <body className="flex min-h-screen flex-col">
-        <Navbar />
+        <Header />
         <div
           className={`flex grow flex-col bg-base-50 text-base-700 ${openSans.className}`}
         >
