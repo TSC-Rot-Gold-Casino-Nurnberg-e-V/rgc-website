@@ -91,13 +91,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="de" className="scroll-pt-20">
-      <body className="flex min-h-screen flex-col">
+      <body
+        className={`flex min-h-screen flex-col bg-base-50 text-base-700 ${openSans.className}`}
+      >
         <Header />
-        <div
-          className={`flex grow flex-col bg-base-50 text-base-700 ${openSans.className}`}
-        >
-          {children}
-        </div>
+        <div className="flex grow flex-col">{children}</div>
         <Partners />
         <Footer />
         <SpeedInsights />
