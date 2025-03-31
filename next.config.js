@@ -11,6 +11,14 @@ const nextConfig = {
       },
     ],
   },
+  // TODO: remove, once the livestream feature is live
+  redirects: () => [
+    {
+      source: "/livestream",
+      destination: "/",
+      permanent: true,
+    },
+  ],
 };
 
 module.exports = nextConfig;
