@@ -13,7 +13,7 @@ export const TwitchEmbed = () => {
   }, []);
 
   const url = new URL("https://player.twitch.tv");
-  url.searchParams.append("channel", "monstercat");
+  url.searchParams.append("channel", "monstercat"); // TODO: replace with actual channel
   url.searchParams.append("parent", hostName);
 
   return (

@@ -18,6 +18,7 @@ export const LiveStreamChip = () => {
       <div className="w-fit animate-pulse rounded-l-full bg-secondary-600 py-1 pl-3.5 pr-3 font-bold">
         LIVE
       </div>
+      {/* TODO: make text and visibility configurable via CMS */}
       <div className="truncate px-3">Mittelfränkisches Tanzsportwochenende</div>
       <ChevronRightIcon className="size-4 w-full shrink-0 pr-3" />
     </Link>

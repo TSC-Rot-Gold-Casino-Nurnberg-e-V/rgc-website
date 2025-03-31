@@ -127,7 +127,7 @@ export const Header = () => (
         </Menu>
       </div>
     </nav>
-    <LiveStreamChip />
+    {/*<LiveStreamChip />*/}
   </header>
 );
 
