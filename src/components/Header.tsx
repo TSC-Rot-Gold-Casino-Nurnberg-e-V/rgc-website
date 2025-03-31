@@ -18,7 +18,6 @@ import { twJoin, twMerge } from "tailwind-merge";
 import logo_gold from "../../public/logo_gold.png";
 import Image from "next/image";
 import { Button } from "@/components/Button";
-import { LiveStreamChip } from "@/components/LivestreamChip";
 
 export const Header = () => (
   <header className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
@@ -39,8 +38,8 @@ export const Header = () => (
           />
         </Link>
       </div>
-      <div className="z-10 flex gap-4 max-lg:hidden">
-        <ul className="flex gap-1">
+      <div className="z-10 flex gap-2 max-lg:hidden">
+        <ul className="flex">
           <NavLink text="Der Verein" href="/verein" />
           <NavLink text="Partner" href="/partner" />
           <NavLink text="News" href="/neuigkeiten" />
@@ -49,10 +48,8 @@ export const Header = () => (
             <MenuLink text="Übersicht" href="/veranstaltungen" />
             <MenuLink text="Turnierergebnisse" href="/turnierergebnisse" />
           </DropdownMenu>
-          <DropdownMenu title="Kontakt">
-            <MenuLink text="Allgemeine Anfrage" href="/kontakt" />
-            <MenuLink text="Showanfrage" href="/shows" />
-          </DropdownMenu>
+          <NavLink text="Kontakt" href="/kontakt" />
+          <NavLink text="Showanfrage" href="/shows" />
         </ul>
         <Link href="/mitgliedschaft" className="block rounded-full">
           <Button className="px-4 py-2 text-base">Mitglied werden</Button>
@@ -144,7 +141,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
       <li className="flex list-none">
         <Link
           className={twMerge(
-            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 sm:px-3 lg:px-4",
+            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 sm:px-2 lg:px-3",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
               : "text-base-200",
