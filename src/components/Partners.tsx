@@ -1,3 +1,4 @@
+import { ComponentProps } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import sbbLogo from "../../public/sponsors/sbbLogo.png";
@@ -6,7 +7,7 @@ import hdKroftLogo from "../../public/sponsors/hdKroftLogo.png";
 import heyduckMalerbetrieb from "../../public/sponsors/heyduckMalerbetrieb.png";
 import aragLogo from "../../public/sponsors/aragLogo.jpg";
 import bravoDance from "../../public/sponsors/bravoDance.jpeg";
-import { ComponentProps } from "react";
+import danceVibesBerlin from "../../public/sponsors/danceVibesBerlin.jpg";
 
 export const Partners = () => (
   <section className="flex overflow-hidden bg-base-900 py-6 sm:py-8 md:py-10">
@@ -88,6 +89,18 @@ const PartnerList = (props: ComponentProps<"div">) => (
       <Image
         src={bravoDance}
         alt="Bravo Dance"
+        width={250}
+        className="h-auto min-w-[250px] rounded-md"
+      />
+    </Link>
+    <Link
+      href="https://www.dancevibes-berlin.de/"
+      target="_blank"
+      className="mx-auto rounded-md"
+    >
+      <Image
+        src={danceVibesBerlin}
+        alt="Dance Vibes Berlin"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
       />
