@@ -18,6 +18,11 @@ const nextConfig = {
       destination: "/",
       permanent: true,
     },
+    {
+      source: "/veranstaltungen/dmFormationen2026",
+      destination: "https://www.dm-rot-gold-casino.de/",
+      permanent: true,
+    },
   ],
 };
 
