@@ -13,8 +13,13 @@ interface Props {
 
 export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
   <Link
-    href={`/veranstaltungen/${slug}`}
+    href={
+      slug === "dmFormationen2026"
+        ? "https://www.dm-rot-gold-casino.de/"
+        : `/veranstaltungen/${slug}`
+    }
     className="group block rounded-xl transition-all hover:scale-[1.01]"
+    target={slug === "dmFormationen2026" ? "_blank" : undefined}
   >
     <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md max-sm:flex-col">
       <div className="flex items-center justify-center bg-secondary-900 px-6 py-4 text-center max-sm:gap-2 max-sm:rounded-t-xl sm:w-24 sm:flex-col sm:rounded-l-xl">
