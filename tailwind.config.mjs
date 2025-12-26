@@ -42,15 +42,19 @@ module.exports = {
         base: colors.neutral,
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 45s linear infinite',
+        "infinite-scroll": "infinite-scroll 45s linear infinite",
       },
       keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        }
-      }
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/container-queries"),
+  ],
 };
