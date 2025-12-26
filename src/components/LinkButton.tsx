@@ -7,19 +7,11 @@ import { twMerge } from "tailwind-merge";
 interface Props extends ComponentProps<"a"> {
   href: string;
   text: string;
-  target?: string;
 }
 
-export const LinkButton = ({
-  href,
-  text,
-  target,
-  className,
-  ...props
-}: Props) => (
+export const LinkButton = ({ href, text, className, ref, ...props }: Props) => (
   <Link
     href={href}
-    target={target}
     className={twMerge("block w-fit rounded-full", className)}
     {...props}
   >
