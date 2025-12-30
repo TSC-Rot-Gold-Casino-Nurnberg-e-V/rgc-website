@@ -75,6 +75,7 @@ export const Footer = () => (
             href="/angebote/kinder-und-jugend"
           />
           <FooterLink text="Freizeittanzen" href="/angebote/freizeittanz" />
+          <FooterLink text="Hochzeitstanz" href="/hochzeitstanz" />
         </div>
       </section>
       <section className="order-2 space-y-3 lg:order-4">
