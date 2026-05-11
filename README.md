@@ -46,6 +46,6 @@ Dies ist das Softwareprojekt für die modernisierte Webseite des Tanzsportclubs 
 
 1. ZIP-Datei entpacken
 2. Mit dem Terminal in den Ordner wechseln
-3. Befehl `chmod -R 777 ./*` ausführen
+3. Befehl `chmod -R 777 .` ausführen
 4. ZIP-Datei wieder erstellen
 5. ZIP-Datei hochladen
