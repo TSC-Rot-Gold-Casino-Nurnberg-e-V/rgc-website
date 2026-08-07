@@ -1,5 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { Header } from "@/components/Header";
+import { LiveTicker } from "@/components/LiveTicker";
 import { Partners } from "@/components/Partners";
 import { Footer } from "@/components/Footer";
 import { Open_Sans } from "next/font/google";
@@ -94,7 +95,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <body
         className={`flex min-h-screen flex-col bg-base-50 text-base-700 ${openSans.className}`}
       >
-        <Header />
+        <Header chip={<LiveTicker />} />
         <div className="flex grow flex-col">{children}</div>
         <Partners />
         <Footer />

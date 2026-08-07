@@ -34,6 +34,7 @@ import { Cheftrainer, cheftrainersSchema } from "@/model/Cheftrainer";
 import { stringify } from "qs";
 import { formationSchema } from "@/model/Formation";
 import { Partner, partnersSchema } from "@/model/Partner";
+import { Liveticker, strapiLivetickerSchema } from "@/model/Liveticker";
 
 export async function getNeuigkeiten(
   pageSize: number,
@@ -264,6 +265,30 @@ export async function getTurnierergebnisse(): Promise<Array<Turnierergebnis>> {
   return allTurnierergebnisse;
 }
 
+/**
+ * Always bypasses every cache so that CMS changes show up on the next reload.
+ *
+ * Returns `null` whenever there is nothing to display, e.g. because the single type is
+ * unpublished (Strapi answers with 404), the CMS is unreachable or the text is empty.
+ */
+export async function getLiveticker(): Promise<Liveticker | null> {
+  const response = await fetchOptionalData("/liveticker", {
+    cache: "no-store",
+  });
+  if (response === null || response.data === null) {
+    return null;
+  }
+  const liveticker = strapiLivetickerSchema.safeParse(response.data);
+  if (!liveticker.success) {
+    console.warn(
+      "Could not parse the liveticker, it will not be displayed: ",
+      liveticker.error.message,
+    );
+    return null;
+  }
+  return liveticker.data;
+}
+
 const BASE_URL = `${process.env.NEXT_PUBLIC_CMS_URL}/api`;
 
 async function fetchData(path: string): Promise<{
@@ -275,6 +300,31 @@ async function fetchData(path: string): Promise<{
   const res = await fetch(BASE_URL + path);
   await handleError(res);
   return await res.json();
+}
+
+async function fetchOptionalData(
+  path: string,
+  init?: RequestInit,
+): Promise<{ data: unknown } | null> {
+  try {
+    const res = await fetch(BASE_URL + path, init);
+    if (!res.ok) {
+      // Strapi answers with 404 for unpublished single types, which is an expected state.
+      if (res.status !== 404) {
+        console.warn(
+          `The CMS responded with ${res.status} (${res.statusText}) for ${res.url}`,
+        );
+      }
+      return null;
+    }
+    return await res.json();
+  } catch (error) {
+    console.warn(
+      `An error occurred while fetching optional data from the CMS (${path}): `,
+      error,
+    );
+    return null;
+  }
 }
 
 async function handleError(res: Response) {
