@@ -57,9 +57,8 @@ export default function TurniertanzenPage() {
               src={einzeltanz_standard}
               alt=""
               fill
-              priority
               className="rounded-lg object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
           </div>
           <section className="order-4 space-y-4 self-center">
@@ -89,9 +88,8 @@ export default function TurniertanzenPage() {
               src={einzeltanz_latein}
               alt=""
               fill
-              priority
               className="rounded-lg object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
           </div>
         </div>

@@ -29,7 +29,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           title="Turnier"
           image={einzeltanz}
           href="/angebote/turniertanzen"
-          imageSizes="(max-width: 640px) 100vw, 33vw"
+          imageSizes="(max-width: 640px) calc(100vw - 2rem), 310px"
           suppressHydrationWarning
         />
       )}
@@ -38,7 +38,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           title="Formation"
           image={formation}
           href="/angebote/formationstanzen"
-          imageSizes="(max-width: 640px) 100vw, 33vw"
+          imageSizes="(max-width: 640px) calc(100vw - 2rem), 310px"
           suppressHydrationWarning
         />
       )}
@@ -47,7 +47,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
-          imageSizes="(max-width: 640px) 100vw, 33vw"
+          imageSizes="(max-width: 640px) calc(100vw - 2rem), 310px"
         />
       )}
       {currentPage !== "freizeittanzen" && (
@@ -55,7 +55,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
           title="Freizeit"
           image={freizeittanz}
           href="/angebote/freizeittanz"
-          imageSizes="(max-width: 640px) 100vw, 33vw"
+          imageSizes="(max-width: 640px) calc(100vw - 2rem), 310px"
         />
       )}
     </div>

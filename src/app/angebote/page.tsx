@@ -35,28 +35,27 @@ export default function AngebotePage() {
             title="Turnier"
             image={einzeltanz}
             href="/angebote/turniertanzen"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
+            imageSizes="(max-width: 640px) calc(100vw - 2rem), 468px"
             suppressHydrationWarning
           />
           <AngebotCard
-            loadImageWithPriority
             title="Formation"
             image={formation}
             href="/angebote/formationstanzen"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
+            imageSizes="(max-width: 640px) calc(100vw - 2rem), 468px"
             suppressHydrationWarning
           />
           <AngebotCard
             title="Kinder & Jugend"
             image={kinder}
             href="/angebote/kinder-und-jugend"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
+            imageSizes="(max-width: 640px) calc(100vw - 2rem), 468px"
           />
           <AngebotCard
             title="Freizeit"
             image={freizeittanz}
             href="/angebote/freizeittanz"
-            imageSizes="(max-width: 640px) 100vw, 50vw"
+            imageSizes="(max-width: 640px) calc(100vw - 2rem), 468px"
           />
         </div>
       </div>

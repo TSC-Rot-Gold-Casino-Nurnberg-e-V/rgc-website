@@ -39,7 +39,7 @@ export const FormationTabs = ({ teams }: Props) => (
         ))}
       </TabList>
       <TabPanels>
-        {teams.map((team) => (
+        {teams.map((team, index) => (
           <TabPanel key={team.id} tabIndex={-1}>
             <Image
               src={team.bild.url}
@@ -47,7 +47,8 @@ export const FormationTabs = ({ teams }: Props) => (
               className="mb-4 aspect-[3/2] w-full rounded-xl object-cover"
               width={800}
               height={600}
-              priority
+              sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 4rem), 960px"
+              priority={index === 0}
             />
             <div className="flex justify-between gap-4 text-base max-sm:flex-col sm:text-lg">
               <div className="flex items-center gap-2">

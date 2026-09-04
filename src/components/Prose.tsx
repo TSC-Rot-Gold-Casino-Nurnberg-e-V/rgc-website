@@ -63,7 +63,6 @@ export const Prose = ({
                 <Image
                   src={src}
                   alt={alt}
-                  priority
                   fill
                   sizes="(max-width: 640px) 100vw, 800px"
                 />

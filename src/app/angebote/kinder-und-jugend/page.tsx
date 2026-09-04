@@ -57,9 +57,8 @@ export default function KindertanzenPage() {
               src={kinder}
               alt=""
               fill
-              priority
               className="rounded-lg object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
           </div>
           <section className="order-4 space-y-4 self-center">
@@ -89,9 +88,8 @@ export default function KindertanzenPage() {
               src={latein_jugend}
               alt=""
               fill
-              priority
               className="rounded-lg object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
             <small className="absolute right-1 top-1 text-base-300 opacity-10 transition-opacity group-hover:opacity-25">
               © Sportfotografie-Gerner
@@ -125,7 +123,7 @@ export default function KindertanzenPage() {
               alt=""
               fill
               className="rounded-lg object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
           </div>
         </div>
