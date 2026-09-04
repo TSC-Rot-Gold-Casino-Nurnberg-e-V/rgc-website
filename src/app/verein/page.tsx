@@ -50,7 +50,7 @@ export default async function VereinsgeschichtePage() {
           Vorstands&shy;mitglieder
         </h2>
         <div className="mx-auto grid max-w-fit grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {vorstandsmitglieder.map((vorstandsmitglied, index) => (
+          {vorstandsmitglieder.map((vorstandsmitglied) => (
             <div
               className="flex flex-col rounded-xl bg-white shadow-md"
               key={vorstandsmitglied.id}
@@ -60,8 +60,8 @@ export default async function VereinsgeschichtePage() {
                   src={vorstandsmitglied.person.bild?.url ?? personPlaceholder}
                   alt={`${vorstandsmitglied.person.vorname} ${vorstandsmitglied.person.nachname}`}
                   className="rounded-xl object-cover object-top"
-                  priority={index < 3}
                   fill
+                  sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 304px"
                 />
               </div>
               <div className="flex grow flex-col justify-between p-5">

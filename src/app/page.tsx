@@ -53,20 +53,18 @@ const AngebotSection = () => (
       </div>
       <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
-          loadImageWithPriority
           title="Turnier"
           image={einzeltanz}
           href="/angebote/turniertanzen"
-          imageSizes="(max-width: 640px) 100vw, 50vw"
+          imageSizes="(max-width: 640px) 250px, 468px"
           className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
           suppressHydrationWarning
         />
         <AngebotCard
-          loadImageWithPriority
           title="Formation"
           image={formation}
           href="/angebote/formationstanzen"
-          imageSizes="(max-width: 640px) 100vw, 50vw"
+          imageSizes="(max-width: 640px) 250px, 468px"
           className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
           suppressHydrationWarning
         />
@@ -74,14 +72,14 @@ const AngebotSection = () => (
           title="Kinder & Jugend"
           image={kinder}
           href="/angebote/kinder-und-jugend"
-          imageSizes="(max-width: 640px) 100vw, 50vw"
+          imageSizes="(max-width: 640px) 250px, 468px"
           className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
         />
         <AngebotCard
           title="Freizeit"
           image={freizeittanz}
           href="/angebote/freizeittanz"
-          imageSizes="(max-width: 640px) 100vw, 50vw"
+          imageSizes="(max-width: 640px) 250px, 468px"
           className="max-sm:h-80 max-sm:min-w-[250px] max-sm:snap-center"
         />
       </div>
@@ -117,6 +115,7 @@ const VereinsgeschichteSection = () => (
         alt=""
         className="h-full object-cover object-top opacity-60"
         fill
+        sizes="100vw"
       />
     </div>
     <div className="absolute inset-0 bg-gradient-to-b from-base-900 to-5%" />
@@ -138,7 +137,7 @@ const Neuigkeiten = ({ neuigkeiten }: { neuigkeiten: Array<Neuigkeit> }) => (
           titel={neuigkeit.titel}
           vorschautext={neuigkeit.vorschautext}
           vorschaubild={neuigkeit.vorschaubild?.url}
-          sizes="(max-width: 640px) 100vw, 50vw"
+          sizes="(max-width: 640px) calc(100vw - 2rem), 468px"
         />
       ))}
     </div>

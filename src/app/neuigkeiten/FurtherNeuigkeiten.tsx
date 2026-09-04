@@ -65,7 +65,7 @@ export function FurtherNeuigkeiten({
           datum={neuigkeit.datum}
           vorschaubild={neuigkeit.vorschaubild?.url}
           className="sm:hover:!opacity-100 sm:group-hover/container:opacity-50"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 304px"
         />
       ))}
       {neuigkeiten.length + furtherNeuigkeiten.length < paginationTotal && (

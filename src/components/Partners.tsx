@@ -1,13 +1,13 @@
 import { ComponentProps } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import sbbLogo from "../../public/sponsors/sbbLogo.png";
-import teamNbgLogo from "../../public/sponsors/teamnuernbergLogo.jpg";
-import hdKroftLogo from "../../public/sponsors/hdKroftLogo.png";
-import heyduckMalerbetrieb from "../../public/sponsors/heyduckMalerbetrieb.png";
-import aragLogo from "../../public/sponsors/aragLogo.jpg";
-import bravoDance from "../../public/sponsors/bravoDance.jpeg";
-import danceVibesBerlin from "../../public/sponsors/danceVibesBerlin.jpg";
+import sbbLogo from "../../public/optimized/sponsors/sbbLogo.webp";
+import teamNbgLogo from "../../public/optimized/sponsors/teamnuernbergLogo.webp";
+import hdKroftLogo from "../../public/optimized/sponsors/hdKroftLogo.webp";
+import heyduckMalerbetrieb from "../../public/optimized/sponsors/heyduckMalerbetrieb.webp";
+import aragLogo from "../../public/optimized/sponsors/aragLogo.webp";
+import bravoDance from "../../public/optimized/sponsors/bravoDance.webp";
+import danceVibesBerlin from "../../public/optimized/sponsors/danceVibesBerlin.webp";
 
 export const Partners = () => (
   <section className="flex overflow-hidden bg-base-900 py-6 sm:py-8 md:py-10">
@@ -31,6 +31,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="HD-Kroft Photography"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -43,6 +44,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="Sportbündnis Bundesliga"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -55,6 +57,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="Team Nürnberg"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -67,6 +70,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="Heyduck Maler und Lackierer"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -79,6 +83,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="ARAG Vertriebspartner Gunnar Zidella"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -91,6 +96,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="Bravo Dance"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
     <Link
@@ -103,6 +109,7 @@ const PartnerList = (props: ComponentProps<"div">) => (
         alt="Dance Vibes Berlin"
         width={250}
         className="h-auto min-w-[250px] rounded-md"
+        unoptimized
       />
     </Link>
   </div>

@@ -18,7 +18,7 @@ export default async function NeuigkeitenPage() {
     <Main className="bg-base-900">
       <PageHeading>Neuigkeiten</PageHeading>
       <div className="group/container container-lg grid justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {neuigkeiten.map((neuigkeit) => (
+        {neuigkeiten.map((neuigkeit, index) => (
           <NeuigkeitCard
             slug={neuigkeit.slug}
             key={neuigkeit.slug}
@@ -27,8 +27,8 @@ export default async function NeuigkeitenPage() {
             datum={neuigkeit.datum}
             vorschaubild={neuigkeit.vorschaubild?.url}
             className="sm:hover:!opacity-100 sm:group-hover/container:opacity-50"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            loadImageWithPriority
+            sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 304px"
+            loadImageWithPriority={index === 0}
           />
         ))}
         <FurtherNeuigkeiten

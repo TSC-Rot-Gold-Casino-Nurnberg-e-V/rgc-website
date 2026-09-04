@@ -42,6 +42,7 @@ export const HeroSection = () => {
           alt=""
           className="object-cover object-top opacity-80 blur-xs will-change-transform"
           fill
+          sizes="100vw"
           priority
           suppressHydrationWarning
         />

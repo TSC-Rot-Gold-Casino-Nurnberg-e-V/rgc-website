@@ -15,7 +15,7 @@ import React, {
 } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
-import logo_gold from "../../public/logo_gold.png";
+import logo_gold from "../../public/optimized/logo_gold.webp";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 
@@ -34,7 +34,7 @@ export const Header = () => (
             height={48}
             width={86}
             className="h-full w-fit object-scale-down"
-            priority
+            unoptimized
           />
         </Link>
       </div>
