@@ -55,6 +55,7 @@ export const Footer = () => (
           <FooterLink text="Impressum" href="/impressum" />
           <FooterLink text="Datenschutz" href="/datenschutzerklaerung" />
           <FooterLink text="Dokumente" href="/dokumente" />
+          <FooterLink text="RGC-Farben" href="/farben" />
           <FooterLink
             text="Mitglieder Online"
             target="_blank"
