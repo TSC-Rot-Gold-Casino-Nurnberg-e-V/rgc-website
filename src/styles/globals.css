@@ -1,34 +1,102 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --blur-xs: 2px;
+
+  --color-primary-50: #fcf9f0;
+  --color-primary-100: #f7f1dd;
+  --color-primary-200: #eedfba;
+  --color-primary-300: #e0c280;
+  --color-primary-400: #d7ab60;
+  --color-primary-500: #ce9441;
+  --color-primary-600: #c07d36;
+  --color-primary-700: #a0632e;
+  --color-primary-800: #81502b;
+  --color-primary-900: #684326;
+  --color-primary-950: #382112;
+
+  --color-secondary-50: #fff1f1;
+  --color-secondary-100: #ffe4e5;
+  --color-secondary-200: #fecdd1;
+  --color-secondary-300: #fea3aa;
+  --color-secondary-400: #fc707d;
+  --color-secondary-500: #f63d54;
+  --color-secondary-600: #e41e40;
+  --color-secondary-700: #c01033;
+  --color-secondary-800: #a01131;
+  --color-secondary-900: #891231;
+  --color-secondary-950: #4d0416;
+
+  --color-base-50: #fafafa;
+  --color-base-100: #f5f5f5;
+  --color-base-200: #e5e5e5;
+  --color-base-300: #d4d4d4;
+  --color-base-400: #a3a3a3;
+  --color-base-500: #737373;
+  --color-base-600: #525252;
+  --color-base-700: #404040;
+  --color-base-800: #262626;
+  --color-base-900: #171717;
+  --color-base-950: #0a0a0a;
+
+  --animate-infinite-scroll: infinite-scroll 45s linear infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility container-lg {
+  @apply mx-auto max-w-(--breakpoint-lg) px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
+}
+
+@utility container-md {
+  @apply mx-auto max-w-(--breakpoint-md) px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
+}
+
+@utility container-sm {
+  @apply mx-auto max-w-(--breakpoint-sm) px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
+}
+
+@utility gold-gradient {
+  @apply bg-linear-to-br from-primary-300 from-10% via-primary-100 via-40% to-primary-300 to-90%;
+}
+
+@utility text-gold {
+  @apply gold-gradient bg-clip-text text-transparent;
+  /* prevents strange lines on Safari (https://stackoverflow.com/questions/73143985/strange-lines-when-using-background-clip-text-on-safari) */
+  clip-path: inset(1px);
+}
 
 @layer base {
   *:focus-visible {
-    @apply rounded-full outline outline-2 outline-offset-4 outline-secondary-800;
-  }
-}
-
-@layer components {
-  .container-lg {
-    @apply mx-auto max-w-screen-lg px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
-  }
-  .container-md {
-    @apply mx-auto max-w-screen-md px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
-  }
-  .container-sm {
-    @apply mx-auto max-w-screen-sm px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10;
-  }
-
-  .gold-gradient {
-    @apply bg-gradient-to-br from-primary-300 from-10% via-primary-100 via-40% to-primary-300 to-90%;
-  }
-}
-
-@layer utilities {
-  .text-gold {
-    @apply gold-gradient bg-clip-text text-transparent;
-    /* prevents strange lines on Safari (https://stackoverflow.com/questions/73143985/strange-lines-when-using-background-clip-text-on-safari) */
-    clip-path: inset(1px);
+    @apply rounded-full outline-2 outline-offset-4 outline-secondary-800 outline-solid;
   }
 }
 

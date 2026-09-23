@@ -33,10 +33,10 @@ export default async function HochzeitstanzPage() {
           width={100}
           priority
         />
-        <h2 className="mx-auto !mt-0 max-w-screen-sm text-center font-serif text-4xl font-light leading-snug sm:text-5xl">
+        <h2 className="mx-auto mt-0! max-w-(--breakpoint-sm) text-center font-serif text-4xl leading-snug font-light sm:text-5xl">
           Euer unvergesslicher Hochzeitstanz – individuell choreographiert
         </h2>
-        <p className="mx-auto max-w-screen-md text-center">
+        <p className="mx-auto max-w-(--breakpoint-md) text-center">
           Der erste Tanz als frisch verheiratetes Paar ist einer der
           emotionalsten Momente eures großen Tages. Wir helfen euch dabei,
           diesen Moment unvergesslich zu machen – mit einer individuellen, auf
@@ -54,19 +54,19 @@ export default async function HochzeitstanzPage() {
           <LinkButton href="#angebot" className="grow" text="Mehr Erfahren" />
         </div>
       </section>
-      <section className="bg-base-100 py-8 @container" id="angebot">
+      <section className="@container bg-base-100 py-8" id="angebot">
         <div className="space-y-8">
-          <h2 className="mx-auto max-w-screen-md text-center text-2xl font-semibold sm:text-3xl">
+          <h2 className="mx-auto max-w-(--breakpoint-md) text-center text-2xl font-semibold sm:text-3xl">
             Unser Angebot
           </h2>
-          <p className="mx-auto max-w-screen-md px-2">
+          <p className="mx-auto max-w-(--breakpoint-md) px-2">
             Ob klassischer Walzer, romantische Rumba oder ein moderner Mix – wir
             gestalten eure Choreografie so, wie sie zu euch und eurer Hochzeit
             passt. Unsere erfahrenen Trainer:innen begleiten euch Schritt für
             Schritt und sorgen dafür, dass ihr euch sicher, wohl und authentisch
             fühlt.
           </p>
-          <div className="mx-auto grid max-w-screen-lg gap-4 px-2 @lg:grid-cols-2 @2xl:grid-cols-3">
+          <div className="mx-auto grid max-w-(--breakpoint-lg) gap-4 px-2 @lg:grid-cols-2 @2xl:grid-cols-3">
             {[
               {
                 title: "Maßgeschneiderte Choreografie",
@@ -100,7 +100,7 @@ export default async function HochzeitstanzPage() {
             ].map(({ description, title }) => (
               <div
                 key={title}
-                className="rounded-2xl bg-white/75 px-5 py-4 shadow"
+                className="rounded-2xl bg-white/75 px-5 py-4 shadow-sm"
               >
                 <h3 className="mb-2 text-lg font-semibold text-secondary-900">
                   {title}
@@ -112,7 +112,7 @@ export default async function HochzeitstanzPage() {
         </div>
       </section>
       <section className="bg-base-50 px-2 py-12">
-        <div className="mx-auto flex max-w-screen-lg gap-8 px-2 max-md:flex-col">
+        <div className="mx-auto flex max-w-(--breakpoint-lg) gap-8 px-2 max-md:flex-col">
           <div className="space-y-8">
             <h2 className="mx-auto text-center text-2xl font-semibold sm:text-3xl">
               Für jedes Paar geeignet
@@ -138,11 +138,11 @@ export default async function HochzeitstanzPage() {
           />
         </div>
       </section>
-      <section className="space-y-8 bg-base-100 px-2 py-12 @container">
-        <h2 className="mx-auto max-w-screen-md text-center text-2xl font-semibold sm:text-3xl">
+      <section className="@container space-y-8 bg-base-100 px-2 py-12">
+        <h2 className="mx-auto max-w-(--breakpoint-md) text-center text-2xl font-semibold sm:text-3xl">
           So läuft es ab
         </h2>
-        <div className="mx-auto grid max-w-screen-lg gap-4 px-2 @2xl:grid-cols-2">
+        <div className="mx-auto grid max-w-(--breakpoint-lg) gap-4 px-2 @2xl:grid-cols-2">
           {[
             {
               title: "Unverbindliches Erstgespräch",
@@ -167,9 +167,9 @@ export default async function HochzeitstanzPage() {
           ].map(({ description, title }, index) => (
             <div
               key={title}
-              className="relative rounded-2xl bg-white/75 px-5 py-4 shadow"
+              className="relative rounded-2xl bg-white/75 px-5 py-4 shadow-sm"
             >
-              <div className="absolute left-4 top-4 flex size-8 items-center justify-center rounded-full border border-secondary-200 bg-secondary-100 text-base font-bold text-secondary-900">
+              <div className="absolute top-4 left-4 flex size-8 items-center justify-center rounded-full border border-secondary-200 bg-secondary-100 text-base font-bold text-secondary-900">
                 {index + 1}
               </div>
               <h3 className="mb-2 ml-12 text-lg font-semibold text-secondary-900">
@@ -180,13 +180,13 @@ export default async function HochzeitstanzPage() {
           ))}
         </div>
       </section>
-      <section className="space-y-8 bg-base-900 px-2 py-12 @container">
-        <div className="mx-auto grid max-w-screen-lg gap-4 px-2 sm:grid-cols-2">
+      <section className="@container space-y-8 bg-base-900 px-2 py-12">
+        <div className="mx-auto grid max-w-(--breakpoint-lg) gap-4 px-2 sm:grid-cols-2">
           <div className="space-y-8">
-            <h2 className="mx-auto max-w-screen-md text-center text-2xl font-semibold text-base-100 sm:text-3xl">
+            <h2 className="mx-auto max-w-(--breakpoint-md) text-center text-2xl font-semibold text-base-100 sm:text-3xl">
               Showauftritte für eure Hochzeit
             </h2>
-            <p className="mx-auto max-w-screen-md text-base-300">
+            <p className="mx-auto max-w-(--breakpoint-md) text-base-300">
               Ihr möchtet euren Gästen ein zusätzliches Highlight bieten? Neben
               der Choreografie für euren Hochzeitstanz können bei uns auch
               Showpaare gebucht werden. Ob spritzige Standardtänze, feurige
@@ -210,7 +210,7 @@ export default async function HochzeitstanzPage() {
           />
         </div>
         <p className="text-center text-2xl text-base-300">Ideal für:</p>
-        <div className="mx-auto grid max-w-screen-lg gap-4 px-2 @2xl:grid-cols-2">
+        <div className="mx-auto grid max-w-(--breakpoint-lg) gap-4 px-2 @2xl:grid-cols-2">
           {[
             {
               title: "Eröffnung des Abends",
@@ -235,7 +235,7 @@ export default async function HochzeitstanzPage() {
           ].map(({ title, description }) => (
             <div
               key={title}
-              className="rounded-2xl bg-base-700 px-5 py-4 shadow"
+              className="rounded-2xl bg-base-700 px-5 py-4 shadow-sm"
             >
               <h3 className="mb-2 text-lg font-semibold text-base-50">
                 {title}
@@ -246,10 +246,10 @@ export default async function HochzeitstanzPage() {
         </div>
       </section>
       <section className="space-y-8 px-2 py-12">
-        <h2 className="mx-auto max-w-screen-md text-center text-2xl font-semibold sm:text-3xl">
+        <h2 className="mx-auto max-w-(--breakpoint-md) text-center text-2xl font-semibold sm:text-3xl">
           Bereit für euren unvergesslichen Hochzeitstanz?
         </h2>
-        <p className="mx-auto max-w-screen-md text-center">
+        <p className="mx-auto max-w-(--breakpoint-md) text-center">
           Meldet euch bei uns – wir freuen uns darauf, euch auf eurem Weg zu
           begleiten!
         </p>

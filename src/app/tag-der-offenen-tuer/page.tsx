@@ -101,7 +101,7 @@ const EventFact = ({ icon, label, children }: EventFactProps) => (
       {icon}
     </div>
     <div>
-      <dt className="text-sm font-semibold uppercase tracking-wide text-base-600">
+      <dt className="text-sm font-semibold tracking-wide text-base-600 uppercase">
         {label}
       </dt>
       <dd className="mt-1 font-semibold text-base-900">{children}</dd>
@@ -133,7 +133,7 @@ const ProgramCard = ({
       <div className="flex size-11 items-center justify-center rounded-2xl bg-white/15">
         {icon}
       </div>
-      <p className="text-sm font-bold uppercase tracking-[0.18em] opacity-80">
+      <p className="text-sm font-bold tracking-[0.18em] uppercase opacity-80">
         {eyebrow}
       </p>
     </div>
@@ -153,7 +153,7 @@ const SectionHeading = ({
   description?: string;
 }) => (
   <div className="mx-auto max-w-2xl text-center">
-    <p className="text-sm font-bold uppercase tracking-[0.18em] text-secondary-700">
+    <p className="text-sm font-bold tracking-[0.18em] text-secondary-700 uppercase">
       {eyebrow}
     </p>
     <h2 className="mt-3 text-3xl font-bold text-base-900 sm:text-4xl">
@@ -175,7 +175,7 @@ export default function TagDerOffenenTuerPage() {
 
       <section className="relative isolate overflow-hidden bg-base-900 text-base-50">
         <div
-          className="absolute -left-24 top-12 -z-10 size-72 rounded-full bg-primary-500/30 blur-3xl"
+          className="absolute top-12 -left-24 -z-10 size-72 rounded-full bg-primary-500/30 blur-3xl"
           aria-hidden="true"
         />
         <div
@@ -183,12 +183,12 @@ export default function TagDerOffenenTuerPage() {
           aria-hidden="true"
         />
 
-        <div className="mx-auto grid max-w-screen-xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
           <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-primary-300/50 bg-primary-300/10 px-4 py-2 text-sm font-bold uppercase tracking-[0.16em] text-primary-200">
+            <p className="inline-flex rounded-full border border-primary-300/50 bg-primary-300/10 px-4 py-2 text-sm font-bold tracking-[0.16em] text-primary-200 uppercase">
               Türen auf mit der Maus 2026
             </p>
-            <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight sm:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-4xl leading-tight font-extrabold sm:text-6xl">
               Kleine Tanzwunder entdecken
             </h1>
             <p className="mt-5 max-w-2xl text-xl leading-relaxed text-base-200 sm:text-2xl">
@@ -223,8 +223,8 @@ export default function TagDerOffenenTuerPage() {
 
           <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
             <div className="absolute -inset-5 rounded-[3rem] border border-primary-300/20" />
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/10 p-8 shadow-2xl backdrop-blur-sm sm:p-10">
-              <div className="absolute -right-16 -top-16 size-40 rounded-full bg-primary-300/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/10 p-8 shadow-2xl backdrop-blur-xs sm:p-10">
+              <div className="absolute -top-16 -right-16 size-40 rounded-full bg-primary-300/20 blur-2xl" />
               <Image
                 src={logoGold}
                 alt=""
@@ -235,7 +235,7 @@ export default function TagDerOffenenTuerPage() {
                 unoptimized
               />
               <div className="relative mt-8 border-t border-white/20 pt-8 text-center">
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary-200">
+                <p className="text-sm font-bold tracking-[0.18em] text-primary-200 uppercase">
                   Samstag, 3. Oktober 2026
                 </p>
                 <p className="mt-3 text-4xl font-extrabold sm:text-5xl">
@@ -252,7 +252,7 @@ export default function TagDerOffenenTuerPage() {
       </section>
 
       <section className="relative z-10 -mt-6 px-4 pb-4 sm:px-6 lg:px-8">
-        <dl className="mx-auto grid max-w-screen-xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mx-auto grid max-w-(--breakpoint-xl) gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <EventFact icon={<CalendarIcon />} label="Wann">
             3. Oktober 2026 · 14–17 Uhr
           </EventFact>
@@ -278,13 +278,13 @@ export default function TagDerOffenenTuerPage() {
           description="Ob du zum ersten Mal Tanzluft schnupperst oder schon neugierig auf unseren Verein bist: Komm vorbei und entdecke, was Tanzen alles sein kann."
         />
 
-        <div className="mx-auto mt-12 grid max-w-screen-xl gap-6 lg:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-(--breakpoint-xl) gap-6 lg:grid-cols-2">
           <ProgramCard
             eyebrow="Für Kinder"
             title="Tanz erleben und kleine Wunder entdecken"
             description="Das Kinderprogramm richtet sich vor allem an Kinder von 7 bis 14 Jahren. Jüngere oder ältere Geschwister dürfen in Begleitung ebenfalls mitkommen."
             icon={<SparklesIcon className="size-6 text-primary-200" />}
-            className="bg-gradient-to-br from-primary-800 to-primary-950 text-base-50"
+            className="bg-linear-to-br from-primary-800 to-primary-950 text-base-50"
           >
             <p className="font-semibold text-primary-100">
               Durchgehend geöffnete Türen zu unseren Kinderstationen:
@@ -317,7 +317,7 @@ export default function TagDerOffenenTuerPage() {
             title="Zuschauen, mittanzen und den Verein kennenlernen"
             description="Auch Erwachsene sind herzlich eingeladen, unsere Türen zu öffnen und selbst aktiv zu werden. Begleitpersonen dürfen gerne an den Angeboten teilnehmen."
             icon={<MusicIcon className="size-6 text-secondary-200" />}
-            className="bg-gradient-to-br from-secondary-800 to-secondary-950 text-base-50"
+            className="bg-linear-to-br from-secondary-800 to-secondary-950 text-base-50"
           >
             <div className="rounded-2xl border border-white/20 bg-white/10 p-5">
               <p className="text-lg font-bold">Im halbstündlichen Wechsel</p>
@@ -338,7 +338,7 @@ export default function TagDerOffenenTuerPage() {
           </ProgramCard>
         </div>
 
-        <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl border border-primary-200 bg-primary-50 px-5 py-4 text-center text-base-800 sm:px-8">
+        <div className="mx-auto mt-8 max-w-(--breakpoint-xl) rounded-2xl border border-primary-200 bg-primary-50 px-5 py-4 text-center text-base-800 sm:px-8">
           <p>
             <strong>Tipp für Familien:</strong> Während die Kinder die Stationen
             entdecken, können Erwachsene selbst mittanzen oder eine Show
@@ -353,7 +353,7 @@ export default function TagDerOffenenTuerPage() {
           title="So läuft dein Besuch ab"
           description="Du brauchst keine Vorkenntnisse und keine feste Anmeldung. Komm einfach zwischen 14 und 17 Uhr bei uns vorbei."
         />
-        <ol className="mx-auto mt-12 grid max-w-screen-xl gap-5 md:grid-cols-3">
+        <ol className="mx-auto mt-12 grid max-w-(--breakpoint-xl) gap-5 md:grid-cols-3">
           {[
             {
               number: "01",
@@ -376,7 +376,7 @@ export default function TagDerOffenenTuerPage() {
           ].map(({ description, number, title }) => (
             <li
               key={number}
-              className="rounded-3xl bg-base-50 p-6 shadow-sm ring-1 ring-base-200"
+              className="rounded-3xl bg-base-50 p-6 shadow-xs ring-1 ring-base-200"
             >
               <span className="text-5xl font-extrabold text-primary-500/40">
                 {number}
@@ -389,9 +389,9 @@ export default function TagDerOffenenTuerPage() {
       </section>
 
       <section className="bg-base-900 px-4 py-16 text-base-50 sm:px-6 sm:py-24 lg:px-8">
-        <div className="mx-auto grid max-w-screen-xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary-300">
+            <p className="text-sm font-bold tracking-[0.18em] text-primary-300 uppercase">
               Gut zu wissen
             </p>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
@@ -425,18 +425,18 @@ export default function TagDerOffenenTuerPage() {
       </section>
 
       <section className="bg-base-50 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="mx-auto grid max-w-screen-xl gap-8 lg:grid-cols-2">
-          <div className="rounded-3xl bg-base-100 p-6 shadow-sm ring-1 ring-base-200 sm:p-8">
+        <div className="mx-auto grid max-w-(--breakpoint-xl) gap-8 lg:grid-cols-2">
+          <div className="rounded-3xl bg-base-100 p-6 shadow-xs ring-1 ring-base-200 sm:p-8">
             <div className="flex items-center gap-3 text-secondary-700">
               <LocationIcon className="size-7" aria-hidden="true" />
-              <p className="text-sm font-bold uppercase tracking-[0.18em]">
+              <p className="text-sm font-bold tracking-[0.18em] uppercase">
                 Dein Weg zu uns
               </p>
             </div>
             <h2 className="mt-5 text-3xl font-bold text-base-900">
               TSC Rot-Gold-Casino Nürnberg e.V.
             </h2>
-            <address className="mt-4 not-italic leading-relaxed">
+            <address className="mt-4 leading-relaxed not-italic">
               Venusweg 7
               <br />
               90763 Fürth
@@ -464,7 +464,7 @@ export default function TagDerOffenenTuerPage() {
           <div className="rounded-3xl bg-primary-50 p-6 ring-1 ring-primary-200 sm:p-8">
             <div className="flex items-center gap-3 text-primary-800">
               <MailIcon className="size-7" aria-hidden="true" />
-              <p className="text-sm font-bold uppercase tracking-[0.18em]">
+              <p className="text-sm font-bold tracking-[0.18em] uppercase">
                 Unverbindlicher Kontakt
               </p>
             </div>
@@ -494,7 +494,7 @@ export default function TagDerOffenenTuerPage() {
           eyebrow="Noch Fragen?"
           title="Das Wichtigste auf einen Blick"
         />
-        <div className="mx-auto mt-10 max-w-screen-md divide-y divide-base-200 rounded-3xl bg-base-50 px-6 shadow-sm ring-1 ring-base-200 sm:px-8">
+        <div className="mx-auto mt-10 max-w-(--breakpoint-md) divide-y divide-base-200 rounded-3xl bg-base-50 px-6 shadow-xs ring-1 ring-base-200 sm:px-8">
           <FaqItem question="Muss ich mich anmelden?">
             Nein. Du kannst spontan zwischen 14 und 17 Uhr vorbeikommen. Eine
             freiwillige E-Mail hilft uns bei der Planung, reserviert aber keinen

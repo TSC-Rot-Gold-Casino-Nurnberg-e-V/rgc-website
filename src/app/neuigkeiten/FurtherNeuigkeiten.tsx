@@ -72,7 +72,7 @@ export function FurtherNeuigkeiten({
           vorschautext={neuigkeit.vorschautext}
           datum={neuigkeit.datum}
           vorschaubild={neuigkeit.vorschaubild?.url}
-          className="sm:hover:!opacity-100 sm:group-hover/container:opacity-50"
+          className="sm:group-hover/container:opacity-50 sm:hover:opacity-100!"
           sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 304px"
         />
       ))}

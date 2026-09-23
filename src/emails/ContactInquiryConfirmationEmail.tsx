@@ -45,7 +45,7 @@ export const ContactInquiryConfirmationEmail = () => (
           <Heading as="h1" className="text-3xl font-bold text-base-900">
             Bestätigung der Anfrage
           </Heading>
-          <Text className="break-words text-base">
+          <Text className="text-base wrap-break-word">
             Vielen Dank für Deine Anfrage. Wir werden uns schnellstmöglich mit
             Dir in Verbindung setzen.
           </Text>

@@ -27,7 +27,7 @@ interface HeaderProps {
 
 export const Header = ({ chip }: HeaderProps) => (
   <header className="sticky top-0 z-30 h-16 w-full bg-base-900 px-8 text-base-50 transition-all duration-500 sm:h-20">
-    <nav className="mx-auto flex h-16 max-w-screen-lg items-center justify-between sm:h-20">
+    <nav className="mx-auto flex h-16 max-w-(--breakpoint-lg) items-center justify-between sm:h-20">
       <div className="h-full w-fit py-3 sm:py-4">
         <Link
           href="/"
@@ -93,7 +93,7 @@ export const Header = ({ chip }: HeaderProps) => (
                 leaveTo="transform scale-95 opacity-0"
               >
                 <div className="absolute -right-4 z-10">
-                  <MenuItems className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-sm shadow-base-900">
+                  <MenuItems className="rounded-2xl bg-base-800 p-2 text-base text-base-50 shadow-xs shadow-base-900">
                     <MenuLink text="Der Verein" href="/verein" />
                     <MenuLink text="Partner" href="/partner" />
                     <MenuLink text="News" href="/neuigkeiten" />
@@ -113,7 +113,7 @@ export const Header = ({ chip }: HeaderProps) => (
                         >
                           <Button
                             className={twJoin(
-                              "text-nowrap px-4 py-2 text-base",
+                              "px-4 py-2 text-base text-nowrap",
                               focus && "bg-secondary-900",
                             )}
                           >
@@ -147,7 +147,7 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
       <li className="flex list-none">
         <Link
           className={twMerge(
-            "grow whitespace-nowrap rounded-full px-6 py-2 transition-all hover:text-base-50 active:bg-base-900 sm:px-2 lg:px-3",
+            "grow rounded-full px-6 py-2 whitespace-nowrap transition-all hover:text-base-50 active:bg-base-900 sm:px-2 lg:px-3",
             isActive
               ? "underline decoration-base-200 decoration-2 underline-offset-8"
               : "text-base-200",
@@ -213,7 +213,7 @@ const DropdownMenu = ({
         >
           <MenuItems
             static
-            className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-sm shadow-base-900 sm:text-base"
+            className="absolute mt-1 rounded-2xl bg-base-800 p-2 text-sm text-base-50 shadow-xs shadow-base-900 sm:text-base"
           >
             {children}
           </MenuItems>

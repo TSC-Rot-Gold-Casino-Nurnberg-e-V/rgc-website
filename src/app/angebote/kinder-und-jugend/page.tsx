@@ -52,7 +52,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
+          <div className="relative order-2 aspect-square sm:aspect-4/5">
             <Image
               src={kinder}
               alt=""
@@ -83,7 +83,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="group relative order-5 aspect-square sm:aspect-[4/5]">
+          <div className="group relative order-5 aspect-square sm:aspect-4/5">
             <Image
               src={latein_jugend}
               alt=""
@@ -91,7 +91,7 @@ export default function KindertanzenPage() {
               className="rounded-lg object-cover object-top"
               sizes="(max-width: 640px) calc(100vw - 2rem), 464px"
             />
-            <small className="absolute right-1 top-1 text-base-300 opacity-10 transition-opacity group-hover:opacity-25">
+            <small className="absolute top-1 right-1 text-base-300 opacity-10 transition-opacity group-hover:opacity-25">
               © Sportfotografie-Gerner
             </small>
           </div>
@@ -117,7 +117,7 @@ export default function KindertanzenPage() {
               text="Zu den Gruppenstunden"
             />
           </section>
-          <div className="relative order-7 aspect-square sm:aspect-[4/5]">
+          <div className="relative order-7 aspect-square sm:aspect-4/5">
             <Image
               src={standard_jugend}
               alt=""

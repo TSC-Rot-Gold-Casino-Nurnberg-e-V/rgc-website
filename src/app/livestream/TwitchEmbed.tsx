@@ -19,7 +19,7 @@ export const TwitchEmbed = () => {
 
   return (
     <div className="bg-base-900">
-      <div className="mx-auto aspect-video max-w-screen-lg overflow-hidden rounded">
+      <div className="mx-auto aspect-video max-w-(--breakpoint-lg) overflow-hidden rounded-sm">
         <iframe
           src={url.toString()}
           height="100%"

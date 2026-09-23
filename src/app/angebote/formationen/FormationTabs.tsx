@@ -27,7 +27,7 @@ export const FormationTabs = ({ teams }: Props) => (
             {({ selected }) => (
               <Button
                 className={twJoin(
-                  "w-full border-none text-base-100 outline-none max-md:rounded-lg",
+                  "w-full border-none text-base-100 outline-hidden max-md:rounded-lg",
                   !selected && "hover:bg-base-700 hover:text-base-50",
                 )}
                 variant={selected ? "primary" : "secondary"}
@@ -44,7 +44,7 @@ export const FormationTabs = ({ teams }: Props) => (
             <Image
               src={team.bild.url}
               alt=""
-              className="mb-4 aspect-[3/2] w-full rounded-xl object-cover"
+              className="mb-4 aspect-3/2 w-full rounded-xl object-cover"
               width={800}
               height={600}
               sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 4rem), 960px"
@@ -65,7 +65,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.trainers.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
+                <h3 className="mt-8 mb-4 text-2xl font-bold text-base-900 sm:text-3xl">
                   Trainer
                 </h3>
                 <div className="space-y-4">
@@ -85,7 +85,7 @@ export const FormationTabs = ({ teams }: Props) => (
             )}
             {team.kapitaene.length > 0 && (
               <section>
-                <h3 className="mb-4 mt-8 text-2xl font-bold text-base-900 sm:text-3xl">
+                <h3 className="mt-8 mb-4 text-2xl font-bold text-base-900 sm:text-3xl">
                   {team.kapitaene.length > 1 ? "Kapitäne" : "Kapitän"}
                 </h3>
                 <div className="flex flex-wrap gap-4 max-sm:mx-auto max-sm:justify-around">

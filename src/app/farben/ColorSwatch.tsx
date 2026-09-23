@@ -45,12 +45,12 @@ export const ColorSwatch = ({ token, shade, hex }: ColorSwatchProps) => {
   return (
     <button
       type="button"
-      className="group flex w-full items-center gap-4 rounded-xl bg-white p-3 pr-5 text-left shadow-sm ring-1 ring-base-200 transition hover:-translate-y-0.5 hover:shadow-md"
+      className="group flex w-full items-center gap-4 rounded-xl bg-white p-3 pr-5 text-left shadow-xs ring-1 ring-base-200 transition hover:-translate-y-0.5 hover:shadow-md"
       onClick={copyHex}
       aria-label={`${token} ${hex} kopieren`}
     >
       <span
-        className="size-14 shrink-0 rounded-lg ring-1 ring-inset ring-black/10"
+        className="size-14 shrink-0 rounded-lg ring-1 ring-black/10 ring-inset"
         style={{ backgroundColor: hex }}
         aria-hidden="true"
       />

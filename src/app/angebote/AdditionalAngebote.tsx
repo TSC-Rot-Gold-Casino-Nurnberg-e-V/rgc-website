@@ -12,10 +12,7 @@ const einzeltanz =
 
 interface Props {
   currentPage:
-    | "turniertanzen"
-    | "formationstanzen"
-    | "kindertanzen"
-    | "freizeittanzen";
+    "turniertanzen" | "formationstanzen" | "kindertanzen" | "freizeittanzen";
 }
 
 export const AdditionalAngebote = ({ currentPage }: Props) => (
@@ -23,7 +20,7 @@ export const AdditionalAngebote = ({ currentPage }: Props) => (
     <h2 className="text-center text-2xl font-bold text-base-900 sm:text-3xl">
       Weitere Angebote unseres Vereins
     </h2>
-    <div className="grid auto-rows-[20rem] gap-4 sm:grid-cols-3">
+    <div className="grid auto-rows-80 gap-4 sm:grid-cols-3">
       {currentPage !== "turniertanzen" && (
         <AngebotCard
           title="Turnier"

@@ -52,7 +52,7 @@ export default function FormationstanzenPage() {
               text="Zu den Standardformationen"
             />
           </section>
-          <div className="relative order-2 aspect-square sm:aspect-[4/5]">
+          <div className="relative order-2 aspect-square sm:aspect-4/5">
             <Image
               src={formation_standard}
               alt=""
@@ -83,7 +83,7 @@ export default function FormationstanzenPage() {
               text="Zu den Lateinformationen"
             />
           </section>
-          <div className="relative order-5 aspect-square sm:aspect-[4/5]">
+          <div className="relative order-5 aspect-square sm:aspect-4/5">
             <Image
               src={formation_latein}
               alt=""

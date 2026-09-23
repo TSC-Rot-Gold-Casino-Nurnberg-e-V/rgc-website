@@ -87,7 +87,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                       .map(({ id, attributes }) => (
                         <section
                           key={id}
-                          className="relative flex w-96 flex-col gap-1 overflow-hidden rounded-lg bg-white p-6 shadow"
+                          className="relative flex w-96 flex-col gap-1 overflow-hidden rounded-lg bg-white p-6 shadow-sm"
                         >
                           <div className="absolute inset-0 w-1.5 bg-secondary-600" />
                           <h4 className="text-2xl font-bold text-secondary-950">
@@ -126,7 +126,7 @@ export default async function AngebotPage({ params }: Readonly<Props>) {
                                     width={56} // size-14
                                     height={56} // size-14
                                     alt={`${trainer.person.vorname} ${trainer.person.nachname}`}
-                                    className="size-14 cursor-pointer rounded-full bg-white object-cover object-top outline-offset-2 ring ring-white transition-all hover:scale-105 hover:shadow-md"
+                                    className="size-14 cursor-pointer rounded-full bg-white object-cover object-top ring-3 ring-white outline-offset-2 transition-all hover:scale-105 hover:shadow-md"
                                   />
                                 </a>
                               ))}

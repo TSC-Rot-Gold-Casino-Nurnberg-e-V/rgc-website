@@ -26,7 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
         "justify-center",
         "gap-2",
         "font-bold",
-        "hover:shadow",
+        "hover:shadow-sm",
         variant === "primary" &&
           "bg-secondary-700 text-base-50 hover:bg-secondary-800 active:bg-secondary-900",
         variant === "secondary" &&

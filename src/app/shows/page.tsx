@@ -18,7 +18,7 @@ export const metadata = {
 
 export default async function ShowsPage() {
   return (
-    <Main className="relative mx-auto w-full text-pretty bg-base-900 text-base-100 md:text-lg">
+    <Main className="relative mx-auto w-full bg-base-900 text-pretty text-base-100 md:text-lg">
       <div className="mb-20">
         <div className="relative max-w-full overflow-hidden">
           <Image
@@ -33,10 +33,10 @@ export default async function ShowsPage() {
             alt=""
             width={500}
             height={500}
-            className="absolute -left-40 bottom-0 max-w-[80vw] opacity-80 blur-xs sm:left-0 sm:max-w-[45vw]"
+            className="absolute bottom-0 -left-40 max-w-[80vw] opacity-80 blur-xs sm:left-0 sm:max-w-[45vw]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-base-900 to-10%" />
-          <section className="relative mx-auto max-w-screen-sm p-4 text-center sm:py-12 md:py-20">
+          <div className="absolute inset-0 bg-linear-to-t from-base-900 to-10%" />
+          <section className="relative mx-auto max-w-(--breakpoint-sm) p-4 text-center sm:py-12 md:py-20">
             <h1 className="text-base-50">
               <span className="text-6xl font-bold sm:text-7xl">
                 Tanz&shy;highlights
@@ -57,10 +57,10 @@ export default async function ShowsPage() {
             </p>
           </section>
         </div>
-        <div className="mx-auto mt-8 grid max-w-screen-lg gap-4 hyphens-auto max-md:max-w-md md:grid-cols-2 md:gap-6 md:p-4">
+        <div className="mx-auto mt-8 grid max-w-(--breakpoint-lg) gap-4 hyphens-auto max-md:max-w-md md:grid-cols-2 md:gap-6 md:p-4">
           <section className="overflow-hidden rounded-xl bg-base-800 md:order-1 md:rounded-tl-[4rem] md:text-right">
-            <div className="p-6 !pb-2 md:p-8">
-              <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
+            <div className="p-6 pb-2! md:p-8">
+              <h2 className="mb-4 text-gold text-2xl font-bold uppercase md:text-3xl">
                 Formation Standard
               </h2>
               <p className="text-base-200">
@@ -75,13 +75,13 @@ export default async function ShowsPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-base-800 to-10%" />
+              <div className="absolute inset-0 bg-linear-to-b from-base-800 to-10%" />
               <Image src={formation_standard} alt="" width={500} height={500} />
             </div>
           </section>
           <section className="overflow-hidden rounded-xl bg-base-800 md:order-4 md:rounded-br-[4rem]">
-            <div className="p-6 !pb-2 md:p-8">
-              <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
+            <div className="p-6 pb-2! md:p-8">
+              <h2 className="mb-4 text-gold text-2xl font-bold uppercase md:text-3xl">
                 Formation Latein
               </h2>
               <p className="text-base-200">
@@ -96,12 +96,12 @@ export default async function ShowsPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-base-800 to-10%" />
+              <div className="absolute inset-0 bg-linear-to-b from-base-800 to-10%" />
               <Image src={formation_latein} alt="" width={500} height={500} />
             </div>
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-3 md:rounded-bl-[4rem] md:p-8">
-            <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-right md:text-3xl">
+            <h2 className="mb-4 text-gold text-2xl font-bold uppercase md:text-right md:text-3xl">
               Paartanz Standard
             </h2>
             <Image
@@ -128,7 +128,7 @@ export default async function ShowsPage() {
             </p>
           </section>
           <section className="rounded-xl bg-secondary-600 p-6 md:order-2 md:rounded-tr-[4rem] md:p-8">
-            <h2 className="text-gold mb-4 text-2xl font-bold uppercase md:text-3xl">
+            <h2 className="mb-4 text-gold text-2xl font-bold uppercase md:text-3xl">
               Paartanz Latein
             </h2>
             <Image

@@ -43,7 +43,7 @@ const AngebotSection = () => (
       <div className="space-y-6 text-center text-base-50">
         <h2 className="text-4xl font-bold md:text-5xl">Unser Angebot</h2>
         <p
-          className="mx-auto max-w-screen-sm hyphens-auto text-base md:text-lg"
+          className="mx-auto max-w-(--breakpoint-sm) text-base hyphens-auto md:text-lg"
           aria-label="Angebotsbeschreibung"
         >
           Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
@@ -51,7 +51,7 @@ const AngebotSection = () => (
           und Breakdance.
         </p>
       </div>
-      <div className="flex min-h-[21rem] snap-mandatory auto-rows-[24rem] gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
+      <div className="flex min-h-84 snap-mandatory auto-rows-96 gap-6 max-sm:snap-x max-sm:overflow-x-auto sm:grid sm:grid-cols-2">
         <AngebotCard
           title="Turnier"
           image={einzeltanz}
@@ -118,8 +118,8 @@ const VereinsgeschichteSection = () => (
         sizes="100vw"
       />
     </div>
-    <div className="absolute inset-0 bg-gradient-to-b from-base-900 to-5%" />
-    <div className="absolute inset-0 bg-gradient-to-t from-base-900 to-5%" />
+    <div className="absolute inset-0 bg-linear-to-b from-base-900 to-5%" />
+    <div className="absolute inset-0 bg-linear-to-t from-base-900 to-5%" />
   </section>
 );
 

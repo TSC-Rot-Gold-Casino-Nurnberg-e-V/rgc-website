@@ -11,8 +11,8 @@ interface Props {
 }
 
 export const TrainerCard = ({ name, lizenzen, bild, beschreibung }: Props) => (
-  <div className="flex rounded-xl bg-white shadow max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col">
-    <div className="aspect-square sm:aspect-[4/5] sm:h-96">
+  <div className="flex rounded-xl bg-white shadow-sm max-sm:mx-auto max-sm:max-w-sm max-sm:flex-col">
+    <div className="aspect-square sm:aspect-4/5 sm:h-96">
       <Image
         src={bild ?? personPlaceholder}
         alt=""

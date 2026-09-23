@@ -8,7 +8,7 @@ import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import { Liveticker, livetickerSchema } from "@/model/Liveticker";
 
 const chipClasses =
-  "flex max-w-[calc(100vw-4rem)] items-center gap-2 rounded-full bg-base-800 px-4 py-1.5 text-sm text-base-50 shadow ring-1 ring-primary-500/30 sm:max-w-sm sm:text-base md:max-w-md lg:max-w-lg";
+  "flex max-w-[calc(100vw-4rem)] items-center gap-2 rounded-full bg-base-800 px-4 py-1.5 text-sm text-base-50 shadow-sm ring-1 ring-primary-500/30 sm:max-w-sm sm:text-base md:max-w-md lg:max-w-lg";
 
 const interactiveChipClasses =
   "group transition-all hover:scale-105 hover:bg-base-700 hover:ring-primary-400/60";
@@ -147,7 +147,7 @@ const TickerText = ({ text }: { text: string }) => {
       <span
         ref={measureRef}
         aria-hidden="true"
-        className="invisible absolute left-0 top-0 whitespace-nowrap"
+        className="invisible absolute top-0 left-0 whitespace-nowrap"
       >
         {text}
       </span>
@@ -176,7 +176,7 @@ const MarqueeCopy = ({
 }) => (
   <span
     aria-hidden={ariaHidden}
-    className="shrink-0 animate-infinite-scroll whitespace-nowrap pr-12 group-focus-within:[animation-play-state:paused] group-hover:[animation-play-state:paused]"
+    className="shrink-0 animate-infinite-scroll pr-12 whitespace-nowrap group-focus-within:[animation-play-state:paused] group-hover:[animation-play-state:paused]"
     style={{ animationDuration: `${durationS}s` }}
   >
     {text}

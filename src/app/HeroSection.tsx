@@ -34,8 +34,8 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[30rem] bg-base-900 lg:h-[70dvh]">
-      <div className="absolute inset-x-0 top-0 translate-y-16 max-lg:h-[50rem] lg:bottom-0">
+    <section className="relative h-120 bg-base-900 lg:h-[70dvh]">
+      <div className="absolute inset-x-0 top-0 translate-y-16 max-lg:h-200 lg:bottom-0">
         <Image
           ref={imageRef}
           src={heroImage}
@@ -47,7 +47,7 @@ export const HeroSection = () => {
           suppressHydrationWarning
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-90% to-base-900" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent from-90% to-base-900" />
       <Transition
         show
         appear
@@ -55,8 +55,8 @@ export const HeroSection = () => {
         enterFrom="scale-95 opacity-0"
         enterTo="scale-100 opacity-100"
       >
-        <div className="container-lg relative flex h-full flex-col justify-center space-y-6 text-primary-50">
-          <h1 className="text-gold mx-auto max-w-lg text-center text-5xl font-bold uppercase sm:text-6xl">
+        <div className="relative container-lg flex h-full flex-col justify-center space-y-6 text-primary-50">
+          <h1 className="mx-auto max-w-lg text-gold text-center text-5xl font-bold uppercase sm:text-6xl">
             Lebe, Liebe, Tanze!
           </h1>
           <div className="mx-auto max-w-2xl space-y-1 text-center text-2xl text-base-50 sm:text-3xl">

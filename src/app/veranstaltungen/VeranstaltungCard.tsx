@@ -18,12 +18,12 @@ export const VeranstaltungCard = ({ slug, titel, start, ende, ort }: Props) => (
         ? "https://www.dm-rot-gold-casino.de/"
         : `/veranstaltungen/${slug}`
     }
-    className="group block rounded-xl transition-all hover:scale-[1.01]"
+    className="group hover:scale-1.01 block rounded-xl transition-all"
     target={slug === "dmFormationen2026" ? "_blank" : undefined}
   >
-    <div className="flex rounded-xl bg-base-50 shadow transition-shadow hover:shadow-md max-sm:flex-col">
+    <div className="flex rounded-xl bg-base-50 shadow-sm transition-shadow hover:shadow-md max-sm:flex-col">
       <div className="flex items-center justify-center bg-secondary-900 px-6 py-4 text-center max-sm:gap-2 max-sm:rounded-t-xl sm:w-24 sm:flex-col sm:rounded-l-xl">
-        <div className="text-gold border border-transparent text-3xl font-extrabold sm:text-4xl">
+        <div className="border border-transparent text-gold text-3xl font-extrabold sm:text-4xl">
           {start.getDate()}
         </div>
         <div className="text-gold text-2xl font-semibold sm:text-4xl">

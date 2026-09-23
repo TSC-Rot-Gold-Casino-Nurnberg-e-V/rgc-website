@@ -4,5 +4,21 @@ import tailwind from "eslint-plugin-tailwindcss";
 
 export default defineConfig([
   ...nextCoreWebVitals,
-  ...tailwind.configs["flat/recommended"],
+  tailwind.configs.recommended,
+  {
+    plugins: {
+      tailwindcss: tailwind,
+    },
+    settings: {
+      tailwindcss: {
+        cssConfigPath: "./src/styles/globals.css",
+      },
+    },
+    rules: {
+      "tailwindcss/no-custom-classname": [
+        "warn",
+        { whitelist: ["(?:hover:)?scale-1\\.01"] },
+      ],
+    },
+  },
 ]);

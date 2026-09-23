@@ -24,12 +24,12 @@ export default function AngebotePage() {
     <Main className="bg-base-900">
       <PageHeading>Angebote</PageHeading>
       <div className="container-lg space-y-8 pt-0">
-        <p className="mx-auto max-w-screen-sm hyphens-auto text-center text-base text-base-50 md:text-lg">
+        <p className="mx-auto max-w-(--breakpoint-sm) text-center text-base hyphens-auto text-base-50 md:text-lg">
           Bei uns findest Du alles, was das Tänzerherz begehrt - von Latein-,
           Standard- und Formationstanzen bis hin zu Breitensport, Kindertanzen
           und Breakdance.
         </p>
-        <div className="grid auto-rows-[24rem] gap-6 sm:grid-cols-2">
+        <div className="grid auto-rows-96 gap-6 sm:grid-cols-2">
           <AngebotCard
             loadImageWithPriority
             title="Turnier"

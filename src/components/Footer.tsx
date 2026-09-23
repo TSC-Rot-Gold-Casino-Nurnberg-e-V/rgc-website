@@ -12,7 +12,7 @@ import { SparklesIcon } from "@/components/icons/SparklesIcon";
 
 export const Footer = () => (
   <footer className="bg-base-900">
-    <div className="container-lg grid gap-8 text-base-300 max-lg:max-w-xl max-sm:max-w-sm sm:grid-cols-2 lg:max-w-screen-lg lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
+    <div className="container-lg grid gap-8 text-base-300 max-lg:max-w-xl max-sm:max-w-sm sm:grid-cols-2 lg:max-w-(--breakpoint-lg) lg:grid-cols-[minmax(auto,300px)_auto_auto_auto]">
       <section className="order-1 h-full space-y-3">
         <Link
           href="/"

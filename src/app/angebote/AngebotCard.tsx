@@ -38,8 +38,8 @@ export const AngebotCard = ({
         priority={loadImageWithPriority}
         sizes={imageSizes}
       />
-      <div className="absolute inset-0 top-auto flex h-40 items-end justify-center rounded-lg bg-gradient-to-b from-transparent to-base-900 pb-6">
-        <h2 className="max-sm:text-gold group-hover:text-gold group-focus:text-gold p-1 text-center text-2xl font-bold text-base-200 sm:text-3xl">
+      <div className="absolute inset-0 top-auto flex h-40 items-end justify-center rounded-lg bg-linear-to-b from-transparent to-base-900 pb-6">
+        <h2 className="p-1 text-center text-2xl font-bold text-base-200 group-hover:text-gold group-focus:text-gold max-sm:text-gold sm:text-3xl">
           {title}
         </h2>
       </div>
