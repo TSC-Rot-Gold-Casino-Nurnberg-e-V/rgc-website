@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/tag-der-offenen-tuer`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.9,
+    },
+    {
       url: `${BASE_URL}/turnierergebnisse`,
       lastModified: new Date(),
       changeFrequency: "weekly",

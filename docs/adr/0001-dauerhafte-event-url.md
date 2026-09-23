@@ -1,0 +1,3 @@
+# Dauerhafte URL für den Tag der offenen Tür
+
+Die maßgeschneiderte Eventseite liegt dauerhaft unter `/tag-der-offenen-tuer`, damit Links aus Suchmaschinen, sozialen Medien und zukünftigen Ausgaben stabil bleiben. Die jahresspezifischen Pfade `/tag-der-offenen-tuer-2026` und `/veranstaltungen/tag-der-offenen-tuer-2026` leiten auf diese kanonische URL weiter; nach der Veranstaltung wird deren Inhalt manuell auf einen Rückblick beziehungsweise einen Hinweis zur nächsten Ausgabe umgestellt. Damit verbinden wir langfristige Auffindbarkeit mit kompatiblen Links aus der Veranstaltungsübersicht und der Kampagnenkommunikation, statt die Inhalte auf mehrere Jahresseiten zu verteilen.
