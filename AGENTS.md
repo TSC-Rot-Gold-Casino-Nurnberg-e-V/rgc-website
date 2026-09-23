@@ -19,6 +19,22 @@ amend, or rewrite a commit only when the user explicitly requests that exact
 operation in the current conversation; never commit automatically as part of
 implementation, validation, or handoff.
 
+## Feedback loop
+
+Before handing changes to the user for review, always run:
+
+```shell
+npm run check
+```
+
+This single command runs the formatter check, ESLint, Next.js type generation,
+TypeScript, and the complete Vitest suite in sequence. It is intentionally
+simple and checks all project code rather than trying to infer changed files.
+
+Use `npm run format` or `npm run lint:fix` when you intentionally want to
+rewrite files. Run `npm run build` as well when a change affects production
+build or runtime behavior.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+coverage
+package-lock.json
+
+# Documentation and agent metadata
+*.md
+.agents
+.github
