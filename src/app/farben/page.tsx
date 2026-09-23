@@ -6,8 +6,7 @@ import { ColorSwatch } from "./ColorSwatch";
 
 export const metadata: Metadata = {
   title: "RGC-Farben",
-  description:
-    "Die digitale RGC-Farbpalette mit den exakten Hex-Werten.",
+  description: "Die digitale RGC-Farbpalette mit den exakten Hex-Werten.",
   robots: {
     index: false,
     follow: false,

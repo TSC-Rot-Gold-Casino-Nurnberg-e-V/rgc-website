@@ -44,9 +44,7 @@ export function FurtherNeuigkeiten({
     getServerNeuigkeitenSnapshot,
   );
   const page = parseInt(storedPage);
-  const furtherNeuigkeiten = JSON.parse(
-    storedNeuigkeiten,
-  ) as Array<Neuigkeit>;
+  const furtherNeuigkeiten = JSON.parse(storedNeuigkeiten) as Array<Neuigkeit>;
   const [isLoading, setIsLoading] = useState(false);
 
   async function getMoreNeuigkeiten() {
@@ -55,10 +53,7 @@ export function FurtherNeuigkeiten({
       const nextPage = page + 1;
       const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
       const updatedNeuigkeiten = [...furtherNeuigkeiten, ...neuigkeiten];
-      sessionStorage.setItem(
-        "neuigkeiten",
-        JSON.stringify(updatedNeuigkeiten),
-      );
+      sessionStorage.setItem("neuigkeiten", JSON.stringify(updatedNeuigkeiten));
       sessionStorage.setItem("page", nextPage.toString());
       window.dispatchEvent(new Event(SESSION_STORAGE_CHANGE_EVENT));
     } catch (error) {

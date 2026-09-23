@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  CheckIcon,
-  ClipboardDocumentIcon,
-} from "@heroicons/react/24/outline";
+import { CheckIcon, ClipboardDocumentIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
 interface ColorSwatchProps {

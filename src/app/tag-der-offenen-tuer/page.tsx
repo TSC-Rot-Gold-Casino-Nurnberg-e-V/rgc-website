@@ -126,7 +126,9 @@ const ProgramCard = ({
   className,
   icon,
 }: ProgramCardProps) => (
-  <article className={`flex flex-col rounded-3xl p-6 shadow-lg sm:p-8 ${className}`}>
+  <article
+    className={`flex flex-col rounded-3xl p-6 shadow-lg sm:p-8 ${className}`}
+  >
     <div className="flex items-center gap-3">
       <div className="flex size-11 items-center justify-center rounded-2xl bg-white/15">
         {icon}
@@ -154,8 +156,12 @@ const SectionHeading = ({
     <p className="text-sm font-bold uppercase tracking-[0.18em] text-secondary-700">
       {eyebrow}
     </p>
-    <h2 className="mt-3 text-3xl font-bold text-base-900 sm:text-4xl">{title}</h2>
-    {description && <p className="mt-4 text-lg leading-relaxed">{description}</p>}
+    <h2 className="mt-3 text-3xl font-bold text-base-900 sm:text-4xl">
+      {title}
+    </h2>
+    {description && (
+      <p className="mt-4 text-lg leading-relaxed">{description}</p>
+    )}
   </div>
 );
 
@@ -262,7 +268,10 @@ export default function TagDerOffenenTuerPage() {
         </dl>
       </section>
 
-      <section id="programm" className="scroll-mt-24 bg-base-50 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section
+        id="programm"
+        className="scroll-mt-24 bg-base-50 px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
+      >
         <SectionHeading
           eyebrow="Unser Programm"
           title="Für kleine und große Tanzentdecker"
@@ -331,9 +340,9 @@ export default function TagDerOffenenTuerPage() {
 
         <div className="mx-auto mt-8 max-w-screen-xl rounded-2xl border border-primary-200 bg-primary-50 px-5 py-4 text-center text-base-800 sm:px-8">
           <p>
-            <strong>Tipp für Familien:</strong> Während die Kinder die
-            Stationen entdecken, können Erwachsene selbst mittanzen oder eine
-            Show anschauen.
+            <strong>Tipp für Familien:</strong> Während die Kinder die Stationen
+            entdecken, können Erwachsene selbst mittanzen oder eine Show
+            anschauen.
           </p>
         </div>
       </section>
@@ -468,10 +477,7 @@ export default function TagDerOffenenTuerPage() {
               unverbindlich per E-Mail ankündigen.
             </p>
             <a href={mailtoUrl} className="mt-6 block w-fit rounded-full">
-              <Button
-                tabIndex={-1}
-                startIcon={<SendIcon className="size-5" />}
-              >
+              <Button tabIndex={-1} startIcon={<SendIcon className="size-5" />}>
                 E-Mail senden
               </Button>
             </a>
@@ -484,7 +490,10 @@ export default function TagDerOffenenTuerPage() {
       </section>
 
       <section className="bg-base-100 px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <SectionHeading eyebrow="Noch Fragen?" title="Das Wichtigste auf einen Blick" />
+        <SectionHeading
+          eyebrow="Noch Fragen?"
+          title="Das Wichtigste auf einen Blick"
+        />
         <div className="mx-auto mt-10 max-w-screen-md divide-y divide-base-200 rounded-3xl bg-base-50 px-6 shadow-sm ring-1 ring-base-200 sm:px-8">
           <FaqItem question="Muss ich mich anmelden?">
             Nein. Du kannst spontan zwischen 14 und 17 Uhr vorbeikommen. Eine
