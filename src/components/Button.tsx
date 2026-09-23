@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef, type JSX } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface Props extends ComponentProps<"button"> {

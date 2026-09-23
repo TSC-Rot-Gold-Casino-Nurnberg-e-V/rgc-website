@@ -42,7 +42,11 @@ export const Prose = ({
           }
           return <p {...props} />;
         },
-        img: ({ src = "", alt = "", height, width }) => {
+        img: ({ src, alt = "", height, width }) => {
+          if (typeof src !== "string") {
+            return null;
+          }
+
           const DEFAULT_ASPECT_RATIO = 4 / 3;
           const parsedHeight = Number(height);
           const parsedWidth = Number(width);

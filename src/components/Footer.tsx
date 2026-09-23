@@ -164,7 +164,7 @@ FooterLink.displayName = "FooterLink";
 interface ContactLinkProps {
   href: string;
   text: string;
-  icon: ReactElement;
+  icon: ReactElement<any>;
 }
 
 const ContactLink = ({ href, text, icon }: ContactLinkProps) => (
