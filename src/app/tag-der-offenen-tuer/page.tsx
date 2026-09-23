@@ -432,10 +432,6 @@ export default function TagDerOffenenTuerPage() {
               <br />
               90763 Fürth
             </address>
-            <p className="mt-5 text-sm text-base-600">
-              Der Verein ist nicht barrierefrei und leider nicht für
-              Rollstuhlfahrer geeignet.
-            </p>
             <a
               href={mapUrl}
               target="_blank"
@@ -450,6 +446,10 @@ export default function TagDerOffenenTuerPage() {
                 Google Maps
               </Button>
             </a>
+            <p className="mt-3 text-xs text-base-600">
+              Der Verein ist nicht barrierefrei und leider nicht für
+              Rollstuhlfahrer geeignet.
+            </p>
           </div>
 
           <div className="rounded-3xl bg-primary-50 p-6 ring-1 ring-primary-200 sm:p-8">
@@ -475,7 +475,7 @@ export default function TagDerOffenenTuerPage() {
                 E-Mail senden
               </Button>
             </a>
-            <p className="mt-4 text-sm text-base-600">
+            <p className="mt-4 text-xs text-base-600">
               Die Nachricht reserviert keinen Platz und ist keine Voraussetzung
               für die Teilnahme.
             </p>
