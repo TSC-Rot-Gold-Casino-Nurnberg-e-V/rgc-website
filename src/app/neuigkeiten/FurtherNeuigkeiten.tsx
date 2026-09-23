@@ -1,11 +1,28 @@
 "use client";
 
 import { Neuigkeit } from "@/model/Neuigkeit";
-import { useEffect, useState } from "react";
 import { getNeuigkeiten } from "@/api/api";
 import { Button } from "@/components/Button";
 import { NeuigkeitCard } from "@/components/NeuigkeitCard";
 import { LoadingSpinnerIcon } from "@/components/icons/LoadingSpinnerIcon";
+import { useSyncExternalStore, useState } from "react";
+
+const SESSION_STORAGE_CHANGE_EVENT = "rgc-session-storage-change";
+
+function subscribeToSessionStorage(onStoreChange: () => void) {
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener(SESSION_STORAGE_CHANGE_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener(SESSION_STORAGE_CHANGE_EVENT, onStoreChange);
+  };
+}
+
+const getPageSnapshot = () => window.sessionStorage.getItem("page") ?? "1";
+const getNeuigkeitenSnapshot = () =>
+  window.sessionStorage.getItem("neuigkeiten") ?? "[]";
+const getServerPageSnapshot = () => "1";
+const getServerNeuigkeitenSnapshot = () => "[]";
 
 interface Props {
   neuigkeiten: Array<Neuigkeit>;
@@ -16,38 +33,34 @@ export function FurtherNeuigkeiten({
   neuigkeiten,
   paginationTotal,
 }: Readonly<Props>) {
-  const [furtherNeuigkeiten, setFurtherNeuigkeiten] = useState<
-    Array<Neuigkeit>
-  >([]);
-  const [page, setPage] = useState(1);
+  const storedPage = useSyncExternalStore(
+    subscribeToSessionStorage,
+    getPageSnapshot,
+    getServerPageSnapshot,
+  );
+  const storedNeuigkeiten = useSyncExternalStore(
+    subscribeToSessionStorage,
+    getNeuigkeitenSnapshot,
+    getServerNeuigkeitenSnapshot,
+  );
+  const page = parseInt(storedPage);
+  const furtherNeuigkeiten = JSON.parse(
+    storedNeuigkeiten,
+  ) as Array<Neuigkeit>;
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const cachedPage = sessionStorage.getItem("page");
-    if (cachedPage !== null) {
-      setPage(parseInt(cachedPage));
-    }
-    const cachedNeuigkeiten = sessionStorage.getItem("neuigkeiten");
-    if (cachedNeuigkeiten !== null) {
-      setFurtherNeuigkeiten(JSON.parse(cachedNeuigkeiten));
-    }
-  }, []);
 
   async function getMoreNeuigkeiten() {
     setIsLoading(true);
     try {
       const nextPage = page + 1;
       const { neuigkeiten } = await getNeuigkeiten(6, nextPage);
-      setFurtherNeuigkeiten((prevNeuigkeiten) => {
-        const updatedNeuigkeiten = [...prevNeuigkeiten, ...neuigkeiten];
-        sessionStorage.setItem(
-          "neuigkeiten",
-          JSON.stringify(updatedNeuigkeiten),
-        );
-        return updatedNeuigkeiten;
-      });
-      setPage(nextPage);
+      const updatedNeuigkeiten = [...furtherNeuigkeiten, ...neuigkeiten];
+      sessionStorage.setItem(
+        "neuigkeiten",
+        JSON.stringify(updatedNeuigkeiten),
+      );
       sessionStorage.setItem("page", nextPage.toString());
+      window.dispatchEvent(new Event(SESSION_STORAGE_CHANGE_EVENT));
     } catch (error) {
       console.error(error);
     }

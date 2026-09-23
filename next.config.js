@@ -31,6 +31,16 @@ const nextConfig = {
       destination: "https://www.dm-rot-gold-casino.de/",
       permanent: true,
     },
+    {
+      source: "/tag-der-offenen-tuer-2026",
+      destination: "/tag-der-offenen-tuer",
+      permanent: true,
+    },
+    {
+      source: "/veranstaltungen/tag-der-offenen-tuer-2026",
+      destination: "/tag-der-offenen-tuer",
+      permanent: true,
+    },
   ],
 };
 

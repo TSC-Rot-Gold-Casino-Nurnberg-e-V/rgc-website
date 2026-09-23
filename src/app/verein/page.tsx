@@ -117,7 +117,7 @@ export default async function VereinsgeschichtePage() {
 interface ContactLinkProps {
   href: string;
   text: string;
-  icon: ReactElement;
+  icon: ReactElement<any>;
 }
 
 const ContactLink = ({ text, icon, href }: ContactLinkProps) => (

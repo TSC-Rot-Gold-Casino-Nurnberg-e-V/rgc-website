@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribeToLocation = () => () => {};
+const getHostName = () => window.location.hostname;
+const getServerHostName = () => "localhost";
 
 export const TwitchEmbed = () => {
-  const [hostName, setHostName] = useState("localhost");
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    setHostName(window.location.hostname);
-  }, []);
+  const hostName = useSyncExternalStore(
+    subscribeToLocation,
+    getHostName,
+    getServerHostName,
+  );
 
   const url = new URL("https://player.twitch.tv");
   url.searchParams.append("channel", "monstercat"); // TODO: replace with actual channel
