@@ -18,17 +18,19 @@ const wdrEventUrl = "https://www.wdrmaus.de/tuer_oeffner_tag/2026/?id=735535";
 const mapUrl =
   "https://www.google.com/maps/search/?api=1&query=Tanzsportclub+Rot-Gold-Casino+Nürnberg+e.V.&query_place=ChIJ39vHs9FVn0cRXnKUI-YFZ28";
 const mailtoUrl =
-  "mailto:jugendwart@rot-gold-casino.de?subject=Tag%20der%20offenen%20T%C3%BCr%202026%20%E2%80%93%20unverbindliche%20Voranmeldung&body=Hallo%2C%20wir%20m%C3%B6chten%20voraussichtlich%20mit%20%5BAnzahl%5D%20Kind%28ern%29%20und%20%5BAnzahl%5D%20Erwachsenen%20vorbeikommen.%20Unsere%20Ankunft%20ist%20voraussichtlich%20um%20%5BUhrzeit%5D.%0A%0AViele%20Gr%C3%BC%C3%9Fe";
+  "mailto:jugendwart@rot-gold-casino.de?subject=Tag%20der%20offenen%20T%C3%BCr%202026%20%E2%80%93%20unverbindliche%20Voranmeldung&body=Hallo%2C%20wir%20m%C3%B6chten%20voraussichtlich%20mit%20%5BAnzahl%5D%20Kindern%2FJugendlichen%20und%20%5BAnzahl%5D%20Erwachsenen%20vorbeikommen.%20Unsere%20Ankunft%20ist%20voraussichtlich%20um%20%5BUhrzeit%5D.%0A%0AViele%20Gr%C3%BC%C3%9Fe";
 
 export const metadata: Metadata = {
   title: "Tag der offenen Tür 2026",
   description:
-    "Kleine Tanzwunder entdecken: Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen für Kinder, Familien und tanzinteressierte Erwachsene.",
+    "Tanz entdecken. Neues erleben. Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen für Kinder, Jugendliche, Familien und Erwachsene.",
   keywords: [
     "Tag der offenen Tür Fürth",
     "Türen auf mit der Maus 2026",
     "Tanzverein Fürth",
     "Tanzen für Kinder Fürth",
+    "Tanzen für Jugendliche Fürth",
+    "Tanzen für alle Altersklassen",
     "Tanzworkshop Fürth",
     "TSC Rot-Gold-Casino",
   ],
@@ -41,14 +43,14 @@ export const metadata: Metadata = {
     siteName: "RGC Nürnberg | TSC Rot-Gold-Casino Nürnberg e.V.",
     title: "Tag der offenen Tür 2026 | RGC Nürnberg",
     description:
-      "Kleine Tanzwunder entdecken: Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen.",
+      "Tanz entdecken. Neues erleben. Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen.",
     url: eventUrl,
   },
   twitter: {
     card: "summary_large_image",
     title: "Tag der offenen Tür 2026 | RGC Nürnberg",
     description:
-      "Kleine Tanzwunder entdecken: Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen.",
+      "Tanz entdecken. Neues erleben. Am 3. Oktober 2026 öffnet der TSC Rot-Gold-Casino Nürnberg in Fürth seine Türen.",
   },
 };
 
@@ -57,7 +59,7 @@ const eventJsonLd = {
   "@type": "Event",
   name: "Tag der offenen Tür 2026",
   description:
-    "Kleine Tanzwunder entdecken: ein offener Tanznachmittag für Kinder, Familien und tanzinteressierte Erwachsene.",
+    "Ein offener Tanznachmittag für Kinder, Jugendliche, Familien und Erwachsene jeden Alters.",
   startDate: "2026-10-03T14:00:00+02:00",
   endDate: "2026-10-03T17:00:00+02:00",
   eventStatus: "https://schema.org/EventScheduled",
@@ -189,12 +191,11 @@ export default function TagDerOffenenTuerPage() {
               Tag der offenen Tür
             </p>
             <h1 className="mt-6 max-w-3xl text-4xl leading-tight font-extrabold sm:text-6xl">
-              Kleine Tanzwunder entdecken
+              Tanz entdecken. Neues erleben.
             </h1>
             <p className="mt-5 max-w-2xl text-xl leading-relaxed text-base-200 sm:text-2xl">
-              Unser Tag der offenen Tür lädt Kinder, Familien und
-              tanzinteressierte Erwachsene zum Ausprobieren, Zuschauen und
-              Mitmachen ein.
+              Unser Tag der offenen Tür lädt Kinder, Jugendliche, Familien und
+              Erwachsene zum Ausprobieren, Zuschauen und Mitmachen ein.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
@@ -260,7 +261,7 @@ export default function TagDerOffenenTuerPage() {
             Venusweg 7 · 90763 Fürth
           </EventFact>
           <EventFact icon={<SparklesIcon />} label="Für wen">
-            Kinder, Familien und Erwachsene
+            Kinder, Jugendliche, Familien und Erwachsene
           </EventFact>
           <EventFact icon={<InfoIcon />} label="Anmeldung">
             Nicht erforderlich · Eintritt frei
@@ -274,20 +275,20 @@ export default function TagDerOffenenTuerPage() {
       >
         <SectionHeading
           eyebrow="Unser Programm"
-          title="Für kleine und große Tanzentdecker"
-          description="Ob du zum ersten Mal Tanzluft schnupperst oder schon neugierig auf unseren Verein bist: Komm vorbei und entdecke, was Tanzen alles sein kann."
+          title="Für Tanzbegeisterte jeden Alters"
+          description="Ob erste Tanzschritte, neue Bewegungen oder einfach Lust auf Musik: Komm vorbei und entdecke, was Tanzen alles sein kann."
         />
 
         <div className="mx-auto mt-12 grid max-w-(--breakpoint-xl) gap-6 lg:grid-cols-2">
           <ProgramCard
-            eyebrow="Für Kinder"
-            title="Tanz erleben und kleine Wunder entdecken"
-            description="Das Kinderprogramm richtet sich vor allem an Kinder von 7 bis 14 Jahren. Jüngere oder ältere Geschwister dürfen in Begleitung ebenfalls mitkommen."
+            eyebrow="Für Kinder und Jugendliche"
+            title="Tanz erleben und Neues entdecken"
+            description="Die Kinder- und Jugendstationen richten sich besonders an 7- bis 14-Jährige. Der Tag der offenen Tür ist für alle Altersklassen offen – auch jüngere und ältere Gäste sind herzlich willkommen."
             icon={<SparklesIcon className="size-6 text-primary-200" />}
             className="bg-linear-to-br from-primary-800 to-primary-950 text-base-50"
           >
             <p className="font-semibold text-primary-100">
-              Durchgehend geöffnete Türen zu unseren Kinderstationen:
+              Durchgehend geöffnete Stationen für Kinder und Jugendliche:
             </p>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {[
@@ -340,9 +341,9 @@ export default function TagDerOffenenTuerPage() {
 
         <div className="mx-auto mt-8 max-w-(--breakpoint-xl) rounded-2xl border border-primary-200 bg-primary-50 px-5 py-4 text-center text-base-800 sm:px-8">
           <p>
-            <strong>Tipp für Familien:</strong> Während die Kinder die Stationen
-            entdecken, können Erwachsene selbst mittanzen oder eine Show
-            anschauen.
+            <strong>Tipp für alle:</strong> Während Kinder und Jugendliche die
+            Stationen entdecken, können Erwachsene selbst mittanzen oder eine
+            Show anschauen.
           </p>
         </div>
       </section>
@@ -500,10 +501,10 @@ export default function TagDerOffenenTuerPage() {
             freiwillige E-Mail hilft uns bei der Planung, reserviert aber keinen
             Platz.
           </FaqItem>
-          <FaqItem question="Für welches Alter ist das Kinderprogramm gedacht?">
-            Das Kinderprogramm richtet sich vor allem an Kinder von 7 bis 14
-            Jahren. Jüngere oder ältere Geschwister dürfen in Begleitung
-            ebenfalls mitkommen.
+          <FaqItem question="Für welche Altersgruppen ist der Tag der offenen Tür geeignet?">
+            Für alle Altersklassen. Die Stationen für Kinder und Jugendliche
+            richten sich besonders an 7- bis 14-Jährige; auch jüngere und
+            ältere Gäste sowie Erwachsene sind herzlich willkommen.
           </FaqItem>
           <FaqItem question="Dürfen Erwachsene mitmachen?">
             Ja. Erwachsene und Begleitpersonen sind herzlich eingeladen, an den
@@ -512,7 +513,8 @@ export default function TagDerOffenenTuerPage() {
           <FaqItem question="Gibt es einen festen Zeitplan?">
             Die Erwachsenenangebote wechseln voraussichtlich halbstündlich
             zwischen Workshops und Shows. Der genaue Ablauf wird nicht im Detail
-            angekündigt. Die Kinderstationen sind durchgehend geöffnet.
+            angekündigt. Die Stationen für Kinder und Jugendliche sind
+            durchgehend geöffnet.
           </FaqItem>
         </div>
       </section>
@@ -523,7 +525,7 @@ export default function TagDerOffenenTuerPage() {
             ✨
           </p>
           <h2 className="mt-5 text-3xl font-bold sm:text-4xl">
-            Komm vorbei und entdecke dein Tanzwunder
+            Komm vorbei und entdecke deine Freude am Tanz
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-secondary-100">
             Samstag, 3. Oktober 2026 · 14–17 Uhr · Venusweg 7, 90763 Fürth
