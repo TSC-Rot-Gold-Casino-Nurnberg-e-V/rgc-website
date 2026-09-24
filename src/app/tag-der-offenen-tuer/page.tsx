@@ -186,7 +186,7 @@ export default function TagDerOffenenTuerPage() {
         <div className="mx-auto grid max-w-(--breakpoint-xl) items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
           <div className="max-w-3xl">
             <p className="inline-flex rounded-full border border-primary-300/50 bg-primary-300/10 px-4 py-2 text-sm font-bold tracking-[0.16em] text-primary-200 uppercase">
-              Türen auf mit der Maus 2026
+              Tag der offenen Tür
             </p>
             <h1 className="mt-6 max-w-3xl text-4xl leading-tight font-extrabold sm:text-6xl">
               Kleine Tanzwunder entdecken
