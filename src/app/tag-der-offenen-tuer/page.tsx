@@ -11,7 +11,7 @@ import { MapIcon } from "@/components/icons/MapIcon";
 import { MusicIcon } from "@/components/icons/MusicIcon";
 import { SendIcon } from "@/components/icons/SendIcon";
 import { SparklesIcon } from "@/components/icons/SparklesIcon";
-import logoGold from "../../../public/optimized/logo_gold.webp";
+import logoGold from "../../../public/logo_gold.png";
 
 const eventUrl = "https://rot-gold-casino.de/tag-der-offenen-tuer";
 const wdrEventUrl = "https://www.wdrmaus.de/tuer_oeffner_tag/2026/?id=735535";
@@ -229,11 +229,10 @@ export default function TagDerOffenenTuerPage() {
               <Image
                 src={logoGold}
                 alt=""
-                width={280}
-                height={178}
-                priority
+                sizes="(min-width: 640px) 240px, 192px"
+                quality={90}
+                preload
                 className="relative mx-auto h-auto w-48 sm:w-60"
-                unoptimized
               />
               <div className="relative mt-8 border-t border-white/20 pt-8 text-center">
                 <p className="text-sm font-bold tracking-[0.18em] text-primary-200 uppercase">
@@ -503,8 +502,8 @@ export default function TagDerOffenenTuerPage() {
           </FaqItem>
           <FaqItem question="Für welche Altersgruppen ist der Tag der offenen Tür geeignet?">
             Für alle Altersklassen. Die Stationen für Kinder und Jugendliche
-            richten sich besonders an 7- bis 14-Jährige; auch jüngere und
-            ältere Gäste sowie Erwachsene sind herzlich willkommen.
+            richten sich besonders an 7- bis 14-Jährige; auch jüngere und ältere
+            Gäste sowie Erwachsene sind herzlich willkommen.
           </FaqItem>
           <FaqItem question="Dürfen Erwachsene mitmachen?">
             Ja. Erwachsene und Begleitpersonen sind herzlich eingeladen, an den

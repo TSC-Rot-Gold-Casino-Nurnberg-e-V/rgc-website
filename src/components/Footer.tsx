@@ -7,7 +7,7 @@ import { InstagramIcon } from "./icons/InstagramIcon";
 import { twMerge } from "tailwind-merge";
 import { AtIcon } from "./icons/AtIcon";
 import Image from "next/image";
-import logo_gold from "../../public/optimized/logo_gold.webp";
+import logo_gold from "../../public/logo_gold.png";
 import { SparklesIcon } from "@/components/icons/SparklesIcon";
 
 export const Footer = () => (
@@ -22,10 +22,9 @@ export const Footer = () => (
           <Image
             src={logo_gold}
             alt=""
-            height={48}
-            width={86}
-            className="h-full w-fit object-scale-down"
-            unoptimized
+            sizes="85px"
+            quality={90}
+            className="h-full w-auto object-contain"
           />
         </Link>
         <div className="space-y-1.5">

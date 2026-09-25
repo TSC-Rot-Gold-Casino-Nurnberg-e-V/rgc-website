@@ -16,7 +16,7 @@ import React, {
 } from "react";
 import { usePathname } from "next/navigation";
 import { twJoin, twMerge } from "tailwind-merge";
-import logo_gold from "../../public/optimized/logo_gold.webp";
+import logo_gold from "../../public/logo_gold.png";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 
@@ -37,10 +37,9 @@ export const Header = ({ chip }: HeaderProps) => (
           <Image
             src={logo_gold}
             alt=""
-            height={48}
-            width={86}
-            className="h-full w-fit object-scale-down"
-            unoptimized
+            sizes="(min-width: 640px) 85px, 71px"
+            quality={90}
+            className="h-full w-auto object-contain"
           />
         </Link>
       </div>
